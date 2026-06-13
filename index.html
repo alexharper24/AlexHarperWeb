@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="color-scheme" content="light" />
-<title>Alex Harper | Websites for small businesses, built and maintained</title>
-<meta name="description" content="Professional websites for small businesses, churches, and nonprofits. Designed, built, hosted, and looked after by one person you can actually reach." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2316202F'/%3E%3Crect x='20' y='26' width='8' height='48' rx='4' fill='%232E7FE0'/%3E%3Ctext x='62' y='66' font-family='Arial,sans-serif' font-size='40' font-weight='bold' fill='white' text-anchor='middle'%3EAH%3C/text%3E%3C/svg%3E" />
-<link rel="canonical" href="https://byalexharper.com/" />
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="color-scheme" content="light"/><title>Alex Harper | Websites for small businesses, churches & nonprofits</title><meta name="description" content="Professional websites for small businesses, churches, and nonprofits. Designed, built, hosted, and looked after by one person you can actually reach. Based in New Albany, Indiana."/><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2316202F'/%3E%3Crect x='20' y='26' width='8' height='48' rx='4' fill='%232E7FE0'/%3E%3Ctext x='62' y='66' font-family='Arial,sans-serif' font-size='40' font-weight='bold' fill='white' text-anchor='middle'%3EAH%3C/text%3E%3C/svg%3E"/><link rel="canonical" href="https://byalexharper.com/" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#16202F" />
 <meta name="author" content="Alex Harper" />
@@ -29,251 +20,7 @@
 <meta name="twitter:title" content="Alex Harper | Websites for small businesses, churches & nonprofits" />
 <meta name="twitter:description" content="Professional websites for small businesses, churches, and nonprofits. Designed, built, hosted, and looked after by one person you can actually reach. Based in New Albany, Indiana." />
 <meta name="twitter:image" content="https://byalexharper.com/og-image.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#FFFFFF;--bg-2:#E9F0FA;--surface:#FFFFFF;
-  --ink:#1A2433;--muted:#49526A;--faint:#737B8C;--line:#E3E8F0;
-  --accent:#2E7FE0;--accent-2:#1E64C0;--accent-soft:#E6F0FC;
-  --dark:#16202F;--on-dark:#E9EEF6;--muted-dark:#9FAAC0;--dark-line:#2A3548;
-  --maxw:1160px;--radius:14px;
-  --font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;font-weight:500}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
-a{color:inherit;text-decoration:none}
-h1,h2,h3,h4{line-height:1.12;letter-spacing:-.02em;font-weight:800}
-.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-2)}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* BUTTONS */
-.btn{font-size:15px;font-weight:700;padding:14px 26px;border-radius:10px;transition:all .2s;cursor:pointer;border:1.5px solid transparent;display:inline-flex;align-items:center;gap:9px}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:var(--accent-2);transform:translateY(-2px)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-.btn-ghost:hover{border-color:var(--ink)}
-.btn-light{background:#fff;color:var(--ink)}
-.btn-light:hover{transform:translateY(-2px)}
-.btn .arr{transition:transform .2s}.btn:hover .arr{transform:translateX(4px)}
-
-/* NAV */
-.topbar{height:4px;background:var(--accent)}
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
-header.scrolled{border-bottom:1px solid var(--line)}
-nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-.brand{display:flex;align-items:center;gap:11px}
-.brand .bar{width:5px;height:38px;border-radius:3px;background:var(--accent);flex:none}
-.brand .np{display:flex;flex-direction:column;line-height:.98;font-weight:800;letter-spacing:.06em;font-size:16px}
-.brand .np span{color:var(--ink)}
-.brand .np .b{color:var(--accent)}
-.nav-links{display:flex;gap:30px;align-items:center}
-.nav-links a{font-size:15px;font-weight:600;color:var(--muted);transition:color .2s}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{font-size:14.5px;font-weight:700;padding:9px 18px;border-radius:9px;background:var(--ink);color:#fff!important}
-.nav-cta:hover{background:var(--accent)}
-@media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
-
-/* HERO */
-.hero{padding:74px 0 84px;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--accent-soft) 0%,transparent 58%)}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center}
-.hero h1{font-size:clamp(38px,5.4vw,62px);margin:18px 0 0}
-.hero h1 span{color:var(--accent)}
-.hero .lede{font-size:clamp(17px,1.8vw,20px);color:var(--muted);max-width:46ch;margin-top:22px}
-.hero-actions{display:flex;gap:13px;margin-top:32px;flex-wrap:wrap}
-.hero-mini{display:flex;gap:22px;margin-top:30px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
-.hero-mini span{display:inline-flex;align-items:center;gap:8px}
-.hero-mini svg{width:17px;height:17px;color:var(--accent)}
-
-/* hero visual: layered browser mock + chips */
-.shot{position:relative;max-width:392px;margin:0 auto;width:100%}
-.shot::before{content:"";position:absolute;inset:-30px -20px;background:radial-gradient(circle at 70% 30%,var(--accent-soft),transparent 65%);z-index:0}
-.behind{position:absolute;inset:20px -18px -18px 16px;background:linear-gradient(150deg,var(--accent),var(--accent-2));border-radius:20px;z-index:0}
-.photo-frame{position:relative;z-index:1;border-radius:18px;overflow:hidden;border:5px solid #fff;box-shadow:0 40px 80px -40px rgba(20,25,40,.5)}
-.photo-frame img{display:block;width:100%;height:auto}
-.win{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 40px 80px -40px rgba(20,25,40,.35);overflow:hidden}
-.win-bar{display:flex;align-items:center;gap:7px;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--bg-2)}
-.win-bar i{width:9px;height:9px;border-radius:50%;background:#D6DAE1}
-.win-bar .addr{margin-left:8px;font-size:11.5px;color:var(--faint)}
-.win-body{padding:0}
-.win-hero{background:var(--ink);padding:26px 22px}
-.win-hero .t{height:13px;width:54%;background:rgba(255,255,255,.92);border-radius:4px}
-.win-hero .s{height:8px;width:74%;background:rgba(255,255,255,.4);border-radius:4px;margin-top:11px}
-.win-hero .b{height:26px;width:96px;background:var(--accent);border-radius:7px;margin-top:16px}
-.win-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;padding:20px 22px}
-.win-grid span{height:62px;border-radius:9px;background:var(--bg-2);border:1px solid var(--line)}
-.fchip{position:absolute;z-index:2;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 40px -18px rgba(20,25,40,.35);padding:12px 15px;display:flex;align-items:center;gap:11px}
-.fchip .ring{width:38px;height:38px;flex:none}
-.fchip .ft{font-size:12px;color:var(--muted);font-weight:600}
-.fchip .fv{font-size:17px;font-weight:800;letter-spacing:-.02em}
-.chip-score{top:-22px;right:-16px;animation:fl 4.6s ease-in-out infinite}
-.chip-rev{bottom:-20px;left:-18px;animation:fl 5.2s ease-in-out infinite .6s}
-.stars{color:var(--accent);font-size:14px;letter-spacing:1px}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:54px}}
-@media(max-width:480px){.fchip{display:none}}
-
-/* TRUST BAND */
-.trust{background:var(--dark);border-top:1px solid var(--dark-line);border-bottom:1px solid var(--dark-line)}
-.trust .wrap{padding:32px 26px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
-.trust .lab{font-size:14px;color:var(--muted-dark);max-width:30ch}
-.trust .stats{display:flex;gap:40px;flex-wrap:wrap}
-.trust .stat .n{font-size:26px;font-weight:800;letter-spacing:-.02em;color:#8FB6F0}
-.trust .stat .k{font-size:12.5px;color:var(--muted-dark);font-weight:600}
-
-/* SECTIONS */
-section.block{padding:92px 0;position:relative}
-section.alt{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.sec-head{max-width:620px;margin-bottom:48px}
-.sec-head.center{margin:0 auto 48px;text-align:center}
-.sec-head h2{font-size:clamp(28px,3.6vw,42px);margin-top:14px}
-.sec-head p{color:var(--muted);font-size:16.5px;margin-top:13px}
-
-/* SERVICES */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.svc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .22s,box-shadow .22s,border-color .22s}
-.svc:hover{transform:translateY(-5px);box-shadow:0 24px 46px -28px rgba(20,25,40,.3);border-color:#D7DAE1}
-.svc .ic{width:48px;height:48px;border-radius:11px;background:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.svc .ic svg{width:24px;height:24px;color:#fff}
-.svc h3{font-size:19px;margin-bottom:8px}
-.svc p{color:var(--muted);font-size:14.5px;line-height:1.6}
-@media(max-width:860px){.svc-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
-
-/* WORK */
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;min-height:222px;transition:transform .22s,box-shadow .22s,border-color .22s;overflow:hidden;position:relative}
-.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
-.card.c-infinite::before{background:#C33E1D}
-.card.c-infinite .tag{color:#C33E1D;background:#FBE7DE}
-.card.c-infinite .go{color:#C33E1D}
-.card.c-infinite:hover{border-color:#C33E1D}
-.card.c-hope::before{background:#1E3054}
-.card.c-hope .tag{color:#1E3054;background:#E7EAF1}
-.card.c-hope .go{color:#1E3054}
-.card.c-hope:hover{border-color:#1E3054}
-.card.c-faith::before{background:#D98A9E}
-.card.c-faith .tag{color:#B86A7E;background:#FAECEF}
-.card.c-faith .go{color:#B86A7E}
-.card.c-faith:hover{border-color:#D98A9E}
-.card:hover{transform:translateY(-5px);box-shadow:0 26px 50px -30px rgba(20,25,40,.35);border-color:#D7DAE1}
-.card-body{padding:26px 26px 22px;display:flex;flex-direction:column;flex:1}
-.card .tag{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2);background:var(--accent-soft);padding:5px 11px;border-radius:7px}
-.card h3{font-size:21px;margin:14px 0 0}
-.card p{color:var(--muted);font-size:14.5px;margin-top:9px;line-height:1.6}
-.card .go{margin-top:auto;padding-top:18px;font-size:14px;font-weight:700;color:var(--accent-2);display:flex;align-items:center;gap:8px}
-.card .go .arr{transition:transform .2s}.card:hover .go .arr{transform:translateX(4px)}
-.card.invite{background:var(--ink);border-color:var(--ink)}
-.card.invite .tag{background:rgba(255,255,255,.12);color:#fff}
-.card.invite h3{color:#fff}.card.invite p{color:var(--muted-dark)}.card.invite .go{color:#fff}
-@media(max-width:760px){.work-grid{grid-template-columns:1fr}}
-
-/* PROCESS */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.step{position:relative;padding-top:26px}
-.step .n{position:absolute;top:0;left:0;font-size:13px;font-weight:800;color:#fff;background:var(--accent);width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center}
-.step{padding-top:0;padding-left:0}
-.step .nbox{width:34px;height:34px;border-radius:9px;background:var(--accent);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.step h3{font-size:18px;margin-bottom:7px}
-.step p{font-size:14.5px;color:var(--muted);line-height:1.6}
-@media(max-width:760px){.steps{grid-template-columns:1fr 1fr;gap:28px}}
-@media(max-width:460px){.steps{grid-template-columns:1fr}}
-
-/* PRICING */
-.build-note{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px 28px;margin-bottom:24px}
-.build-note h3{font-size:20px}
-.build-note p{color:var(--muted);font-size:14.5px;margin-top:5px;max-width:54ch}
-.build-note .price{font-size:26px;font-weight:800;white-space:nowrap}
-.build-note .price small{font-size:13px;color:var(--faint);font-weight:600}
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
-.tier{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s}
-.tier:hover{transform:translateY(-5px);box-shadow:0 24px 46px -28px rgba(20,25,40,.3)}
-.tier.feature{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-.tier .t-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-2);margin-bottom:12px;height:14px}
-.tier .t-name{font-size:21px;font-weight:800}
-.tier .t-price{font-size:38px;font-weight:800;margin:12px 0 4px;letter-spacing:-.02em}
-.tier .t-price small{font-size:15px;color:var(--faint);font-weight:600}
-.tier .t-sub{color:var(--muted);font-size:14px;min-height:40px}
-.tier ul{list-style:none;margin:20px 0 24px;border-top:1px solid var(--line);padding-top:18px}
-.tier li{font-size:14.5px;padding:7px 0 7px 26px;position:relative}
-.tier li svg{position:absolute;left:0;top:9px;width:16px;height:16px;color:var(--accent)}
-.tier .btn{width:100%;justify-content:center;margin-top:auto}
-.tier .t-more{font-size:13.5px;font-weight:700;color:var(--accent-2);margin:2px 0 16px;display:inline-block}
-.tier .t-more:hover{text-decoration:underline}
-@media(max-width:760px){.tiers{grid-template-columns:1fr}}
-
-/* TESTIMONIAL */
-.quote{max-width:780px;margin:0 auto;text-align:center}
-.quote .stars{font-size:20px;letter-spacing:3px}
-.quote p{font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.34;letter-spacing:-.02em;margin-top:16px}
-.quote .by{margin-top:22px;font-size:14px;color:var(--muted);font-weight:600}
-.block.invert{background:var(--dark);border-top:1px solid var(--dark-line);border-bottom:1px solid var(--dark-line)}
-.invert .quote p{color:#fff}
-.invert .quote .by{color:var(--muted-dark)}
-.invert .quote .stars{color:#8FB6F0}
-
-/* FAQ */
-.faq{max-width:760px;margin:0 auto}
-.faq details{border-bottom:1px solid var(--line);padding:6px 0}
-.faq summary{list-style:none;cursor:pointer;padding:18px 0;font-size:17px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:24px;font-weight:600;color:var(--accent-2);transition:transform .2s}
-.faq details[open] summary::after{content:"\2013"}
-.faq .a{color:var(--muted);font-size:15.5px;line-height:1.7;padding:0 0 20px}
-
-/* CTA */
-.cta{background:var(--dark);color:var(--on-dark);text-align:center}
-.cta h2{font-size:clamp(30px,4.5vw,48px);color:#fff}
-.cta p{color:var(--muted-dark);max-width:46ch;margin:16px auto 0}
-.cta .btn-primary{margin-top:30px}
-
-/* CONTACT */
-#contact .wrap{max-width:680px}
-.contact-card{text-align:center}
-.contact-card h2{font-size:clamp(28px,4vw,42px)}
-.contact-card .lede{color:var(--muted);margin:14px auto 0;max-width:44ch}
-form{margin-top:34px;text-align:left}
-.field{margin-bottom:17px}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:17px}
-label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
-input,textarea{width:100%;font-family:var(--font);font-size:15.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 15px;transition:border-color .2s}
-input:focus,textarea:focus{outline:none;border-color:var(--accent)}
-textarea{resize:vertical;min-height:118px}
-form .btn-primary{width:100%;justify-content:center;margin-top:4px}
-.or{text-align:center;color:var(--muted);font-size:14px;margin-top:22px}
-.or a{color:var(--accent-2);font-weight:700}
-@media(max-width:520px){.frow{grid-template-columns:1fr}}
-
-/* FOOTER */
-footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border-top:1px solid var(--dark-line)}
-.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.foot .brand .np span{color:#fff}
-.foot .brand .np .b{color:#8FB6F0}
-.foot-col h4{color:#fff;font-size:14px;margin-bottom:12px}
-.foot-col a{display:block;font-size:14px;color:var(--muted-dark);margin-bottom:8px;transition:color .2s}
-.foot-col a:hover{color:#fff}
-.foot-cols{display:flex;gap:60px;flex-wrap:wrap}
-.foot-base{margin-top:40px;padding-top:22px;border-top:1px solid var(--dark-line);font-size:13px;color:var(--muted-dark);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-
-/* THEME SWITCHER */
-.theme-bar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:80;background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:0 20px 50px -18px rgba(20,25,40,.4);padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:14px;max-width:calc(100vw - 24px);flex-wrap:wrap}
-.theme-bar .tb-label{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
-.tb-dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.tb-dot{width:24px;height:24px;border-radius:50%;border:2px solid transparent;background:var(--sw);cursor:pointer;padding:0;transition:transform .15s}
-.tb-dot:hover{transform:scale(1.12)}
-.tb-dot.active{border-color:var(--ink);box-shadow:0 0 0 2px #fff inset}
-.tb-name{font-size:12.5px;font-weight:700;white-space:nowrap;min-width:118px}
-@media(max-width:600px){.theme-bar .tb-label,.tb-name{display:none}}
-
-#toTop{position:fixed;bottom:78px;right:22px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--accent-2);font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:all .3s;z-index:60;box-shadow:0 10px 24px -12px rgba(20,25,40,.4)}
-#toTop.show{opacity:1;pointer-events:auto}
-#toTop:hover{transform:translateY(-2px)}
-</style>
-<script type="application/ld+json">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -318,11 +65,11 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
       "url": "https://byalexharper.com/",
       "image": "https://byalexharper.com/og-image.png",
       "email": "hello@byalexharper.com",
-      "description": "Professional websites for small businesses, churches, and nonprofits. Designed, built, hosted, and looked after by one person you can actually reach. Based in New Albany, Indiana.",
       "priceRange": "$",
       "founder": {
         "@id": "https://byalexharper.com/#alex"
       },
+      "description": "Professional websites for small businesses, churches, and nonprofits, designed, built, hosted, and maintained by one person.",
       "serviceType": [
         "Web design",
         "Web development",
@@ -445,84 +192,19 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
           }
         ]
       }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://byalexharper.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How long does a website take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most small business sites are ready in about a week once I have your content and photos. Larger sites take a little longer, and I will give you a clear timeline up front."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I own my site and domain?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. The domain is registered in your name, and the site is yours. If you ever move on, you keep everything."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What if I just need a few changes later?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "That is what the monthly plans are for. Send me what you need changed and I will take care of it, usually within a few days."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you work with churches and nonprofits?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Often. A good amount of my work is for churches, ministries, and small local organizations, and I am happy to work within a tight budget."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does it cost to get started?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Builds start at $600 one-time, then a monthly care plan from $30. I will give you a flat quote before any work begins, so there are no surprises."
-          }
-        }
-      ]
     }
   ]
 }
 </script>
-</head>
-<body>
-
-<div class="topbar"></div>
-
-<header id="top">
-  <div class="wrap"><nav>
-    <a href="#top" class="brand" aria-label="Alex Harper, home"><span class="bar"></span><span class="np"><span>ALEX</span><span class="b">HARPER</span></span></a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="nav-cta">Get a quote</a>
-    </div>
-  </nav></div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
+</head><body><div class="topbar"></div><header id="top"><div class="wrap"><nav><a href="index.html" class="brand" aria-label="Alex Harper, home"><span class="bar"></span><span class="np"><span>ALEX</span><span class="b">HARPER</span></span></a><button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links" id="navLinks"><a href="services.html">Services</a><a href="work.html">Work</a><a href="pricing.html">Plans</a><a href="contact.html">Contact</a><a href="contact.html" class="nav-cta">Get a quote</a></div></nav></div></header><main><section class="hero">
   <div class="wrap">
     <div class="reveal in">
       <p class="eyebrow">Web design &amp; care · New Albany, IN</p>
       <h1>Professional websites for small businesses, <span>built to last.</span></h1>
       <p class="lede">I design, build, host, and look after websites for small businesses, churches, and nonprofits, so you get a site that works and one person you can actually reach.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Get a free quote <span class="arr">→</span></a>
-        <a href="#work" class="btn btn-ghost">See recent work</a>
+        <a href="contact.html" class="btn btn-primary">Get a free quote <span class="arr">→</span></a>
+        <a href="work.html" class="btn btn-ghost">See recent work</a>
       </div>
       <div class="hero-mini">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>No long-term contracts</span>
@@ -538,8 +220,6 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
     </div>
   </div>
 </section>
-
-<!-- TRUST -->
 <div class="trust">
   <div class="wrap">
     <p class="lab">Trusted by small businesses, churches, and nonprofits across Southern Indiana and Kentucky.</p>
@@ -550,27 +230,7 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
     </div>
   </div>
 </div>
-
-<!-- SERVICES -->
-<section class="block" id="services">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">What I do</span>
-      <h2>Everything your site needs, in one place</h2>
-      <p>From the first sketch to the quiet upkeep years later, it is all handled by one person who knows your site.</p>
-    </div>
-    <div class="svc-grid reveal">
-      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div><h3>Custom design</h3><p>A clean, modern site designed around your business and the people you want to reach. No cookie-cutter templates.</p></div>
-      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Fast, modern build</h3><p>Built to load quickly and work perfectly on phones, where most of your visitors actually are.</p></div>
-      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/></svg></div><h3>Hosting &amp; maintenance</h3><p>I handle hosting, domains, certificates, and backups. Your site stays online and you never touch a server.</p></div>
-      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>Get found locally</h3><p>Set up so Google and AI assistants can find you, with the local search basics done right from day one.</p></div>
-      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg></div><h3>Ongoing updates</h3><p>New photos, hours, events, or pages whenever you need them, usually turned around within a few days.</p></div>
-      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>A real person</h3><p>No ticket systems or call centers. You email or text me, and I answer.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- WORK -->
+<section class="block" id="services"><div class="wrap"><div class="sec-head center reveal"><span class="eyebrow">What I do</span><h2>Everything your site needs, in one place</h2><p>From the first sketch to the quiet upkeep years later, all handled by one person who knows your site.</p></div><div class="svc-grid reveal"><div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div><h3>Custom design</h3><p>A clean, modern site designed around your business and the people you want to reach. No cookie-cutter templates.</p></div><div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Fast, modern build</h3><p>Built to load quickly and work perfectly on phones, where most of your visitors actually are.</p></div><div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/></svg></div><h3>Hosting &amp; maintenance</h3><p>I handle hosting, domains, certificates, and backups. Your site stays online and you never touch a server.</p></div></div><div class="center" style="margin-top:30px"><a href="services.html" class="btn btn-ghost">See all services</a></div></div></section>
 <section class="block alt" id="work">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -606,81 +266,8 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
     </div>
   </div>
 </section>
-
-<!-- PROCESS -->
-<section class="block" id="process">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">How it works</span>
-      <h2>A simple, four-step process</h2>
-      <p>From the first conversation to a site you never have to worry about.</p>
-    </div>
-    <div class="steps reveal">
-      <div class="step"><div class="nbox">1</div><h3>We talk</h3><p>A short conversation about your business and what the site needs to do.</p></div>
-      <div class="step"><div class="nbox">2</div><h3>I design &amp; build</h3><p>A clean, fast site built around your customers. You review, I refine until it is right.</p></div>
-      <div class="step"><div class="nbox">3</div><h3>We launch</h3><p>Domain, email, and security set up properly. You go live without the headache.</p></div>
-      <div class="step"><div class="nbox">4</div><h3>I look after it</h3><p>Updates, monitoring, and renewals handled. One person to call, for as long as you like.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="block alt" id="pricing">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">Pricing</span>
-      <h2>Straightforward pricing</h2>
-      <p>A one-time build to get you online, then a simple monthly plan so it stays cared for.</p>
-    </div>
-    <div class="build-note reveal">
-      <div><h3>The build</h3><p>Design, build, domain and DNS setup, a contact form, and email pointed correctly. Yours from day one.</p></div>
-      <div class="price">from $600 <small>one-time</small></div>
-    </div>
-    <div class="tiers reveal">
-      <div class="tier">
-        <div class="t-tag">&nbsp;</div><div class="t-name">Lookout</div>
-        <div class="t-price">$30<small>/mo</small></div>
-        <p class="t-sub">The site stays online and correct, so you never think about it.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Hosting &amp; uptime</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Domain, DNS &amp; SSL handled</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Security &amp; backups</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>A few small edits each quarter</li>
-        </ul>
-        <a class="t-more" href="lookout.html">What’s included &rarr;</a>
-        <a href="#contact" class="btn btn-ghost">Choose Lookout</a>
-      </div>
-      <div class="tier feature">
-        <div class="t-tag">Most popular</div><div class="t-name">Tend</div>
-        <div class="t-price">$75<small>/mo</small></div>
-        <p class="t-sub">Regular updates and a real point of contact.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Everything in Lookout</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Content updates within days</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Contact form &amp; email managed</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Simple monthly note from me</li>
-        </ul>
-        <a class="t-more" href="tend.html">What’s included &rarr;</a>
-        <a href="#contact" class="btn btn-primary">Choose Tend</a>
-      </div>
-      <div class="tier">
-        <div class="t-tag">&nbsp;</div><div class="t-name">Partner</div>
-        <div class="t-price">from $175<small>/mo</small></div>
-        <p class="t-sub">Proactive care for a site that drives your business.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Everything in Tend</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Scheduled content &amp; new pages</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Priority turnaround</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Quarterly check-in &amp; ideas</li>
-        </ul>
-        <a class="t-more" href="partner.html">What’s included &rarr;</a>
-        <a href="#contact" class="btn btn-ghost">Choose Partner</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL -->
+<div class="block" style="padding-top:0"><div class="wrap center"><a href="work.html" class="btn btn-ghost">See all work</a></div></div>
+<section class="block alt"><div class="wrap"><div class="sec-head center reveal"><span class="eyebrow">Plans</span><h2>Care that fits, from $30 a month</h2><p>A one-time build, then a simple monthly plan so your site stays cared for. Pick the level of attention you want.</p></div><div class="plan-teaser reveal"><a class="pt" href="lookout.html"><b>Lookout</b><span>$30<small>/mo</small></span><em>Online &amp; correct</em></a><a class="pt feat" href="tend.html"><b>Tend</b><span>$75<small>/mo</small></span><em>Regular updates</em></a><a class="pt" href="partner.html"><b>Partner</b><span>from $175<small>/mo</small></span><em>Proactive care</em></a></div><div class="center" style="margin-top:28px"><a href="pricing.html" class="btn btn-primary">See full plans</a></div></div></section>
 <section class="block invert" id="reviews">
   <div class="wrap quote reveal">
     <div class="stars" style="color:var(--accent)">★★★★★</div>
@@ -688,127 +275,10 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
     <div class="by">Add a real client quote here · Business name</div>
   </div>
 </section>
-
-<!-- FAQ -->
-<section class="block alt" id="faq">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">Questions</span>
-      <h2>Good things to know</h2>
-    </div>
-    <div class="faq reveal">
-      <details><summary>How long does a website take?</summary><div class="a">Most small business sites are ready in about a week once I have your content and photos. Larger sites take a little longer, and I will give you a clear timeline up front.</div></details>
-      <details><summary>Do I own my site and domain?</summary><div class="a">Yes. The domain is registered in your name, and the site is yours. If you ever move on, you keep everything.</div></details>
-      <details><summary>What if I just need a few changes later?</summary><div class="a">That is what the monthly plans are for. Send me what you need changed and I will take care of it, usually within a few days.</div></details>
-      <details><summary>Do you work with churches and nonprofits?</summary><div class="a">Often. A good amount of my work is for churches, ministries, and small local organizations, and I am happy to work within a tight budget.</div></details>
-      <details><summary>What does it cost to get started?</summary><div class="a">Builds start at $600 one-time, then a monthly care plan from $30. I will give you a flat quote before any work begins, so there are no surprises.</div></details>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
 <section class="block cta">
   <div class="wrap reveal">
     <h2>Ready to get online?</h2>
     <p>Tell me about your business and I will put together a free, no-pressure quote.</p>
-    <a href="#contact" class="btn btn-primary">Get a free quote <span class="arr">→</span></a>
+    <a href="contact.html" class="btn btn-primary">Get a free quote <span class="arr">→</span></a>
   </div>
-</section>
-
-<!-- CONTACT -->
-<section class="block" id="contact">
-  <div class="wrap contact-card reveal">
-    <span class="eyebrow">Contact</span>
-    <h2 style="margin-top:14px">Let's build something</h2>
-    <p class="lede">Tell me a little about what you need. I usually reply within a day.</p>
-    <form action="https://formspree.io/f/your-endpoint-here" method="POST">
-      <div class="frow">
-        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required /></div>
-        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
-      </div>
-      <div class="field"><label for="msg">What are you thinking about?</label><textarea id="msg" name="message" required></textarea></div>
-      <button type="submit" class="btn btn-primary">Send it over <span class="arr">→</span></button>
-    </form>
-    <p class="or">Or just email me at <a href="mailto:hello@example.com">hello@example.com</a></p>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <span class="brand"><span class="bar"></span><span class="np"><span>ALEX</span><span class="b">HARPER</span></span></span>
-        <p style="color:var(--muted-dark);font-size:14px;margin-top:14px;max-width:30ch">Websites for small businesses, churches, and nonprofits. Built and looked after in New Albany, IN.</p>
-      </div>
-      <div class="foot-cols">
-        <div class="foot-col"><h4>Site</h4><a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="terms.html">Care plan terms</a></div>
-        <div class="foot-col"><h4>Get in touch</h4><a href="#contact">Get a quote</a><a href="mailto:hello@example.com">Email me</a></div>
-      </div>
-    </div>
-    <div class="foot-base">
-      <span>© <span id="yr"></span> Alex Harper · New Albany, IN</span>
-      <span>Designed, built &amp; maintained by Alex Harper</span>
-    </div>
-  </div>
-</footer>
-
-<!-- THEME SWITCHER -->
-<div class="theme-bar">
-  <span class="tb-label">Color scheme</span>
-  <div class="tb-dots" id="dots">
-    <button class="tb-dot" data-p="slate" style="--sw:#D98A2B" title="Slate &amp; Amber" aria-label="Slate and Amber"></button>
-    <button class="tb-dot" data-p="navy" style="--sw:#F0654E" title="Navy &amp; Coral" aria-label="Navy and Coral"></button>
-    <button class="tb-dot" data-p="emerald" style="--sw:#1F9D6B" title="Ink &amp; Emerald" aria-label="Ink and Emerald"></button>
-    <button class="tb-dot" data-p="indigo" style="--sw:#4F5BD5" title="Indigo &amp; Sky" aria-label="Indigo and Sky"></button>
-    <button class="tb-dot" data-p="char" style="--sw:#EA5A0C" title="Charcoal &amp; Orange" aria-label="Charcoal and Orange"></button>
-    <button class="tb-dot" data-p="plum" style="--sw:#B08229" title="Plum &amp; Gold" aria-label="Plum and Gold"></button>
-    <button class="tb-dot" data-p="teal" style="--sw:#0F8F8E" title="Teal &amp; Sand" aria-label="Teal and Sand"></button>
-    <button class="tb-dot" data-p="burgundy" style="--sw:#B23A48" title="Burgundy &amp; Blush" aria-label="Burgundy and Blush"></button>
-    <button class="tb-dot" data-p="forest" style="--sw:#C2673E" title="Clay &amp; Forest" aria-label="Clay and Forest"></button>
-    <button class="tb-dot" data-p="midnight" style="--sw:#C9A227" title="Midnight &amp; Gold" aria-label="Midnight and Gold"></button>
-    <button class="tb-dot" data-p="rust" style="--sw:#C0552F" title="Stone &amp; Rust" aria-label="Stone and Rust"></button>
-    <button class="tb-dot" data-p="sky" style="--sw:#2E7FE0" title="Sky &amp; Slate" aria-label="Sky and Slate"></button>
-  </div>
-  <span class="tb-name" id="tbName">Slate &amp; Amber</span>
-</div>
-
-<button id="toTop" aria-label="Back to top" title="Back to top">↑</button>
-
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  var header = document.getElementById('top');
-  addEventListener('scroll', function(){ header.classList.toggle('scrolled', scrollY > 8); });
-  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-  var toTop = document.getElementById('toTop');
-  addEventListener('scroll', function(){ toTop.classList.toggle('show', scrollY > 700); });
-  toTop.addEventListener('click', function(){ scrollTo({ top: 0, behavior: 'smooth' }); });
-
-  var palettes = {
-    slate:{name:'Slate & Amber', v:{'--accent':'#D98A2B','--accent-2':'#B5701C','--accent-soft':'#FBF1E2','--ink':'#1F2430','--muted':'#4E5567','--line':'#E6E8EC','--bg-2':'#F6F7F9','--dark':'#1C2130','--on-dark':'#EDEFF4','--muted-dark':'#A4AABA','--dark-line':'#33394A'}},
-    navy:{name:'Navy & Coral', v:{'--accent':'#F0654E','--accent-2':'#D2452D','--accent-soft':'#FCEBE7','--ink':'#14213D','--muted':'#485265','--line':'#E3E8F0','--bg-2':'#F4F6FA','--dark':'#14213D','--on-dark':'#E9EDF5','--muted-dark':'#9FAAC2','--dark-line':'#2A3656'}},
-    emerald:{name:'Ink & Emerald', v:{'--accent':'#1F9D6B','--accent-2':'#15784F','--accent-soft':'#E5F4EE','--ink':'#16231C','--muted':'#47544B','--line':'#E2EAE6','--bg-2':'#F4F8F6','--dark':'#122019','--on-dark':'#E8F1EC','--muted-dark':'#9DB0A4','--dark-line':'#24382D'}},
-    indigo:{name:'Indigo & Sky', v:{'--accent':'#4F5BD5','--accent-2':'#3A45B8','--accent-soft':'#ECEEFB','--ink':'#1B1E3A','--muted':'#4A5070','--line':'#E5E7F2','--bg-2':'#F5F6FB','--dark':'#1B1E3A','--on-dark':'#E9EBF6','--muted-dark':'#A1A6C4','--dark-line':'#2E3257'}},
-    char:{name:'Charcoal & Orange', v:{'--accent':'#EA5A0C','--accent-2':'#C24A06','--accent-soft':'#FCEBDD','--ink':'#20211F','--muted':'#50514A','--line':'#E7E6E2','--bg-2':'#F6F6F3','--dark':'#1A1B18','--on-dark':'#EFEEEA','--muted-dark':'#A8A89F','--dark-line':'#32332F'}},
-    plum:{name:'Plum & Gold', v:{'--accent':'#B08229','--accent-2':'#8F671A','--accent-soft':'#F6EEDD','--ink':'#271B2D','--muted':'#524857','--line':'#EBE4EC','--bg-2':'#F7F4F8','--dark':'#271833','--on-dark':'#EFE9F1','--muted-dark':'#ADA4B4','--dark-line':'#3C2A49'}},
-    teal:{name:'Teal & Sand', v:{'--accent':'#0F8F8E','--accent-2':'#0B6E6D','--accent-soft':'#E1F3F2','--ink':'#182A2A','--muted':'#475857','--line':'#E0EBEA','--bg-2':'#F3F8F7','--dark':'#13302F','--on-dark':'#E7F2F1','--muted-dark':'#9CB4B3','--dark-line':'#244140'}},
-    burgundy:{name:'Burgundy & Blush', v:{'--accent':'#B23A48','--accent-2':'#8E2C38','--accent-soft':'#F8E8EA','--ink':'#2A1A1E','--muted':'#56474C','--line':'#ECE2E4','--bg-2':'#F8F4F5','--dark':'#2A1418','--on-dark':'#F1E7E9','--muted-dark':'#B5A2A6','--dark-line':'#43282D'}},
-    forest:{name:'Clay & Forest', v:{'--accent':'#C2673E','--accent-2':'#A4522E','--accent-soft':'#F8ECE3','--ink':'#1E2A22','--muted':'#4A554D','--line':'#E4EAE5','--bg-2':'#F5F8F5','--dark':'#1B2B22','--on-dark':'#E9F1EB','--muted-dark':'#A0B2A6','--dark-line':'#2C3E33'}},
-    midnight:{name:'Midnight & Gold', v:{'--accent':'#C9A227','--accent-2':'#A4831A','--accent-soft':'#F8F1DC','--ink':'#14182A','--muted':'#494F62','--line':'#E5E7EE','--bg-2':'#F5F6FA','--dark':'#0F1320','--on-dark':'#E8EAF2','--muted-dark':'#9DA3BA','--dark-line':'#232838'}},
-    rust:{name:'Stone & Rust', v:{'--accent':'#C0552F','--accent-2':'#9E4322','--accent-soft':'#F8EAE2','--ink':'#262320','--muted':'#54504A','--line':'#E8E5E0','--bg-2':'#F6F5F2','--dark':'#211E1A','--on-dark':'#EFEDE8','--muted-dark':'#ABA69D','--dark-line':'#38342E'}},
-    sky:{name:'Sky & Slate', v:{'--accent':'#2E7FE0','--accent-2':'#1E64C0','--accent-soft':'#E6F0FC','--ink':'#1A2433','--muted':'#49526A','--line':'#E3E8F0','--bg-2':'#E9F0FA','--dark':'#16202F','--on-dark':'#E9EEF6','--muted-dark':'#9FAAC0','--dark-line':'#2A3548'}}
-  };
-  function applyPalette(key){
-    var p = palettes[key]; if(!p) return;
-    for(var k in p.v){ document.documentElement.style.setProperty(k, p.v[k]); }
-    document.getElementById('tbName').textContent = p.name;
-    document.querySelectorAll('.tb-dot').forEach(function(d){ d.classList.toggle('active', d.getAttribute('data-p') === key); });
-  }
-  document.getElementById('dots').addEventListener('click', function(e){
-    var btn = e.target.closest('.tb-dot'); if(!btn) return;
-    applyPalette(btn.getAttribute('data-p'));
-  });
-  applyPalette('sky');
-</script>
-</body>
-</html>
+</section></main><footer><div class="wrap"><div class="foot"><div><span class="brand"><span class="bar"></span><span class="np"><span>ALEX</span><span class="b">HARPER</span></span></span><p style="color:var(--muted-dark);font-size:14px;margin-top:14px;max-width:30ch">Websites for small businesses, churches, and nonprofits. Built and looked after in New Albany, IN.</p></div><div class="foot-cols"><div class="foot-col"><h4>Site</h4><a href="services.html">Services</a><a href="work.html">Work</a><a href="pricing.html">Plans</a><a href="contact.html">Contact</a></div><div class="foot-col"><h4>Care plans</h4><a href="lookout.html">Lookout</a><a href="tend.html">Tend</a><a href="partner.html">Partner</a><a href="terms.html">Terms</a></div><div class="foot-col"><h4>Get in touch</h4><a href="contact.html">Get a quote</a><a href="mailto:hello@byalexharper.com">Email me</a></div></div></div><div class="foot-base"><span>&copy; <span id="yr"></span> Alex Harper &middot; New Albany, IN</span><span>Designed, built &amp; maintained by Alex Harper</span></div></div></footer><button id="toTop" aria-label="Back to top" title="Back to top">&uarr;</button><script>document.getElementById("yr").textContent=new Date().getFullYear();var h=document.getElementById("top");addEventListener("scroll",function(){h.classList.toggle("scrolled",scrollY>8)});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});var tt=document.getElementById("toTop");if(tt){addEventListener("scroll",function(){tt.classList.toggle("show",scrollY>700)});tt.addEventListener("click",function(){scrollTo({top:0,behavior:"smooth"})})}var nt=document.getElementById("navToggle"),nl=document.getElementById("navLinks");if(nt){nt.addEventListener("click",function(){var o=nl.classList.toggle("open");nt.classList.toggle("open",o);nt.setAttribute("aria-expanded",o)});nl.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nl.classList.remove("open");nt.classList.remove("open");nt.setAttribute("aria-expanded","false")})});addEventListener("resize",function(){if(innerWidth>760){nl.classList.remove("open");nt.classList.remove("open");nt.setAttribute("aria-expanded","false")}})}</script></body></html>
