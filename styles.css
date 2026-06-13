@@ -327,3 +327,10 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
 .legal li{margin-top:5px}
 .legal a{color:var(--accent-2);font-weight:600}
 .ph{background:#FFEFD6;border-radius:4px;padding:0 5px;font-weight:600;color:#8A5A12}
+
+/* clickable plan cards */
+.tier{position:relative}
+.tier .plan-link{color:var(--ink);text-decoration:none}
+.tier .plan-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--radius)}
+.tier .t-more,.tier .btn{position:relative;z-index:2}
+@media(hover:hover){.tier:hover{transform:translateY(-5px);box-shadow:0 28px 52px -32px rgba(20,25,40,.42);border-color:var(--accent)}}
