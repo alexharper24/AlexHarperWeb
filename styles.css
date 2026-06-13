@@ -256,13 +256,23 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
   .nav-links .nav-cta{margin:10px 26px 4px;justify-content:center;text-align:center}
 }
 .center{text-align:center}
-.plan-teaser{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
-.pt{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:4px;transition:transform .2s,border-color .2s,box-shadow .2s}
-.pt:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 22px 44px -28px rgba(20,25,40,.4)}
-.pt b{font-size:18px}.pt span{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--accent-2)}
-.pt span small{font-size:13px;color:var(--muted);font-weight:600}.pt em{font-style:normal;font-size:14px;color:var(--muted)}
+.plan-teaser{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:12px auto 0;max-width:900px}
+.pt{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px 20px;display:flex;flex-direction:column;gap:5px;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+.pt b{font-size:18px;color:var(--ink)}
+.pt .price{font-size:27px;font-weight:800;letter-spacing:-.02em;color:var(--accent-2);line-height:1.1}
+.pt .price small{font-size:13px;color:var(--muted);font-weight:600}
+.pt em{font-style:normal;font-size:14px;color:var(--muted)}
+.pt .more{margin-top:14px;font-size:13px;font-weight:700;color:var(--accent-2)}
+.pt .pt-flag{position:absolute;top:-10px;left:24px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:20px}
 .pt.feat{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
-@media(max-width:760px){.plan-teaser{grid-template-columns:1fr}}
+@media(hover:hover){.pt:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 22px 44px -28px rgba(20,25,40,.4)}}
+/* clickable plan tiles on the pricing page */
+.tier{position:relative}
+.tier .plan-link{color:var(--ink);text-decoration:none}
+.tier .plan-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--radius)}
+.tier .t-more,.tier .btn{position:relative;z-index:2}
+@media(hover:hover){.tier:hover{transform:translateY(-5px);box-shadow:0 28px 52px -32px rgba(20,25,40,.42);border-color:var(--accent)}}
+@media(max-width:760px){.plan-teaser{grid-template-columns:1fr;max-width:420px}}
 .contact-layout{display:grid;grid-template-columns:1.3fr .9fr;gap:34px;align-items:start;margin-top:4px}
 .contact-aside{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 26px}
 .contact-aside .ca{padding:16px 0;border-bottom:1px solid var(--line)}
