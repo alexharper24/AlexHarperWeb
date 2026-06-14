@@ -273,8 +273,12 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
 .tier .t-more,.tier .btn{position:relative;z-index:2}
 @media(hover:hover){.tier:hover{transform:translateY(-5px);box-shadow:0 28px 52px -32px rgba(20,25,40,.42);border-color:var(--accent)}}
 @media(max-width:760px){.plan-teaser{grid-template-columns:1fr;max-width:420px}}
-/* separate footer from the dark CTA section above it */
-footer{background:#0C1521;border-top:1px solid #30405A}
+/* brand-blue CTA band so it reads as its own section above the dark footer */
+.cta,.cta-band{background:linear-gradient(135deg,#2B79D6 0%,#174E9E 100%);color:#fff}
+.cta h2,.cta-band h2{color:#fff}
+.cta p,.cta-band p{color:rgba(255,255,255,.9)}
+.cta .btn-primary,.cta-band .btn-primary{background:#fff;color:var(--accent-2)}
+.cta .btn-primary:hover,.cta-band .btn-primary:hover{background:#E8F0FB;color:var(--accent-2)}
 .contact-layout{display:grid;grid-template-columns:1.3fr .9fr;gap:34px;align-items:start;margin-top:4px}
 .contact-aside{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 26px}
 .contact-aside .ca{padding:16px 0;border-bottom:1px solid var(--line)}
