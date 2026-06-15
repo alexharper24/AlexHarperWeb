@@ -290,12 +290,12 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
 .page-hero h1{font-size:clamp(34px,5vw,52px);margin:10px 0 0}
 .ph-price{font-size:22px;font-weight:800;margin-top:14px}
 .ph-price small{font-size:14px;color:var(--muted);font-weight:600}
-.ph-sub{font-size:clamp(17px,1.8vw,20px);color:var(--muted);max-width:74ch;margin-top:14px}
+.ph-sub{font-size:clamp(17px,1.8vw,20px);color:var(--muted);max-width:62ch;margin-top:14px}
 .ph-actions{display:flex;gap:13px;margin-top:26px;flex-wrap:wrap}
 .section{padding:42px 0}
 .section.alt{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .section h2{font-size:clamp(23px,3vw,30px)}
-.section .lead{color:var(--muted);max-width:76ch;margin-top:12px}
+.section .lead{color:var(--muted);max-width:64ch;margin-top:12px}
 .kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2);margin-bottom:8px}
 .deflist{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
 @media(max-width:720px){.deflist{grid-template-columns:1fr}}
@@ -345,6 +345,7 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
 .tier .plan-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--radius)}
 .tier .t-more,.tier .btn{position:relative;z-index:2}
 @media(hover:hover){.tier:hover{transform:translateY(-5px);box-shadow:0 28px 52px -32px rgba(20,25,40,.42);border-color:var(--accent)}}
+
 
 
 
