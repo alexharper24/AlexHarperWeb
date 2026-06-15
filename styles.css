@@ -206,8 +206,8 @@ form{margin-top:34px;text-align:left}
 .field{margin-bottom:17px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:17px}
 label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
-input,textarea{width:100%;font-family:var(--font);font-size:15.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 15px;transition:border-color .2s}
-input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+input,textarea{width:100%;font-family:var(--font);font-size:15.5px;color:var(--ink);background:var(--surface);border:1.5px solid var(--accent);border-radius:10px;padding:13px 15px;transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(46,127,224,.18)}
 textarea{resize:vertical;min-height:118px}
 form .btn-primary{width:100%;justify-content:center;margin-top:4px}
 .or{text-align:center;color:var(--muted);font-size:14px;margin-top:22px}
@@ -345,6 +345,7 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
 .tier .plan-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--radius)}
 .tier .t-more,.tier .btn{position:relative;z-index:2}
 @media(hover:hover){.tier:hover{transform:translateY(-5px);box-shadow:0 28px 52px -32px rgba(20,25,40,.42);border-color:var(--accent)}}
+
 
 
 
