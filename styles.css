@@ -273,6 +273,12 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
 .tier .t-more,.tier .btn{position:relative;z-index:2}
 @media(hover:hover){.tier:hover{transform:translateY(-5px);box-shadow:0 28px 52px -32px rgba(20,25,40,.42);border-color:var(--accent)}}
 @media(max-width:760px){.plan-teaser{grid-template-columns:1fr;max-width:420px}}
+/* plan-page request steps as clean numbered cards */
+.steps{gap:18px}
+.step{position:static;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px}
+.step .snum{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.step h3{font-size:16px;margin-bottom:7px;color:var(--ink)}
+.step p{font-size:14px;color:var(--muted);line-height:1.6}
 .contact-layout{display:grid;grid-template-columns:1.3fr .9fr;gap:34px;align-items:start;max-width:940px;margin:4px auto 0}
 .contact-form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
 .contact-aside{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 26px}
@@ -345,6 +351,7 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
 .tier .plan-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--radius)}
 .tier .t-more,.tier .btn{position:relative;z-index:2}
 @media(hover:hover){.tier:hover{transform:translateY(-5px);box-shadow:0 28px 52px -32px rgba(20,25,40,.42);border-color:var(--accent)}}
+
 
 
 
