@@ -377,3 +377,188 @@ footer{background:var(--dark);color:var(--muted-dark);padding:54px 0 40px;border
 .cta-band .btn-primary{margin-top:22px}
 @media(max-width:760px){.block.cta{padding:46px 0}.cta-band{padding:42px 0}.cta p,.cta-band p{max-width:34ch}}
 /* ==/CTA-FINAL== */
+
+/* ============================================================
+   CRAFTSMAN THEME  —  navy + gold + cream re-skin (redesign/)
+   Appended overrides only; original content markup untouched.
+   ============================================================ */
+:root{
+  --bg:#F4EDDC;            /* cream ground */
+  --bg-2:#EFE7D3;          /* warm paper (alt sections) */
+  --surface:#FFFDF7;       /* cards */
+  --ink:#14243F;           /* navy ink */
+  --muted:#4A5568;--faint:#8A8474;--line:#E4D9BE;
+  --accent:#C6A24A;        /* gold */
+  --accent-2:#A9832C;      /* deep gold (text on light) */
+  --accent-soft:#F3E8CD;   /* pale gold wash */
+  --gold-lt:#DCBB64;
+  --dark:#0F1D31;          /* deep navy (footer, CTA, trust) */
+  --on-dark:#EEE4CF;--muted-dark:#A9B2C4;--dark-line:#26364F;
+  --radius:12px;
+  --display:'Oswald','Arial Narrow',system-ui,sans-serif;
+  --mono:'SF Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+
+/* sticky header on cream, not white */
+header{background:rgba(244,237,220,.9)}
+@media(max-width:760px){header{background:#F4EDDC}}
+
+/* headings become signage-style condensed caps (one weight, one colour) */
+.hero h1,.sec-head h2,.cta h2,.cta-band h2,.page-hero h1{
+  font-family:var(--display);text-transform:uppercase;font-weight:700;
+  letter-spacing:.005em;line-height:1}
+.hero h1 span{color:inherit}   /* remove the highlighted-word tell */
+
+/* eyebrows / kickers become monospace "blueprint" labels with a tick */
+.eyebrow,.kicker{font-family:var(--mono);letter-spacing:.15em;color:var(--accent-2);
+  display:inline-flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);display:inline-block}
+
+/* buttons: gold with navy text (contrast), navy nav button */
+.btn-primary{background:var(--accent);color:var(--dark)}
+.btn-primary:hover{background:var(--gold-lt)}
+.nav-cta:hover{background:var(--accent);color:var(--dark)!important}
+
+/* service icon tiles + step number badges in navy */
+.svc .ic{background:var(--ink)}
+.step .nbox,.step .snum,.step .n{background:var(--ink);color:#fff}
+
+/* trust + footer accents that were hardcoded light-blue -> gold */
+.trust .stat .n{color:var(--gold-lt)}
+.foot .brand .np .b{color:var(--gold-lt)}
+.invert .quote .stars{color:var(--gold-lt)}
+
+/* form focus ring -> gold */
+input:focus,textarea:focus{border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(169,131,44,.22)}
+
+/* note callout border/heading -> gold */
+.note{background:var(--accent-soft);border-color:#E8D9AE}
+.note h3{color:var(--accent-2)}
+
+/* final CTA bands: navy gradient, gold button */
+.cta,.cta-band{background:linear-gradient(135deg,#1D3457 0%,#0D192C 100%)}
+.cta .btn-primary,.cta-band .btn-primary{background:var(--accent);color:var(--dark)}
+.cta .btn-primary:hover,.cta-band .btn-primary:hover{background:var(--gold-lt);color:var(--dark)}
+
+/* signature device: maker's-mark seal in the hero */
+.hero{position:relative}
+.maker-seal{position:absolute;top:60px;right:20px;width:116px;height:116px;border-radius:50%;
+  border:1.5px solid var(--accent-2);color:var(--ink);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;transform:rotate(-8deg);z-index:3;
+  background:radial-gradient(circle,rgba(255,253,247,.72),rgba(255,253,247,.28))}
+.maker-seal::before{content:"";position:absolute;inset:7px;border-radius:50%;
+  border:1px dashed var(--accent-2);opacity:.55}
+.maker-seal .m{font-family:var(--display);text-transform:uppercase;font-weight:700;
+  font-size:13px;letter-spacing:.05em;line-height:1.05}
+.maker-seal .y{font-family:var(--mono);font-size:9px;letter-spacing:.13em;
+  color:var(--accent-2);margin-top:4px;text-transform:uppercase}
+@media(max-width:900px){.maker-seal{top:14px;right:8px;width:88px;height:88px}}
+@media(max-width:480px){.maker-seal{width:76px;height:76px}.maker-seal .m{font-size:11px}}
+
+/* ------------------------------------------------------------
+   Barber-red as the ACTION colour (gold stays for detailing).
+   Role split, mirroring the Phillips palette:
+     navy = ink/structure · red = do-this actions · gold = detail
+   ------------------------------------------------------------ */
+:root{ --red:#B0392C; --red-deep:#8C2A20; --red-soft:#E9D0CA; }
+
+/* red = calls to action */
+.topbar{background:var(--red)}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-deep)}
+.nav-cta:hover{background:var(--red);color:#fff!important}
+.cta .btn-primary,.cta-band .btn-primary{background:var(--red);color:#fff}
+.cta .btn-primary:hover,.cta-band .btn-primary:hover{background:var(--red-deep);color:#fff}
+
+/* red = the eyebrow tick on light grounds (gold still ticks on dark) */
+.eyebrow::before{background:var(--red)}
+
+/* red = default work-card top rule + any "most popular" plan flag
+   (per-project card colours keep their own brand hue) */
+.card::before{background:var(--red)}
+.pt .pt-flag{background:var(--red)}
+
+/* red = active nav underline / small link emphasis, used sparingly */
+.nav-links a.active{color:var(--ink)}
+.tier.feature{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+.tier .t-tag{color:var(--red)}
+
+/* red = the "HARPER" half of the logo + the hero photo border */
+.brand .np .b{color:var(--red)}
+.photo-frame{border-color:var(--red)}
+
+/* ============================================================
+   REFINEMENTS  —  navy-led, red as accent (barbershop guidance)
+   ============================================================ */
+
+/* 1. move the red strip off the very top -> onto the nav / next-section seam */
+.topbar{display:none}
+header{border-bottom:4px solid var(--red)}
+header.scrolled{border-bottom:4px solid var(--red)}
+
+/* 2. image: plain white frame (no red border); navy offset "shadow" not gold */
+.photo-frame{border-color:#fff}
+.behind{background:linear-gradient(150deg,var(--ink),var(--dark))}
+
+/* 3. logo: navy bar + navy HARPER, gold ALEX (and matched in the footer) */
+.brand .bar{background:var(--ink)}
+.brand .np span{color:var(--accent)}       /* ALEX -> gold */
+.brand .np .b{color:var(--ink)}            /* HARPER -> navy */
+.foot .brand .bar{background:var(--gold-lt)}          /* legible on dark */
+.foot .brand .np span{color:var(--accent)}            /* ALEX gold */
+.foot .brand .np .b{color:var(--on-dark)}             /* HARPER cream (navy would vanish on navy) */
+
+/* 4. remove the maker's-mark seal (also stripped from the markup) */
+.maker-seal{display:none}
+
+/* 5. middle stats band: the numbers go red (lightened so they read on navy) */
+.trust .stat .n{color:#E05A44}
+
+/* ============================================================
+   PALETTE ALIGNMENT  —  exact Phillips values + follow-up tweaks
+   ============================================================ */
+:root{
+  --ink:#182A44;       /* navy (was #14243F) */
+  --bg:#F6EEDA;        /* cream */
+  --bg-2:#EFE3C6;      /* cream-2 */
+  --line:#E3D6B6;      /* cream line */
+  --accent-2:#A9863A;  /* gold-deep (legible gold on cream) */
+  --on-dark:#F1E7CF;   /* warm cream for text on navy */
+}
+header{background:rgba(246,238,218,.92)}
+@media(max-width:760px){header{background:#F6EEDA}}
+
+/* stats band numbers -> white */
+.trust .stat .n{color:#FFFFFF}
+
+/* header logo now fully navy: "ALEX" matches the bar + "HARPER" */
+.brand .np span{color:var(--ink)}
+
+/* service-card icon tiles -> red */
+.svc .ic{background:var(--red)}
+
+/* hero photo offset "shadow" -> red */
+.behind{background:linear-gradient(150deg,var(--red),var(--red-deep))}
+
+/* ==== site-wide consistency (subpages) ==== */
+.section h2{font-family:var(--display);text-transform:uppercase;font-weight:700;letter-spacing:.005em;line-height:1.04}
+.item.in .ic{background:var(--red)}
+
+/* ============================================================
+   LESS CREAM  —  section contrast + red bar back on top
+   ============================================================ */
+
+/* red accent bar back at the very top of every page (like the original) */
+.topbar{display:block;height:4px;background:var(--red)}
+
+/* header: crisp WHITE banner, distinct from the cream hero; hairline divider
+   (removes the red strip that had been sitting under the nav) */
+header{background:rgba(255,255,255,.92)}
+header,header.scrolled{border-bottom:1px solid var(--line)}
+@media(max-width:760px){header{background:#FFFFFF}}
+
+/* alternating sections go WHITE (were a near-identical cream) -> real rhythm */
+:root{--bg-2:#FFFFFF}
+
+/* keep cards readable on the white sections with a soft resting lift */
+.svc,.card,.tier,.pt,.build-note{box-shadow:0 1px 2px rgba(20,42,68,.05),0 16px 34px -24px rgba(20,42,68,.28)}
