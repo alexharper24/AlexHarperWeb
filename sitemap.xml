@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://byalexharper.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://byalexharper.com/services.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://byalexharper.com/work.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://byalexharper.com/pricing.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://byalexharper.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://byalexharper.com/essential.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://byalexharper.com/standard.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://byalexharper.com/premium.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://byalexharper.com/terms.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://harperstudio.co/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://harperstudio.co/services.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harperstudio.co/websites.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://harperstudio.co/hosting.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://harperstudio.co/domains.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://harperstudio.co/work.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harperstudio.co/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://harperstudio.co/plans.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://harperstudio.co/essential.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://harperstudio.co/standard.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://harperstudio.co/premium.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://harperstudio.co/contact.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

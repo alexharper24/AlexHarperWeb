@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://byalexharper.com/sitemap.xml
+Sitemap: https://harperstudio.co/sitemap.xml
