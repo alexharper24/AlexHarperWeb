@@ -78,11 +78,15 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 .hero-frame{position:relative;max-width:var(--hero-wide);margin:0 auto;padding:0 var(--hero-pad)}
 .hero picture{display:block}
 /* Full composition, never cropped: the photo's own aspect drives the panel height. */
-.hero-photo{display:block;width:100%;height:auto;border-radius:16px;z-index:1}
-/* cream scrim over the photo's left third, keeping the headline legible */
-.hero-frame::after{content:"";position:absolute;top:0;bottom:0;left:var(--hero-pad);right:var(--hero-pad);
-  z-index:2;pointer-events:none;border-radius:16px;
-  background:linear-gradient(90deg,rgba(248,231,214,.96) 0%,rgba(248,231,214,.86) 24%,rgba(248,231,214,.42) 42%,rgba(248,231,214,0) 58%)}
+/* The photo is masked rather than covered by a scrim. A scrim can only ever
+   approach opacity, so the photo's left edge and its rounded corner stayed
+   faintly visible against the cream. Masking means those pixels are not drawn
+   at all, so the image simply resolves out of the background with no border.
+   The ramp mirrors the old scrim's curve, so the wash behind the headline is
+   unchanged; only the hard edge is gone. */
+.hero-photo{display:block;width:100%;height:auto;border-radius:16px;z-index:1;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 13%,rgba(0,0,0,.14) 26%,rgba(0,0,0,.58) 43%,#000 60%);
+  mask-image:linear-gradient(90deg,transparent 0%,transparent 13%,rgba(0,0,0,.14) 26%,rgba(0,0,0,.58) 43%,#000 60%)}
 /* text stays on the standard grid: a 1240 box centred inside the wider frame
    keeps the same centre, so it still lines up with the logo and the sections */
 .hero-inner{position:absolute;top:0;bottom:0;left:0;right:0;z-index:3;
@@ -92,8 +96,10 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 @media(max-width:880px){
   .hero{padding:0 0 32px;background:linear-gradient(180deg,var(--hero-cream) 0%,var(--warm) 100%)}
   .hero-frame{padding:0}
-  .hero-frame::after{display:none}
-  .hero-photo{height:250px;object-fit:cover;object-position:72% center;border-radius:0}
+  /* full-bleed banner on mobile: the headline sits below it, not over it, so
+     the left fade would only eat into the photo for no reason */
+  .hero-photo{height:250px;object-fit:cover;object-position:72% center;border-radius:0;
+    -webkit-mask-image:none;mask-image:none}
   .hero-inner{position:static;padding:26px 26px 0;display:block;max-width:none}
   .hero-content{max-width:none}
 }
@@ -407,18 +413,22 @@ section.block:not(.alt):not(.values):not(.cta-band) + section.block:not(.alt):no
    ============================================================ */
 .hero{background:var(--paper)}
 .hero::before{display:none}          /* seam blender no longer needed: header and hero match */
-.hero-frame::after{
+/* Warm backdrop sitting BEHIND the masked photo, not on top of it. The photo
+   fades into this rather than into flat paper, which keeps the old warm
+   left-to-right progression. It starts on exactly var(--paper), so its own
+   left edge is invisible against the hero background. */
+.hero-frame::before{content:"";position:absolute;top:0;bottom:0;
+  left:var(--hero-pad);right:var(--hero-pad);
+  z-index:0;pointer-events:none;border-radius:16px;
   background:linear-gradient(90deg,
-    rgba(253,250,245,.99)  0%,
-    rgba(252,247,239,.96)  13%,
-    rgba(250,241,229,.82)  26%,
-    rgba(249,237,222,.52)  37%,
-    rgba(248,233,216,.24)  46%,
-    rgba(248,231,214,.06)  54%,
-    rgba(248,231,214,0)    62%)}
+    var(--paper)     0%,
+    #FDFAF5         14%,
+    #FBF4EA         27%,
+    #F9EEDF         38%,
+    var(--hero-cream) 52%)}
 @media(max-width:880px){
   .hero{background:var(--paper)}
-  .hero-frame::after{display:none}
+  .hero-frame::before{display:none}
 }
 
 /* ============================================================
