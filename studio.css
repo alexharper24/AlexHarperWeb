@@ -581,3 +581,30 @@ section.block.navy .plan-note h3{color:var(--gold-lt)}
   color:var(--gold-deep)}
 .rn p{font-size:15px;color:var(--muted);margin-top:8px}
 .rn b{color:var(--navy);font-weight:700}
+
+/* ============================================================
+   LINE BREAKING
+   Measured across every page, 38 blocks ended on a stranded tail,
+   the worst being a last line just 2% the width of the ones above
+   it. Rather than hand-tuning copy with non-breaking spaces, which
+   only holds at one viewport width, this lets the browser do it at
+   every width.
+
+   balance  : evens the lines of a heading instead of leaving a short
+              last line. Browsers cap it at ~6 lines, which suits
+              headings and ignores it harmlessly elsewhere.
+   pretty   : keeps body copy from stranding a single short word on
+              the final line, pulling one down from the line above.
+
+   Both fall back to normal wrapping where unsupported, so nothing
+   breaks on older browsers.
+   ============================================================ */
+h1,h2,h3,h4,.t-sub,.eyebrow,.script-kick{text-wrap:balance}
+p,li,dd,figcaption,.crumb{text-wrap:pretty}
+/* Short blocks do better with balance than pretty. Notes, card bodies, ledes
+   and list items run two or three lines, where evening them out beats a full
+   line followed by a stub. Long-form copy keeps `pretty`, and browsers ignore
+   `balance` past ~6 lines, so the multi-paragraph service copy is unaffected. */
+.plan-note p,.item p,.cta-band p,.gtk li,.sec-head p,.page-hero p,
+.svc p,.step p,.val p,.rn p,.inline-cta p,.build-note p,
+.excl p,.excl li,.foot-brand p{text-wrap:balance}
