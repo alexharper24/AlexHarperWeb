@@ -344,6 +344,28 @@ section.block.alt + section.cta-band{background:var(--card);border-top:1px solid
 .cta-band .btn-primary,.values + .cta-band .btn-primary{background:var(--red);color:#fff}
 .cta-band .btn-primary:hover,.values + .cta-band .btn-primary:hover{background:var(--red-deep);color:#fff;
   box-shadow:0 12px 26px -14px rgba(147,54,31,.55)}
+/* Quiet route back up to the hub from a sub-page. The breadcrumb at the top of
+   the page already links up, but after reading a full page it is off screen, so
+   the same route is offered again at the natural end point. Its own block so it
+   sits on a line below the CTA button rather than beside it. Hover uses
+   --red-deep, since --red on cream measures 4.23:1 and misses 4.5:1. */
+.cta-back{margin-top:26px}
+.cta-back .back-link{display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:.01em;
+  color:var(--navy);text-decoration:none;padding-bottom:2px;
+  border-bottom:1px solid transparent;
+  transition:color .18s ease,border-color .18s ease}
+.cta-back .back-link:hover{color:var(--red-deep);border-bottom-color:var(--red-deep)}
+.cta-back .arr-l{display:inline-block;transition:transform .18s ease}
+.cta-back .back-link:hover .arr-l{transform:translateX(-3px)}
+@media(max-width:880px){
+  /* 28px of text is a fine target for a cursor but under the 44px minimum for
+     a thumb. The hover underline is desktop-only, so padding it out to a
+     proper touch target costs nothing visually here. */
+  /* min-height rather than padding maths: the link is already a centred
+     inline-flex, so this guarantees 44px whatever the font metrics do. */
+  .cta-back .back-link{min-height:44px;padding:0 8px}
+}
 
 /* --- tiles: always white, defined by edge + lift --- */
 .svc,.item,.step,.plan,.wcard,.form-card,.plan-note,.compare-tiers a{
