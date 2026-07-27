@@ -138,7 +138,9 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 section.block{padding:92px 0}
 .eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:600;color:var(--gold-deep);display:inline-flex;align-items:center;gap:9px}
 .eyebrow::before{content:"";width:22px;height:2px;background:var(--gold)}
-.sec-head{max-width:680px}
+.sec-head{max-width:880px}   /* room for a heading to finish its line; the
+   paragraph under it is capped separately so its measure stays readable */
+.sec-head p{max-width:64ch}
 .sec-head.center{margin:0 auto;text-align:center}
 .sec-head.center .eyebrow{justify-content:center}
 .sec-head h2{font-size:clamp(28px,3.6vw,40px);margin-top:14px}
@@ -212,7 +214,7 @@ footer{background:var(--navy-2);color:#A6B1C0;padding:64px 0 40px;border-top:2px
 /* page hero */
 .page-hero{padding:64px 0 10px}
 .page-hero .eyebrow{margin-bottom:16px}
-.page-hero h1{font-size:clamp(32px,4.4vw,50px);max-width:22ch}
+.page-hero h1{font-size:clamp(32px,4.4vw,50px);max-width:26ch}
 .page-hero p{color:var(--muted);font-size:clamp(16px,1.6vw,19px);max-width:62ch;margin-top:16px}
 .crumb{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
 .crumb a:hover{color:var(--gold-deep)}
@@ -605,6 +607,6 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
    and list items run two or three lines, where evening them out beats a full
    line followed by a stub. Long-form copy keeps `pretty`, and browsers ignore
    `balance` past ~6 lines, so the multi-paragraph service copy is unaffected. */
-.plan-note p,.item p,.cta-band p,.gtk li,.sec-head p,.page-hero p,
+.item p,.cta-band p,.gtk li,.sec-head p,.page-hero p,
 .svc p,.step p,.val p,.rn p,.inline-cta p,.build-note p,
 .excl p,.excl li,.foot-brand p{text-wrap:balance}
