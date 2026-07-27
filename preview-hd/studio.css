@@ -1,0 +1,549 @@
+/* ============================================================
+   HARPER STUDIO  -  navy / muted gold / soft cream / rust
+   Fonts: Playfair Display (display serif) + Plus Jakarta Sans (body)
+          + Caveat (script accent) + IBM Plex Mono (labels)
+   ============================================================ */
+:root{
+  --navy:#0F1E2E; --navy-2:#0A1622; --navy-3:#1B3049;
+  --gold:#C79A5A; --gold-deep:#8F6A33; --gold-lt:#DDBB84;
+  --cream:#F5EFE4;            /* page ground (brand soft cream, deepened so white tiles lift) */
+  --hero-cream:#F8E7D6;       /* sampled from the hero photo's left field (uniform at all heights) */
+  --hdr:#FBF4EA;              /* header: warm off-white that melts into the photo */
+  --inset:26px;               /* standard page inset */
+  --wide:1240px;              /* standard content width (header, sections, hero text) */
+  --hero-wide:1560px;         /* the hero photo alone spans wider, equally both sides */
+  --hero-pad:clamp(26px,3vw,56px);
+  --warm:#F0E4D0;             /* hero panel warmth */
+  --warm-tint:#F2EADB;        /* soft warm band between cream and white */
+  --warm-2:#E6D3B5;
+  --red:#B3492E; --red-deep:#93361F;
+  --ink:#1C2733; --muted:#55606E; --faint:#8B93A1;
+  --line:#E7E0D2; --white:#FFFDF9;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --script:"Caveat","Segoe Script",cursive;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --maxw:1150px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;position:relative}
+/* whisper of paper grain over everything */
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+header,main,footer{position:relative;z-index:2}
+.wrap{max-width:var(--wide);margin:0 auto;padding:0 var(--inset)}
+a{color:inherit;text-decoration:none}
+h1,h2,.serif{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line-height:1.1;color:var(--navy);
+  font-variant-ligatures:no-common-ligatures}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;border:1.5px solid transparent;transition:transform .15s ease,background .15s ease,box-shadow .15s ease;cursor:pointer}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-deep);transform:translateY(-1px);box-shadow:0 12px 26px -14px rgba(147,54,31,.55)}
+.btn-ghost{border-color:var(--navy);color:var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:#fff;transform:translateY(-1px)}
+.btn .arr{transition:transform .15s}.btn:hover .arr{transform:translateX(3px)}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:var(--hero-cream);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+header.scrolled{border-bottom:1px solid var(--line);box-shadow:0 10px 30px -22px rgba(15,30,46,.4)}
+nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+.brand img{height:44px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:15px;font-weight:500;color:var(--muted);transition:color .15s;position:relative;padding-bottom:3px}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a.active{color:var(--red);font-weight:600}
+.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--red);border-radius:2px}
+.nav-links a.btn{color:#fff;padding:11px 18px;font-size:14px}
+.nav-links a.btn::after{display:none}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:none;border:0;cursor:pointer;padding:0;margin-left:auto}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:transform .25s,opacity .25s}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:920px){
+  .nav-toggle{display:flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px 0 14px;display:none;box-shadow:0 26px 44px -26px rgba(15,30,46,.35)}
+  .nav-links.open{display:flex}
+  .nav-links a:not(.btn){display:block;padding:13px 26px;font-size:16px;color:var(--navy)}
+  .nav-links a.active::after{display:none}
+  .nav-links .btn{margin:12px 26px 4px;justify-content:center}
+}
+
+/* ---------- hero (contained panel at the standard content width) ---------- */
+.hero{position:relative;background:var(--hero-cream);padding:22px 0 38px}
+/* the photo frame runs wider than the standard container, centred so the extra
+   width is shared equally left and right */
+.hero-frame{position:relative;max-width:var(--hero-wide);margin:0 auto;padding:0 var(--hero-pad)}
+.hero picture{display:block}
+/* Full composition, never cropped: the photo's own aspect drives the panel height. */
+.hero-photo{display:block;width:100%;height:auto;border-radius:16px;z-index:1}
+/* cream scrim over the photo's left third, keeping the headline legible */
+.hero-frame::after{content:"";position:absolute;top:0;bottom:0;left:var(--hero-pad);right:var(--hero-pad);
+  z-index:2;pointer-events:none;border-radius:16px;
+  background:linear-gradient(90deg,rgba(248,231,214,.96) 0%,rgba(248,231,214,.86) 24%,rgba(248,231,214,.42) 42%,rgba(248,231,214,0) 58%)}
+/* text stays on the standard grid: a 1240 box centred inside the wider frame
+   keeps the same centre, so it still lines up with the logo and the sections */
+.hero-inner{position:absolute;top:0;bottom:0;left:0;right:0;z-index:3;
+  display:flex;flex-direction:column;justify-content:center;
+  max-width:var(--wide);margin:0 auto;padding:0 var(--inset)}
+.hero-content{max-width:460px}
+@media(max-width:880px){
+  .hero{padding:0 0 32px;background:linear-gradient(180deg,var(--hero-cream) 0%,var(--warm) 100%)}
+  .hero-frame{padding:0}
+  .hero-frame::after{display:none}
+  .hero-photo{height:250px;object-fit:cover;object-position:72% center;border-radius:0}
+  .hero-inner{position:static;padding:26px 26px 0;display:block;max-width:none}
+  .hero-content{max-width:none}
+}
+.script-kick{font-family:var(--script);font-size:30px;color:var(--gold-deep);display:inline-block;line-height:1.1}
+.script-kick svg{display:block;margin-top:2px}
+.hero h1{font-size:clamp(36px,4.9vw,56px);margin:14px 0 0;max-width:15ch}
+.hero .lede{font-size:clamp(16.5px,1.6vw,19px);color:var(--muted);max-width:44ch;margin:20px 0 0}
+.hero .cta{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:nowrap;margin-top:28px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--ink);
+  white-space:nowrap;background:rgba(255,253,249,.82);border:1px solid var(--line);border-radius:7px;padding:7px 12px}
+.chip svg{width:14px;height:14px;flex:none;color:var(--gold-deep)}
+@media(max-width:780px){.chips{flex-wrap:wrap}}
+/* testimonial card overlapping the photo */
+.hero-quote{position:absolute;z-index:4;right:26px;bottom:74px;width:min(330px,42%);
+  background:var(--white);border-radius:16px;padding:20px 22px;box-shadow:0 26px 56px -28px rgba(15,30,46,.45)}
+.hero-quote .qm{font-family:var(--serif);font-size:42px;line-height:.6;color:var(--gold);display:block;margin-bottom:10px}
+.hero-quote p{font-size:14px;color:var(--ink);line-height:1.55}
+.hero-quote .who{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-top:12px;line-height:1.7}
+@media(max-width:880px){.hero-quote{position:relative;right:auto;bottom:auto;width:auto;margin:22px 0 0}}
+
+/* ---------- navy values band ---------- */
+.values{background:radial-gradient(130% 150% at 85% -20%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#E9EDF3;padding:58px 0}
+.values .grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.val{padding:6px 34px;text-align:center;border-left:1px solid rgba(199,154,90,.28)}
+.val:first-child{border-left:0}
+.val .ic{width:46px;height:46px;margin:0 auto 14px;color:var(--gold)}
+.val .ic svg{width:100%;height:100%}
+.val h3{font-family:var(--serif);font-weight:600;font-size:20px;color:#fff;letter-spacing:.01em}
+.val p{font-size:14.5px;color:#AEB9C8;margin-top:8px;max-width:30ch;margin-left:auto;margin-right:auto}
+@media(max-width:760px){.values .grid{grid-template-columns:1fr;gap:30px}.val{border-left:0;padding:0 22px}}
+
+/* ---------- trust line ---------- */
+
+/* ---------- sections ---------- */
+section.block{padding:92px 0}
+.eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:600;color:var(--gold-deep);display:inline-flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--gold)}
+.sec-head{max-width:680px}
+.sec-head.center{margin:0 auto;text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head h2{font-size:clamp(28px,3.6vw,40px);margin-top:14px}
+.sec-head p{color:var(--muted);font-size:17px;margin-top:14px}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+@media(max-width:820px){.svc-grid{grid-template-columns:1fr;max-width:470px;margin-left:auto;margin-right:auto}}
+.svc{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;padding:30px 28px;background:var(--white);transition:transform .18s,box-shadow .18s,border-color .18s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(15,30,46,.25);border-color:#DCD2BC}
+.svc .ic{width:48px;height:48px;border-radius:12px;background:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.svc .ic svg{width:23px;height:23px;color:var(--gold-lt)}
+.svc h3{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--navy)}
+.svc ul{list-style:none;margin:14px 0 0}
+.svc li{font-size:15px;color:#414B59;padding:8px 0 8px 22px;position:relative;border-top:1px solid var(--line)}
+.svc li:first-child{border-top:0}
+.svc li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.svc .more{margin-top:auto;padding-top:16px;font-size:14px;font-weight:700;color:var(--red);display:flex;align-items:center;gap:7px}
+.svc .more .arr{transition:transform .15s}.svc:hover .more .arr{transform:translateX(3px)}
+
+/* work teaser */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px}
+@media(max-width:820px){.work-grid{grid-template-columns:1fr;max-width:470px;margin-left:auto;margin-right:auto}}
+.wcard{position:relative;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;display:flex;flex-direction:column;min-height:220px;overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s}
+.wcard:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(15,30,46,.28)}
+.wcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--navy)}
+.wcard .tag{align-self:flex-start;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:6px}
+.wcard h3{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--navy);margin:13px 0 0}
+.wcard p{color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6}
+.wcard .go{margin-top:auto;padding-top:16px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.wcard.c-infinite::before{background:#C33E1D}.wcard.c-infinite .tag{color:#C33E1D;background:#FBE7DE}.wcard.c-infinite .go{color:#C33E1D}.wcard.c-infinite:hover{border-color:#C33E1D}
+.wcard.c-hope::before{background:#1E3054}.wcard.c-hope .tag{color:#1E3054;background:#E7EAF1}.wcard.c-hope .go{color:#1E3054}.wcard.c-hope:hover{border-color:#1E3054}
+.wcard.c-faith::before{background:#D98A9E}.wcard.c-faith .tag{color:#B86A7E;background:#FAECEF}.wcard.c-faith .go{color:#B86A7E}.wcard.c-faith:hover{border-color:#D98A9E}
+
+/* founder band */
+.founder{background:radial-gradient(120% 150% at 10% -30%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#DFE6EF;padding:84px 0}
+.founder .split{display:grid;grid-template-columns:.72fr 1.28fr;gap:52px;align-items:center}
+@media(max-width:820px){.founder .split{grid-template-columns:1fr;gap:32px}}
+.founder .photo{border-radius:18px;overflow:hidden;border:1px solid rgba(199,154,90,.4);box-shadow:0 30px 66px -38px rgba(0,0,0,.65)}
+.founder .photo img{display:block;width:100%;height:auto}
+.founder .script-kick{color:var(--gold-lt)}
+.founder h2{color:#fff;font-size:clamp(26px,3.4vw,36px);margin-top:10px}
+.founder p.body{color:#AEB9C8;font-size:16px;margin-top:16px;max-width:52ch}
+.founder .sign{font-family:var(--script);font-size:34px;color:var(--gold-lt);margin-top:18px}
+.founder .cta{display:flex;gap:13px;margin-top:24px;flex-wrap:wrap}
+.founder .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.founder .btn-ghost:hover{background:#fff;color:var(--navy);border-color:#fff}
+
+/* closing cta */
+.cta-band{background:var(--white);text-align:center;border-top:1px solid var(--line)}
+.cta-band h2{font-size:clamp(28px,3.8vw,42px)}
+.cta-band p{color:var(--muted);max-width:46ch;margin:16px auto 30px;font-size:17px}
+
+/* footer */
+footer{background:var(--navy-2);color:#A6B1C0;padding:64px 0 40px;border-top:2px solid var(--gold)}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.foot-brand img{height:56px;width:auto}
+.foot-brand .tag{font-family:var(--script);font-size:24px;color:var(--gold);margin-top:14px}
+.foot-brand p{max-width:32ch;font-size:14px;margin-top:10px;color:#7E8B9D}
+.foot-cols{display:flex;gap:56px;flex-wrap:wrap}
+.foot-col h4{color:#fff;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.foot-col a{display:block;font-size:14.5px;color:#A6B1C0;margin-bottom:10px;transition:color .15s}
+.foot-col a:hover{color:var(--gold)}
+.foot-base{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:#6E7C90}
+.sib{max-width:var(--maxw);margin:0 auto;padding:16px 26px;text-align:center;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:#5E6C80}
+.sib b{color:#8B99AC;font-weight:600}
+
+/* ============================================================
+   SUBPAGE COMPONENTS  (Harper Studio styling)
+   ============================================================ */
+/* page hero */
+.page-hero{padding:64px 0 10px}
+.page-hero .eyebrow{margin-bottom:16px}
+.page-hero h1{font-size:clamp(32px,4.4vw,50px);max-width:22ch}
+.page-hero p{color:var(--muted);font-size:clamp(16px,1.6vw,19px);max-width:62ch;margin-top:16px}
+.crumb{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+.crumb a:hover{color:var(--gold-deep)}
+.ph-price{font-family:var(--serif);font-size:42px;font-weight:600;color:var(--navy);margin-top:14px;
+  }
+.ph-price small{font-family:var(--sans);font-size:16px;color:var(--faint);font-weight:600}
+.ph-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+
+/* navy trust strip (subpages) */
+.trust{background:radial-gradient(130% 150% at 85% -20%,var(--navy-3),var(--navy) 55%,var(--navy-2));
+  color:#E9EDF3}
+.trust .wrap{padding:26px;text-align:center}
+.trust p{font-size:14px;color:#AEB9C8}.trust b{color:#fff;font-weight:700}
+
+/* definition list / included items */
+.deflist{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+@media(max-width:760px){.deflist{grid-template-columns:1fr}}
+.item{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;gap:14px}
+.item .ic{width:28px;height:28px;flex:none;border-radius:8px;background:var(--navy);color:var(--gold-lt);display:flex;align-items:center;justify-content:center}
+.item .ic svg{width:15px;height:15px}
+.item h3{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--navy)}
+.item p{font-size:14.5px;color:var(--muted);margin-top:5px}
+
+/* exclusions */
+.excl{margin-top:22px;display:flex;flex-direction:column;gap:11px}
+.excl .row{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15.5px}
+.excl .row .x{width:22px;height:22px;flex:none;border-radius:6px;background:var(--warm-2);color:var(--gold-deep);display:flex;align-items:center;justify-content:center}
+.excl .row .x svg{width:12px;height:12px}
+
+/* numbered steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px}
+@media(max-width:820px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+.step .snum{width:32px;height:32px;border-radius:9px;background:var(--navy);color:var(--gold-lt);font-family:var(--mono);
+  font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.step h3{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--navy)}
+.step p{font-size:14px;color:var(--muted);margin-top:6px}
+
+/* note callout */
+.plan-note{background:var(--warm);border:1px solid var(--warm-2);border-radius:14px;padding:20px 24px;margin-top:26px}
+.plan-note h3{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--navy)}
+.plan-note p{font-size:14.5px;color:#4A4234;margin-top:6px}
+.plan-note a{color:var(--red);font-weight:700}
+
+/* plan cards */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;align-items:start}
+@media(max-width:900px){.plans{grid-template-columns:1fr;max-width:470px;margin-left:auto;margin-right:auto}}
+.plan{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:30px 28px;display:flex;flex-direction:column}
+.plan.featured{border-color:var(--red);box-shadow:0 0 0 1px var(--red),0 30px 60px -40px rgba(179,73,46,.35)}
+.plan .flag{align-self:flex-start;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:#fff;background:var(--red);padding:4px 11px;border-radius:6px;margin-bottom:14px}
+.plan h3{font-family:var(--serif);font-weight:600;font-size:24px;color:var(--navy)}
+.plan .price{font-family:var(--serif);font-size:40px;font-weight:600;color:var(--navy);margin:10px 0 2px}
+.plan .price small{font-family:var(--sans);font-size:15px;color:var(--faint);font-weight:600}
+.plan .sub{font-size:14.5px;color:var(--muted);min-height:44px}
+.plan ul{list-style:none;margin:18px 0 24px;border-top:1px solid var(--line);padding-top:18px}
+.plan li{font-size:14.5px;color:#414B59;padding:8px 0 8px 26px;position:relative}
+.plan li svg{position:absolute;left:0;top:11px;width:15px;height:15px;color:var(--gold-deep)}
+.plan .btn{width:100%;justify-content:center;margin-top:auto}
+
+/* tier comparison strip */
+.compare-tiers{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+.compare-tiers a{flex:1;min-width:150px;background:var(--white);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;transition:border-color .2s,transform .2s}
+.compare-tiers a:hover{border-color:var(--navy);transform:translateY(-2px)}
+.compare-tiers a.here{border-color:var(--red);background:#FBEFEA}
+.compare-tiers .nm{font-weight:700;color:var(--navy)}
+.compare-tiers .pr{font-size:13.5px;color:var(--muted);margin-top:2px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:32px}}
+.about-photo{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 62px -40px rgba(15,30,46,.5)}
+.about-photo img{display:block;width:100%;height:auto}
+.about-body h2{font-size:clamp(26px,3.3vw,36px)}
+.about-body p{color:#414B59;font-size:16.5px;margin-top:16px}
+.about-body .sign{font-family:var(--script);font-size:32px;color:var(--gold-deep);margin-top:20px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:start;margin-top:8px}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:24px}}
+.form-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:28px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.field input,.field textarea{width:100%;font-family:var(--sans);font-size:15.5px;color:var(--ink);background:var(--cream);
+  border:1.5px solid #DED5C2;border-radius:9px;padding:13px 15px;transition:border-color .15s,box-shadow .15s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(15,30,46,.12)}
+.field textarea{resize:vertical;min-height:130px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.frow{grid-template-columns:1fr}}
+.form-card .btn-primary{width:100%;justify-content:center;margin-top:6px}
+.contact-aside{background:radial-gradient(120% 130% at 100% 0,var(--navy-3),var(--navy) 60%,var(--navy-2));
+  color:#DBE3EF;border-radius:18px;padding:26px}
+.contact-aside .ca{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.contact-aside .ca:last-child{border-bottom:0}
+.contact-aside h3{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--gold-lt);margin-bottom:5px}
+.contact-aside p{font-size:15px}
+.contact-aside a{color:#fff;font-weight:600}
+
+/* ============================================================
+   CONSOLIDATED PALETTE  (replaces earlier patch blocks)
+   Light tones cut from ten to two: one warm-white ground and one
+   cream accent. Navy appears twice per page and never touches
+   itself. Nothing else is a background colour.
+   ============================================================ */
+:root{
+  --paper:#FEFCF8;      /* ground: reads white, faintly warm */
+  --cream:#EFE3CE;      /* THE cream: hero, accent band, closing CTA */
+  --card:#FFFFFF;       /* tiles */
+  --line:#E4DACA;
+  --hero-cream:#F8E7D6; /* kept: sampled from the hero photo itself */
+}
+body{background:var(--paper)}
+header{background:var(--paper)}
+header.scrolled{border-bottom:1px solid var(--line)}
+
+/* --- bands: paper (default) / cream / navy --- */
+section.block.alt{background:var(--cream);border-top:1px solid #E1D4B8;border-bottom:1px solid #E1D4B8}
+/* closing CTA is cream, never navy, so it never stacks on the navy footer */
+section.cta-band,.cta-band{background:var(--cream);color:var(--ink);
+  border-top:1px solid #E1D4B8;border-bottom:0}
+/* if the CTA directly follows the cream accent band, flip it to white so the
+   two do not merge into one long cream stretch */
+section.block.alt + section.cta-band{background:var(--card);border-top:1px solid var(--line)}
+.cta-band h2,.values + .cta-band h2{color:var(--navy)}
+.cta-band p,.values + .cta-band p{color:var(--muted)}
+.cta-band .script-kick,.values + .cta-band .script-kick{color:var(--gold-deep)}
+.cta-band .btn-primary,.values + .cta-band .btn-primary{background:var(--red);color:#fff}
+.cta-band .btn-primary:hover,.values + .cta-band .btn-primary:hover{background:var(--red-deep);color:#fff;
+  box-shadow:0 12px 26px -14px rgba(147,54,31,.55)}
+
+/* --- tiles: always white, defined by edge + lift --- */
+.svc,.item,.step,.plan,.wcard,.form-card,.plan-note,.compare-tiers a{
+  background:var(--card);border:1px solid #DDD2BC;
+  box-shadow:0 3px 12px -6px rgba(15,30,46,.22),0 1px 2px rgba(15,30,46,.05)}
+.svc:hover,.wcard:hover,.plan:hover{border-color:#C6B694;box-shadow:0 26px 46px -26px rgba(15,30,46,.32)}
+.svc li,.plan ul{border-color:#EDE6D8}
+.plan.featured{border-color:var(--red);box-shadow:0 0 0 1px var(--red),0 22px 46px -30px rgba(179,73,46,.4)}
+.compare-tiers a.here{background:#FBEFEA;border-color:var(--red)}
+.field input,.field textarea{background:var(--paper);border:1.5px solid #D6CBB5}
+
+/* --- navy band: light type on dark, and the inline icon badge --- */
+.values .sec-head h2{color:#fff}
+.values .sec-head p{color:#AEB9C8}
+.values .eyebrow{color:var(--gold-lt)}
+.values .eyebrow::before{background:var(--gold)}
+.val h3{display:flex;align-items:center;justify-content:center;gap:10px}
+.val h3 .d{width:26px;height:26px;flex:none;border-radius:8px;background:var(--red);color:#fff;
+  display:inline-flex;align-items:center;justify-content:center}
+.val h3 .d svg{width:14px;height:14px}
+
+/* --- vertical rhythm --- */
+section.block{padding:70px 0}
+.page-hero{padding:54px 0 44px}
+.values{padding:64px 0}
+.sec-head h2,.sec-head p{margin-top:12px}
+.svc-grid,.work-grid,.plans{margin-top:36px}
+.deflist,.steps,.excl{margin-top:26px}
+.plan-note,.ph-actions{margin-top:22px}
+.compare-tiers{margin-top:24px}
+@media(max-width:760px){section.block{padding:52px 0}.page-hero{padding:40px 0 32px}}
+
+/* ============================================================
+   FINAL BAND ALLOCATION
+   paper = default ground (majority) | cream = one accent per page
+   navy  = values band + footer only | CTA = always cream
+   Where two paper sections meet, a hairline gives the separation
+   instead of another tint.
+   ============================================================ */
+/* CTA is cream on every page (no exceptions), so it always reads as the
+   warm close into the navy footer */
+section.cta-band,.cta-band,section.block.alt + section.cta-band{
+  background:var(--cream);border-top:1px solid #E1D4B8}
+/* hairline between consecutive paper sections */
+.page-hero + section.block:not(.alt):not(.values):not(.cta-band),
+section.block:not(.alt):not(.values):not(.cta-band) + section.block:not(.alt):not(.values):not(.cta-band){
+  border-top:1px solid var(--line)}
+/* tiles: firmer edge so they hold their own on the paper ground too */
+.svc,.item,.step,.plan,.wcard,.form-card,.plan-note,.compare-tiers a{
+  border:1px solid #D6C9B0;
+  box-shadow:0 4px 14px -7px rgba(15,30,46,.24),0 1px 2px rgba(15,30,46,.06)}
+
+/* tiles now always sit on the paper ground, so they carry their own definition:
+   a crisp white surface, a firm warm edge, and a real lift */
+.svc,.item,.step,.plan,.wcard,.form-card,.compare-tiers a{
+  background:#FFFFFF;border:1px solid #DCD0B8;
+  box-shadow:0 5px 16px -8px rgba(15,30,46,.26),0 1px 2px rgba(15,30,46,.07)}
+.plan-note{background:var(--cream);border:1px solid #E1D4B8;box-shadow:none}
+.svc:hover,.wcard:hover,.plan:hover{border-color:#C3B08A;
+  box-shadow:0 26px 46px -24px rgba(15,30,46,.34)}
+
+/* ============================================================
+   HERO: light-to-warm horizontal fade on the left
+   The surround goes light (paper). Over the photo we lay a light
+   warm cream that fades out to the right, so the left edge reads
+   light and gradually warms into the photo's own darker cream.
+   ============================================================ */
+.hero{background:var(--paper)}
+.hero::before{display:none}          /* seam blender no longer needed: header and hero match */
+.hero-frame::after{
+  background:linear-gradient(90deg,
+    rgba(253,250,245,.99)  0%,
+    rgba(252,247,239,.96)  13%,
+    rgba(250,241,229,.82)  26%,
+    rgba(249,237,222,.52)  37%,
+    rgba(248,233,216,.24)  46%,
+    rgba(248,231,214,.06)  54%,
+    rgba(248,231,214,0)    62%)}
+@media(max-width:880px){
+  .hero{background:var(--paper)}
+  .hero-frame::after{display:none}
+}
+
+/* ============================================================
+   SUBPAGE POLISH
+   1) a navy band variant, so process sections give a page structure
+   2) the care-plan / good-to-know note becomes a quiet aside instead
+      of a full-width filled strip
+   ============================================================ */
+section.block.navy{background:radial-gradient(120% 150% at 12% -30%,var(--navy-3),var(--navy) 55%,var(--navy-2));
+  color:#DFE6EF;border-top:0;border-bottom:0}
+section.block.navy .sec-head h2{color:#fff}
+section.block.navy .sec-head p{color:#AEB9C8}
+section.block.navy .eyebrow{color:var(--gold-lt)}
+section.block.navy .eyebrow::before{background:var(--gold)}
+section.block.navy .step{background:rgba(255,255,255,.055);border:1px solid rgba(199,154,90,.26);box-shadow:none}
+section.block.navy .step h3{color:#fff}
+section.block.navy .step p{color:#AEB9C8}
+section.block.navy .step .snum{background:var(--gold);color:var(--navy-2)}
+
+/* the note: an annotation, not a band. gold rule, no fill, measured width */
+.plan-note{background:transparent;border:0;border-left:3px solid var(--gold);border-radius:0;
+  padding:2px 0 2px 20px;margin-top:30px;max-width:64ch;box-shadow:none}
+.plan-note h3{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--gold-deep)}
+.plan-note p{font-size:15.5px;color:var(--muted);margin-top:7px}
+.plan-note a{color:var(--red);font-weight:700;border-bottom:1px solid rgba(179,73,46,.35)}
+.plan-note a:hover{border-bottom-color:var(--red)}
+section.block.navy .plan-note h3{color:var(--gold-lt)}
+section.block.navy .plan-note p{color:#AEB9C8}
+section.block.navy .plan-note a{color:var(--gold-lt);border-bottom-color:rgba(221,187,132,.4)}
+
+/* About: the closing location line is an aside, not body copy */
+.about-body .loc{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);margin-top:22px}
+
+/* ============================================================
+   PAGE HEADS ON CREAM (matches the live site: warm band under the
+   header instead of white-into-white) + red service icon tiles
+   ============================================================ */
+.page-hero{background:var(--cream);border-bottom:1px solid #E1D4B8;padding:52px 0 46px}
+.page-hero .wrap{max-width:var(--wide);margin:0 auto}
+/* the first section after a cream page head is paper, so drop the hairline */
+.page-hero + section.block{border-top:0}
+.svc .ic{background:var(--red)}
+.svc .ic svg{color:#fff}
+/* six-up service grid */
+.svc-grid.six{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.svc-grid.six{grid-template-columns:1fr 1fr;max-width:none}}
+@media(max-width:620px){.svc-grid.six{grid-template-columns:1fr;max-width:460px}}
+.svc-grid.six .svc{padding:26px 24px}
+.svc-grid.six .svc h3{font-size:20px;margin-top:2px}
+.svc-grid.six .svc p{font-size:15px;color:#414B59;margin-top:9px}
+
+/* ============================================================
+   PLANS: one-time build note + three aligned tier cards
+   Cards align because every row (tag, name, price, sub, list,
+   link, button) occupies the same vertical slot in each card.
+   ============================================================ */
+.build-note{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+  background:var(--card);border:1px solid #DCD0B8;border-radius:16px;padding:24px 28px;margin-top:36px;
+  box-shadow:0 4px 14px -7px rgba(15,30,46,.24),0 1px 2px rgba(15,30,46,.06)}
+.build-note h3{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--navy)}
+.build-note p{color:var(--muted);font-size:15px;margin-top:5px;max-width:70ch}
+.build-note .price{font-family:var(--serif);font-weight:600;font-size:30px;color:var(--navy);white-space:nowrap}
+.build-note .price small{font-family:var(--sans);font-size:13px;color:var(--faint);font-weight:600}
+
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px;align-items:stretch}
+@media(max-width:900px){.tiers{grid-template-columns:1fr;max-width:470px;margin-left:auto;margin-right:auto}}
+.tier{display:flex;flex-direction:column;background:var(--card);border:1px solid #DCD0B8;border-radius:18px;
+  padding:26px 26px 28px;box-shadow:0 4px 14px -7px rgba(15,30,46,.24),0 1px 2px rgba(15,30,46,.06);
+  transition:transform .18s,box-shadow .18s,border-color .18s}
+.tier:hover{transform:translateY(-4px);border-color:#C3B08A;box-shadow:0 26px 46px -24px rgba(15,30,46,.34)}
+.tier.feature{border-color:var(--red);box-shadow:0 0 0 1px var(--red),0 22px 46px -30px rgba(179,73,46,.4)}
+/* reserved row so all three headers sit on the same line */
+.t-tag{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);min-height:16px;line-height:16px}
+.t-name{display:block;font-family:var(--serif);font-weight:600;font-size:24px;color:var(--navy);margin-top:10px}
+.t-name:hover{color:var(--red)}
+.t-price{font-family:var(--serif);font-weight:600;font-size:40px;color:var(--navy);line-height:1.1;margin:8px 0 0}
+.t-price small{font-family:var(--sans);font-size:15px;color:var(--faint);font-weight:600}
+.t-sub{font-size:14.5px;color:var(--muted);margin-top:10px;min-height:50px}
+.tier ul{list-style:none;margin:18px 0 0;border-top:1px solid #EDE6D8;padding-top:18px;flex:1}
+.tier li{position:relative;font-size:14.5px;color:#414B59;padding:7px 0 7px 26px}
+.tier li svg{position:absolute;left:0;top:10px;width:15px;height:15px;color:var(--gold-deep)}
+.t-more{display:inline-block;font-size:14px;font-weight:700;color:var(--gold-deep);margin:18px 0 16px}
+.t-more:hover{color:var(--red)}
+.tier .btn{width:100%;justify-content:center;margin-top:auto}
+
+/* plan pages: lead paragraph + practical-bits list */
+.lead{font-size:18px;color:#3D465B;max-width:68ch;margin-top:4px}
+.gtk{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:13px;max-width:76ch}
+.gtk li{display:flex;gap:13px;align-items:flex-start;font-size:16px;color:var(--muted)}
+.gtk li b{color:var(--navy);font-weight:700}
+.gtk .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;margin-top:9px}
+
+/* services hub: fuller cards with room for real copy */
+.svc-grid.six.detail .svc{padding:30px 28px}
+.svc-grid.six.detail .svc h3{font-size:21px}
+.svc-grid.six.detail .svc p{font-size:15px;line-height:1.62;color:#414B59;margin-top:10px}
+/* the homepage tiles are links: give a quiet affordance without a label */
+a.svc{position:relative}
+a.svc::after{content:"";position:absolute;right:22px;bottom:20px;width:16px;height:16px;opacity:0;
+  transition:opacity .18s,transform .18s;transform:translateX(-4px);
+  background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B3492E' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E")}
+a.svc:hover::after{opacity:1;transform:translateX(0)}
+a.svc{padding-bottom:34px}
+
+/* work cards keep their white surface on the navy band */
+section.block.navy .wcard{background:var(--card);border-color:rgba(255,255,255,.14)}
+section.block.navy .wcard p{color:var(--muted)}
+section.block.navy .wcard:hover{border-color:rgba(199,154,90,.55)}
+section.block.navy .plan-note h3{color:var(--gold-lt)}
+
+/* an inline closing CTA: keeps the ask without adding another full band */
+.inline-cta{text-align:center;max-width:60ch;margin:52px auto 0;padding-top:44px;
+  border-top:1px solid var(--line)}
+.inline-cta h2{font-size:clamp(26px,3.4vw,36px)}
+.inline-cta p{color:var(--muted);font-size:17px;margin:14px auto 26px;max-width:46ch}
+
+/* plans: the two supporting notes under the tiers */
+.rate-note{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+@media(max-width:820px){.rate-note{grid-template-columns:1fr}}
+.rn{background:var(--card);border:1px solid #DCD0B8;border-left:3px solid var(--gold);border-radius:12px;
+  padding:20px 22px;box-shadow:0 3px 12px -7px rgba(15,30,46,.2)}
+.rn h3{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--gold-deep)}
+.rn p{font-size:15px;color:var(--muted);margin-top:8px}
+.rn b{color:var(--navy);font-weight:700}
