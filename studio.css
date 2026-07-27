@@ -344,27 +344,29 @@ section.block.alt + section.cta-band{background:var(--card);border-top:1px solid
 .cta-band .btn-primary,.values + .cta-band .btn-primary{background:var(--red);color:#fff}
 .cta-band .btn-primary:hover,.values + .cta-band .btn-primary:hover{background:var(--red-deep);color:#fff;
   box-shadow:0 12px 26px -14px rgba(147,54,31,.55)}
-/* Quiet route back up to the hub from a sub-page. The breadcrumb at the top of
-   the page already links up, but after reading a full page it is off screen, so
-   the same route is offered again at the natural end point. Its own block so it
-   sits on a line below the CTA button rather than beside it. Hover uses
-   --red-deep, since --red on cream measures 4.23:1 and misses 4.5:1. */
-.cta-back{margin-top:26px}
-.cta-back .back-link{display:inline-flex;align-items:center;gap:9px;
+/* Quiet route back up to the hub from a sub-page. The breadcrumb at the top is
+   easy to miss, so the same route is repeated as a proper link. Standalone
+   rather than scoped to a band, so it can be placed wherever it is most
+   findable. Hover uses --red-deep: --red measures 4.23:1 on cream and misses
+   4.5:1, while --red-deep is 5.94:1 there and 7.35:1 on paper. */
+.back-link{display:inline-flex;align-items:center;gap:9px;
   font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:.01em;
   color:var(--navy);text-decoration:none;padding-bottom:2px;
   border-bottom:1px solid transparent;
   transition:color .18s ease,border-color .18s ease}
-.cta-back .back-link:hover{color:var(--red-deep);border-bottom-color:var(--red-deep)}
-.cta-back .arr-l{display:inline-block;transition:transform .18s ease}
-.cta-back .back-link:hover .arr-l{transform:translateX(-3px)}
+.back-link:hover{color:var(--red-deep);border-bottom-color:var(--red-deep)}
+.back-link .arr-l{display:inline-block;transition:transform .18s ease}
+.back-link:hover .arr-l{transform:translateX(-3px)}
+/* Placement: sits at the top of the first content block, above the section
+   heading, so it is visible without scrolling past the page's content. Left
+   aligned to the same edge as the eyebrow and h2 beneath it. */
+.back-row{margin:0 0 26px}
 @media(max-width:880px){
-  /* 28px of text is a fine target for a cursor but under the 44px minimum for
-     a thumb. The hover underline is desktop-only, so padding it out to a
-     proper touch target costs nothing visually here. */
-  /* min-height rather than padding maths: the link is already a centred
-     inline-flex, so this guarantees 44px whatever the font metrics do. */
-  .cta-back .back-link{min-height:44px;padding:0 8px}
+  /* 28px of text is fine for a cursor but under the 44px minimum for a thumb.
+     min-height rather than padding maths, since the link is already a centred
+     inline-flex, so this holds whatever the font metrics do. No horizontal
+     padding: it would push the link off the left edge the heading aligns to. */
+  .back-link{min-height:44px}
 }
 
 /* --- tiles: always white, defined by edge + lift --- */
