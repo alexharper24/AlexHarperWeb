@@ -610,3 +610,14 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 .item p,.cta-band p,.gtk li,.sec-head p,.page-hero p,
 .svc p,.step p,.val p,.rn p,.inline-cta p,.build-note p,
 .excl p,.excl li,.foot-brand p{text-wrap:balance}
+
+/* Contact form confirmation, shown in place of the form after a background
+   submit so the visitor never sees FormSubmit's own page. */
+.form-sent{text-align:center;padding:14px 4px 6px}
+.form-sent .fs-mark{width:52px;height:52px;margin:0 auto 18px;border-radius:50%;
+  display:grid;place-items:center;background:var(--navy);color:var(--gold-lt)}
+.form-sent .fs-mark svg{width:26px;height:26px}
+.form-sent h3{font-family:var(--serif);font-size:23px;color:var(--navy)}
+.form-sent p{color:var(--muted);font-size:16px;margin:10px auto 22px;max-width:40ch}
+/* the panel only takes focus programmatically, so it needs no focus ring */
+.form-sent:focus{outline:none}
