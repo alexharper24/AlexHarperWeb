@@ -629,3 +629,16 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
   background:var(--navy);color:#fff;font-family:var(--sans);font-weight:600;
   font-size:15px;padding:12px 20px;border-radius:0 0 10px 0;text-decoration:none}
 .skip-link:focus{left:0}
+
+/* ============================================================
+   SERVICES PAGE DENSITY
+   Six detail tiles below a full page hero pushed the second row well
+   past the fold. These trims are scoped to the detail grid and to a
+   block that directly follows a page hero, so every other page keeps
+   its current spacing.
+   ============================================================ */
+.page-hero{padding:40px 0 36px}
+.page-hero + section.block{padding-top:54px}
+.svc-grid.six.detail{margin-top:28px}
+.svc-grid.six.detail .svc{padding:22px 24px}
+.svc-grid.six.detail .svc p{margin-top:8px;line-height:1.58}
