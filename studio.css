@@ -8,7 +8,6 @@
   --gold:#C79A5A; --gold-deep:#8F6A33; --gold-lt:#DDBB84;
   --cream:#F5EFE4;            /* page ground (brand soft cream, deepened so white tiles lift) */
   --hero-cream:#F8E7D6;       /* sampled from the hero photo's left field (uniform at all heights) */
-  --hdr:#FBF4EA;              /* header: warm off-white that melts into the photo */
   --inset:26px;               /* standard page inset */
   --wide:1240px;              /* standard content width (header, sections, hero text) */
   --hero-wide:1560px;         /* the hero photo alone spans wider, equally both sides */
@@ -46,7 +45,7 @@ h1,h2,.serif{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;lin
 .btn .arr{transition:transform .15s}.btn:hover .arr{transform:translateX(3px)}
 
 /* ---------- header ---------- */
-header{position:sticky;top:0;z-index:50;background:var(--hero-cream);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
 header.scrolled{border-bottom:1px solid var(--line);box-shadow:0 10px 30px -22px rgba(15,30,46,.4)}
 nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand img{height:44px;width:auto;display:block}
@@ -623,3 +622,10 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 .form-sent p{color:var(--muted);font-size:16px;margin:11px 0 24px;max-width:38ch}
 /* the panel only takes focus programmatically, so it needs no focus ring */
 .form-sent:focus{outline:none}
+
+/* Keyboard users land here first and can jump past the nav. Visually hidden
+   until focused, then it appears as a normal button in the top-left. */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;
+  background:var(--navy);color:#fff;font-family:var(--sans);font-weight:600;
+  font-size:15px;padding:12px 20px;border-radius:0 0 10px 0;text-decoration:none}
+.skip-link:focus{left:0}
