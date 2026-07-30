@@ -98,7 +98,12 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
   .hero-frame{padding:0}
   /* full-bleed banner on mobile: the headline sits below it, not over it, so
      the left fade would only eat into the photo for no reason */
-  .hero-photo{height:250px;object-fit:cover;object-position:72% center;border-radius:0;
+  /* the mobile file is already cropped to the content, so centre it rather
+     than pushing right to escape the empty field */
+  /* 250px matches the mobile crop's aspect almost exactly at phone widths.
+     Left fixed, a 820px tablet would render a 3.3:1 letterbox and cut the
+     laptop in half, so the height grows a little with the viewport. */
+  .hero-photo{height:clamp(250px,50vw,400px);object-fit:cover;object-position:center;border-radius:0;
     -webkit-mask-image:none;mask-image:none}
   .hero-inner{position:static;padding:26px 26px 0;display:block;max-width:none}
   .hero-content{max-width:none}
