@@ -63,8 +63,17 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:920px){
   .nav-toggle{display:flex}
-  .nav-links{position:absolute;top:100%;left:0;right:0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px 0 14px;display:none;box-shadow:0 26px 44px -26px rgba(15,30,46,.35)}
+  /* Full-height overlay rather than a dropdown. As an absolutely positioned
+     panel it was only as tall as its links, so the page showed through below
+     it. Fixed with top at the header height and bottom at 0 fills the screen,
+     and overflow-y keeps it usable if the links ever outgrow a short screen. */
+  .nav-links{position:fixed;top:80px;left:0;right:0;bottom:0;
+    background:#fff;border-top:1px solid var(--line);
+    flex-direction:column;align-items:stretch;gap:0;padding:14px 0 24px;
+    display:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
   .nav-links.open{display:flex}
+  /* stop the page scrolling underneath the open menu */
+  body.nav-open{overflow:hidden}
   .nav-links a:not(.btn){display:block;padding:13px 26px;font-size:16px;color:var(--navy)}
   .nav-links a.active::after{display:none}
   .nav-links .btn{margin:12px 26px 4px;justify-content:center}
