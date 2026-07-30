@@ -642,3 +642,42 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 .svc-grid.six.detail{margin-top:28px}
 .svc-grid.six.detail .svc{padding:22px 24px}
 .svc-grid.six.detail .svc p{margin-top:8px;line-height:1.58}
+
+/* ============================================================
+   MOBILE REFINEMENTS
+   Measured at 390x844. Three problems, all costing space at the top of
+   the page where it is worth the most.
+   ============================================================ */
+@media(max-width:620px){
+  /* 1. Breadcrumbs cost 37px including their margin, and duplicate a path
+        the nav and the back links already provide. */
+  .crumb{display:none}
+
+  /* 2. Button pairs did not quite fit side by side, so they wrapped to one
+        per row at partial width, which reads as ragged rather than
+        deliberate. Full width stacked is intentional and easier to tap. */
+  .hero .cta,.ph-actions{flex-direction:column;align-items:stretch}
+  /* NOT the submit button: .btn is itself a flex row holding its label and
+     arrow, so column direction would stack those two on top of each other.
+     It already gets width:100% from the .form-card rule. */
+  .hero .cta,.ph-actions{gap:10px}
+  .hero .cta .btn,.ph-actions .btn{width:100%;justify-content:center}
+
+  /* 3. The homepage headline ran to four lines. Reducing the font alone did
+        not help: max-width is set in ch, which scales with font-size, so a
+        smaller type size shrank the measure by the same proportion and the
+        line count never moved. Releasing the measure is what fixes it. */
+  .hero h1{font-size:33px;max-width:none}
+  .page-hero h1{max-width:none}
+  .hero .lede{margin-top:16px}
+
+  /* 4. The four chips wrapped 3+1 or 2+2 depending on width, which looked
+        accidental. A two-column grid makes it a deliberate 2x2 at every
+        phone width, and each chip gets equal room. */
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}
+  .chip{justify-content:flex-start}
+
+  /* the script flourish is sized for a desktop hero; it crowds a phone */
+  .script-kick{font-size:26px}
+  .script-kick svg{width:120px}
+}
