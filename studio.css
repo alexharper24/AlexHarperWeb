@@ -4,6 +4,8 @@
           + Caveat (script accent) + IBM Plex Mono (labels)
    ============================================================ */
 :root{
+  /* iOS Safari inverts pages that do not declare a scheme. */
+  color-scheme: light only !important;
   --navy:#0F1E2E; --navy-2:#0A1622; --navy-3:#1B3049;
   --gold:#C79A5A; --gold-deep:#8F6A33; --gold-lt:#DDBB84;
   --cream:#F5EFE4;            /* page ground (brand soft cream, deepened so white tiles lift) */
