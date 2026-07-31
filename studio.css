@@ -697,3 +697,22 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
   .script-kick{font-size:26px}
   .script-kick svg{width:120px}
 }
+
+/* --------------------------------------------------------------------------
+   Touch devices: neutralise hover lifts.
+   iOS fires :hover on the first tap, so a hover transform stays applied and the
+   tap does not reach the link. Colour-only hover states are left alone; they are
+   harmless without a pointer.
+   -------------------------------------------------------------------------- */
+@media (hover: none) {
+  .btn-primary:hover { transform: none; }
+  .btn-ghost:hover { transform: none; }
+  .btn:hover .arr { transform: none; }
+  .svc:hover { transform: none; }
+  .svc:hover .more .arr { transform: none; }
+  .wcard:hover { transform: none; }
+  .compare-tiers a:hover { transform: none; }
+  .back-link:hover .arr-l { transform: none; }
+  .tier:hover { transform: none; }
+  a.svc:hover::after { transform: none; }
+}
