@@ -187,6 +187,13 @@ section.block{padding:92px 0}
 .wcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--navy)}
 .wcard .tag{align-self:flex-start;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:6px}
 .wcard h3{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--navy);margin:13px 0 0}
+/* Reserve two lines for the title so every card's paragraph starts on the
+   same line. One client name wraps to two lines and the rest do not, which
+   pushed that card's body 34px lower than its neighbours. 3.3em is exactly
+   two lines at this font size and line height. Only applied once the cards
+   sit side by side: in a single column there is nothing to align to, and
+   the reserved space would just be a gap. */
+@media(min-width:701px){.wcard h3{min-height:3.3em}}
 .wcard p{color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6}
 .wcard .go{margin-top:auto;padding-top:16px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
 .wcard.c-infinite::before{background:#C33E1D}.wcard.c-infinite .tag{color:#C33E1D;background:#FBE7DE}.wcard.c-infinite .go{color:#C33E1D}.wcard.c-infinite:hover{border-color:#C33E1D}
