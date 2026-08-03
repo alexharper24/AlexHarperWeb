@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="studio.css?v=67"/>
+<link rel="stylesheet" href="studio.css?v=68"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2Q4TFJQM4"></script>
 <script>
   window.dataLayer=window.dataLayer||[];
@@ -125,16 +125,6 @@
   <section class="block">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">The situation</span>
-        <h2>Good content, trapped in old scaffolding.</h2>
-        <p>The church had twenty years of real substance on their site: a full statement of faith, a history going back to a 1974 home Bible study, service times, bus routes, and a live sermon stream. None of that was the problem. The platform holding it was built on table layouts and a 2011 version of jQuery, and it gave them no way to fix what was wrong.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="wrap">
-      <div class="sec-head">
         <span class="eyebrow">Before &amp; after</span>
         <h2>The homepage.</h2>
         <p>Same church, same message. One of them tells a first-time visitor what they need to know.</p>
@@ -142,12 +132,12 @@
       <div class="cs-ba">
         <figure>
           <span class="lbl before">Before</span>
-          <div class="shot"><img src="img/work/calvary-before-home.jpg" alt="The previous Calvary Road Baptist Church homepage on a desktop browser" width="1280" height="800" loading="lazy" decoding="async"/></div>
+          <div class="shot"><img src="img/work/calvary-before-home.jpg?v=2" alt="The previous Calvary Road Baptist Church homepage on a desktop browser" width="1280" height="800" loading="lazy" decoding="async"/></div>
           <figcaption>A crowded template with a generic title, no social preview, and no way for Google to understand what the page was.</figcaption>
         </figure>
         <figure>
           <span class="lbl after">After</span>
-          <div class="shot"><img src="img/work/calvary-after-home.jpg" alt="The rebuilt Calvary Road Baptist Church homepage on a desktop browser" width="1280" height="800" loading="lazy" decoding="async"/></div>
+          <div class="shot"><img src="img/work/calvary-after-home.jpg?v=2" alt="The rebuilt Calvary Road Baptist Church homepage on a desktop browser" width="1280" height="800" loading="lazy" decoding="async"/></div>
           <figcaption>A clear invitation, service times above the fold, and the church's own colours drawn from their logo.</figcaption>
         </figure>
       </div>
@@ -164,12 +154,12 @@
       <div class="cs-ba tall">
         <figure>
           <span class="lbl before">Before</span>
-          <div class="shot"><img src="img/work/calvary-before-home-mobile.jpg" alt="The previous homepage on a phone, with no visible navigation menu" width="390" height="844" loading="lazy" decoding="async"/></div>
+          <div class="shot"><img src="img/work/calvary-before-home-mobile.jpg?v=2" alt="The previous homepage on a phone, with no visible navigation menu" width="390" height="844" loading="lazy" decoding="async"/></div>
           <figcaption>The desktop menu was simply switched off at phone widths and nothing took its place. No hamburger, no links, no way through the site.</figcaption>
         </figure>
         <figure>
           <span class="lbl after">After</span>
-          <div class="shot"><img src="img/work/calvary-after-home-mobile.jpg" alt="The rebuilt homepage on a phone, with a working menu button" width="390" height="844" loading="lazy" decoding="async"/></div>
+          <div class="shot"><img src="img/work/calvary-after-home-mobile.jpg?v=2" alt="The rebuilt homepage on a phone, with a working menu button" width="390" height="844" loading="lazy" decoding="async"/></div>
           <figcaption>A working menu, tap-to-call, tap-for-directions, and text sized to read without pinching.</figcaption>
         </figure>
       </div>
@@ -186,12 +176,12 @@
       <div class="cs-ba">
         <figure>
           <span class="lbl before">Before</span>
-          <div class="shot"><img src="img/work/calvary-before-beliefs.jpg" alt="The previous statement of faith page, one long unbroken wall of text" width="1280" height="800" loading="lazy" decoding="async"/></div>
+          <div class="shot"><img src="img/work/calvary-before-beliefs.jpg?v=2" alt="The previous statement of faith page, one long unbroken wall of text" width="1280" height="800" loading="lazy" decoding="async"/></div>
           <figcaption>One unbroken wall of text, with Scripture references as plain unclickable strings.</figcaption>
         </figure>
         <figure>
           <span class="lbl after">After</span>
-          <div class="shot"><img src="img/work/calvary-after-beliefs.jpg" alt="The rebuilt statement of faith page with expandable articles" width="1280" height="800" loading="lazy" decoding="async"/></div>
+          <div class="shot"><img src="img/work/calvary-after-beliefs.jpg?v=2" alt="The rebuilt statement of faith page with expandable articles" width="1280" height="800" loading="lazy" decoding="async"/></div>
           <figcaption>Each article opens on its own, and all 134 Scripture references expand the exact King James verse inline.</figcaption>
         </figure>
       </div>
@@ -203,15 +193,15 @@
       <div class="sec-head">
         <span class="eyebrow">What was broken</span>
         <h2>Eight things worth fixing.</h2>
-        <p>Some were visible. The ones costing them the most were not.</p>
+        <p>The platform was built on table layouts and a 2011 version of jQuery, which left no way to fix any of this. Some problems were visible. The ones costing them most were not.</p>
       </div>
       <ol class="cs-fixes">
         <li><b>No navigation on a phone.</b> The menu was hidden below 940px with nothing replacing it.</li>
-        <li><b>The homepage wasn't a stable address.</b> The root URL answered with a temporary redirect into a chain of ASP pages, so Google had indexed a secondary URL instead.</li>
+        <li><b>The homepage wasn't a stable address.</b> A temporary redirect sent the root URL into a chain of ASP pages, so Google indexed a secondary URL.</li>
         <li><b>One page title for the whole site.</b> Every page announced itself identically to search results.</li>
-        <li><b>Nothing machine-readable.</b> No structured data, no social preview tags, no canonical tags, no <span style="font-family:var(--mono);font-size:.9em">sitemap.xml</span>.</li>
+        <li><b>Nothing machine-readable.</b> No structured data, no social preview tags, no canonical tags, no sitemap.</li>
         <li><b>Conflicting contact details.</b> Two different phone numbers and two different email addresses across the site.</li>
-        <li><b>Wrong service times published elsewhere.</b> Six church directories listed Sunday evening an hour off. One noted the information hadn't been touched in over six years.</li>
+        <li><b>Wrong service times published elsewhere.</b> Six directories listed Sunday evening an hour off, one untouched for over six years.</li>
         <li><b>A whole year of events invisible.</b> The activities calendar was a single flat image.</li>
         <li><b>Duplicated analytics and a boxed-in logo.</b> Two tracking scripts loading at once, and a logo saved as a black-background JPEG.</li>
       </ol>
@@ -228,7 +218,7 @@
       <table class="cs-table">
         <thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Homepage HTML weight</th><td class="was" data-l="Before">63,197 bytes</td><td class="now" data-l="After">19,863 bytes &mdash; 68% smaller</td></tr>
+          <tr><th scope="row">Homepage HTML weight</th><td class="was" data-l="Before">63,197 bytes</td><td class="now" data-l="After">19,863 bytes (68% smaller)</td></tr>
           <tr><th scope="row">Page titles</th><td class="was" data-l="Before">Identical on every page</td><td class="now" data-l="After">Unique and descriptive per page</td></tr>
           <tr><th scope="row">Structured data</th><td class="was" data-l="Before">None</td><td class="now" data-l="After">Church, FAQ, 78 events, staff, video</td></tr>
           <tr><th scope="row">Social preview tags</th><td class="was" data-l="Before">None</td><td class="now" data-l="After">Full Open Graph and Twitter cards</td></tr>
@@ -250,7 +240,7 @@
         <p>A rebuild is the easy half. The half that goes wrong is the move.</p>
       </div>
       <ol class="cs-fixes">
-        <li><b>Every old address still works.</b> Ten previously indexed URLs were mapped to their new pages so two decades of search history carried across instead of dying in a 404.</li>
+        <li><b>Every old address still works.</b> Ten indexed URLs were mapped to their new pages, so two decades of search history carried across.</li>
         <li><b>Email never went down.</b> Both domains carried live church mailboxes. The website records were repointed and the mail records left untouched.</li>
         <li><b>A hidden redirect was found and removed.</b> The new domain still had an old forwarding rule quietly sending a share of visitors back to the previous site.</li>
         <li><b>The church owns the keys.</b> Domain, hosting, and the code all sit in accounts belonging to the church, with me added to maintain them.</li>
@@ -261,13 +251,11 @@
     </div>
   </section>
 
-  <section class="block">
+  <section class="cta-band block">
     <div class="wrap">
-      <div class="inline-cta">
-        <h2>Is your site working against you?</h2>
-        <p>If it looks fine on your laptop and falls apart on a phone, that is worth twenty minutes of conversation.</p>
-        <a href="contact.html" class="btn btn-primary">Schedule a consultation <span class="arr">&rarr;</span></a>
-      </div>
+      <h2>Is your site working against you?</h2>
+      <p>If it looks fine on your laptop and falls apart on a phone, that is worth twenty minutes of conversation.</p>
+      <a href="contact.html" class="btn btn-primary">Schedule a consultation <span class="arr">&rarr;</span></a>
     </div>
   </section>
 </main>

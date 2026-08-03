@@ -768,7 +768,10 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 /* before / after pairs. Two-up on desktop so the eye compares directly,
    stacked on mobile where side-by-side would shrink both past legibility. */
 .cs-ba{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
-.cs-ba.tall{max-width:760px;margin-left:auto;margin-right:auto}  /* phone screenshots */
+/* Phone screenshots are 390x844, so at 760px wide the pair rendered nearly
+   800px tall and dominated the page. Narrowing the pair is the only lever:
+   the aspect is fixed, so width is what controls the height. */
+.cs-ba.tall{max-width:520px;margin-left:auto;margin-right:auto}
 .cs-ba figure{margin:0}
 .cs-ba .shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--warm-tint);
   box-shadow:0 20px 44px -34px rgba(15,30,46,.4)}
