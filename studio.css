@@ -195,7 +195,16 @@ section.block{padding:92px 0}
    the reserved space would just be a gap. */
 @media(min-width:701px){.wcard h3{min-height:3.3em}}
 .wcard p{color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6}
-.wcard .go{margin-top:auto;padding-top:16px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.wcard .wc-links{margin-top:auto;padding-top:16px;display:flex;flex-direction:column;gap:9px;align-items:flex-start}
+.wcard .go,.wcard .study{font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+/* The card is a div now, because it holds two links and nested anchors are
+   invalid. "Visit site" still gets the whole card as its hit area via a
+   covering pseudo-element; the study link sits above it on its own layer so
+   it stays separately clickable. */
+.wcard .go::after{content:"";position:absolute;inset:0;z-index:0}
+.wcard .study{position:relative;z-index:1;color:var(--navy);border-bottom:1px solid transparent;
+  padding-bottom:1px;transition:border-color .15s}
+.wcard .study:hover{border-bottom-color:currentColor}
 .wcard.c-infinite::before{background:#C33E1D}.wcard.c-infinite .tag{color:#C33E1D;background:#FBE7DE}.wcard.c-infinite .go{color:#C33E1D}.wcard.c-infinite:hover{border-color:#C33E1D}
 .wcard.c-hope::before{background:#1E3054}.wcard.c-hope .tag{color:#1E3054;background:#E7EAF1}.wcard.c-hope .go{color:#1E3054}.wcard.c-hope:hover{border-color:#1E3054}
 .wcard.c-faith::before{background:#D98A9E}.wcard.c-faith .tag{color:#B86A7E;background:#FAECEF}.wcard.c-faith .go{color:#B86A7E}.wcard.c-faith:hover{border-color:#D98A9E}

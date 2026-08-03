@@ -27,8 +27,8 @@ REPO = r"C:\Git_Repos\alexharper-website-repo\img\work"
 TARGETS = [
     ("calvary-before-home.jpg",        (1280, 800), ("home", "desktop"), ("before", "old", "legacy"), False),
     ("calvary-after-home.jpg",         (1280, 800), ("home", "desktop"), ("after", "new"),            False),
-    ("calvary-before-home-mobile.jpg", (390, 800),  ("home", "desktop"), ("before", "old", "legacy"), True),
-    ("calvary-after-home-mobile.jpg",  (390, 800),  ("home", "desktop"), ("after", "new"),            True),
+    ("calvary-before-home-mobile.jpg", (390, 844),  ("home", "desktop"), ("before", "old", "legacy"), True),
+    ("calvary-after-home-mobile.jpg",  (390, 844),  ("home", "desktop"), ("after", "new"),            True),
     ("calvary-before-beliefs.jpg",     (1280, 800), ("beliefs",),        ("before", "old", "legacy"), False),
     ("calvary-after-beliefs.jpg",      (1280, 800), ("beliefs",),        ("after", "new"),            False),
 ]
