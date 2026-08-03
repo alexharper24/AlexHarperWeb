@@ -240,10 +240,10 @@ footer{background:var(--navy-2);color:#A6B1C0;padding:64px 0 40px;border-top:2px
    ============================================================ */
 /* page hero */
 .page-hero{padding:64px 0 10px}
-.page-hero .eyebrow{margin-bottom:16px}
+.page-hero .eyebrow{margin-bottom:12px}
 .page-hero h1{font-size:clamp(32px,4.4vw,50px);max-width:26ch}
-.page-hero p{color:var(--muted);font-size:clamp(16px,1.6vw,19px);max-width:62ch;margin-top:16px}
-.crumb{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+.page-hero p{color:var(--muted);font-size:clamp(16px,1.6vw,19px);max-width:62ch;margin-top:13px}
+.crumb{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
 .crumb a:hover{color:var(--gold-deep)}
 .ph-price{font-family:var(--serif);font-size:42px;font-weight:600;color:var(--navy);margin-top:14px;
   }
@@ -664,7 +664,9 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
    block that directly follows a page hero, so every other page keeps
    its current spacing.
    ============================================================ */
-.page-hero{padding:40px 0 36px}
+/* The cream band is a label strip, not a hero: it does not need generous
+   padding on top of a crumb row, an eyebrow row, a headline and a lede. */
+.page-hero{padding:32px 0 30px}
 .page-hero + section.block{padding-top:54px}
 .svc-grid.six.detail{margin-top:28px}
 .svc-grid.six.detail .svc{padding:22px 24px}
