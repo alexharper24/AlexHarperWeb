@@ -875,3 +875,20 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
   .illus .svc-art{transition:none}
   .illus .svc:hover .svc-art{transform:none}
 }
+
+/* --------------------------------------------------------------------------
+   SERVICES PAGE ARTWORK (2026-08-08). services.html runs the same six cards
+   with two to three times the copy, so the homepage proportions do not carry:
+   at 61%/53% the text closed to 13px of the object, against 29px on the home
+   page. A smaller object pushed further into the corner restores the gap
+   without narrowing the measure, which would only make these cards taller.
+   -------------------------------------------------------------------------- */
+.detail.illus .svc-art{width:47%;right:-12%;bottom:-7%}
+@media(max-width:900px){
+  .detail.illus .svc-art{width:45%;right:-10%}
+}
+@media(max-width:620px){
+  /* one per row: the card narrows again and the copy is still long */
+  .detail.illus .svc-copy{width:58%}
+  .detail.illus .svc-art{width:44%;right:-8%;bottom:-5%}
+}
