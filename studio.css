@@ -832,3 +832,46 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 @media (max-width: 640px) {
   .wc-links a { display:inline-block; padding-top:10px; padding-bottom:10px; }
 }
+
+/* --------------------------------------------------------------------------
+   SERVICES ARTWORK (2026-08-08). Homepage only, scoped to .svc-grid.six.illus
+   so services.html and 404.html, which share .svc-grid.six, do not move.
+   Copy sits left, the rendered object sits right and bleeds off the corner,
+   which is how the approved reference composes the card.
+   -------------------------------------------------------------------------- */
+.illus .svc{position:relative;overflow:hidden;flex-direction:row;
+  padding:28px 24px 30px;min-height:252px;background:var(--card)}
+/* the copy has to clear the artwork, and beat it in the stacking order */
+.illus .svc-copy{position:relative;z-index:2;width:61%}
+.illus .svc h3{font-size:20px;margin-top:17px}
+.illus .svc h3::after{content:"";display:block;width:30px;height:2px;
+  margin-top:11px;border-radius:2px;background:var(--gold)}
+.illus .svc p{font-size:14.5px;color:#414B59;margin-top:11px}
+/* The renders carry their own soft shadow and sit on a transparent square, so
+   they need no frame: bleeding them past the corner is what stops the card
+   reading as a picture in a box. */
+.illus .svc-art{position:absolute;z-index:1;pointer-events:none;
+  width:53%;height:auto;right:-9%;bottom:-8%;
+  transition:transform .25s ease}
+.illus .svc:hover .svc-art{transform:scale(1.04)}
+/* the corner arrow that a.svc paints would land on top of the artwork */
+.illus a.svc::after{display:none}
+.illus a.svc{padding-bottom:30px}
+
+@media(max-width:900px){
+  /* two across: the cards narrow, so give the copy a little more room back */
+  .illus .svc-copy{width:63%}
+  .illus .svc-art{width:50%}
+}
+@media(max-width:620px){
+  /* One card per row is only ~338px wide, so the two columns start to fight.
+     Measured at 390px: copy 62% plus art 52% ran the text 14px into the art's
+     box. These numbers keep a real gap between the words and the object. */
+  .illus .svc{min-height:230px}
+  .illus .svc-copy{width:60%}
+  .illus .svc-art{width:46%;right:-7%;bottom:-6%}
+}
+@media (prefers-reduced-motion: reduce){
+  .illus .svc-art{transition:none}
+  .illus .svc:hover .svc-art{transform:none}
+}

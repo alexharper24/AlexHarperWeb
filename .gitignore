@@ -21,3 +21,7 @@ harper-digital-logo.png
 # design handoff: reference screenshots and the uncropped workspace source.
 # Only the shipping assets were copied out, into img/services/.
 harper-studio-services-handoff/
+
+# ChatGPT source renders for the services artwork. Web-optimized .webp
+# derivatives live in img/services/ and are committed; these are not.
+img/services/source/
