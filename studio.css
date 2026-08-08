@@ -832,3 +832,83 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 @media (max-width: 640px) {
   .wc-links a { display:inline-block; padding-top:10px; padding-bottom:10px; }
 }
+
+/* --------------------------------------------------------------------------
+   SERVICES SHOWCASE (2026-08-08). Homepage "What I do" only. The intro splits
+   into copy plus a workspace photo, and the six cards gain decorative line art.
+   Scoped to .showcase throughout, because services.html and 404.html share
+   .svc-grid.six and must not move.
+   -------------------------------------------------------------------------- */
+
+/* --- intro row --- */
+.svc-intro{display:grid;grid-template-columns:minmax(0,57fr) minmax(0,43fr);
+  gap:clamp(28px,3.4vw,52px);align-items:center}
+.svc-intro .sec-head{max-width:none}
+.svc-intro .sec-head p{max-width:50ch}   /* still needs a ceiling in its column */
+/* The one highlighted word. --gold-deep rather than --gold: --gold measures
+   2.51:1 on paper and fails even the large-text floor, --gold-deep is 4.75:1
+   and reads as the same brand colour. */
+.svc-intro h2 .hl{font-style:italic;font-weight:600;color:var(--gold-deep)}
+
+/* The photo blends into the paper on its left instead of sitting in a hard
+   rectangle. Same technique as the hero, shorter ramp: this image is narrower,
+   so the hero's 14% fade would eat the laptop. */
+.svc-art{min-width:0}
+.svc-art img{display:block;width:100%;height:auto;border-radius:16px;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 5%,#000 12%);
+  mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 5%,#000 12%)}
+@media(max-width:980px){
+  .svc-intro{grid-template-columns:1fr;gap:24px}
+  /* stacked there is no paper to its left to blend into, and the square crop is
+     capped so it does not push the six cards off a phone screen */
+  .svc-art img{max-height:240px;object-fit:cover;object-position:center;
+    -webkit-mask-image:none;mask-image:none}
+}
+
+/* --- cards --- */
+.svc-grid.six.showcase{margin-top:44px}
+.showcase .svc{position:relative;overflow:hidden;background:var(--card)}
+.showcase .svc:hover{transform:translateY(-3px)}
+/* Supporting artwork: sits behind the text, bleeds off the corner, and is a
+   background rather than an <img> so it is never exposed to a screen reader. */
+.showcase .svc::before{content:"";position:absolute;inset:0;z-index:0;
+  pointer-events:none;background-repeat:no-repeat;opacity:.15;
+  transition:opacity .18s ease}
+.showcase .svc > *{position:relative;z-index:1}
+.showcase .svc:hover::before{opacity:.24}
+
+/* cropped and placed differently per card so the six do not read as a pattern */
+.showcase .d-custom::before  {background-image:url(img/services/decorative/custom-design.svg);background-position:right -36px bottom 40px;background-size:176px auto}
+.showcase .d-redesign::before{background-image:url(img/services/decorative/redesign.svg);     background-position:right -24px bottom 26px;background-size:152px auto}
+.showcase .d-fast::before    {background-image:url(img/services/decorative/fast-build.svg);   background-position:right -18px bottom 48px;background-size:166px auto}
+.showcase .d-hosting::before {background-image:url(img/services/decorative/hosting.svg);      background-position:right -32px bottom 30px;background-size:160px auto}
+.showcase .d-local::before   {background-image:url(img/services/decorative/local.svg);        background-position:right -14px bottom 42px;background-size:148px auto}
+.showcase .d-updates::before {background-image:url(img/services/decorative/updates.svg);      background-position:right -30px bottom 32px;background-size:170px auto}
+
+/* short gold rule under each title, from the reference */
+.showcase .svc h3::after{content:"";display:block;width:34px;height:2px;
+  margin-top:13px;border-radius:2px;background:var(--gold)}
+.showcase .svc p{margin-top:12px}
+
+/* --- reassurance strip --- */
+.svc-assure{display:flex;align-items:center;gap:16px;margin-top:20px;
+  padding:16px 26px;background:var(--card);border:1px solid var(--line);
+  border-radius:16px;box-shadow:0 18px 34px -30px rgba(15,30,46,.30)}
+.svc-assure .sa-ic{flex:none;width:38px;height:38px;border-radius:50%;
+  background:var(--navy);color:var(--gold-lt);
+  display:flex;align-items:center;justify-content:center}
+.svc-assure .sa-ic svg{width:19px;height:19px}
+.svc-assure b{flex:none;font-family:var(--serif);font-weight:600;font-size:18px;color:var(--navy)}
+.svc-assure p{margin:0;font-size:15px;color:var(--muted);
+  padding-left:18px;border-left:1px solid var(--line)}
+/* Stacked, the icon on its own row cost 49px of phone height for nothing. Wrap
+   instead: the mark and the label share row one, the sentence takes row two. */
+@media(max-width:760px){
+  .svc-assure{flex-wrap:wrap;gap:12px;padding:18px 22px}
+  .svc-assure p{flex:1 0 100%;padding-left:0;border-left:0}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .showcase .svc::before{transition:none}
+  .showcase .svc:hover::before{opacity:.15}
+}
