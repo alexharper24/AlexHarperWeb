@@ -25,3 +25,6 @@ harper-studio-services-handoff/
 # ChatGPT source renders for the services artwork. Web-optimized .webp
 # derivatives live in img/services/ and are committed; these are not.
 img/services/source/
+
+# scratch contact sheets used while checking artwork; never published
+.sheet-*.png
