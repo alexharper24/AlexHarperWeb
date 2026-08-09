@@ -842,7 +842,7 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 .illus .svc{position:relative;overflow:hidden;flex-direction:row;
   padding:28px 24px 30px;min-height:252px;background:var(--card)}
 /* the copy has to clear the artwork, and beat it in the stacking order */
-.illus .svc-copy{position:relative;z-index:2;width:61%}
+.illus .svc-copy{position:relative;z-index:2;width:54%}
 .illus .svc h3{font-size:20px;margin-top:17px}
 .illus .svc h3::after{content:"";display:block;width:30px;height:2px;
   margin-top:11px;border-radius:2px;background:var(--gold)}
@@ -851,7 +851,7 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
    they need no frame: bleeding them past the corner is what stops the card
    reading as a picture in a box. */
 .illus .svc-art{position:absolute;z-index:1;pointer-events:none;
-  width:53%;height:auto;right:-9%;bottom:-8%;
+  width:50%;height:auto;right:7px;bottom:6px;
   transition:transform .25s ease}
 .illus .svc:hover .svc-art{transform:scale(1.04)}
 /* the corner arrow that a.svc paints would land on top of the artwork */
@@ -860,16 +860,16 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 
 @media(max-width:900px){
   /* two across: the cards narrow, so give the copy a little more room back */
-  .illus .svc-copy{width:63%}
-  .illus .svc-art{width:50%}
+  .illus .svc-copy{width:58%}
+  .illus .svc-art{width:44%}
 }
 @media(max-width:620px){
   /* One card per row is only ~338px wide, so the two columns start to fight.
      Measured at 390px: copy 62% plus art 52% ran the text 14px into the art's
      box. These numbers keep a real gap between the words and the object. */
   .illus .svc{min-height:230px}
-  .illus .svc-copy{width:60%}
-  .illus .svc-art{width:46%;right:-7%;bottom:-6%}
+  .illus .svc-copy{width:57%}
+  .illus .svc-art{width:44%;right:8px;bottom:8px}
 }
 @media (prefers-reduced-motion: reduce){
   .illus .svc-art{transition:none}
@@ -883,12 +883,13 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
    page. A smaller object pushed further into the corner restores the gap
    without narrowing the measure, which would only make these cards taller.
    -------------------------------------------------------------------------- */
-.detail.illus .svc-art{width:47%;right:-12%;bottom:-7%}
+.detail.illus .svc-copy{width:54%}
+.detail.illus .svc-art{width:47%;right:7px;bottom:6px}
 @media(max-width:900px){
-  .detail.illus .svc-art{width:45%;right:-10%}
+  .detail.illus .svc-art{width:41%;right:9px}
 }
 @media(max-width:620px){
   /* one per row: the card narrows again and the copy is still long */
-  .detail.illus .svc-copy{width:58%}
-  .detail.illus .svc-art{width:44%;right:-8%;bottom:-5%}
+  .detail.illus .svc-copy{width:56%}
+  .detail.illus .svc-art{width:42%;right:8px;bottom:8px}
 }
