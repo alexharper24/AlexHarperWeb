@@ -45,10 +45,19 @@ commit that changes it.
 
 ## Conventions
 
-- Prices shown on the site are the live offer: build from $1,200 one-time;
-  Essential $45 / Standard $95 / Premium from $225 per month; church and
-  nonprofit rate $30 / $75 / from $175. Update `plans.html`, the three detail
-  pages, `faq.html`, and the homepage pricing section together.
+- Prices shown on the site are the live offer (set 2026-08-09): builds
+  Starter $800 / Signature from $2,400 / Advanced quoted, 25% deposit,
+  revisions capped (1 round Starter, 2 rounds Signature); care plans
+  Essential $65 / Standard $150 / Premium from $325 per month; church and
+  nonprofit rate $45 / $100 / from $225. Starter is paired with a care plan.
+  Existing clients keep their signed-up rates. Update `plans.html`, the three
+  detail pages, `faq.html` (copy AND JSON-LD), and the homepage pricing
+  section together.
+- Turnaround commitment: Starter about two weeks after content is ready;
+  Signature two to four weeks content-in-hand. Stated on `websites.html`,
+  `faq.html`, and `plans.html`; keep them in sync.
+- The written guarantee lives at `guarantee.html` (six commitments). Do not
+  add promises there without Alex's sign-off.
 - Header nav and footer are duplicated in every page. Change one, change all,
   then grep to confirm. `404.html` uses root-relative hrefs; every other page
   is relative.
@@ -58,10 +67,9 @@ commit that changes it.
 
 ## Pending
 
-- [ ] **Phase 2 decisions from Alex** (see `notes/action-plan.md`): start year +
-      project count to claim publicly, written guarantee terms, turnaround
-      commitment, Starter tier price/contents, whether Starter requires a plan.
-      The FAQ timeline answer gets a concrete number once turnaround is decided.
+- [x] ~~Phase 2 decisions~~ — resolved 2026-08-09: no tenure claim (honest "4
+      live sites" proof line instead), guarantee shipped, turnaround published,
+      Starter $800 with care plan required, plans $65/$150/$325.
 - [ ] **Testimonials**: ask all four clients for a short written quote; first
       one goes in the `.hero-quote` component already built in `studio.css`.
 - [ ] **Google Business Profile**: stand up, then begin the review flywheel.

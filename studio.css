@@ -899,6 +899,13 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 /* the closing CTA can hold a button pair; centre it (ph-actions is start-aligned) */
 .cta-band .ph-actions{justify-content:center}
 
+/* hero proof line (2026-08-09): the honest numbers, mono, under the lede */
+.hero-proof{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold-deep);margin-top:16px}
+.hero-proof a{color:var(--red);border-bottom:1px solid rgba(179,73,46,.35)}
+.hero-proof a:hover{border-bottom-color:var(--red)}
+@media(max-width:620px){.hero-proof{font-size:11px;letter-spacing:.05em}}
+
 /* Work tiles: a live capture of each client homepage sits at the top of the
    card (2026-08-09, work.html only; the homepage cards stay text-only).
    Negative margins run the shot to the card edge; the client-colour bar the
