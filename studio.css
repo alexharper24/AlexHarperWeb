@@ -899,6 +899,32 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 /* the closing CTA can hold a button pair; centre it (ph-actions is start-aligned) */
 .cta-band .ph-actions{justify-content:center}
 
+/* Four-up build ladder (2026-08-09). Four tiers so a buyer can place
+   themselves before making contact. Narrower cards than the three-up grid, so
+   the price steps down a size and the bullets lose the top borders that would
+   read as clutter at this width. 4 -> 2 -> 1. */
+.svc-grid.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1040px){.svc-grid.four{grid-template-columns:1fr 1fr;max-width:none}}
+@media(max-width:600px){.svc-grid.four{grid-template-columns:1fr;max-width:460px}}
+.svc-grid.four .svc{padding:24px 22px}
+.svc-grid.four .t-price{font-size:30px;margin:4px 0 0}
+.svc-grid.four .t-price small{font-size:13px;display:block;margin-top:2px}
+.svc-grid.four .tier-for{font-size:13.5px;color:var(--muted);margin-top:10px;min-height:3.4em}
+@media(max-width:600px){.svc-grid.four .tier-for{min-height:0}}
+.svc-grid.four .svc ul{margin-top:14px;border-top:1px solid #EDE6D8;padding-top:12px}
+.svc-grid.four .svc li{border-top:0;padding:5px 0 5px 20px;font-size:14px}
+.svc-grid.four .svc li::before{top:12px}
+
+/* definition rows: a term and its plain-English meaning, so words like
+   "revision round" and "request" are never left to interpretation */
+.defs{margin-top:26px;display:flex;flex-direction:column;gap:14px;max-width:860px}
+.defs .d-row{background:var(--card);border:1px solid #DCD0B8;border-radius:12px;padding:18px 22px;
+  box-shadow:0 3px 12px -7px rgba(15,30,46,.2)}
+.defs dt{font-family:var(--serif);font-weight:600;font-size:17.5px;color:var(--navy)}
+.defs dd{margin:6px 0 0;font-size:15px;color:var(--muted)}
+.defs dd b{color:var(--navy);font-weight:700}
+.defs .d-not{margin-top:8px;font-size:14.5px;color:var(--red-deep)}
+
 /* hero proof line (2026-08-09): the honest numbers, mono, under the lede */
 .hero-proof{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;color:var(--gold-deep);margin-top:16px}

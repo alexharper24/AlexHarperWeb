@@ -26,8 +26,9 @@ commit that changes it.
 | `index.html` | Homepage: hero, values, persona doors, services, pricing, process, work, FAQ teaser |
 | `services.html` | Services overview (hub) |
 | `websites.html` / `hosting.html` / `domains.html` | Service detail pages |
-| `plans.html` | Care plan comparison (build from $1,200; plans $45 / $95 / from $225) |
+| `plans.html` | Build ladder, care plans, what's in/out of a build, scope definitions |
 | `essential.html` / `standard.html` / `premium.html` | Care plan detail pages |
+| `guarantee.html` | The six written commitments |
 | `work.html` | Portfolio: four live client sites |
 | `work-calvary-road.html` | Calvary Road case study (platform migration) |
 | `faq.html` | FAQ with `FAQPage` schema |
@@ -46,16 +47,21 @@ commit that changes it.
 ## Conventions
 
 - Prices shown on the site are the live offer (set 2026-08-09): builds
-  Starter $800 / Signature from $2,400 / Advanced quoted, 25% deposit,
-  revisions capped (1 round Starter, 2 rounds Signature); care plans
+  Starter $800 (1 page) / Complete $1,600 (up to 6 pages) / Signature from
+  $2,400 (no page limit) / Advanced quoted, 25% deposit, revisions capped
+  (1 round Starter, 2 rounds Complete and Signature); care plans
   Essential $65 / Standard $150 / Premium from $325 per month; church and
   nonprofit rate $45 / $100 / from $225. Starter is paired with a care plan.
   Existing clients keep their signed-up rates. Update `plans.html`, the three
   detail pages, `faq.html` (copy AND JSON-LD), and the homepage pricing
   section together.
-- Turnaround commitment: Starter about two weeks after content is ready;
-  Signature two to four weeks content-in-hand. Stated on `websites.html`,
-  `faq.html`, and `plans.html`; keep them in sync.
+- Turnaround commitment: Starter ~2 weeks after content is ready, Complete
+  2-3 weeks, Signature 2-4 weeks. Stated on `websites.html`, `faq.html`, and
+  `plans.html`; keep them in sync.
+- **Scope definitions are load-bearing.** `plans.html` defines a revision
+  round, an edit (Essential, 4/yr, ~30 min), and a request (Standard, 4/mo,
+  ~1 hr, no rollover). `faq.html` repeats them in copy and JSON-LD, and the
+  three plan detail pages restate their own. Change one, change all five.
 - The written guarantee lives at `guarantee.html` (six commitments). Do not
   add promises there without Alex's sign-off.
 - Header nav and footer are duplicated in every page. Change one, change all,
@@ -73,7 +79,11 @@ commit that changes it.
 - [ ] **Testimonials**: ask all four clients for a short written quote; first
       one goes in the `.hero-quote` component already built in `studio.css`.
 - [ ] **Google Business Profile**: stand up, then begin the review flywheel.
-- [ ] **Pricing correction** (barbell: Starter / Signature / Advanced + raised
-      care plans) ships with the Phase 2 decisions, not before.
+- [x] ~~Pricing correction~~ — shipped 2026-08-09, four-rung build ladder plus
+      raised care plans, with scope definitions and build exclusions published.
+- [ ] **Founding-client offer** (optional): a time-boxed discount in exchange
+      for a testimonial. Needs Alex's discount amount and end date before it
+      can ship; deliberately not live.
 - [ ] Character pass (Phase 3): hand-drawn gold-line motif, voice pass, single
       repeated CTA everywhere.
+- [ ] Update the hero proof-line project count as new sites go live.
