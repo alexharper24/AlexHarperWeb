@@ -99,6 +99,11 @@ commit that changes it.
       one drops into the `.hero-quote` component already built in `studio.css`.
       Never tie a discount to a testimonial or review: it violates Google's
       review policies and creates an FTC-disclosable material connection.
-- [ ] Character pass (Phase 3): hand-drawn gold-line motif, voice pass, single
-      repeated CTA everywhere.
+- [x] ~~Character pass (Phase 3)~~ — shipped 2026-08-09: `.hand-rule` and the
+      `.steps.five` connector motif, voice pass, `.cta-or` call/text line on
+      15 pages. **Keep the motif to three or four placements**; it stops being
+      a signature and becomes decoration if it spreads.
+- [ ] **Calvary before/after pair on the homepage** — the only Phase 3 item
+      left, and it is blocked on Alex confirming which shots pair together.
+      Never match photo pairs by visual inspection.
 - [ ] Update the hero proof-line project count as new sites go live.

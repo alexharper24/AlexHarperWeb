@@ -915,6 +915,50 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 .svc-grid.four .svc li{border-top:0;padding:5px 0 5px 20px;font-size:14px}
 .svc-grid.four .svc li::before{top:12px}
 
+/* ============================================================
+   CHARACTER PASS (2026-08-09)
+   The hero already carried one hand-drawn gold stroke under the
+   script kick. That was the only hand-made mark on the site, so the
+   "care in every detail" claim had nothing visible behind it. These
+   extend that one stroke into a small, repeated language.
+   Used sparingly on purpose: a motif everywhere is decoration, a
+   motif in three places is a signature.
+   ============================================================ */
+
+/* 1. Hand-drawn rule under a section heading. The path is the same
+      gentle wobble as the hero stroke, so they read as one hand. */
+.hand-rule{display:block;margin-top:14px;width:132px;height:9px;overflow:visible;color:var(--gold)}
+.hand-rule path{stroke:currentColor;stroke-width:2.6;stroke-linecap:round;fill:none}
+.sec-head.center .hand-rule{margin-left:auto;margin-right:auto}
+section.block.navy .hand-rule,.values .hand-rule{color:var(--gold-lt)}
+
+/* 2. The process strip's connecting stroke. This one earns its place:
+      it draws the sequence the numbers only imply. Desktop five-across
+      only, since the 2+2+1 and single-column stacks have no straight
+      run to follow. Sits behind the step cards. */
+@media(min-width:1061px){
+  .steps.five{position:relative}
+  .steps.five::before{content:"";position:absolute;z-index:0;
+    /* 34px puts the stroke's centre at 39px, exactly the centre of the .snum
+       badges it threads between (22px card padding + 32px badge / 2). */
+    left:8%;right:8%;top:34px;height:10px;pointer-events:none;
+    background:no-repeat center/100% 100% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='10' viewBox='0 0 900 10' fill='none' preserveAspectRatio='none'%3E%3Cpath d='M2 6c120-5 240-6 360-3 130 3 250 3 376-2' stroke='%23C79A5A' stroke-width='2.4' stroke-linecap='round' stroke-dasharray='1 7'/%3E%3C/svg%3E")}
+  .steps.five .step{position:relative;z-index:1}
+}
+
+/* 3. The call/text line under a closing CTA. The number was buried in
+      the footer on every page; a solo operator answering their own
+      phone is worth saying out loud. */
+.cta-or{margin-top:18px;font-size:15px;color:var(--muted)}
+.cta-or a{font-weight:700;color:var(--red-deep);border-bottom:1px solid rgba(147,54,31,.35)}
+.cta-or a:hover{border-bottom-color:var(--red-deep)}
+section.block.navy .cta-or,.founder .cta-or{color:#AEB9C8}
+section.block.navy .cta-or a,.founder .cta-or a{color:var(--gold-lt);border-bottom-color:rgba(221,187,132,.4)}
+@media(max-width:640px){
+  /* 15px of text is a 20px tap target; the number has to be thumb-sized */
+  .cta-or a{display:inline-block;min-height:44px;line-height:44px}
+}
+
 /* Launch offer band (2026-08-09). Deliberately dated in the copy so it cannot
    quietly become permanent: it expires 2026-12-31 and the README tracks the
    removal. Gold border rather than a fill, so it reads as an offer without
