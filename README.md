@@ -25,7 +25,7 @@ commit that changes it.
 |------|---------|
 | `index.html` | Homepage: hero, values, persona doors, services, pricing, process, work, FAQ teaser |
 | `services.html` | Services overview (hub) |
-| `websites.html` / `hosting.html` / `domains.html` | Service detail pages |
+| `websites.html` / `hosting.html` / `domains.html` / `local.html` | Service detail pages |
 | `plans.html` | Build ladder, care plans, what's in/out of a build, scope definitions |
 | `essential.html` / `standard.html` / `premium.html` | Care plan detail pages |
 | `guarantee.html` | The six written commitments |
@@ -80,10 +80,11 @@ commit that changes it.
       one goes in the `.hero-quote` component already built in `studio.css`.
 - [x] ~~Google Business Profile~~ — already exists; the homepage `sameAs`
       already points at its Knowledge Graph id. Review asks are Alex's to run.
-- [ ] **GBP as a sellable service**: setup folded into builds, and management
-      plus a monthly report into Standard/Premium. GA4 and Cloudflare
-      Analytics already collect the data. Louisville Web Guy bundles this into
-      their $399/mo; it's the largest remaining product gap.
+- [x] ~~GBP as a sellable service~~ — shipped 2026-08-09 as `local.html`:
+      setup in every build, ongoing management and a monthly note on Standard
+      and Premium, Essential explicitly excluded. **This is now a delivery
+      commitment**: Standard/Premium clients expect their profile watched and
+      a monthly note. Don't sell it without doing it.
 - [x] ~~Pricing correction~~ — shipped 2026-08-09, four-rung build ladder plus
       raised care plans, with scope definitions and build exclusions published.
 - [ ] **REMOVE THE LAUNCH OFFER AFTER 2026-12-31.** The "first three months of
