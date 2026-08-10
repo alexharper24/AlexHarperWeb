@@ -78,17 +78,26 @@ commit that changes it.
       Starter $800 with care plan required, plans $65/$150/$325.
 - [ ] **Testimonials**: ask all four clients for a short written quote; first
       one goes in the `.hero-quote` component already built in `studio.css`.
-- [ ] **Google Business Profile**: stand up, then begin the review flywheel.
+- [x] ~~Google Business Profile~~ — already exists; the homepage `sameAs`
+      already points at its Knowledge Graph id. Review asks are Alex's to run.
+- [ ] **GBP as a sellable service**: setup folded into builds, and management
+      plus a monthly report into Standard/Premium. GA4 and Cloudflare
+      Analytics already collect the data. Louisville Web Guy bundles this into
+      their $399/mo; it's the largest remaining product gap.
 - [x] ~~Pricing correction~~ — shipped 2026-08-09, four-rung build ladder plus
       raised care plans, with scope definitions and build exclusions published.
-- [ ] **Testimonials: just ask, free.** Four clients, four short emails. Do
-      NOT tie a discount to a testimonial or review: it violates Google's
-      review policies, creates an FTC-disclosable material connection, and
-      makes the testimonial weaker than a freely given one.
-- [ ] **Launch offer** (optional, not live): recommended form is *three months
-      of care included* for the first three clients, NOT a build discount. It
-      keeps the build price anchor intact, costs little marginally, and seeds
-      the care plan. Needs Alex's go-ahead and a client count or end date.
+- [ ] **REMOVE THE LAUNCH OFFER AFTER 2026-12-31.** The "first three months of
+      care included" band is live in **two** places: `plans.html` (full version
+      with the reasoning) and `index.html` (short version in the pricing
+      section), plus the `.offer` block in `studio.css`. It is deliberately
+      dated in the copy so it cannot silently become permanent. Delete both
+      bands, or extend the date in both, on or before that date.
+      Deliberately **not** in `faq.html` or any JSON-LD, to keep the removal
+      surface at two spots.
+- [ ] **Testimonials: Alex is reaching out** (his four existing clients). First
+      one drops into the `.hero-quote` component already built in `studio.css`.
+      Never tie a discount to a testimonial or review: it violates Google's
+      review policies and creates an FTC-disclosable material connection.
 - [ ] Character pass (Phase 3): hand-drawn gold-line motif, voice pass, single
       repeated CTA everywhere.
 - [ ] Update the hero proof-line project count as new sites go live.
