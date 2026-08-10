@@ -877,6 +877,37 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
 }
 
 /* --------------------------------------------------------------------------
+   FAQ ACCORDION (2026-08-09). Used by faq.html and the homepage teaser.
+   Native details/summary, so it needs no JS and stays keyboard-accessible.
+   -------------------------------------------------------------------------- */
+.faq{margin-top:34px;display:flex;flex-direction:column;gap:12px;max-width:820px}
+.faq details{background:var(--card);border:1px solid #DCD0B8;border-radius:14px;
+  box-shadow:0 4px 14px -7px rgba(15,30,46,.24),0 1px 2px rgba(15,30,46,.06)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:18px 22px;font-family:var(--serif);font-weight:600;font-size:18px;color:var(--navy);min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:11px;height:11px;flex:none;margin-right:4px;
+  border-right:2px solid var(--gold-deep);border-bottom:2px solid var(--gold-deep);
+  transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(225deg) translateY(-2px)}
+.faq .faq-a{padding:0 22px 20px;color:var(--muted);font-size:15.5px}
+.faq .faq-a p+p{margin-top:10px}
+.faq .faq-a a{color:var(--red);font-weight:700;border-bottom:1px solid rgba(179,73,46,.35)}
+.faq .faq-a a:hover{border-bottom-color:var(--red)}
+@media (prefers-reduced-motion: reduce){.faq summary::after{transition:none}}
+
+/* the closing CTA can hold a button pair; centre it (ph-actions is start-aligned) */
+.cta-band .ph-actions{justify-content:center}
+
+/* Five-step process strip (2026-08-09, homepage). The shared .steps grid is
+   four across; five across only where each card keeps a readable measure. */
+.steps.five{grid-template-columns:repeat(5,1fr)}
+@media(max-width:1060px){.steps.five{grid-template-columns:1fr 1fr}
+  .steps.five .step:last-child{grid-column:1/-1}}
+@media(max-width:520px){.steps.five{grid-template-columns:1fr}
+  .steps.five .step:last-child{grid-column:auto}}
+
+/* --------------------------------------------------------------------------
    SERVICES PAGE ARTWORK (2026-08-08). services.html runs the same six cards
    with two to three times the copy, so the homepage proportions do not carry:
    at 61%/53% the text closed to 13px of the object, against 29px on the home

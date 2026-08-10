@@ -28,3 +28,7 @@ img/services/source/
 
 # scratch contact sheets used while checking artwork; never published
 .sheet-*.png
+
+# internal working notes (market research, pricing strategy). Anything at the
+# repo root is served publicly by Pages, so these must never be committed.
+notes/
