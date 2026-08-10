@@ -975,15 +975,58 @@ section.block.navy .cta-or a,.founder .cta-or a{color:var(--gold-lt);border-bott
 .offer .o-ends{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--red-deep);font-weight:600;margin-top:14px}
 
-/* definition rows: a term and its plain-English meaning, so words like
-   "revision round" and "request" are never left to interpretation */
-.defs{margin-top:26px;display:flex;flex-direction:column;gap:14px;max-width:860px}
-.defs .d-row{background:var(--card);border:1px solid #DCD0B8;border-radius:12px;padding:18px 22px;
-  box-shadow:0 3px 12px -7px rgba(15,30,46,.2)}
-.defs dt{font-family:var(--serif);font-weight:600;font-size:17.5px;color:var(--navy)}
-.defs dd{margin:6px 0 0;font-size:15px;color:var(--muted)}
-.defs dd b{color:var(--navy);font-weight:700}
-.defs .d-not{margin-top:8px;font-size:14.5px;color:var(--red-deep)}
+/* A qualifier inside an accordion summary: "Essential plan", "Standard plan".
+   Keeps the scope badge visible while the definition itself stays folded. */
+.faq summary .s-tag{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold-deep);background:var(--cream);
+  border-radius:5px;padding:3px 8px;margin-left:10px;white-space:nowrap}
+/* The constraint half of a definition, the part that binds me rather than the
+   client. Rust so it reads as a limit, not as more description. */
+.faq .faq-a .a-not{color:var(--red-deep)}
+
+/* ============================================================
+   PRICE LANES (2026-08-10)
+   The homepage previously packed all four build prices into one
+   prose paragraph and then showed the care plans as three thin
+   pills, so the single most scannable thing on the page was the
+   least scannable. Two labelled lanes, one card per tier, price
+   set large enough to read at a glance.
+   ============================================================ */
+.lane{margin-top:30px}
+.lane + .lane{margin-top:34px}
+.lane-label{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  padding-bottom:11px;border-bottom:1px solid var(--line)}
+.lane-label .ll-name{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--navy)}
+.lane-label .ll-when{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold-deep)}
+.lane-label .ll-more{margin-left:auto;font-size:14px;font-weight:700;color:var(--red-deep)}
+.lane-label .ll-more:hover{text-decoration:underline}
+.price-grid{display:grid;gap:14px;margin-top:16px}
+.price-grid.four{grid-template-columns:repeat(4,1fr)}
+.price-grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.price-grid.four{grid-template-columns:1fr 1fr}}
+@media(max-width:820px){.price-grid.three{grid-template-columns:1fr}}
+@media(max-width:560px){.price-grid.four{grid-template-columns:1fr}}
+.price-card{display:flex;flex-direction:column;background:var(--card);border:1px solid #DCD0B8;
+  border-radius:12px;padding:18px 18px 20px;
+  box-shadow:0 4px 14px -8px rgba(15,30,46,.22),0 1px 2px rgba(15,30,46,.05);
+  transition:transform .16s,border-color .16s,box-shadow .16s}
+a.price-card:hover{transform:translateY(-3px);border-color:#C3B08A;
+  box-shadow:0 20px 38px -22px rgba(15,30,46,.3)}
+.price-card .pc-name{font-family:var(--serif);font-weight:600;font-size:18px;color:var(--navy)}
+.price-card .pc-price{font-family:var(--serif);font-weight:600;font-size:27px;color:var(--navy);
+  line-height:1.15;margin-top:6px}
+.price-card .pc-price small{font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--faint)}
+.price-card .pc-note{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.price-card.feature{border-color:var(--red);box-shadow:0 0 0 1px var(--red),0 18px 38px -26px rgba(179,73,46,.4)}
+.price-card .pc-flag{align-self:flex-start;font-family:var(--mono);font-size:9.5px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--red);
+  border-radius:5px;padding:3px 8px;margin-bottom:9px}
+/* Reserved slot so the flagged card's title still lines up with its
+   neighbours, the same trick .t-tag uses on the plans page. Without it the
+   featured card's name sits 31px lower than the other two. */
+.price-card .pc-flag.ghost{visibility:hidden}
+@media (hover: none){a.price-card:hover{transform:none}}
 
 /* hero proof line (2026-08-09): the honest numbers, mono, under the lede */
 .hero-proof{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;
