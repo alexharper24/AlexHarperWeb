@@ -81,9 +81,14 @@ commit that changes it.
 - [ ] **Google Business Profile**: stand up, then begin the review flywheel.
 - [x] ~~Pricing correction~~ — shipped 2026-08-09, four-rung build ladder plus
       raised care plans, with scope definitions and build exclusions published.
-- [ ] **Founding-client offer** (optional): a time-boxed discount in exchange
-      for a testimonial. Needs Alex's discount amount and end date before it
-      can ship; deliberately not live.
+- [ ] **Testimonials: just ask, free.** Four clients, four short emails. Do
+      NOT tie a discount to a testimonial or review: it violates Google's
+      review policies, creates an FTC-disclosable material connection, and
+      makes the testimonial weaker than a freely given one.
+- [ ] **Launch offer** (optional, not live): recommended form is *three months
+      of care included* for the first three clients, NOT a build discount. It
+      keeps the build price anchor intact, costs little marginally, and seeds
+      the care plan. Needs Alex's go-ahead and a client count or end date.
 - [ ] Character pass (Phase 3): hand-drawn gold-line motif, voice pass, single
       repeated CTA everywhere.
 - [ ] Update the hero proof-line project count as new sites go live.
