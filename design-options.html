@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Design direction options (internal preview) | Harper Studio</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="icon" type="image/png" href="assets/hs-favicon.png?v=71"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="studio.css?v=85"/>
+<style>
+/* ============================================================
+   PREVIEW-ONLY STYLES. Nothing here touches the live site.
+   Every option renders the SAME content so the comparison is
+   about treatment, not copy.
+   ============================================================ */
+.pv-note{background:#0F1E2E;color:#DFE6EF;padding:28px 0}
+.pv-note .wrap{max-width:900px}
+.pv-note h1{color:#fff;font-size:26px}
+.pv-note p{color:#AEB9C8;font-size:15.5px;margin-top:10px}
+.pv-note b{color:var(--gold-lt)}
+.pv-head{background:var(--red);color:#fff;padding:16px 0;position:sticky;top:0;z-index:60}
+.pv-head .wrap{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
+.pv-head .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.pv-head h2{color:#fff;font-size:22px}
+.pv-head .why{font-size:14px;opacity:.95;max-width:62ch}
+.pv-demo{padding:64px 0 72px}
+.pv-verdict{max-width:900px;margin:0 auto;padding:22px 26px 0}
+.pv-verdict dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14.5px}
+.pv-verdict dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);padding-top:3px}
+.pv-verdict dd{margin:0;color:var(--muted)}
+@media(max-width:620px){.pv-verdict dl{grid-template-columns:1fr}.pv-verdict dt{padding-top:10px}}
+
+/* ---------- shared demo scaffolding ---------- */
+.d-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:32px}
+@media(max-width:1040px){.d-steps{grid-template-columns:1fr 1fr}.d-steps>*:last-child{grid-column:1/-1}}
+@media(max-width:560px){.d-steps{grid-template-columns:1fr}.d-steps>*:last-child{grid-column:auto}}
+.d-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+@media(max-width:900px){.d-cards{grid-template-columns:1fr}}
+
+/* ============================================================
+   OPTION A — THE STUDIO DESK
+   Depth from layering and material, not outlines. Cards read as
+   paper resting on a desk: warm double shadow, a visible top
+   edge, and a slight stagger so the grid is not machine-flat.
+   ============================================================ */
+.opt-a{background:
+  radial-gradient(120% 90% at 15% 0%, #FBF3E6 0%, transparent 60%),
+  radial-gradient(100% 80% at 95% 100%, #F6E9D6 0%, transparent 55%),
+  #FDF8EF}
+.opt-a .d-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
+.opt-a h3.d-h{font-family:var(--serif);font-size:clamp(28px,3.4vw,40px);color:var(--navy);margin-top:12px;letter-spacing:-.015em}
+.opt-a .d-lede{color:#5A5347;font-size:16.5px;max-width:60ch;margin-top:12px}
+.opt-a .d-step{position:relative;background:#FFFCF6;border-radius:3px;padding:24px 22px 26px;
+  box-shadow:0 1px 0 #fff inset, 0 14px 28px -16px rgba(92,66,32,.42), 0 2px 5px rgba(92,66,32,.14);
+  border-top:3px solid var(--gold)}
+.opt-a .d-step:nth-child(even){transform:translateY(9px) rotate(-.35deg)}
+.opt-a .d-step:nth-child(3){transform:translateY(-5px) rotate(.3deg)}
+.opt-a .d-num{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--gold-deep);line-height:1}
+.opt-a .d-step h4{font-family:var(--serif);font-size:18px;color:var(--navy);margin-top:8px}
+.opt-a .d-step p{font-size:14px;color:#6B6355;margin-top:6px;line-height:1.55}
+.opt-a .d-card{background:#FFFCF6;border-radius:3px;padding:26px 24px;
+  box-shadow:0 16px 34px -20px rgba(92,66,32,.45), 0 2px 6px rgba(92,66,32,.15)}
+.opt-a .d-card h4{font-family:var(--serif);font-size:20px;color:var(--navy)}
+.opt-a .d-card p{font-size:14.5px;color:#6B6355;margin-top:8px}
+.opt-a .d-tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-1.2deg);
+  width:74px;height:18px;background:rgba(199,154,90,.26);border-left:1px solid rgba(199,154,90,.4);
+  border-right:1px solid rgba(199,154,90,.4)}
+
+/* ============================================================
+   OPTION B — EDITORIAL
+   Depth from typography and rules. No shadows at all. Scale
+   contrast, hairlines, figure numbers, marginal labels. Reads
+   like a well-set journal, which is the visual argument for
+   "care in every detail" made with type instead of decoration.
+   ============================================================ */
+.opt-b{background:#FEFCF8}
+.opt-b .d-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--red-deep);display:block;padding-bottom:10px;border-bottom:1px solid var(--navy)}
+.opt-b h3.d-h{font-family:var(--serif);font-weight:800;font-size:clamp(34px,5vw,58px);color:var(--navy);
+  margin-top:18px;line-height:1.02;letter-spacing:-.03em;max-width:22ch}
+.opt-b .d-lede{font-size:18px;color:#3D4552;max-width:52ch;margin-top:16px;line-height:1.6}
+.opt-b .d-lede::first-letter{font-family:var(--serif);font-size:52px;font-weight:700;float:left;
+  line-height:.82;padding:4px 10px 0 0;color:var(--red-deep)}
+.opt-b .d-steps{border-top:2px solid var(--navy);margin-top:38px;gap:0}
+.opt-b .d-step{padding:22px 20px 24px;border-right:1px solid #DCD3C2}
+.opt-b .d-step:last-child{border-right:0}
+@media(max-width:1040px){.opt-b .d-step{border-bottom:1px solid #DCD3C2}
+  .opt-b .d-step:nth-child(2n){border-right:0}}
+.opt-b .d-num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gold-deep);font-weight:600}
+.opt-b .d-step h4{font-family:var(--serif);font-size:19px;color:var(--navy);margin-top:12px;letter-spacing:-.01em}
+.opt-b .d-step p{font-size:14px;color:#5A6270;margin-top:7px;line-height:1.6}
+.opt-b .d-cards{gap:0;border-top:1px solid #DCD3C2;margin-top:34px}
+.opt-b .d-card{padding:26px 24px 26px 0;border-right:1px solid #DCD3C2;padding-right:24px}
+.opt-b .d-card:last-child{border-right:0}
+@media(max-width:900px){.opt-b .d-card{border-right:0;border-bottom:1px solid #DCD3C2;padding-right:0}}
+.opt-b .d-card .fig{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.opt-b .d-card h4{font-family:var(--serif);font-size:21px;color:var(--navy);margin-top:8px}
+.opt-b .d-card p{font-size:15px;color:#5A6270;margin-top:8px;line-height:1.62}
+
+/* ============================================================
+   OPTION C — BLUEPRINT
+   Depth from a visible underlying grid. The measured, drafted
+   look: a faint graph ground, thin navy rules, corner ticks,
+   and mono annotation. "Measured twice" made literal.
+   ============================================================ */
+.opt-c{background-color:#FBFAF6;
+  background-image:linear-gradient(rgba(15,30,46,.055) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(15,30,46,.055) 1px, transparent 1px);
+  background-size:26px 26px}
+.opt-c .d-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--navy);background:var(--gold-lt);display:inline-block;padding:5px 10px}
+.opt-c h3.d-h{font-family:var(--serif);font-size:clamp(28px,3.5vw,42px);color:var(--navy);margin-top:14px}
+.opt-c .d-lede{color:#4A5462;font-size:16.5px;max-width:58ch;margin-top:12px}
+.opt-c .d-step{position:relative;background:rgba(255,253,249,.9);border:1px solid var(--navy);padding:22px 20px}
+/* corner ticks: the drafting detail that does the work */
+.opt-c .d-step::before,.opt-c .d-step::after{content:"";position:absolute;width:9px;height:9px;border:1.5px solid var(--red)}
+.opt-c .d-step::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.opt-c .d-step::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.opt-c .d-num{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--red);
+  border-bottom:1px solid var(--navy);padding-bottom:8px;display:block}
+.opt-c .d-step h4{font-family:var(--serif);font-size:18px;color:var(--navy);margin-top:12px}
+.opt-c .d-step p{font-size:14px;color:#4A5462;margin-top:6px;line-height:1.55}
+.opt-c .d-card{background:rgba(255,253,249,.9);border:1px solid var(--navy);padding:24px 22px;position:relative}
+.opt-c .d-card .ann{position:absolute;top:-9px;right:14px;background:#FBFAF6;padding:0 8px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.opt-c .d-card h4{font-family:var(--serif);font-size:20px;color:var(--navy)}
+.opt-c .d-card p{font-size:14.5px;color:#4A5462;margin-top:8px}
+
+/* ============================================================
+   OPTION D — CONFIDENT NAVY
+   Depth from band contrast. No new language at all: navy used
+   as a structural full-bleed device instead of appearing twice
+   politely. Gold and rust do the accent work on dark.
+   ============================================================ */
+.opt-d{background:radial-gradient(130% 120% at 80% -10%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#DFE6EF}
+.opt-d .d-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt)}
+.opt-d h3.d-h{font-family:var(--serif);font-weight:700;font-size:clamp(32px,4.6vw,54px);color:#fff;
+  margin-top:14px;letter-spacing:-.025em;line-height:1.04}
+.opt-d .d-lede{color:#AEB9C8;font-size:17px;max-width:56ch;margin-top:14px}
+.opt-d .d-step{background:rgba(255,255,255,.05);border:1px solid rgba(199,154,90,.3);border-radius:12px;padding:22px 20px}
+.opt-d .d-num{width:34px;height:34px;border-radius:9px;background:var(--gold);color:var(--navy-2);
+  font-family:var(--mono);font-weight:600;font-size:14px;display:grid;place-items:center}
+.opt-d .d-step h4{font-family:var(--serif);font-size:18px;color:#fff;margin-top:14px}
+.opt-d .d-step p{font-size:14px;color:#AEB9C8;margin-top:6px;line-height:1.55}
+.opt-d .d-card{background:rgba(255,255,255,.055);border:1px solid rgba(199,154,90,.3);border-radius:14px;padding:26px 24px}
+.opt-d .d-card h4{font-family:var(--serif);font-size:20px;color:#fff}
+.opt-d .d-card p{font-size:14.5px;color:#AEB9C8;margin-top:8px}
+
+/* ---------- the hero device demo (orthogonal to the four) ---------- */
+.hero-dev{background:var(--paper);padding:64px 0 72px}
+.hd-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;margin-top:30px}
+@media(max-width:900px){.hd-grid{grid-template-columns:1fr;gap:28px}}
+.hd-panel{background:var(--card);border:1px solid #DCD0B8;border-radius:16px;padding:22px;
+  box-shadow:0 26px 54px -30px rgba(15,30,46,.4)}
+.hd-panel .hd-top{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding-bottom:14px;border-bottom:1px solid var(--line)}
+.hd-panel .hd-title{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);font-weight:600}
+.hd-panel .hd-live{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:#26413A;background:#EAEEE9;border-radius:20px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px}
+.hd-panel .hd-live::before{content:"";width:6px;height:6px;border-radius:50%;background:#3E7A5E}
+.hd-rows{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px}
+@media(max-width:520px){.hd-rows{grid-template-columns:1fr}}
+.hd-row{border:1px solid var(--line);border-radius:9px;padding:13px 14px;border-top:3px solid var(--gold)}
+.hd-row:nth-child(2){border-top-color:var(--red)}
+.hd-row:nth-child(3){border-top-color:#3E7A5E}
+.hd-row:nth-child(4){border-top-color:var(--navy-3)}
+.hd-row .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.hd-row .v{font-size:14.5px;font-weight:700;color:var(--navy);margin-top:5px}
+.hd-row .s{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45}
+.hd-foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hd-foot b{color:var(--navy)}
+</style>
+</head>
+<body>
+
+<div class="pv-note">
+  <div class="wrap">
+    <h1>Four directions for personality and depth</h1>
+    <p>Internal preview. <b>Not linked from the site, noindex, out of the sitemap, and deleted once you pick.</b> Every option below renders the <b>same</b> content, so what you are comparing is treatment, not copy. Scroll and pick the one that feels like you; we can also mix, for example B's typography with A's card treatment.</p>
+    <p>The fifth section is different in kind: it is the one idea from Louisville Web Guy genuinely worth taking, and it works with any of the four.</p>
+  </div>
+</div>
+
+<!-- ============ OPTION A ============ -->
+<div class="pv-head">
+  <div class="wrap">
+    <span class="lbl">Option A</span>
+    <h2>The Studio Desk</h2>
+    <p class="why">Depth from layering and material. Cards read as sheets of paper resting on a warm desk: soft double shadows, a gold top edge, and a deliberate half-degree stagger so the grid is not machine-flat. Closest to the warmth already in your palette.</p>
+  </div>
+</div>
+<section class="pv-demo opt-a">
+  <div class="wrap">
+    <span class="d-eyebrow">How it works</span>
+    <h3 class="d-h">Five steps, no surprises.</h3>
+    <p class="d-lede">A plain conversation, a flat quote, then the build. You see it come together and you know what happens next at every point.</p>
+    <div class="d-steps">
+      <div class="d-step"><div class="d-tape"></div><div class="d-num">1</div><h4>We talk</h4><p>A plain conversation about what you need. No pitch, no pressure.</p></div>
+      <div class="d-step"><div class="d-num">2</div><h4>Flat quote</h4><p>Scope, price, and timeline in writing before any work starts.</p></div>
+      <div class="d-step"><div class="d-num">3</div><h4>Design &amp; build</h4><p>You see progress as it happens and shape it along the way.</p></div>
+      <div class="d-step"><div class="d-num">4</div><h4>Launch</h4><p>Domain, email, and forms wired correctly and tested on real devices.</p></div>
+      <div class="d-step"><div class="d-num">5</div><h4>Ongoing care</h4><p>A monthly plan keeps it hosted, secure, backed up, and current.</p></div>
+    </div>
+    <div class="d-cards">
+      <div class="d-card"><h4>Custom design</h4><p>A clean, modern site designed around your business and the people you want to reach.</p></div>
+      <div class="d-card"><h4>Hosting &amp; maintenance</h4><p>Hosting, domains, certificates, and backups handled so you never touch a server.</p></div>
+      <div class="d-card"><h4>Get found locally</h4><p>Your Google Business Profile set up right, so Google and AI assistants find you from day one.</p></div>
+    </div>
+    <div class="pv-verdict"><dl>
+      <dt>Strength</dt><dd>Warmest of the four, and the only one that makes "handmade" feel physical. Builds on the paper grain already in your stylesheet.</dd>
+      <dt>Risk</dt><dd>Tilt and tape can tip into scrapbook if used more than once or twice per page.</dd>
+      <dt>New assets</dt><dd>None. Pure CSS.</dd>
+    </dl></div>
+  </div>
+</section>
+
+<!-- ============ OPTION B ============ -->
+<div class="pv-head">
+  <div class="wrap">
+    <span class="lbl">Option B</span>
+    <h2>Editorial</h2>
+    <p class="why">Depth from typography instead of shadows. Big scale contrast, hairline rules, a drop cap, figure labels, dividing lines rather than boxes. This is the visual argument for "care in every detail" made with type, and it looks nothing like the SaaS template every competitor in your market is using.</p>
+  </div>
+</div>
+<section class="pv-demo opt-b">
+  <div class="wrap">
+    <span class="d-eyebrow">How it works</span>
+    <h3 class="d-h">Five steps, no surprises.</h3>
+    <p class="d-lede">A plain conversation, a flat quote, then the build. You see it come together and you know what happens next at every point.</p>
+    <div class="d-steps">
+      <div class="d-step"><div class="d-num">01</div><h4>We talk</h4><p>A plain conversation about what you need. No pitch, no pressure.</p></div>
+      <div class="d-step"><div class="d-num">02</div><h4>Flat quote</h4><p>Scope, price, and timeline in writing before any work starts.</p></div>
+      <div class="d-step"><div class="d-num">03</div><h4>Design &amp; build</h4><p>You see progress as it happens and shape it along the way.</p></div>
+      <div class="d-step"><div class="d-num">04</div><h4>Launch</h4><p>Domain, email, and forms wired correctly and tested on real devices.</p></div>
+      <div class="d-step"><div class="d-num">05</div><h4>Ongoing care</h4><p>A monthly plan keeps it hosted, secure, backed up, and current.</p></div>
+    </div>
+    <div class="d-cards">
+      <div class="d-card"><div class="fig">Fig. 01 &middot; Design</div><h4>Custom design</h4><p>A clean, modern site designed around your business and the people you want to reach.</p></div>
+      <div class="d-card"><div class="fig">Fig. 02 &middot; Care</div><h4>Hosting &amp; maintenance</h4><p>Hosting, domains, certificates, and backups handled so you never touch a server.</p></div>
+      <div class="d-card"><div class="fig">Fig. 03 &middot; Search</div><h4>Get found locally</h4><p>Your Google Business Profile set up right, so Google and AI assistants find you from day one.</p></div>
+    </div>
+    <div class="pv-verdict"><dl>
+      <dt>Strength</dt><dd>Most differentiated. Nothing in the 15-firm set looks like this, and it reads premium without spending a dollar on assets.</dd>
+      <dt>Risk</dt><dd>Can read cool or austere. Wants one warm photograph per page to stay human.</dd>
+      <dt>New assets</dt><dd>None. Pure type and rules.</dd>
+    </dl></div>
+  </div>
+</section>
+
+<!-- ============ OPTION C ============ -->
+<div class="pv-head">
+  <div class="wrap">
+    <span class="lbl">Option C</span>
+    <h2>Blueprint</h2>
+    <p class="why">Depth from a visible underlying grid. A faint graph ground, thin navy rules, drafting corner ticks in rust, and mono annotation labels. The trade-craft angle: measured, squared, built to a plan. "Care in every detail" made literal.</p>
+  </div>
+</div>
+<section class="pv-demo opt-c">
+  <div class="wrap">
+    <span class="d-eyebrow">How it works</span>
+    <h3 class="d-h">Five steps, no surprises.</h3>
+    <p class="d-lede">A plain conversation, a flat quote, then the build. You see it come together and you know what happens next at every point.</p>
+    <div class="d-steps">
+      <div class="d-step"><span class="d-num">Step 01</span><h4>We talk</h4><p>A plain conversation about what you need. No pitch, no pressure.</p></div>
+      <div class="d-step"><span class="d-num">Step 02</span><h4>Flat quote</h4><p>Scope, price, and timeline in writing before any work starts.</p></div>
+      <div class="d-step"><span class="d-num">Step 03</span><h4>Design &amp; build</h4><p>You see progress as it happens and shape it along the way.</p></div>
+      <div class="d-step"><span class="d-num">Step 04</span><h4>Launch</h4><p>Domain, email, and forms wired correctly and tested on real devices.</p></div>
+      <div class="d-step"><span class="d-num">Step 05</span><h4>Ongoing care</h4><p>A monthly plan keeps it hosted, secure, backed up, and current.</p></div>
+    </div>
+    <div class="d-cards">
+      <div class="d-card"><span class="ann">Design</span><h4>Custom design</h4><p>A clean, modern site designed around your business and the people you want to reach.</p></div>
+      <div class="d-card"><span class="ann">Care</span><h4>Hosting &amp; maintenance</h4><p>Hosting, domains, certificates, and backups handled so you never touch a server.</p></div>
+      <div class="d-card"><span class="ann">Search</span><h4>Get found locally</h4><p>Your Google Business Profile set up right, so Google and AI assistants find you from day one.</p></div>
+    </div>
+    <div class="pv-verdict"><dl>
+      <dt>Strength</dt><dd>Distinctive and confident, and it earns the precision claim rather than asserting it. Reads competent and technical.</dd>
+      <dt>Risk</dt><dd>Leans engineering rather than warm. Probably the weakest fit for churches, the strongest for contractors and B2B.</dd>
+      <dt>New assets</dt><dd>None. Pure CSS.</dd>
+    </dl></div>
+  </div>
+</section>
+
+<!-- ============ OPTION D ============ -->
+<div class="pv-head">
+  <div class="wrap">
+    <span class="lbl">Option D</span>
+    <h2>Confident Navy</h2>
+    <p class="why">Depth from band contrast rather than any new visual language. Navy stops appearing twice politely and becomes the structural device, with gold and rust doing the accent work on dark. The cheapest dramatic change available, and the safest.</p>
+  </div>
+</div>
+<section class="pv-demo opt-d">
+  <div class="wrap">
+    <span class="d-eyebrow">How it works</span>
+    <h3 class="d-h">Five steps, no surprises.</h3>
+    <p class="d-lede">A plain conversation, a flat quote, then the build. You see it come together and you know what happens next at every point.</p>
+    <div class="d-steps">
+      <div class="d-step"><div class="d-num">1</div><h4>We talk</h4><p>A plain conversation about what you need. No pitch, no pressure.</p></div>
+      <div class="d-step"><div class="d-num">2</div><h4>Flat quote</h4><p>Scope, price, and timeline in writing before any work starts.</p></div>
+      <div class="d-step"><div class="d-num">3</div><h4>Design &amp; build</h4><p>You see progress as it happens and shape it along the way.</p></div>
+      <div class="d-step"><div class="d-num">4</div><h4>Launch</h4><p>Domain, email, and forms wired correctly and tested on real devices.</p></div>
+      <div class="d-step"><div class="d-num">5</div><h4>Ongoing care</h4><p>A monthly plan keeps it hosted, secure, backed up, and current.</p></div>
+    </div>
+    <div class="d-cards">
+      <div class="d-card"><h4>Custom design</h4><p>A clean, modern site designed around your business and the people you want to reach.</p></div>
+      <div class="d-card"><h4>Hosting &amp; maintenance</h4><p>Hosting, domains, certificates, and backups handled so you never touch a server.</p></div>
+      <div class="d-card"><h4>Get found locally</h4><p>Your Google Business Profile set up right, so Google and AI assistants find you from day one.</p></div>
+    </div>
+    <div class="pv-verdict"><dl>
+      <dt>Strength</dt><dd>Immediate impact, zero risk, and it uses only tokens you already have. Could ship in an hour.</dd>
+      <dt>Risk</dt><dd>It is polish, not personality. It will look better without looking more like you.</dd>
+      <dt>New assets</dt><dd>None.</dd>
+    </dl></div>
+  </div>
+</section>
+
+<!-- ============ THE HERO DEVICE ============ -->
+<div class="pv-head" style="background:var(--navy)">
+  <div class="wrap">
+    <span class="lbl">Worth taking from LWG</span>
+    <h2>Show the offer instead of describing it</h2>
+    <p class="why">Their best idea is not the mascot. It is that their hero contains a built panel showing everything they watch, so a visitor understands the offer in three seconds without reading. Works with any of the four options above, and replaces nothing.</p>
+  </div>
+</div>
+<section class="hero-dev">
+  <div class="wrap">
+    <div class="hd-grid">
+      <div>
+        <span class="script-kick">Care in every detail.</span>
+        <h2 style="font-size:clamp(30px,4vw,46px);margin-top:12px">Websites that help small businesses, churches, and nonprofits thrive.</h2>
+        <p style="color:var(--muted);font-size:17px;margin-top:14px;max-width:44ch">I design, build, and manage your website to reflect the care and value you deliver to your audience.</p>
+        <div class="ph-actions" style="margin-top:24px">
+          <a href="contact.html" class="btn btn-primary">Schedule a consultation <span class="arr">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="hd-panel">
+        <div class="hd-top">
+          <span class="hd-title">What I look after</span>
+          <span class="hd-live">All handled</span>
+        </div>
+        <div class="hd-rows">
+          <div class="hd-row"><div class="k">Website</div><div class="v">Current &amp; working</div><div class="s">Pages accurate, nothing broken or stale.</div></div>
+          <div class="hd-row"><div class="k">Hosting &amp; SSL</div><div class="v">Fast and secure</div><div class="s">Certificates renewed, backups running.</div></div>
+          <div class="hd-row"><div class="k">Google profile</div><div class="v">Found locally</div><div class="s">Hours, categories, and photos kept right.</div></div>
+          <div class="hd-row"><div class="k">Domain &amp; email</div><div class="v">In your name</div><div class="s">Records correct, renewals never missed.</div></div>
+        </div>
+        <div class="hd-foot">This month &middot; <b>Backups healthy</b> &middot; <b>Profile updated</b> &middot; <b>2 edits live</b></div>
+      </div>
+    </div>
+    <div class="pv-verdict"><dl>
+      <dt>Why it works</dt><dd>It turns an abstract service into something a visitor can see, and it is honest: every row is a thing you actually do. It also gives the homepage a second focal point besides the photo.</dd>
+      <dt>Risk</dt><dd>Must never look like a real login or imply a live dashboard you do not have. Labelled "What I look after", not "Dashboard", for that reason.</dd>
+      <dt>New assets</dt><dd>None. Pure CSS and real copy.</dd>
+    </dl></div>
+  </div>
+</section>
+
+<div class="pv-note" style="padding:40px 0">
+  <div class="wrap">
+    <h1>My recommendation</h1>
+    <p><b>B for the bones, A for the warmth, plus the hero panel.</b> Editorial typography is what separates you from a market where every single competitor looks like a SaaS landing page, and it costs nothing in assets. Option A's paper-and-shadow card treatment keeps it from going cold, which is Editorial's only real weakness. The hero panel then does the job the gold stroke could never do: it gives the page something to look at that is actually about the work.</p>
+    <p>The gold stroke stays a fine small refinement, but you were right that it cannot carry personality on its own. A 2px line is a detail; personality comes from type, contrast, and layering, which is what all four of these change.</p>
+    <p><b>Also worth saying:</b> we should not borrow LWG's actual look. The thick outlines, hard offset shadows, retro slab type, and mascot are a coherent system and it is <i>theirs</i>, in your metro. Any client who has seen both sites would notice. Taking their structural ideas is fair; taking their aesthetic is not.</p>
+  </div>
+</div>
+
+</body>
+</html>
