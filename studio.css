@@ -252,8 +252,6 @@ footer{background:var(--navy-2);color:#A6B1C0;padding:64px 0 40px;border-top:2px
 .page-hero .eyebrow{margin-bottom:12px}
 .page-hero h1{font-size:clamp(32px,4.4vw,50px);max-width:26ch}
 .page-hero p{color:var(--muted);font-size:clamp(16px,1.6vw,19px);max-width:62ch;margin-top:13px}
-.crumb{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
-.crumb a:hover{color:var(--gold-deep)}
 .ph-price{font-family:var(--serif);font-size:42px;font-weight:600;color:var(--navy);margin-top:14px;
   }
 .ph-price small{font-family:var(--sans);font-size:16px;color:var(--faint);font-weight:600}
@@ -580,7 +578,7 @@ section.block.navy .plan-note h3{color:var(--gold-lt)}
    breaks on older browsers.
    ============================================================ */
 h1,h2,h3,h4,.t-sub,.eyebrow,.script-kick{text-wrap:balance}
-p,li,dd,figcaption,.crumb{text-wrap:pretty}
+p,li,dd,figcaption{text-wrap:pretty}
 /* Short blocks do better with balance than pretty. Notes, card bodies, ledes
    and list items run two or three lines, where evening them out beats a full
    line followed by a stub. Long-form copy keeps `pretty`, and browsers ignore
@@ -628,10 +626,6 @@ p,li,dd,figcaption,.crumb{text-wrap:pretty}
    the page where it is worth the most.
    ============================================================ */
 @media(max-width:620px){
-  /* 1. Breadcrumbs cost 37px including their margin, and duplicate a path
-        the nav and the back links already provide. */
-  .crumb{display:none}
-
   /* 2. Button pairs did not quite fit side by side, so they wrapped to one
         per row at partial width, which reads as ragged rather than
         deliberate. Full width stacked is intentional and easier to tap. */
@@ -909,6 +903,17 @@ section.block.navy .cta-or a,.founder .cta-or a{color:var(--gold-lt);border-bott
 .lane{margin-top:44px}
 .lane-head{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap;
   margin-bottom:22px}
+/* Homepage variant: a compact divider bar instead of a full lane head. On the
+   homepage the section already has its own eyebrow + h2 + lede, so repeating
+   that pattern per lane made one section read as three. A divider bar is
+   visibly subordinate: small serif title, mono qualifier, one hairline. */
+.lane-bar{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding-bottom:11px;margin-bottom:22px}
+.lane-bar h3{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--navy);letter-spacing:-.01em}
+.lane-bar .lb-when{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold-deep)}
+.lane-bar .more{margin-left:auto;flex:none;font-size:14px;font-weight:700;color:var(--red-deep)}
+.lane-bar .more:hover{text-decoration:underline}
 .lane-head .eyebrow::before{order:2;margin-left:9px}   /* dash trails the label */
 .lane-head h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.6vw,30px);
   color:var(--navy);margin-top:10px;letter-spacing:-.015em}
