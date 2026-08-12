@@ -1115,7 +1115,18 @@ a.bcard:hover{transform:translateY(-3px);border-color:#C3B08A;box-shadow:0 20px 
 .pcol .k{font-size:13px;color:var(--muted)}
 .pcol .v{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--navy);margin-top:2px}
 .pcol .v small{font-family:var(--sans);font-size:11.5px;color:var(--faint);font-weight:600}
-@media(max-width:560px){.pcols{flex-direction:column;gap:10px}.pcol{border-right:0;padding:0;margin:0}}
+/* Stacking these vertically turned a compact three-price strip into a tall
+   list that read as three separate facts. A three-column grid keeps the
+   comparison side by side; the type steps down and "/mo" drops to its own
+   line so "from $225" still fits the ~91px each column gets at 390px. */
+@media(max-width:560px){
+  .pcols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:16px}
+  .pcol{padding:0 11px 0 0;margin:0 11px 0 0;border-right:1px solid var(--line)}
+  .pcol:last-child{padding-right:0;margin-right:0;border-right:0}
+  .pcol .k{font-size:11.5px;line-height:1.35}
+  .pcol .v{font-size:17px;margin-top:3px}
+  .pcol .v small{display:block;margin-top:1px}
+}
 @media(max-width:680px){
   /* The icon beside the copy costs 72px of a 286px row, which left the offer
      text at 27 characters a line on a 390px phone and 23 on a 360px one.
@@ -1189,4 +1200,67 @@ a.bcard:hover{transform:translateY(-3px);border-color:#C3B08A;box-shadow:0 20px 
   .illus .svc,.detail.illus .svc{flex-direction:column;min-height:0;padding-bottom:22px}
   .illus .svc-copy,.detail.illus .svc-copy{width:100%}
   .illus .svc-art,.detail.illus .svc-art{position:static;width:42%;margin:14px 0 0 auto;right:auto;bottom:auto}
+}
+
+/* ==========================================================================
+   Phone-layout corrections, round 2 (2026-08-12). From eight screenshots on a
+   real iPhone. Every rule here is phone-only; nothing above 640px changes.
+   This block sits last on purpose: several of the components it touches have
+   base rules of equal specificity further up the file, and source order is
+   what decides those.
+   ========================================================================== */
+
+/* 1. Build cards: the 52px icon sat alone on its own line above the tier name,
+      so each card opened with a band of dead space and the name and price were
+      pushed down. Grid puts the icon beside the name+price pair, which is the
+      same shape the care cards (.ccard .c-top) already use, so the two lanes
+      now read as one system. The icon spans both rows; scope and checklist
+      span the full width underneath. Applies to the homepage and plans page. */
+@media(max-width:620px){
+  .bcard{display:grid;grid-template-columns:auto 1fr;column-gap:15px;align-items:center}
+  .bcard .icirc{grid-row:span 2}
+  .bcard .nm{margin-top:0;align-self:end}
+  .bcard .pr{margin-top:0;align-self:start;font-size:27px}
+  .bcard .scope,.bcard ul{grid-column:1/-1}
+}
+
+/* 2. Process steps: same problem, same fix. The number badge was a 32px block
+      with 14px beneath it before the step title, so "We talk" started 46px
+      down a card whose whole content was two short lines. Number beside the
+      title, description across the full width below. */
+@media(max-width:620px){
+  .step{display:grid;grid-template-columns:auto 1fr;column-gap:13px;align-items:center;padding:20px}
+  .step .snum{margin-bottom:0}
+  .step h3{margin-top:0}
+  .step p{grid-column:1/-1;margin-top:9px}
+}
+
+/* 3. Service tiles: stacking the artwork right-aligned under the copy left it
+      marooned in the corner with a wide empty field to its left, which read
+      as a mistake rather than an illustration. Centred and capped instead, so
+      the space around it is symmetrical and deliberate. The cap matters: a
+      plain percentage let the square renders grow to 140px on a 430px phone
+      and dominate two lines of text. */
+@media(max-width:620px){
+  .illus .svc-art,.detail.illus .svc-art{width:46%;max-width:168px;margin:14px auto 0;display:block}
+  .illus .svc-art.portrait,.detail.illus .svc-art.portrait{width:30%;max-width:104px}
+  .illus .svc,.detail.illus .svc{padding-bottom:18px}
+}
+
+/* 4. Footer. The link padding added for tap targets stacked on top of the
+      existing 10px margin, giving every footer link 52px of vertical room and
+      turning three short lists into a very airy column. Padding alone now
+      carries the 44px target (23px line + 24px padding = 47px) and the margin
+      goes. The three columns were also laid out by flex-wrap, which put
+      Services and Studio side by side with a 56px gutter and dropped "Get in
+      touch" below at a random offset; an explicit 2-up grid with the last
+      column spanning both is predictable at every phone width. */
+@media (max-width:640px){
+  .foot-top{gap:30px}
+  .foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px;width:100%}
+  .foot-cols .foot-col:last-child{grid-column:1/-1}
+  .foot-col h4{margin-bottom:6px}
+  footer .foot-col a{margin-bottom:0}
+  .foot-brand p{margin-top:8px}
+  .foot-base{margin-top:32px;padding-top:20px}
 }
