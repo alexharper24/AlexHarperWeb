@@ -275,6 +275,12 @@ footer{background:var(--navy-2);color:#A6B1C0;padding:64px 0 40px;border-top:2px
 /* definition list / included items */
 .deflist{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
 @media(max-width:760px){.deflist{grid-template-columns:1fr}}
+/* Three across on the plan pages, where six items divide evenly into two rows.
+   Two columns at tablet keeps the descriptions readable rather than squeezing
+   three narrow columns of wrapped text. */
+.deflist.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.deflist.three{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.deflist.three{grid-template-columns:1fr}}
 .item{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;gap:14px}
 .item .ic{width:28px;height:28px;flex:none;border-radius:8px;background:var(--navy);color:var(--gold-lt);display:flex;align-items:center;justify-content:center}
 .item .ic svg{width:15px;height:15px}
