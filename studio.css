@@ -568,11 +568,6 @@ section.block.navy .wcard p{color:var(--muted)}
 section.block.navy .wcard:hover{border-color:rgba(199,154,90,.55)}
 section.block.navy .plan-note h3{color:var(--gold-lt)}
 
-/* an inline closing CTA: keeps the ask without adding another full band */
-.inline-cta{text-align:center;max-width:60ch;margin:52px auto 0;padding-top:44px;
-  border-top:1px solid var(--line)}
-.inline-cta h2{font-size:clamp(26px,3.4vw,36px)}
-.inline-cta p{color:var(--muted);font-size:17px;margin:14px auto 26px;max-width:46ch}
 
 
 /* ============================================================
@@ -599,7 +594,7 @@ p,li,dd,figcaption{text-wrap:pretty}
    line followed by a stub. Long-form copy keeps `pretty`, and browsers ignore
    `balance` past ~6 lines, so the multi-paragraph service copy is unaffected. */
 .item p,.cta-band p,.gtk li,.sec-head p,.page-hero p,
-.svc p,.step p,.val p,.inline-cta p,
+.svc p,.step p,.val p,
 .excl p,.excl li,.foot-brand p{text-wrap:balance}
 
 /* Contact form confirmation, shown in place of the form after a background
@@ -812,14 +807,6 @@ p,li,dd,figcaption{text-wrap:pretty}
   .illus .svc-copy{width:58%}
   .illus .svc-art{width:44%}
 }
-@media(max-width:620px){
-  /* One card per row is only ~338px wide, so the two columns start to fight.
-     Measured at 390px: copy 62% plus art 52% ran the text 14px into the art's
-     box. These numbers keep a real gap between the words and the object. */
-  .illus .svc{min-height:230px}
-  .illus .svc-copy{width:57%}
-  .illus .svc-art{width:44%;right:8px;bottom:8px}
-}
 @media (prefers-reduced-motion: reduce){
   .illus .svc-art{transition:none}
   .illus .svc:hover .svc-art{transform:none}
@@ -916,6 +903,11 @@ section.block.navy .cta-or a,.founder .cta-or a{color:var(--gold-lt);border-bott
    every checklist item to hold one line.
    ============================================================ */
 .lane{margin-top:44px}
+/* The plans page opens straight into a lane, where every other page opens with
+   a back-row or a sec-head that carries no top margin. That 44px landed on top
+   of the section padding and made the gap under the banner visibly deeper here
+   than anywhere else on the site. */
+.lane:first-child{margin-top:0}
 .lane-head{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap;
   margin-bottom:22px}
 /* Homepage variant: a compact divider bar instead of a full lane head. On the
@@ -1082,13 +1074,29 @@ a.bcard:hover{transform:translateY(-3px);border-color:#C3B08A;box-shadow:0 20px 
    page. A smaller object pushed further into the corner restores the gap
    without narrowing the measure, which would only make these cards taller.
    -------------------------------------------------------------------------- */
-.detail.illus .svc-copy{width:54%}
-.detail.illus .svc-art{width:47%;right:7px;bottom:6px}
-@media(max-width:900px){
-  .detail.illus .svc-art{width:41%;right:9px}
-}
+/* Two across, not three (2026-08-11). At three across these cards are 383px
+   wide, and a 54% copy column left 180px of text, roughly 25 characters a
+   line. "Get found locally" ran to thirteen lines and the card stretched to
+   476px tall. Two across gives the copy about 310px, or 44 characters, which
+   is inside the readable range, and the artwork finally has room beside it. */
+.svc-grid.six.detail{grid-template-columns:1fr 1fr}
+@media(max-width:840px){.svc-grid.six.detail{grid-template-columns:1fr;max-width:520px}}
+.detail.illus .svc-copy{width:58%}
+.detail.illus .svc-art{width:38%;right:10px;bottom:8px}
+/* The phone stacking block below has to live AFTER these rules, not before:
+   .detail.illus .svc-copy and the media-query rule are the same specificity,
+   so whichever comes last wins, and when it came first the copy stayed in a
+   23-character column on phones. */
 @media(max-width:620px){
-  /* one per row: the card narrows again and the copy is still long */
-  .detail.illus .svc-copy{width:56%}
-  .detail.illus .svc-art{width:42%;right:8px;bottom:8px}
+  /* Side by side stops working entirely at phone width: one card is ~334px, so
+     a 57% copy column is about 170px, roughly 23 characters a line. The card
+     stacks instead. The copy takes the full width and the artwork drops below
+     it, right-aligned, which keeps the illustration without strangling the
+     text. */
+  /* .detail.illus is one class more specific than .illus, so the services
+     page has to be named here explicitly or its 58% column wins even inside
+     this media query and the copy stays at 23 characters. */
+  .illus .svc,.detail.illus .svc{flex-direction:column;min-height:0;padding-bottom:22px}
+  .illus .svc-copy,.detail.illus .svc-copy{width:100%}
+  .illus .svc-art,.detail.illus .svc-art{position:static;width:42%;margin:14px 0 0 auto;right:auto;bottom:auto}
 }
