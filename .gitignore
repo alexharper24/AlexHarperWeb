@@ -32,3 +32,7 @@ img/services/source/
 # internal working notes (market research, pricing strategy). Anything at the
 # repo root is served publicly by Pages, so these must never be committed.
 notes/
+
+# FAQ illustration source renders. Web-optimized .webp/.jpg derivatives
+# live in img/ and are committed; these 1MB originals are not.
+img/faq/source/
