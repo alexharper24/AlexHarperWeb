@@ -895,18 +895,70 @@ p,li,dd,figcaption{text-wrap:pretty}
 
 /* FAQ group with its illustration alongside (2026-08-11). The accordion caps
    at 820px, so on a 1240px page there was 400px of dead space to its right.
-   The artwork lives there. Its own background is within about four values of
-   --paper, so it needs no frame to sit on the page cleanly. */
-.faq-split{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:54px;align-items:center}
+   The artwork lives there.
+
+   Revised 2026-08-12. Two problems were visible on the live page:
+
+   1. The heading sat inside the left column, so align-items:center centred the
+      artwork against heading + questions together. The two groups have
+      different heading-to-question ratios, so group one's art floated 54px
+      ABOVE its first question and group two's sat 26px BELOW it: the same
+      component landing at two different offsets. The heading is now a grid
+      item spanning both columns, which drops the questions and the artwork
+      into a row of their own and centres the art against the questions alone.
+      Both groups now read identically. The 34px below the heading has to move
+      from .faq's margin to the grid's row-gap: a margin counts inside the row
+      box, so centring split the difference and left the art 17px high.
+
+   2. Both illustrations were squeezed into one 660x824 frame despite having
+      opposite natural shapes (subjects at aspect 1.08 and 0.52), so each had
+      a wide band of dead background on two sides, and neither subject was
+      actually centred in its frame; the working illustration sat 40px left.
+      Both are now cropped to their own subject and re-centred with a uniform
+      10% margin, and each is sized to its own aspect rather than a shared box.
+      Sizing is capped by height rather than set by width, so the tall
+      portrait cannot tower over the short landscape one: each ends up about
+      0.72 of the height of the question stack beside it. */
+.faq-split{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:54px;row-gap:34px;align-items:center}
+.faq-split > .sec-head{grid-column:1/-1}
 .faq-split + .faq-split{margin-top:58px}
-@media(max-width:1000px){.faq-split{grid-template-columns:1fr;gap:26px}}
-.faq-split .faq{max-width:none}
+@media(max-width:1000px){.faq-split{grid-template-columns:1fr;column-gap:0}}
+.faq-split .faq{max-width:none;margin-top:0}
 .faq-art{margin:0}
-.faq-art img{display:block;width:100%;height:auto;border-radius:14px}
+.faq-art img{display:block;max-width:100%;max-height:400px;width:auto;height:auto;margin:0 auto}
+/* The illustration backgrounds were flat but landed five values off --paper,
+   which is close enough to look intentional and too far to hide a rectangle
+   edge: on the live page both read as faint boxes. Two things fix it. The
+   images now have their own flat field retinted onto --paper exactly (weighted
+   by how close each pixel already was to that field, so the artwork is
+   untouched), and the outer 9% is dissolved here to kill the edge itself.
+   Measured after both: every edge pixel matches the page exactly.
+
+   NOTE: the retint ties these two files to a --paper band. If either
+   illustration is ever moved onto .alt (cream) or .navy, the flat field will
+   show as a pale box again and the images need rebuilding against that colour.
+
+   Two gradients intersected rather than one radial, so the fade stays on the
+   borders and the middle of the picture keeps full strength. The images carry
+   exactly 10% of clear margin for the 9% fade to eat, so it never reaches the
+   artwork. */
+.faq-art img{
+  --edge:9%;
+  -webkit-mask-image:
+    linear-gradient(to bottom,transparent 0,#000 var(--edge),#000 calc(100% - var(--edge)),transparent 100%),
+    linear-gradient(to right, transparent 0,#000 var(--edge),#000 calc(100% - var(--edge)),transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:
+    linear-gradient(to bottom,transparent 0,#000 var(--edge),#000 calc(100% - var(--edge)),transparent 100%),
+    linear-gradient(to right, transparent 0,#000 var(--edge),#000 calc(100% - var(--edge)),transparent 100%);
+  mask-composite:intersect;
+}
 @media(max-width:1000px){
   /* stacked, the portrait illustration would add ~380px of scrolling to a page
-     that is already long, so it caps and centres instead */
-  .faq-art{max-width:240px;margin:0 auto}
+     that is already long, so it caps and centres instead. The row-gap above
+     supplies the space, so the figure needs no margin of its own. */
+  .faq-art{margin:0 auto}
+  .faq-art img{max-height:300px}
 }
 @media (prefers-reduced-motion: reduce){.faq summary::after{transition:none}}
 
