@@ -7,7 +7,11 @@
   /* iOS Safari inverts pages that do not declare a scheme. */
   color-scheme: light only !important;
   --navy:#0F1E2E; --navy-2:#0A1622; --navy-3:#1B3049;
-  --gold:#C79A5A; --gold-deep:#8F6A33; --gold-lt:#DDBB84;
+  --gold:#C79A5A; --gold-lt:#DDBB84;
+  /* --gold-deep was #8F6A33: fine on paper at 4.79:1 but only 3.87:1 on the
+     cream band, where every eyebrow and note heading sits. #81602E clears
+     4.5:1 on paper, cream, and white alike. */
+  --gold-deep:#81602E;
   --cream:#F5EFE4;            /* page ground (brand soft cream, deepened so white tiles lift) */
   --hero-cream:#F8E7D6;       /* sampled from the hero photo's left field (uniform at all heights) */
   --inset:26px;               /* standard page inset */
@@ -18,7 +22,12 @@
   --warm-tint:#F2EADB;        /* soft warm band between cream and white */
   --warm-2:#E6D3B5;
   --red:#B3492E; --red-deep:#93361F;
-  --ink:#1C2733; --muted:#55606E; --faint:#8B93A1;
+  --ink:#1C2733; --muted:#55606E;
+  /* --faint was #8B93A1, which is 3.09:1 on white and fails AA wherever it
+     carries real text such as the /mo price suffixes. #6D737E is 4.75:1 on
+     white and 4.63:1 on paper, and still sits lighter than --muted so the
+     three-step ink/muted/faint hierarchy is unchanged. */
+  --faint:#6D737E;
   --line:#E7E0D2; --white:#FFFDF9;
   --serif:"Playfair Display",Georgia,"Times New Roman",serif;
   --sans:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -205,7 +214,7 @@ section.block{padding:92px 0}
 .wcard .study{position:relative;z-index:1;color:var(--navy);border-bottom:1px solid transparent;
   padding-bottom:1px;transition:border-color .15s}
 .wcard .study:hover{border-bottom-color:currentColor}
-.wcard.c-infinite::before{background:#C33E1D}.wcard.c-infinite .tag{color:#C33E1D;background:#FBE7DE}.wcard.c-infinite .go{color:#C33E1D}.wcard.c-infinite:hover{border-color:#C33E1D}
+.wcard.c-infinite::before{background:#C33E1D}.wcard.c-infinite .tag{color:#BF3D1C;background:#FBE7DE}.wcard.c-infinite .go{color:#C33E1D}.wcard.c-infinite:hover{border-color:#C33E1D}
 .wcard.c-hope::before{background:#1E3054}.wcard.c-hope .tag{color:#1E3054;background:#E7EAF1}.wcard.c-hope .go{color:#1E3054}.wcard.c-hope:hover{border-color:#1E3054}
 .wcard.c-faith::before{background:#D98A9E}.wcard.c-faith .tag{color:#9B596A;background:#FAECEF}.wcard.c-faith .go{color:#9B596A}.wcard.c-faith:hover{border-color:#D98A9E}
 /* #26413A and the #EAEEE9 tint are lifted from crbcindiana.com's own stylesheet, matching how the other three cards carry their client's colour. 10.88:1 on the card. */
@@ -499,7 +508,7 @@ section.block.navy .step .snum{background:var(--gold);color:var(--navy-2)}
 .plan-note h3{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.15em;
   text-transform:uppercase;color:var(--gold-deep)}
 .plan-note p{font-size:15.5px;color:var(--muted);margin-top:7px}
-.plan-note a{color:var(--red);font-weight:700;border-bottom:1px solid rgba(179,73,46,.35)}
+.plan-note a{color:var(--red-deep);font-weight:700;border-bottom:1px solid rgba(147,54,31,.35)}
 .plan-note a:hover{border-bottom-color:var(--red)}
 section.block.navy .plan-note h3{color:var(--gold-lt)}
 section.block.navy .plan-note p{color:#AEB9C8}
@@ -909,11 +918,51 @@ section.block.navy .cta-or a,.founder .cta-or a{color:var(--gold-lt);border-bott
    visibly subordinate: small serif title, mono qualifier, one hairline. */
 .lane-bar{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
   border-bottom:1px solid var(--line);padding-bottom:11px;margin-bottom:22px}
-.lane-bar h3{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--navy);letter-spacing:-.01em}
+.lane-bar h3{font-family:var(--serif);font-weight:600;font-size:25px;color:var(--navy);letter-spacing:-.01em}
 .lane-bar .lb-when{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.16em;
   text-transform:uppercase;color:var(--gold-deep)}
 .lane-bar .more{margin-left:auto;flex:none;font-size:14px;font-weight:700;color:var(--red-deep)}
 .lane-bar .more:hover{text-decoration:underline}
+
+/* ============================================================
+   PLAN DETAIL HERO (2026-08-11)
+   Six elements stacked in one column left the right half of the
+   page empty and pushed the actual content far below the fold.
+   Two columns, with the price on the title's baseline and the
+   tier switcher stacked down the right, roughly halves the height
+   and puts the empty space to work.
+   ============================================================ */
+.plan-hero .ph-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
+@media(max-width:900px){.plan-hero .ph-grid{grid-template-columns:1fr;gap:26px}}
+.plan-hero .ph-title{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-top:10px}
+.plan-hero .ph-title h1{font-size:clamp(34px,4.2vw,48px)}
+.plan-hero .ph-price{margin-top:0;font-size:34px}
+.plan-hero p{margin-top:14px}
+.plan-hero .compare-tiers{flex-direction:column;margin-top:0;gap:11px}
+.plan-hero .compare-tiers a{min-width:0}
+
+/* Homepage lane panels (2026-08-11). Colour, not size, is what separates the
+   two groups: shrinking their titles only removed the signposting. The build
+   sits on cream and the care plan on navy, the band colours the site already
+   owns, so one section visibly holds two groups.
+   The navy panel is deliberate weight: the care plan is the recurring revenue
+   and previously looked identical to the one-time builds.
+   Per the on-dark rule in the guides, every element that inherits a light
+   token inside .lane.care is given an explicit on-dark colour below. The
+   cards keep their own white surface, so card text needs nothing. */
+.lane.build{background:var(--cream);border-radius:18px;padding:26px 26px 30px}
+.lane.care{margin-top:22px;border-radius:18px;padding:26px 26px 30px;color:#DFE6EF;
+  background:radial-gradient(120% 140% at 85% -20%, var(--navy-3), var(--navy) 55%, var(--navy-2))}
+.lane.build .lane-bar{border-bottom-color:#E1D4B8}
+.lane.care .lane-bar{border-bottom-color:rgba(199,154,90,.32)}
+.lane.care .lane-bar h3{color:#fff}
+.lane.care .lane-bar .lb-when{color:var(--gold-lt)}
+.lane.care .lane-bar .more{color:var(--gold-lt)}
+@media(max-width:620px){
+  /* 26px of panel padding either side costs 52px of a 390px screen, which the
+     one-line checklist items cannot spare */
+  .lane.build,.lane.care{padding:20px 16px 24px;border-radius:14px}
+}
 .lane-head .eyebrow::before{order:2;margin-left:9px}   /* dash trails the label */
 .lane-head h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.6vw,30px);
   color:var(--navy);margin-top:10px;letter-spacing:-.015em}
@@ -938,7 +987,15 @@ a.bcard:hover{transform:translateY(-3px);border-color:#C3B08A;box-shadow:0 20px 
 .bcard .nm{font-family:var(--serif);font-weight:600;font-size:18.5px;color:var(--navy);margin-top:16px}
 .bcard .pr{font-family:var(--serif);font-weight:600;font-size:31px;color:var(--navy);line-height:1.15;margin-top:5px}
 .bcard .pr small{font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--faint)}
-.bcard .scope{font-size:14px;color:var(--muted);margin-top:13px;padding-top:13px;border-top:1px solid var(--line);line-height:1.55}
+.bcard .scope{font-size:14px;color:var(--muted);margin-top:13px;line-height:1.55}
+/* Optional checklist, used on the plans page where the build tiers need the
+   same "what you actually get" detail the care plans give. The homepage keeps
+   the one-line scope only, so the two pages stay teaser and detail. */
+.bcard ul{list-style:none;margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line);flex:1}
+.bcard li{position:relative;font-size:13.5px;color:#414B59;padding:5px 0 5px 23px;line-height:1.5}
+.bcard li svg{position:absolute;left:0;top:8px;width:13px;height:13px;color:var(--gold-deep)}
+/* without a list, the scope line keeps the hairline that separated it */
+.bcard .scope:last-child{padding-top:13px;border-top:1px solid var(--line)}
 
 /* care cards: icon beside name and price, checklist, button. No bold in the
    checklists by Alex's call (2026-08-10): the emphasis lives in the copy. */
