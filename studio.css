@@ -929,7 +929,7 @@ p,li,dd,figcaption{text-wrap:pretty}
    one. z-index has to be explicit on both because the figure follows .faq in
    source order and would otherwise paint on top of the cards rather than
    beneath them. */
-.faq-split{display:grid;grid-template-columns:minmax(0,1fr) 30%;column-gap:36px;row-gap:34px;align-items:center}
+.faq-split{display:grid;grid-template-columns:minmax(0,1fr) 25%;column-gap:36px;row-gap:34px;align-items:center}
 .faq-split > .sec-head{grid-column:1/-1}
 .faq-split + .faq-split{margin-top:58px}
 @media(max-width:1000px){.faq-split{grid-template-columns:1fr;column-gap:0}}
@@ -942,13 +942,29 @@ p,li,dd,figcaption{text-wrap:pretty}
    size of 432x835, grew the row past the 546px question stack, and left the
    questions floating in the middle of it.
 
-   560px is chosen against the taller group's stack (546px at desktop), so the
-   row grows by only a dozen pixels and the questions stay put. Left-aligned in
-   its box rather than centred: centring would park the narrow portrait
-   illustration mid-track and undo its overlap, so the two would tuck in by
-   different amounts. */
-.faq-art{margin:0 0 0 -76px;position:relative;z-index:0}
-.faq-art img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto 0 0}
+   540px is chosen against the taller group's stack (546px at desktop), so the
+   row is governed by the questions, not the artwork: a taller cap grew that row
+   past its stack and left the bottom group with a 41px gap under its heading
+   where the top group had 34px.
+
+   CENTRED in the box, not left-aligned. Left alignment gave the two the same
+   left edge and the same overlap, but because their widths differ (432 and 290)
+   their centres sat 71px apart, and the narrower one read as parked somewhere
+   else entirely rather than in the same column. Shared centres is what makes
+   them look aligned; equal left edges does not.
+
+   The two goals fight each other, because centring ties each image's left edge
+   to its own width, so the wider one always tucks further under the cards. The
+   track and pull below are solved for the crossing point: at 25% and 110px both
+   images catch the accordion column, the portrait one loses no artwork at all,
+   and the landscape one loses 9% of its width, which is its browser-window edge
+   and reads as sliding behind. Equal widths, which would align both edges
+   outright, is not reachable: the portrait aspect is 0.518, so matching the
+   landscape one's width would make it 834px tall against a 546px question
+   stack, and holding it to the stack instead caps both images at 283px wide,
+   smaller than they were before any of this. */
+.faq-art{margin:0 0 0 -110px;position:relative;z-index:0}
+.faq-art img{display:block;max-width:100%;max-height:540px;width:auto;height:auto;margin:0 auto}
 /* The illustration backgrounds were flat but landed five values off --paper,
    which is close enough to look intentional and too far to hide a rectangle
    edge: on the live page both read as faint boxes. Two things fix it. The
