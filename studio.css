@@ -1324,23 +1324,36 @@ a.bcard:hover{transform:translateY(-3px);border-color:#C3B08A;box-shadow:0 20px 
    removes the gap while rendering the phone at exactly the size it was. */
 .svc-art.portrait{width:30%}
 .detail.illus .svc-art.portrait{width:23%}
-@media(max-width:620px){.illus .svc-art.portrait,.detail.illus .svc-art.portrait{width:25%}}
-/* The phone stacking block below has to live AFTER these rules, not before:
+/* The phone block below has to live AFTER these rules, not before:
    .detail.illus .svc-copy and the media-query rule are the same specificity,
    so whichever comes last wins, and when it came first the copy stayed in a
    23-character column on phones. */
 @media(max-width:620px){
-  /* Side by side stops working entirely at phone width: one card is ~334px, so
-     a 57% copy column is about 170px, roughly 23 characters a line. The card
-     stacks instead. The copy takes the full width and the artwork drops below
-     it, right-aligned, which keeps the illustration without strangling the
-     text. */
-  /* .detail.illus is one class more specific than .illus, so the services
-     page has to be named here explicitly or its 58% column wins even inside
-     this media query and the copy stays at 23 characters. */
-  .illus .svc,.detail.illus .svc{flex-direction:column;min-height:0;padding-bottom:22px}
+  /* Side by side stops working at phone width: one card is ~334px, so a 57%
+     copy column is about 170px, roughly 23 characters a line.
+
+     Revised 2026-08-12: the artwork used to drop below the copy, centred. That
+     read as a picture stranded in its own band and cost every tile about 180px
+     of height for one small illustration. It now floats to the top right and
+     the copy runs alongside it and then continues at full width underneath, so
+     the tile is only as tall as its text needs.
+
+     Two things this depends on. The tile has to be display:block, because a
+     flex item cannot float. And the img has to come BEFORE .svc-copy in the
+     markup, because a float only affects content that follows it; the images
+     were reordered in index.html and services.html for this, which is safe
+     because they are alt="" decorative and desktop positions them absolutely
+     and so ignores source order.
+
+     .detail.illus is one class more specific than .illus, so the services page
+     has to be named explicitly here or its 58% column wins inside this query. */
+  .illus .svc,.detail.illus .svc{display:block;min-height:0;padding-bottom:20px}
   .illus .svc-copy,.detail.illus .svc-copy{width:100%}
-  .illus .svc-art,.detail.illus .svc-art{position:static;width:42%;margin:14px 0 0 auto;right:auto;bottom:auto}
+  .illus .svc-art,.detail.illus .svc-art{position:static;float:right;
+    width:33%;max-width:116px;margin:0 0 8px 14px;right:auto;bottom:auto}
+  /* the phone render is portrait, so the same percentage would be half again as
+     tall and would hold the copy in a narrow column for far longer */
+  .illus .svc-art.portrait,.detail.illus .svc-art.portrait{width:23%;max-width:82px}
 }
 
 /* ==========================================================================
@@ -1376,16 +1389,44 @@ a.bcard:hover{transform:translateY(-3px);border-color:#C3B08A;box-shadow:0 20px 
   .step p{grid-column:1/-1;margin-top:9px}
 }
 
-/* 3. Service tiles: stacking the artwork right-aligned under the copy left it
-      marooned in the corner with a wide empty field to its left, which read
-      as a mistake rather than an illustration. Centred and capped instead, so
-      the space around it is symmetrical and deliberate. The cap matters: a
-      plain percentage let the square renders grow to 140px on a 430px phone
-      and dominate two lines of text. */
+/* 3. Service tiles. Centring the stacked artwork was this block's original fix
+      and it has been superseded: the artwork now floats to the tile's top right
+      so the copy wraps beside it, which removes the empty band a centred
+      picture sat in. The live rules are with the .illus sizing further up the
+      file, next to the .detail.illus widths they have to beat on source order. */
+
+/* 3b. The two lane divider bars on the homepage, build and care. The bar holds
+       three things: title, mono qualifier, and a link. On a phone all three
+       wrapped onto separate rows, and because the link carries a 44px tap
+       target that turned a 30px bar into roughly 100px, twice inside one
+       section. Title and qualifier now stack in the first column and the link
+       takes a column of its own beside them, spanning both rows, so the bar is
+       about half as tall. The title steps down because the first column is only
+       ~160px once the link has taken its share, and the qualifier's tracking
+       eases off for the same reason. Only .lane-bar is touched: the plans page
+       uses .lane-head, which carries a description paragraph and is a different
+       component. */
 @media(max-width:620px){
-  .illus .svc-art,.detail.illus .svc-art{width:46%;max-width:168px;margin:14px auto 0;display:block}
-  .illus .svc-art.portrait,.detail.illus .svc-art.portrait{width:30%;max-width:104px}
-  .illus .svc,.detail.illus .svc{padding-bottom:18px}
+  .lane-bar{display:grid;grid-template-columns:1fr auto;align-items:center;
+    column-gap:10px;row-gap:1px}
+  /* Sizes here are set by the width arithmetic, not taste. The bar is 294px
+     inside the lane at 393px (the phone these were reviewed on), the link takes
+     its own width off the top, and whatever is left has to hold the title on one
+     line. The care lane is the binding case because its link is the longer of
+     the two: "Compare all features" at 14px left the title 123px and broke "The
+     care plan" over two lines. At these sizes the care column is 144px against a
+     109px title and a 128px qualifier, so both fit. */
+  .lane-bar h3{grid-row:1;grid-column:1;font-size:18px}
+  .lane-bar .lb-when{grid-row:2;grid-column:1;font-size:9.5px;letter-spacing:.04em}
+  .lane-bar .more{grid-row:1/3;grid-column:2;margin-left:0;justify-self:end;font-size:12.5px}
+}
+/* Below about 340px the arithmetic runs out: the care column falls to 72px and
+   breaks its title over two lines, which looks worse than simply giving the link
+   a row of its own. Same height either way, so this is purely about not setting
+   a two-word title in a 72px column. */
+@media(max-width:340px){
+  .lane-bar{grid-template-columns:1fr}
+  .lane-bar .more{grid-row:3;grid-column:1;justify-self:start;margin-top:2px}
 }
 
 /* 4. Footer. The link padding added for tap targets stacked on top of the
