@@ -929,7 +929,7 @@ p,li,dd,figcaption{text-wrap:pretty}
    one. z-index has to be explicit on both because the figure follows .faq in
    source order and would otherwise paint on top of the cards rather than
    beneath them. */
-.faq-split{display:grid;grid-template-columns:minmax(0,1fr) 30%;column-gap:36px;row-gap:34px;align-items:center}
+.faq-split{display:grid;grid-template-columns:minmax(0,1fr) 26.5%;column-gap:36px;row-gap:34px;align-items:center}
 .faq-split > .sec-head{grid-column:1/-1}
 .faq-split + .faq-split{margin-top:58px}
 @media(max-width:1000px){.faq-split{grid-template-columns:1fr;column-gap:0}}
@@ -947,35 +947,38 @@ p,li,dd,figcaption{text-wrap:pretty}
    past its stack and left the bottom group with a 41px gap under its heading
    where the top group had 34px.
 
-   ALIGNMENT IS ON THE ARTWORK, NOT ON THE IMG BOX. This is the part that took
-   three tries. Both files carry a 10% transparent margin for the edge fade, so
-   the artwork sits inset from the element by a tenth of that element's width,
-   and the two elements render at different widths. Aligning the boxes therefore
-   misaligns the pictures:
-     - Same left edge: the artwork inside started 41px in on one and 28px in on
-       the other, so the narrower one appeared to poke out further left.
-     - Same centre: worse. The wider image was cut by the card edge while the
-       narrower one stopped short of it with a visible gap, so one looked tucked
-       behind the questions and the other looked parked beside them.
-   translateX(-10%) is the fix, because a percentage translate resolves against
-   the element's OWN width. It cancels each image's padding exactly, whatever
-   that image's rendered width is, so the artwork's left edge lands on the figure
-   box's left edge for both. Confirmed against the files: the padding measures
-   9.97% and 10.00% of frame width.
+   THE TWO ILLUSTRATIONS SHARE A CENTRE LINE, and it took four goes to land on
+   that, so here is the shape of the problem. Their aspects are 1.080 and 0.518,
+   so at any sane height they are 418px and 280px wide, and each file carries a
+   10% transparent margin for the edge fade, which means the artwork sits inset
+   from its element by a tenth of that element's own width. Alignment therefore
+   has three candidate meanings and they are mutually exclusive:
+     - Same left edge: gives both an identical clip behind the cards, but the
+       narrower illustration then sits well left of the wider one's centre.
+     - Same right edge: reads as the narrow one being shoved into the corner.
+     - Same centre: what Alex asked for, on the wider illustration's artwork
+       edges as the reference band.
+   Equal widths, which would satisfy all three at once, is not reachable and
+   should not be attempted: matching the landscape width would make the portrait
+   one 834px tall against a 546px question stack, and holding it to the stack
+   instead caps both at 283px wide, smaller than before any of this work.
 
-   The clip then falls out as pull minus column-gap, 25px, with no reference to
-   either image's width, so both are cut by exactly the same amount at every
-   viewport. The left fade ends up entirely behind the cards, which is fine: an
-   opaque bordered card is a cleaner occluder than a gradient.
+   Plain margin:0 auto is what centres them, and it has to stay plain. An earlier
+   pass added transform:translateX(-10%) to cancel each file's padding so the
+   artwork left edges would meet; that is exactly wrong here, because a
+   percentage translate resolves against the element's own width and so shifts
+   the two by different amounts, pulling them off any shared centre.
 
-   Equal widths, which would align both edges outright rather than just the left,
-   is not reachable and should not be attempted: the portrait aspect is 0.518, so
-   matching the landscape width would make it 834px tall against a 546px question
-   stack, and holding it to the stack instead caps both at 283px wide, smaller
-   than they were before any of this work. */
-.faq-art{margin:0 0 0 -61px;position:relative;z-index:0}
-.faq-art img{display:block;max-width:100%;max-height:540px;width:auto;height:auto;
-  margin:0 auto 0 0;transform:translateX(-10%)}
+   The track and pull are then solved rather than picked, so that centring does
+   not cost the landscape illustration the tuck it already had: at 26.5% and
+   103px it stays 418x387, keeps a 25px clip behind the cards, and does not grow
+   its row past the question stack. The portrait one lands 30px clear of the
+   cards at desktop and about touching by 1024px. That difference is not a bug to
+   chase: centring ties each image's left edge to its own width, so the narrower
+   one always sits further from the cards. Equal clips and a shared centre cannot
+   both hold. */
+.faq-art{margin:0 0 0 -103px;position:relative;z-index:0}
+.faq-art img{display:block;max-width:100%;max-height:540px;width:auto;height:auto;margin:0 auto}
 /* The illustration backgrounds were flat but landed five values off --paper,
    which is close enough to look intentional and too far to hide a rectangle
    edge: on the live page both read as faint boxes. Two things fix it. The
@@ -1042,10 +1045,9 @@ p,li,dd,figcaption{text-wrap:pretty}
      that is already long, so it caps and centres instead. The row-gap above
      supplies the space, so the figure needs no margin of its own, and both the
      negative pull-in and the left alignment have to be undone: there is nothing
-     alongside to tuck under once the columns collapse, so the padding-cancelling
-     translate has to go too or the artwork sits off-centre by a tenth. */
+     alongside to tuck under once the columns collapse. */
   .faq-art{margin:0 auto}
-  .faq-art img{max-height:300px;margin:0 auto;transform:none}
+  .faq-art img{max-height:300px;margin:0 auto}
 }
 @media (prefers-reduced-motion: reduce){.faq summary::after{transition:none}}
 
