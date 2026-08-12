@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Work tile preview (internal) | Harper Studio</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="icon" type="image/png" href="assets/hs-favicon.png?v=71"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="studio.css?v=105"/>
+<style>
+/* Preview-only. These graduate into studio.css if approved. */
+.pv-note{background:var(--navy);color:#DFE6EF;padding:22px 0}
+.pv-note .wrap{max-width:900px}
+.pv-note h1{color:#fff;font-size:22px}
+.pv-note p{color:#AEB9C8;font-size:15px;margin-top:8px}
+.pv-note b{color:var(--gold-lt)}
+
+.wbig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px}
+@media(max-width:940px){.wbig-grid{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}}
+.wbig{display:flex;flex-direction:column;background:var(--card);border:1px solid #DCD0B8;border-radius:16px;
+  overflow:hidden;box-shadow:0 5px 18px -10px rgba(15,30,46,.26),0 1px 2px rgba(15,30,46,.06);
+  transition:transform .18s,box-shadow .18s,border-color .18s}
+.wbig:hover{transform:translateY(-3px);border-color:#C3B08A;box-shadow:0 26px 46px -26px rgba(15,30,46,.32)}
+@media (hover:none){.wbig:hover{transform:none}}
+.wbig-shot{display:block;border-bottom:1px solid var(--line);background:var(--warm-tint)}
+.wbig-shot img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.wbig-body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.wbig-kicker{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red-deep)}
+.wbig h3{font-family:var(--serif);font-weight:600;font-size:25px;color:var(--navy);margin-top:9px;letter-spacing:-.015em}
+.wbig-meta{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--faint);margin-top:7px}
+.wbig-lede{font-size:15px;color:var(--muted);margin-top:13px;line-height:1.62}
+.wbig-list{list-style:none;margin:15px 0 0;padding-top:15px;border-top:1px solid var(--line)}
+.wbig-list li{position:relative;font-size:14.5px;color:#414B59;padding:6px 0 6px 26px;line-height:1.5}
+.wbig-list li svg{position:absolute;left:0;top:10px;width:14px;height:14px;color:var(--gold-deep)}
+.wbig-links{margin-top:auto;padding-top:18px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.wbig-links a{font-size:14.5px;font-weight:700}
+.wbig-links .primary{color:var(--red-deep)}
+.wbig-links .primary:hover{text-decoration:underline}
+.wbig-links .secondary{color:var(--navy);border-bottom:1px solid rgba(15,30,46,.28);padding-bottom:1px}
+.wbig-links .secondary:hover{border-bottom-color:var(--navy)}
+.todo{background:#FBEFEA;border:1px dashed var(--red);border-radius:8px;padding:10px 12px;margin-top:15px;
+  font-size:13.5px;color:var(--red-deep);line-height:1.5}
+.todo b{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+</style>
+</head>
+<body>
+
+<div class="pv-note">
+  <div class="wrap">
+    <h1>Bigger work tiles, in your own materials</h1>
+    <p>The structure is borrowed, the look is not: your serif, your gold rules, your soft-shadow cards, no slab type or hard offset shadows. <b>Calvary's four bullets are real</b>, taken from its case study. The other three are marked REPLACE THIS, because writing specifics about your clients that I cannot verify is exactly the thing I should not do. Tell me what you actually did on each and I will swap them in.</p>
+  </div>
+</div>
+
+<header id="top">
+  <div class="wrap"><nav>
+    <a class="brand" href="index.html" aria-label="Harper Studio home">
+      <img src="assets/hs-logo.png?v=71" alt="Harper Studio" width="940" height="290"/>
+    </a>
+    <div class="nav-links" id="navLinks" style="display:flex">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="about.html">About</a>
+      <a href="plans.html">Plans</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-primary">Schedule a consultation</a>
+    </div>
+  </nav></div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>Work I'm proud to put my name on.</h1>
+      <p>These are not mockups or concept pieces. Each one is a real small business, church, or nonprofit with a working site you can visit this minute, and each one is still hosted and managed here.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="wbig-grid">
+
+        <article class="wbig">
+          <a class="wbig-shot" href="work-calvary-road.html">
+            <img src="img/work/tile-calvary.jpg?v=1" alt="The live Calvary Road Baptist Church homepage" width="1200" height="750" loading="lazy" decoding="async"/>
+          </a>
+          <div class="wbig-body">
+            <span class="wbig-kicker">Church website &middot; platform migration</span>
+            <h3>Calvary Road Baptist Church</h3>
+            <p class="wbig-meta">New Albany, IN &middot; Hosted and managed</p>
+            <p class="wbig-lede">A congregation had been on the same church-website platform since 2006. The content was good and the doctrine was theirs. Everything around it was working against them.</p>
+            <ul class="wbig-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Moved off a twenty-year-old platform onto a site they own outright</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rebuilt the phone experience, which had no navigation at all</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Kept every indexed address working, so nothing broke at cutover</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Reproduced all nineteen articles of faith word for word, with 134 Scripture references expanding inline</li>
+            </ul>
+            <div class="wbig-links">
+              <a class="primary" href="work-calvary-road.html">Read the full story &rarr;</a>
+              <a class="secondary" href="https://crbcindiana.com/" target="_blank" rel="noopener">Visit site</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wbig">
+          <a class="wbig-shot" href="https://infinitesolutionsllc.com/" target="_blank" rel="noopener">
+            <img src="img/work/tile-infinite.jpg?v=1" alt="The live Infinite Solutions homepage" width="1200" height="750" loading="lazy" decoding="async"/>
+          </a>
+          <div class="wbig-body">
+            <span class="wbig-kicker">Technology &amp; leadership</span>
+            <h3>Infinite Solutions LLC</h3>
+            <p class="wbig-meta">New Albany, IN &middot; Hosted and managed</p>
+            <p class="wbig-lede">A corporate site for an IT and leadership firm: clear services, who they serve, and an easy way to start a conversation.</p>
+            <div class="todo"><b>Replace this</b>Four bullets on what you actually did. Suggested shape, in your words: what you built, what you fixed or replaced, something specific and checkable, and what you still handle month to month.</div>
+            <div class="wbig-links">
+              <a class="primary" href="https://infinitesolutionsllc.com/" target="_blank" rel="noopener">Visit site &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wbig">
+          <a class="wbig-shot" href="https://hopebaptistwarsaw.org/" target="_blank" rel="noopener">
+            <img src="img/work/tile-hope.jpg?v=1" alt="The live Hope Baptist Church homepage" width="1200" height="750" loading="lazy" decoding="async"/>
+          </a>
+          <div class="wbig-body">
+            <span class="wbig-kicker">Church &amp; community</span>
+            <h3>Hope Baptist Church</h3>
+            <p class="wbig-meta">Warsaw, IN &middot; Hosted and managed</p>
+            <p class="wbig-lede">A warm site for a Warsaw, Indiana congregation: service times, directions, and a welcoming path for first-time visitors.</p>
+            <div class="todo"><b>Replace this</b>Four bullets on what you actually did. What did they have before, what did you build, and what do you keep current for them now?</div>
+            <div class="wbig-links">
+              <a class="primary" href="https://hopebaptistwarsaw.org/" target="_blank" rel="noopener">Visit site &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wbig">
+          <a class="wbig-shot" href="https://faithsblissfuldelights.com/" target="_blank" rel="noopener">
+            <img src="img/work/tile-faith.jpg?v=1" alt="The live Faith's Blissful Delights homepage" width="1200" height="750" loading="lazy" decoding="async"/>
+          </a>
+          <div class="wbig-body">
+            <span class="wbig-kicker">Bakery &amp; local business</span>
+            <h3>Faith's Blissful Delights</h3>
+            <p class="wbig-meta">Bellevue, OH &middot; Hosted and managed</p>
+            <p class="wbig-lede">A made-to-order home bakery: a sweet menu and gallery, plus a simple custom-order request flow that reaches her without a shopping cart.</p>
+            <div class="todo"><b>Replace this</b>Four bullets on what you actually did. The order flow and the gallery are worth naming, plus anything about photos or the menu you handle for her.</div>
+            <div class="wbig-links">
+              <a class="primary" href="https://faithsblissfuldelights.com/" target="_blank" rel="noopener">Visit site &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-base" style="border-top:0;margin-top:0;padding-top:24px"><span>Internal preview &middot; not deployed</span><span>Send me the real bullets and this replaces work.html</span></div>
+  </div>
+</footer>
+</body>
+</html>
