@@ -919,13 +919,36 @@ p,li,dd,figcaption{text-wrap:pretty}
       Sizing is capped by height rather than set by width, so the tall
       portrait cannot tower over the short landscape one: each ends up about
       0.72 of the height of the question stack beside it. */
-.faq-split{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:54px;row-gap:34px;align-items:center}
+/* Sizing revised again 2026-08-12: at 300px in a fixed track the illustrations
+   read as small and stranded out at the page edge. The track is now a
+   percentage so it grows with the page instead of staying put, and the figure
+   is pulled back under the accordions by a negative margin. The overlap is
+   deliberately kept to 40px: the images carry a 10% transparent margin, which
+   is 43px at the widest render, so 40px of overlap hides almost nothing but the
+   fade on the landscape image, and only a slim strip of the narrower portrait
+   one. z-index has to be explicit on both because the figure follows .faq in
+   source order and would otherwise paint on top of the cards rather than
+   beneath them. */
+.faq-split{display:grid;grid-template-columns:minmax(0,1fr) 30%;column-gap:36px;row-gap:34px;align-items:center}
 .faq-split > .sec-head{grid-column:1/-1}
 .faq-split + .faq-split{margin-top:58px}
 @media(max-width:1000px){.faq-split{grid-template-columns:1fr;column-gap:0}}
-.faq-split .faq{max-width:none;margin-top:0}
-.faq-art{margin:0}
-.faq-art img{display:block;max-width:100%;max-height:400px;width:auto;height:auto;margin:0 auto}
+.faq-split .faq{max-width:none;margin-top:0;position:relative;z-index:1}
+/* The cap has to be an absolute length. Sizing each illustration to its own
+   question stack via align-self:stretch and max-height:100% was tried and does
+   not work: the percentage resolves against a figure height that this image is
+   itself producing, so it is circular, the whole min() goes indefinite and no
+   cap applies at all. The portrait illustration then took its width-limited
+   size of 432x835, grew the row past the 546px question stack, and left the
+   questions floating in the middle of it.
+
+   560px is chosen against the taller group's stack (546px at desktop), so the
+   row grows by only a dozen pixels and the questions stay put. Left-aligned in
+   its box rather than centred: centring would park the narrow portrait
+   illustration mid-track and undo its overlap, so the two would tuck in by
+   different amounts. */
+.faq-art{margin:0 0 0 -76px;position:relative;z-index:0}
+.faq-art img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto 0 0}
 /* The illustration backgrounds were flat but landed five values off --paper,
    which is close enough to look intentional and too far to hide a rectangle
    edge: on the live page both read as faint boxes. Two things fix it. The
@@ -956,9 +979,11 @@ p,li,dd,figcaption{text-wrap:pretty}
 @media(max-width:1000px){
   /* stacked, the portrait illustration would add ~380px of scrolling to a page
      that is already long, so it caps and centres instead. The row-gap above
-     supplies the space, so the figure needs no margin of its own. */
+     supplies the space, so the figure needs no margin of its own, and both the
+     negative pull-in and the left alignment have to be undone: there is nothing
+     alongside to tuck under once the columns collapse. */
   .faq-art{margin:0 auto}
-  .faq-art img{max-height:300px}
+  .faq-art img{max-height:300px;margin:0 auto}
 }
 @media (prefers-reduced-motion: reduce){.faq summary::after{transition:none}}
 
