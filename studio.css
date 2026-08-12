@@ -952,10 +952,26 @@ p,li,dd,figcaption{text-wrap:pretty}
 /* The illustration backgrounds were flat but landed five values off --paper,
    which is close enough to look intentional and too far to hide a rectangle
    edge: on the live page both read as faint boxes. Two things fix it. The
-   images now have their own flat field retinted onto --paper exactly (weighted
-   by how close each pixel already was to that field, so the artwork is
-   untouched), and the outer 9% is dissolved here to kill the edge itself.
-   Measured after both: every edge pixel matches the page exactly.
+   images have their own flat field retinted onto --paper, and the outer 9% is
+   dissolved here to kill the edge itself.
+
+   The retint took three goes and the failures are worth knowing, because each
+   one looked fine in the corners and still drew a box:
+     - Padding the crop with --paper and then retinting ran the retint over the
+       padding too, pushing it past the target.
+     - Retinting by a fixed delta keyed to the corner colour leaves any pixel
+       that was not exactly that colour offset by however much it differed. The
+       working illustration's own field sat 2 off the corner, so it landed 4 off
+       --paper while the padding landed on it exactly, and the step between them
+       drew a crisp rectangle at the crop boundary. Both boundaries fall just
+       outside the 9% fade, so the step was at full opacity.
+     - Re-anchoring the delta on the field colour instead fixed that image and
+       broke the other, whose background has a gradient no single anchor fits.
+   What works is edge-replicated padding: each border band is the adjacent
+   subject edge line stretched outward, so the colour is continuous across the
+   crop boundary whatever the illustration's background does. Measured after:
+   every boundary step is at most 5 across all three channels, under 2 per
+   channel, and the padding sits within 2 of --paper.
 
    NOTE: the retint ties these two files to a --paper band. If either
    illustration is ever moved onto .alt (cream) or .navy, the flat field will
