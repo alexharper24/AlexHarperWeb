@@ -973,9 +973,27 @@ p,li,dd,figcaption{text-wrap:pretty}
    every boundary step is at most 5 across all three channels, under 2 per
    channel, and the padding sits within 2 of --paper.
 
-   NOTE: the retint ties these two files to a --paper band. If either
-   illustration is ever moved onto .alt (cream) or .navy, the flat field will
-   show as a pale box again and the images need rebuilding against that colour.
+   THE TARGET IS NOT --paper. body::before lays a 5% multiply noise grain over
+   the page, and header/main/footer sit at z-index 2 above it while the grain is
+   at z-index 1. Section backgrounds here are transparent, so the grain shows
+   through around the illustrations, but the illustrations themselves cover it.
+   The page next to the artwork therefore renders at rgb(252,250,246), not the
+   rgb(254,252,248) the token says, and images built to the token sat 2 to 3 per
+   channel light across a large flat area. That is well above the visible
+   threshold for a big field even though it is below it for a thin boundary,
+   which is why chasing boundary steps never fixed this. Measured two ways that
+   agree to 0.08: averaging the noise texture and applying the multiply
+   arithmetic, and compositing the real texture over the real paper colour on a
+   canvas with globalCompositeOperation multiply at the same opacity.
+
+   The grain's own texture is only +/-0.75 of a value, so the illustrations do
+   not need grain of their own; matching the brightness is the whole fix.
+
+   NOTE: this ties these two files to a --paper band WITH the grain behind it. If
+   either illustration moves onto .alt (cream) or .navy, or if the grain's
+   opacity or z-index changes, the flat field shows as a box again and the images
+   need rebuilding against the new effective colour. Do not rebuild them against
+   a raw token value.
 
    Two gradients intersected rather than one radial, so the fade stays on the
    borders and the middle of the picture keeps full strength. The images carry
