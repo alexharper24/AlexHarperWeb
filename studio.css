@@ -104,19 +104,13 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
    visible border. A short ramp kills that without touching the photo itself.
    The previous 0-60% ramp would double up on the baked-in fade and wash out
    the mug and notebook, measured at 5.4 units against 0 for this one. */
-/* The right edge needs the same treatment for the opposite reason. The left is
-   flat baked-in fade, measured at a vertical spread of 1 to 2 units, so it only
-   needed a hint of a ramp. The right is live photo cropped hard: spread of 165,
-   the desk and the laptop's lid running straight off the frame at (223,193,163)
-   against a #F8E7D6 panel. That is the bold edge. There is no transparent margin
-   to spend, so this ramp does eat picture, which is why it is half the length of
-   an ordinary vignette: the laptop dissolves off the edge instead of being
-   guillotined by it. */
+/* A right-hand fade was tried on 2026-08-12 and reverted. The edge is a hard
+   crop, measured at a vertical spread of 165 against the left's 1 to 2, so there
+   is no transparent margin to spend and any ramp eats the laptop itself. Alex
+   preferred the clean crop to a dissolved one. Do not re-add it without asking. */
 .hero-photo{display:block;width:100%;height:auto;border-radius:16px;z-index:1;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 4%,#000 8%,
-    #000 94%,rgba(0,0,0,.5) 97.5%,transparent 100%);
-  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 4%,#000 8%,
-    #000 94%,rgba(0,0,0,.5) 97.5%,transparent 100%)}
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 4%,#000 8%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 4%,#000 8%)}
 /* text stays on the standard grid: a 1240 box centred inside the wider frame
    keeps the same centre, so it still lines up with the logo and the sections */
 .hero-inner{position:absolute;top:0;bottom:0;left:0;right:0;z-index:3;
@@ -461,6 +455,31 @@ section.cta-band,.cta-band,section.block.alt + section.cta-band{
 .page-hero + section.block:not(.alt):not(.values):not(.cta-band),
 section.block:not(.alt):not(.values):not(.cta-band) + section.block:not(.alt):not(.values):not(.cta-band){
   border-top:1px solid var(--line)}
+
+/* Full-bleed two-tone band standing in for that hairline at the boundaries that
+   carry the most weight: "where are you starting" into "what I do" on the
+   homepage, and the build tiers into what every build includes on the plans
+   page. It has to be a sibling of the two sections rather than live inside
+   .wrap, or it cannot run edge to edge.
+
+   It suppresses the hairline above by construction, which is the intent: the
+   rule that draws that hairline is an adjacent-sibling selector, so a ribbon
+   sitting between two sections stops it matching and you get one separator
+   instead of two stacked. The flip side is that moving or deleting a ribbon
+   silently brings the hairline back, which is the correct fallback but is not
+   obvious from looking at either rule alone.
+
+   The navy runs to 62% rather than half, so the join lands off-centre and reads
+   as deliberate rather than as a flag. */
+.ribbon{position:relative;height:12px;background:var(--red);overflow:hidden}
+.ribbon::before{content:"";position:absolute;top:0;bottom:0;left:0;width:62%;
+  background:var(--navy);clip-path:polygon(0 0,100% 0,calc(100% - 26px) 100%,0 100%)}
+/* the slant is a fixed length, so on a phone it has to come down with the bar or
+   the angle flattens out to almost nothing */
+@media(max-width:620px){
+  .ribbon{height:9px}
+  .ribbon::before{clip-path:polygon(0 0,100% 0,calc(100% - 18px) 100%,0 100%)}
+}
 /* tiles: firmer edge so they hold their own on the paper ground too */
 .svc,.item,.step,.wcard,.form-card,.plan-note,.compare-tiers a{
   border:1px solid #D6C9B0;

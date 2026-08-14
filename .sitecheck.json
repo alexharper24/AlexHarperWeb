@@ -1,7 +1,6 @@
 {
  "ignore_files": [
-  "work-preview.html",
-  "ribbon-preview.html"
+  "work-preview.html"
  ],
- "_note": "Throwaway previews. Both noindex, unlinked, out of the sitemap. work-preview.html: bigger work tiles, delete once the real bullets land. ribbon-preview.html: section separator options, delete once one is chosen."
+ "_note": "Throwaway preview of the bigger work tiles. noindex, unlinked, out of the sitemap. Delete with this entry once the real bullets land."
 }
