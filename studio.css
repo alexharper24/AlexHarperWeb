@@ -171,9 +171,15 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
      anchor moved from 25% to 78% between two images of identical dimensions. */
   .hero.cinematic .hero-photo{width:100%;height:100%;object-fit:cover;object-position:50% 78%;
     border-radius:0;-webkit-mask-image:none;mask-image:none}
+  /* Warm near-neutral, not navy, and lighter than it was. rgba(8,18,28) is a blue
+     that fights a photograph made of cream walls and wood; rgba(22,19,16) reads as
+     shade rather than as a colour cast. The new photo also has a darker left
+     field than the old one, 243,222,197 against 254,250,244, so the copy needs
+     less help: the old stops measured 7.66:1 here and these measure 5.79:1, both
+     clear of AA. */
   .hero.cinematic .hero-frame::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-    background:linear-gradient(90deg,rgba(8,18,28,.90) 0%,rgba(8,18,28,.78) 36%,
-      rgba(8,18,28,.38) 60%,rgba(8,18,28,.08) 100%)}
+    background:linear-gradient(90deg,rgba(22,19,16,.80) 0%,rgba(22,19,16,.68) 36%,
+      rgba(22,19,16,.30) 60%,rgba(22,19,16,.05) 100%)}
   /* width:100% and the explicit 100% column are both load-bearing: left to work it
      out alone the item sized to its own content and sat in the middle of the frame */
   .hero.cinematic .hero-inner{position:relative;z-index:3;width:100%;
@@ -187,27 +193,23 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
   .hero.cinematic .btn-ghost{border-color:#fff;color:#fff}
   .hero.cinematic .btn-ghost:hover{background:#fff;color:var(--navy)}
 
-  /* header floating over the photo, until the page scrolls and it becomes the
-     ordinary solid bar every other page uses */
-  /* only the at-rest state is overridden. Setting background:transparent on
-     header.hdr-over unconditionally out-specifies the base header rule, so the
-     bar stayed see-through after scrolling too and the nav sat on live page
-     content. Scrolled, it inherits the ordinary solid paper bar. */
-  header.hdr-over:not(.scrolled){
-    background:linear-gradient(180deg,rgba(8,18,28,.55) 0%,rgba(8,18,28,.55) 80%,rgba(8,18,28,.28) 100%);
-    -webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
-  header.hdr-over:not(.scrolled) .nav-links a:not(.btn){color:#DCE3EC}
-  header.hdr-over:not(.scrolled) .nav-links a:not(.btn):hover{color:#fff}
-  header.hdr-over:not(.scrolled) .nav-links a.active{color:var(--gold-lt)}
-  header.hdr-over:not(.scrolled) .nav-links a.active::after{background:var(--gold-lt)}
-  /* exactly one logo is ever displayed, so exactly one alt is announced */
-  header.hdr-over:not(.scrolled) .brand .lg-dark{display:none}
-  header.hdr-over:not(.scrolled) .brand .lg-light{display:block}
+  /* A light frosted bar over the photo, not a dark one, so the header still reads
+     as the same component it is on every other page: same paper tone, same navy
+     logo, same muted nav links, just translucent enough to show the photo moving
+     underneath it.
+
+     0.82 is the floor, not a preference. --muted at #55606E measures 4.57:1
+     against this backdrop at 0.80 and 2.92:1 at 0.55, so a more transparent bar
+     would need darker link text and the homepage nav would stop matching the
+     rest of the site. Only the at-rest state is touched: on scroll it inherits
+     the ordinary solid paper bar, and overriding the background unconditionally
+     here out-specifies that and leaves the nav sitting on live page content. */
+  header.hdr-over:not(.scrolled){background:rgba(254,252,248,.82);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 }
 /* the phone keeps the stacked banner it already has. Overlaying the copy there
    needs a flat 0.62 scrim to clear AA, measured on the mobile crop, which buries
    the photo on the one device where it is already smallest. */
-.brand .lg-light{display:none}
 
 /* text stays on the standard grid: a 1240 box centred inside the wider frame
    keeps the same centre, so it still lines up with the logo and the sections */
