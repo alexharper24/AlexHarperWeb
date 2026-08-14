@@ -1,7 +1,6 @@
 {
  "ignore_files": [
-  "work-preview.html",
-  "hero-options.html"
+  "work-preview.html"
  ],
- "_note": "Throwaway previews. All noindex, unlinked, out of the sitemap. work-preview.html: bigger work tiles, delete once the real bullets land. hero-options.html: five hero treatments, delete once one is chosen."
+ "_note": "Throwaway preview of the bigger work tiles. noindex, unlinked, out of the sitemap. Delete with this entry once the real bullets land."
 }
