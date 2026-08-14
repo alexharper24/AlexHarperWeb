@@ -146,40 +146,50 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
      of top padding is what keeps the copy clear of the bar once it overlaps. */
   .hero.cinematic{padding:0;background:var(--navy-2);margin-top:-81px}
   /* Taller, so the photo has room to be a photograph rather than a strip. The
-     copy needs 748px, so below ~1700px the content still sets the height and this
-     floor does nothing; above that the hero grows to 900.
+     copy needs 748px, so that is the floor.
 
-     The curve is 44vw capped at 900, not 52vw capped at 820, and the difference
-     is not taste. A hero that grows more slowly than the viewport gets
-     proportionally wider, which forces object-fit:cover to crop more off the
-     top. At 52vw/820 the top crop passed 35.2% at 2880px and started eating the
-     mug. At 44vw/900 it peaks at 34.5% there, inside budget at every width
-     tested from 881 to 2880. */
+     The height comes from the PHOTO'S OWN ASPECT, not from a vw curve. Picking a
+     height independently and then letting object-fit:cover reconcile the
+     difference is what cropped this image in the first place. Matching 1672/941
+     means there is nothing to reconcile: up to about 1970px the hero shows the
+     entire photograph, uncropped, at every width.
+
+     The whole point of this shot is the empty wall and the headroom above the
+     desk. That space is the composition, not padding around it, and an earlier
+     pass treated it as spare because no object sat in it. Cropping it is what
+     made the hero read as cramped. */
   .hero.cinematic .hero-frame{max-width:none;padding:0;position:relative;display:grid;
-    grid-template-columns:100%;align-content:center;min-height:clamp(560px,44vw,900px)}
+    grid-template-columns:100%;align-content:center;
+    aspect-ratio:1672/941;min-height:560px;max-height:1100px;isolation:isolate}
   .hero.cinematic picture{position:absolute;inset:0;display:block}
-  /* Anchored low, at 78%, which is the opposite of what the previous photo needed
-     and is entirely a property of this one. Measured off the file: the highest
-     subject (the mug) sits 35.2% down and the lowest (the notebook) ends at
-     88.6%, so there is 35% of empty wall to crop into at the top and only 11.4%
-     of clearance at the bottom. Cropping is therefore cheap above and expensive
-     below, and the anchor belongs near the bottom.
+  /* Anchored high. Above the 1100px cap the hero does get wider than the photo
+     and something has to give, and it must not be the top: 12% keeps the loss
+     there under 3% even at 2560px and takes it off the foreground instead.
 
-     At 78% the top loses 19.8% at 1970px and 33.3% at 2560px, both inside the
-     35.2% budget, while the notebook keeps its edge at every width up to 2560.
-     Re-measure all of this if the photo is ever swapped again; the correct
-     anchor moved from 25% to 78% between two images of identical dimensions. */
-  .hero.cinematic .hero-photo{width:100%;height:100%;object-fit:cover;object-position:50% 78%;
+     This replaces an anchor of 78%, which was chosen by asking where the objects
+     were rather than where the composition was. The mug is the highest object at
+     35.2% down, so 35% of the frame looked disposable. It was not: that is the
+     light and the wall the photograph is actually about. */
+  .hero.cinematic .hero-photo{width:100%;height:100%;object-fit:cover;object-position:50% 12%;
     border-radius:0;-webkit-mask-image:none;mask-image:none}
-  /* Warm near-neutral, not navy, and lighter than it was. rgba(8,18,28) is a blue
-     that fights a photograph made of cream walls and wood; rgba(22,19,16) reads as
-     shade rather than as a colour cast. The new photo also has a darker left
-     field than the old one, 243,222,197 against 254,250,244, so the copy needs
-     less help: the old stops measured 7.66:1 here and these measure 5.79:1, both
-     clear of AA. */
+  /* MULTIPLY, not a flat overlay, and that is the whole point. A translucent tint
+     at 80% replaces 80% of every pixel with the tint's own colour, so the warm
+     wall and the light falling across it all converge on one value and the left
+     of the hero goes flat grey-brown. Multiply scales each pixel instead of
+     replacing it, so the shadow stays a shadow, the light shaft stays a light
+     shaft, and the photo keeps its warmth while getting darker.
+
+     The gradient runs warm-dark to WHITE because multiplying by white is the
+     identity: the scrim fades out cleanly on the right without a second
+     mechanism. Measured over the copy block: 5.59:1, clear of AA.
+
+     isolation:isolate on the frame is required, not decorative. Without a
+     stacking context here the blend reaches past the hero and multiplies against
+     whatever is painted behind it. */
   .hero.cinematic .hero-frame::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-    background:linear-gradient(90deg,rgba(22,19,16,.80) 0%,rgba(22,19,16,.68) 36%,
-      rgba(22,19,16,.30) 60%,rgba(22,19,16,.05) 100%)}
+    mix-blend-mode:multiply;
+    background:linear-gradient(90deg,rgb(96,78,62) 0%,rgb(126,104,84) 36%,
+      rgb(198,180,162) 60%,#fff 100%)}
   /* width:100% and the explicit 100% column are both load-bearing: left to work it
      out alone the item sized to its own content and sat in the middle of the frame */
   .hero.cinematic .hero-inner{position:relative;z-index:3;width:100%;
