@@ -86,13 +86,30 @@
   background:linear-gradient(180deg,var(--paper) 0,var(--cream) 70px,
     var(--cream) calc(100% - 70px),var(--paper) 100%)}
 .fx-c .values>.wrap,.fx-c .founder>.wrap{position:relative;z-index:2}
+
+/* ============ FLOW D — the book grammar ============ */
+/* two marks, everything else forbidden. Paragraph breaks inside a chapter are
+   whitespace alone: hairlines gone, ribbons gone, the alt band and cta lose
+   their fenced borders because the band change is signal enough. The two
+   chapter breaks (promise->offer, offer->relationship) are a strip of page
+   with the gold fleuron resting in it. Navy stays scarce: the two plates it
+   already owns, never as a divider. */
+.fx-d .seam{display:none}
+.fx-d .seam.ch{display:flex;height:88px;align-items:center;justify-content:center;
+  background:var(--paper)}
+.fx-d .seam.ch svg{width:148px;height:11px;overflow:visible;color:var(--gold)}
+.fx-d .seam.ch svg path{stroke:currentColor;stroke-width:2.8;stroke-linecap:round;fill:none}
+.fx-d .ribbon{display:none}
+.fx-d section.block:not(.alt):not(.values):not(.cta-band) + section.block:not(.alt):not(.values):not(.cta-band){border-top:0}
+.fx-d section.block.alt{border-top:0;border-bottom:0}
+.fx-d .cta-band{border-top:0}
 </style>
 </head>
 <body>
 
 <div class="pv-head">
-  <h1>Four ways the homepage sections can hand over</h1>
-  <p>The current page mixes three separator languages: hard band cuts, hairlines, and the two ribbons, and no element ever crosses a boundary, so each section reads as a sealed slab. Each flow below is the same abbreviated homepage (photos omitted; the seams are the subject) with one consistent transition system applied. Resize for mobile behaviour. Nothing is wired into the live page.</p>
+  <h1>Five ways the homepage sections can hand over</h1>
+  <p>The current page mixes three separator languages: hard band cuts, hairlines, and the two ribbons, and no element ever crosses a boundary, so each section reads as a sealed slab. Each flow below is the same abbreviated homepage (photos omitted; the seams are the subject) with one consistent transition system applied. Resize for mobile behaviour. Flow D is the recommended book grammar from the design discussion. Nothing is wired into the live page.</p>
 </div>
 
 <div class="pv-opt">
@@ -103,7 +120,7 @@
 </div>
 
 <div class="pv-opt">
-  <div class="pv-tag">Flow A · recommended</div>
+  <div class="pv-tag">Flow A</div>
   <h2>One seam language: the gold stitch</h2>
   <div class="pv-note">Every colour-change seam carries the same hand-drawn gold stroke the site already uses under its headings, sitting exactly on the boundary. The ribbons stay as the two structural pivots; the alt band's hard borders go. Cheapest, and it literalizes "care in every detail": the page reads as hand-stitched.</div>
   <div class="pv-stage fx-a" data-flow data-seams></div>
@@ -123,6 +140,13 @@
   <div class="pv-stage fx-c" data-flow></div>
 </div>
 
+<div class="pv-opt">
+  <div class="pv-tag">Flow D · the book grammar (recommended)</div>
+  <h2>Two marks, everything else is whitespace</h2>
+  <div class="pv-note">The page as a typeset book. Paragraph breaks inside a chapter are whitespace alone: no hairlines, no ribbons, no fenced borders on the cream band. The two chapter breaks (promise into offer, offer into relationship) are a strip of page with the gold fleuron resting in it. Navy keeps its two plates and is never a divider. Every future section gets an automatic answer: chapter or paragraph.</div>
+  <div class="pv-stage fx-d" data-flow></div>
+</div>
+
 <div class="pv-note" style="max-width:1100px;margin:48px auto 80px;padding:0 26px">Delete this file once a direction is chosen.</div>
 
 <template id="tplFlow">
@@ -140,7 +164,7 @@
       <div class="val"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></div><h3>Work I Stand Behind</h3><p>Finished means something I'm proud of.</p></div>
     </div></div>
   </section>
-  <div class="seam"><svg viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg></div>
+  <div class="seam ch"><svg viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg></div>
   <section class="block">
     <div class="wrap"><div class="sec-head">
       <span class="eyebrow">Where are you starting?</span>
@@ -162,7 +186,7 @@
       <div class="lane build" style="margin-top:22px"><div class="lane-bar" style="border-bottom:0;padding-bottom:0;margin-bottom:0"><h3>The build</h3><span class="lb-when">One-time &middot; pick by size</span></div></div>
     </div>
   </section>
-  <div class="seam"><svg viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg></div>
+  <div class="seam ch"><svg viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg></div>
   <section class="block alt">
     <div class="wrap"><div class="sec-head">
       <span class="eyebrow">How it works</span>
