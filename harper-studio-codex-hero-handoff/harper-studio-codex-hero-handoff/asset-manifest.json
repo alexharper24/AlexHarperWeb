@@ -1,0 +1,8 @@
+{
+  "visual_target": "design-reference/hero-target.png",
+  "previous_implementation": "design-reference/current-implementation.png",
+  "production_hero_webp": "public/images/hero/harper-hero-cinematic.webp",
+  "production_hero_png_source": "public/images/hero/harper-hero-cinematic.png",
+  "codex_prompt": "CODEX_PROMPT.md",
+  "visual_spec": "docs/HERO_SPEC.md"
+}

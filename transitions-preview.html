@@ -103,12 +103,42 @@
 .fx-d section.block:not(.alt):not(.values):not(.cta-band) + section.block:not(.alt):not(.values):not(.cta-band){border-top:0}
 .fx-d section.block.alt{border-top:0;border-bottom:0}
 .fx-d .cta-band{border-top:0}
+
+/* ============ FLOW E — colour ladder, no dividers at all ============ */
+/* the band change IS the boundary: every section wears a different colour from
+   its neighbours and nothing else marks the seams. All steps stay in the warm
+   family; the two new tints are derived from the brand accents kept very pale
+   (gold -> ivory #F7EFDD, terracotta -> blush #FDF4EE). The blush is deliberately
+   lighter than a first pass at #FAEFE6, which sat only 12 channel-units from the
+   ivory above it: too close to register as a boundary, which is the one thing
+   this flow cannot afford. At #FDF4EE the step is 28 and reads. Navy keeps its two
+   plates as the darkest rungs. Section order in the template:
+   1 hero (hero-cream) . 2 values (navy) . 3 start . 4 work . 5 pricing .
+   6 process (cream) . 7 founder (navy) . 8 cta */
+.fx-e .seam,.fx-e .ribbon{display:none}
+.fx-e section.block:not(.alt):not(.values):not(.cta-band) + section.block:not(.alt):not(.values):not(.cta-band){border-top:0}
+.fx-e section.block.alt{border-top:0;border-bottom:0}
+.fx-e .cta-band{border-top:0}
+.fx-e section:nth-of-type(3){background:var(--paper)}      /* start:  paper       */
+.fx-e section:nth-of-type(4){background:#F7EFDD}           /* work:   gold ivory  */
+.fx-e section:nth-of-type(5){background:#FDF4EE}           /* pricing: blush      */
+                                                           /* process: cream, as is */
+.fx-e .cta-band{background:var(--white)}                   /* cta:    warm white  */
+/* The hero needs stating explicitly: studio.css declares .hero twice and the
+   later rule (line ~503, the palette refresh) resets it to paper, so without
+   this the hero and the start section were the same rung. */
+.fx-e .hero{background:var(--hero-cream)}
+/* And the two dark plates were identical navy. The founder becomes a deep warm
+   espresso: 51 channel-units from the navy above it, so they read as two
+   deliberate darks rather than a repeat, and every text colour it carries still
+   clears AA comfortably (body 12.5, white 15.7, gold-lt 8.6). */
+.fx-e .founder{background:radial-gradient(120% 150% at 10% -30%,#3A2C23,#2B211A 55%,#221A15)}
 </style>
 </head>
 <body>
 
 <div class="pv-head">
-  <h1>Five ways the homepage sections can hand over</h1>
+  <h1>Six ways the homepage sections can hand over</h1>
   <p>The current page mixes three separator languages: hard band cuts, hairlines, and the two ribbons, and no element ever crosses a boundary, so each section reads as a sealed slab. Each flow below is the same abbreviated homepage (photos omitted; the seams are the subject) with one consistent transition system applied. Resize for mobile behaviour. Flow D is the recommended book grammar from the design discussion. Nothing is wired into the live page.</p>
 </div>
 
@@ -145,6 +175,13 @@
   <h2>Two marks, everything else is whitespace</h2>
   <div class="pv-note">The page as a typeset book. Paragraph breaks inside a chapter are whitespace alone: no hairlines, no ribbons, no fenced borders on the cream band. The two chapter breaks (promise into offer, offer into relationship) are a strip of page with the gold fleuron resting in it. Navy keeps its two plates and is never a divider. Every future section gets an automatic answer: chapter or paragraph.</div>
   <div class="pv-stage fx-d" data-flow></div>
+</div>
+
+<div class="pv-opt">
+  <div class="pv-tag">Flow E · colour ladder</div>
+  <h2>Every section its own colour, nothing else at the seams</h2>
+  <div class="pv-note">No dividers of any kind: the colour change is the boundary. Eight sections, eight rungs, all in the warm family: hero cream, navy, paper, gold ivory, blush, deep cream, espresso, warm white. Every rung was contrast-checked: body ink, muted grey, navy and the gold all clear AA on all six light rungs. The two new tints are the gold and terracotta accents kept very pale, so the ladder stays on brand. The risk to judge by eye: whether it reads as one warm document or as stripes.</div>
+  <div class="pv-stage fx-e" data-flow></div>
 </div>
 
 <div class="pv-note" style="max-width:1100px;margin:48px auto 80px;padding:0 26px">Delete this file once a direction is chosen.</div>
