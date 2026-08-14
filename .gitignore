@@ -40,3 +40,8 @@ img/faq/source/
 # Homepage hero source render. Web-optimized .webp/.jpg derivatives live in img/
 # and are committed; this 1.5MB original is not.
 img/hero/source/
+
+# design handoff for an external agent: prompt, spec, and 4.5MB of reference
+# renders. Local working material, never published (same rule as the services
+# handoff above). Swept in once by a blanket `git add -A`; kept out from here.
+harper-studio-codex-hero-handoff/
