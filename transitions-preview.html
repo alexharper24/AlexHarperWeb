@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="robots" content="noindex, nofollow"/>
+<title>Section transition options | Harper Studio preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="studio.css?v=141"/>
+<style>
+/* ================= preview chrome, not part of the site ================= */
+.pv-head{max-width:1100px;margin:0 auto;padding:40px 26px 0}
+.pv-head h1{font-size:30px}
+.pv-head p{color:var(--muted);font-size:15.5px;margin-top:12px;max-width:78ch}
+.pv-opt{margin-top:64px}
+.pv-tag{max-width:1100px;margin:0 auto;padding:0 26px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A7350}
+.pv-opt h2{max-width:1100px;margin:6px auto 0;padding:0 26px;font-size:23px}
+.pv-note{max-width:1100px;margin:10px auto 18px;padding:0 26px;font-size:14px;color:var(--muted);max-width:78ch}
+.pv-stage{border:1px solid #DCD0B8;border-radius:12px;overflow:hidden;background:var(--paper);
+  max-width:1240px;margin:0 auto}
+/* abbreviated sections: tighter than production so the seams dominate the eye */
+.pv-stage section.block{padding:52px 0}
+.pv-stage .values{padding:44px 0}
+.pv-stage .founder{padding:52px 0}
+.pv-stage .hero{padding:34px 0 40px}
+.pv-stage .cta-band{padding:52px 0}
+.pv-stage .mini-h1{font-family:var(--serif);font-weight:600;font-size:34px;color:var(--navy);
+  max-width:18ch;letter-spacing:-.015em;line-height:1.12;margin-top:10px}
+.pv-stage .founder h2{font-family:var(--serif);font-weight:600;font-size:26px;color:#fff}
+.pv-stage .founder p{color:#AEB9C8;font-size:15px;margin-top:8px;max-width:56ch}
+.pv-stage .lane.build{padding:20px 24px}
+
+/* ============ FLOW A — one seam language: the gold stitch ============ */
+/* every colour-change seam carries the same hand-drawn gold stroke, sitting ON
+   the boundary. Ribbons stay: they are already one consistent language between
+   themselves and mark the two structural pivots. The alt band loses its hard
+   1px borders so the stitch is the only seam mark. */
+.fx-a .seam{position:relative;height:0;z-index:6}
+.fx-a .seam svg{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);
+  width:148px;height:11px;overflow:visible;color:var(--gold)}
+.fx-a .seam svg path{stroke:currentColor;stroke-width:2.8;stroke-linecap:round;fill:none}
+.fx-a section.block.alt{border-top:0;border-bottom:0}
+.fx-b .seam, .fx-c .seam, .fx-0 .seam{display:none}
+
+/* ============ FLOW B — overlap and tuck ============ */
+/* elements cross the boundaries so the bands stop being sealed slabs. Shown
+   here on two seams: the three value cards straddle hero->values, and the
+   founder's intro card straddles process->founder. */
+.fx-b .values{padding:0 0 46px}
+.fx-b .values .grid{transform:translateY(-40px)}
+.fx-b .val{background:var(--white);border:1px solid #D6C9B0;border-radius:16px;
+  padding:22px 20px;box-shadow:0 22px 44px -20px rgba(15,30,46,.38);text-align:center}
+.fx-b .val h3{color:var(--navy)}
+.fx-b .val p{color:var(--muted)}
+.fx-b .val .ic{color:var(--gold-deep)}
+.fx-b .values .grid{gap:18px}
+.fx-b .founder{padding-top:0}
+.fx-b .founder .f-card{transform:translateY(-34px);background:var(--white);
+  border:1px solid #D6C9B0;border-radius:16px;padding:24px 26px;
+  box-shadow:0 22px 44px -20px rgba(15,30,46,.38)}
+.fx-b .founder .f-card h2{color:var(--navy);font-family:var(--serif);font-size:26px}
+.fx-b .founder .f-card p{color:var(--muted)}
+.fx-b section.block.alt{border-bottom:0}
+.fx-a .f-card h2,.fx-c .f-card h2,.fx-0 .f-card h2{color:#fff;font-family:var(--serif);font-size:26px}
+
+/* ============ FLOW C — tonal feathering ============ */
+/* no new elements: each dark band borrows a tall soft ramp from its neighbour's
+   colour, and the alt band melts into the paper around it instead of being
+   fenced by hairlines. The seams stop being cuts and become dusk. */
+.fx-c .values{position:relative}
+.fx-c .values::before{content:"";position:absolute;left:0;right:0;top:0;height:84px;
+  background:linear-gradient(180deg,var(--hero-cream),rgba(248,231,214,0));pointer-events:none}
+.fx-c .values::after{content:"";position:absolute;left:0;right:0;bottom:0;height:84px;
+  background:linear-gradient(0deg,var(--paper),rgba(254,252,248,0));pointer-events:none}
+.fx-c .founder{position:relative}
+.fx-c .founder::before{content:"";position:absolute;left:0;right:0;top:0;height:84px;
+  background:linear-gradient(180deg,var(--cream),rgba(239,227,206,0));pointer-events:none}
+.fx-c .founder::after{content:"";position:absolute;left:0;right:0;bottom:0;height:84px;
+  background:linear-gradient(0deg,var(--white),rgba(255,253,249,0));pointer-events:none}
+.fx-c section.block.alt{border-top:0;border-bottom:0;
+  background:linear-gradient(180deg,var(--paper) 0,var(--cream) 70px,
+    var(--cream) calc(100% - 70px),var(--paper) 100%)}
+.fx-c .values>.wrap,.fx-c .founder>.wrap{position:relative;z-index:2}
+</style>
+</head>
+<body>
+
+<div class="pv-head">
+  <h1>Four ways the homepage sections can hand over</h1>
+  <p>The current page mixes three separator languages: hard band cuts, hairlines, and the two ribbons, and no element ever crosses a boundary, so each section reads as a sealed slab. Each flow below is the same abbreviated homepage (photos omitted; the seams are the subject) with one consistent transition system applied. Resize for mobile behaviour. Nothing is wired into the live page.</p>
+</div>
+
+<div class="pv-opt">
+  <div class="pv-tag">Flow 0 · current</div>
+  <h2>Hard cuts, hairlines, and ribbons</h2>
+  <div class="pv-note">What ships today, for comparison.</div>
+  <div class="pv-stage fx-0" data-flow></div>
+</div>
+
+<div class="pv-opt">
+  <div class="pv-tag">Flow A · recommended</div>
+  <h2>One seam language: the gold stitch</h2>
+  <div class="pv-note">Every colour-change seam carries the same hand-drawn gold stroke the site already uses under its headings, sitting exactly on the boundary. The ribbons stay as the two structural pivots; the alt band's hard borders go. Cheapest, and it literalizes "care in every detail": the page reads as hand-stitched.</div>
+  <div class="pv-stage fx-a" data-flow data-seams></div>
+</div>
+
+<div class="pv-opt">
+  <div class="pv-tag">Flow B · the deep fix</div>
+  <h2>Overlap and tuck</h2>
+  <div class="pv-note">Disjointedness is really "nothing crosses a boundary," so this one makes elements straddle the seams: the three value cards ride the hero-to-navy edge, and the founder intro card rides into the navy band. Strongest sense of craft and depth; the most CSS surgery, and each straddle needs its own mobile care. Can be applied to just one or two seams on top of Flow A.</div>
+  <div class="pv-stage fx-b" data-flow data-fcard></div>
+</div>
+
+<div class="pv-opt">
+  <div class="pv-tag">Flow C · quietest</div>
+  <h2>Tonal feathering</h2>
+  <div class="pv-note">No new elements: each navy band borrows a tall soft ramp from its neighbour's colour and the cream band melts into the paper around it. The page becomes one continuous tonal wash. Subtle at full speed, and the risk is mud: feathered navy edges can read as haze rather than intent.</div>
+  <div class="pv-stage fx-c" data-flow></div>
+</div>
+
+<div class="pv-note" style="max-width:1100px;margin:48px auto 80px;padding:0 26px">Delete this file once a direction is chosen.</div>
+
+<template id="tplFlow">
+  <section class="hero">
+    <div class="wrap">
+      <span class="script-kick">Care in every detail.</span>
+      <div class="mini-h1">Websites that help small businesses thrive.</div>
+    </div>
+  </section>
+  <div class="seam"><svg viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg></div>
+  <section class="values">
+    <div class="wrap"><div class="grid">
+      <div class="val"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg></div><h3>Attention to Detail</h3><p>Every page polished, proofed, and tested before it goes live.</p></div>
+      <div class="val"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/></svg></div><h3>Built to Last</h3><p>Clean, fast, hand-built sites that keep working for years.</p></div>
+      <div class="val"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></div><h3>Work I Stand Behind</h3><p>Finished means something I'm proud of.</p></div>
+    </div></div>
+  </section>
+  <div class="seam"><svg viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg></div>
+  <section class="block">
+    <div class="wrap"><div class="sec-head">
+      <span class="eyebrow">Where are you starting?</span>
+      <h2>Whatever shape your website is in, there's a clear next step.</h2>
+    </div></div>
+  </section>
+  <div class="ribbon" aria-hidden="true"></div>
+  <section class="block">
+    <div class="wrap"><div class="sec-head">
+      <span class="eyebrow">Live client work</span>
+      <h2>Real sites, live in production today.</h2>
+    </div></div>
+  </section>
+  <div class="ribbon" aria-hidden="true"></div>
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Plans &amp; pricing</span>
+      <h2>Clear pricing, published for everyone.</h2></div>
+      <div class="lane build" style="margin-top:22px"><div class="lane-bar" style="border-bottom:0;padding-bottom:0;margin-bottom:0"><h3>The build</h3><span class="lb-when">One-time &middot; pick by size</span></div></div>
+    </div>
+  </section>
+  <div class="seam"><svg viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg></div>
+  <section class="block alt">
+    <div class="wrap"><div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Five steps, no surprises.</h2>
+    </div></div>
+  </section>
+  <div class="seam"><svg viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg></div>
+  <section class="founder">
+    <div class="wrap">
+      <div class="f-card">
+        <h2>Hi, I'm Alex.</h2>
+        <p>I'll manage the details so you don't have to.</p>
+      </div>
+    </div>
+  </section>
+  <div class="seam"><svg viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg></div>
+  <section class="cta-band block">
+    <div class="wrap">
+      <h2>Let's talk about your website.</h2>
+    </div>
+  </section>
+</template>
+
+<script>
+  /* one template cloned into every stage so the flows cannot drift apart;
+     only the wrapper class differs */
+  var tpl=document.getElementById('tplFlow').content;
+  document.querySelectorAll('[data-flow]').forEach(function(stage){
+    stage.appendChild(tpl.cloneNode(true));
+  });
+</script>
+
+</body>
+</html>
