@@ -139,7 +139,12 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
    A brighter image pushes all of them down.
    ========================================================================== */
 @media(min-width:881px){
-  .hero.cinematic{padding:0;background:var(--navy-2)}
+  /* The header is sticky, so it sits in flow and takes 81px off the top: 80px of
+     nav plus its 1px transparent border. Without this pull the photo started
+     BELOW it and the translucent bar sampled the white page instead of the
+     image, which is why it rendered as a flat grey slab. The hero-inner's 106px
+     of top padding is what keeps the copy clear of the bar once it overlaps. */
+  .hero.cinematic{padding:0;background:var(--navy-2);margin-top:-81px}
   .hero.cinematic .hero-frame{max-width:none;padding:0;position:relative;display:grid;
     grid-template-columns:100%;align-content:center;min-height:clamp(520px,46vw,600px)}
   .hero.cinematic picture{position:absolute;inset:0;display:block}
@@ -223,15 +228,19 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 @media(max-width:880px){.hero-quote{position:relative;right:auto;bottom:auto;width:auto;margin:22px 0 0}}
 
 /* ---------- navy values band ---------- */
-.values{background:radial-gradient(130% 150% at 85% -20%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#E9EDF3;padding:58px 0}
+/* 34px, not 58px. Against the old cream hero this band was the page's first strong
+   element and could afford the height; under a full-bleed photo it reads as a
+   footer to the hero and only needs to state the three points. 289px to 197px.
+   plans.html carries its own inline padding and is unaffected by this line. */
+.values{background:radial-gradient(130% 150% at 85% -20%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#E9EDF3;padding:30px 0}
 .values .grid{display:grid;grid-template-columns:repeat(3,1fr)}
-.val{padding:6px 34px;text-align:center;border-left:1px solid rgba(199,154,90,.28)}
+.val{padding:4px 30px;text-align:center;border-left:1px solid rgba(199,154,90,.28)}
 .val:first-child{border-left:0}
-.val .ic{width:46px;height:46px;margin:0 auto 14px;color:var(--gold)}
+.val .ic{width:38px;height:38px;margin:0 auto 10px;color:var(--gold)}
 .val .ic svg{width:100%;height:100%}
-.val h3{font-family:var(--serif);font-weight:600;font-size:20px;color:#fff;letter-spacing:.01em}
-.val p{font-size:14.5px;color:#AEB9C8;margin-top:8px;max-width:30ch;margin-left:auto;margin-right:auto}
-@media(max-width:760px){.values .grid{grid-template-columns:1fr;gap:30px}.val{border-left:0;padding:0 22px}}
+.val h3{font-family:var(--serif);font-weight:600;font-size:18px;color:#fff;letter-spacing:.01em}
+.val p{font-size:13.8px;color:#AEB9C8;margin-top:6px;max-width:32ch;margin-left:auto;margin-right:auto}
+@media(max-width:760px){.values .grid{grid-template-columns:1fr;gap:22px}.val{border-left:0;padding:0 22px}}
 
 /* ---------- trust line ---------- */
 
@@ -504,7 +513,12 @@ section.block.alt + section.cta-band{background:var(--card);border-top:1px solid
 /* --- vertical rhythm --- */
 section.block{padding:70px 0}
 .page-hero{padding:54px 0 44px}
-.values{padding:64px 0}
+/* THIS is the padding that applies, not the one on the .values rule further up.
+   The palette refresh restated it here, so editing the earlier rule alone does
+   nothing. Trimmed with the cinematic hero: the band used to be the first strong
+   element on the page and could carry 64px; under a full-bleed photo it reads as
+   the hero's footer and only has to state the three points. 289px down to 197px. */
+.values{padding:30px 0}
 .sec-head h2,.sec-head p{margin-top:12px}
 .svc-grid,.work-grid{margin-top:36px}
 .deflist,.steps,.excl{margin-top:26px}
