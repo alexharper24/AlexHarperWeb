@@ -148,11 +148,14 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
   /* Taller, so the photo has room to be a photograph rather than a strip. The
      copy needs 748px, so that is the floor.
 
-     The height comes from the PHOTO'S OWN ASPECT, not from a vw curve. Picking a
-     height independently and then letting object-fit:cover reconcile the
-     difference is what cropped this image in the first place. Matching 1672/941
-     means there is nothing to reconcile: up to about 1970px the hero shows the
-     entire photograph, uncropped, at every width.
+     The height tracks the photo's aspect, 941/1672 = 56%, so up to the 1100px cap
+     there is nothing for object-fit to reconcile and the entire photograph is
+     visible. It is expressed as min-height:min(56vw,1100px) and NOT as
+     aspect-ratio with max-height. Those look equivalent and are not: once
+     max-height clamps the height, aspect-ratio re-derives the WIDTH from the
+     ratio, the frame stops filling the viewport and the hero gets navy bars down
+     both sides. That only shows above about 1955px, which is why it survived a
+     check at 1970.
 
      The whole point of this shot is the empty wall and the headroom above the
      desk. That space is the composition, not padding around it, and an earlier
@@ -160,7 +163,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
      made the hero read as cramped. */
   .hero.cinematic .hero-frame{max-width:none;padding:0;position:relative;display:grid;
     grid-template-columns:100%;align-content:center;
-    aspect-ratio:1672/941;min-height:560px;max-height:1100px;isolation:isolate}
+    min-height:min(56vw,1100px);isolation:isolate}
   .hero.cinematic picture{position:absolute;inset:0;display:block}
   /* Anchored high. Above the 1100px cap the hero does get wider than the photo
      and something has to give, and it must not be the top: 12% keeps the loss
