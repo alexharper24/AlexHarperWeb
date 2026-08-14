@@ -1200,6 +1200,27 @@ section.block.navy .cta-or a,.founder .cta-or a{color:var(--gold-lt);border-bott
 .lane.care .lane-bar h3{color:#fff}
 .lane.care .lane-bar .lb-when{color:var(--gold-lt)}
 .lane.care .lane-bar .more{color:var(--gold-lt)}
+
+/* Homepage-only reference strip (2026-08-14): the full care lane moved off the
+   homepage to plans.html#care, where it already lived in richer form; the
+   homepage now states the three prices in a sentence and links out. Same navy
+   and radius as the lane it replaces, so the build/care pairing still reads,
+   at a fraction of the height. The .lane.care rules above still serve
+   plans.html-era markup and stay. */
+.care-line{margin-top:22px;border-radius:18px;padding:24px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px 34px;flex-wrap:wrap;
+  color:#DFE6EF;background:radial-gradient(120% 140% at 85% -20%, var(--navy-3), var(--navy) 55%, var(--navy-2))}
+.care-line .cl-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.care-line h3{font-family:var(--serif);font-weight:600;font-size:22px;color:#fff;letter-spacing:-.01em}
+.care-line .lb-when{color:var(--gold-lt)}
+.care-line p{font-size:15px;color:#AEB9C8;margin-top:7px;max-width:62ch}
+.care-line .cl-link{flex:none;font-size:14.5px;font-weight:700;color:var(--gold-lt)}
+.care-line .cl-link:hover{text-decoration:underline}
+@media(max-width:640px){
+  .care-line{padding:20px 20px 22px}
+  /* the link is the row's only target, so it carries its own tap height */
+  .care-line .cl-link{display:inline-flex;align-items:center;min-height:44px}
+}
 @media(max-width:620px){
   /* 26px of panel padding either side costs 52px of a 390px screen, which the
      one-line checklist items cannot spare */
