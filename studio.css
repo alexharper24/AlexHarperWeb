@@ -189,10 +189,20 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
      isolation:isolate on the frame is required, not decorative. Without a
      stacking context here the blend reaches past the hero and multiplies against
      whatever is painted behind it. */
+  /* Two multiply layers in one pseudo-element: the horizontal gradient carries
+     the copy, and a 150px top band carries the transparent header's nav. They
+     multiply with each other (background-blend-mode) and then with the photo
+     (mix-blend-mode); multiply is commutative so the order never matters.
+     Solved against the photo at 2085px: white nav worst 6.52:1, white copy over
+     the full 720px content column worst 5.16:1, both clear of AA. The stops sit
+     at 44%/72% rather than 36%/60% because the wider cinematic type column
+     reaches further right than the old 460px one did. */
   .hero.cinematic .hero-frame::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-    mix-blend-mode:multiply;
-    background:linear-gradient(90deg,rgb(96,78,62) 0%,rgb(126,104,84) 36%,
-      rgb(198,180,162) 60%,#fff 100%)}
+    mix-blend-mode:multiply;background-blend-mode:multiply;
+    background:
+      linear-gradient(180deg,rgb(112,96,82) 0,#fff 150px),
+      linear-gradient(90deg,rgb(84,70,56) 0%,rgb(106,88,72) 44%,
+        rgb(184,166,148) 72%,#fff 100%)}
   /* width:100% and the explicit 100% column are both load-bearing: left to work it
      out alone the item sized to its own content and sat in the middle of the frame */
   .hero.cinematic .hero-inner{position:relative;z-index:3;width:100%;
@@ -206,23 +216,39 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
   .hero.cinematic .btn-ghost{border-color:#fff;color:#fff}
   .hero.cinematic .btn-ghost:hover{background:#fff;color:var(--navy)}
 
-  /* A light frosted bar over the photo, not a dark one, so the header still reads
-     as the same component it is on every other page: same paper tone, same navy
-     logo, same muted nav links, just translucent enough to show the photo moving
-     underneath it.
+  /* No bar at all: the nav sits straight on the photo, which is what the chosen
+     mockup does. The 150px top multiply band in the scrim is what makes that
+     legible, solved at 6.52:1 for white links over the brightest pixel behind
+     them. The active link is white with the gold kept as its underline, because
+     gold text itself measures 2.7:1 there and cannot pass at 15px. Only the
+     at-rest state is touched; scrolled inherits the solid paper bar, and the
+     logo swaps back with it. */
+  header.hdr-over:not(.scrolled){background:transparent}
+  header.hdr-over:not(.scrolled) .nav-links a:not(.btn){color:#fff}
+  header.hdr-over:not(.scrolled) .nav-links a:not(.btn):hover{color:var(--gold-lt)}
+  header.hdr-over:not(.scrolled) .nav-links a.active{color:#fff}
+  header.hdr-over:not(.scrolled) .nav-links a.active::after{background:var(--gold-lt)}
+  header.hdr-over:not(.scrolled) .brand .lg-dark{display:none}
+  header.hdr-over:not(.scrolled) .brand .lg-light{display:block}
 
-     0.82 is the floor, not a preference. --muted at #55606E measures 4.57:1
-     against this backdrop at 0.80 and 2.92:1 at 0.55, so a more transparent bar
-     would need darker link text and the homepage nav would stop matching the
-     rest of the site. Only the at-rest state is touched: on scroll it inherits
-     the ordinary solid paper bar, and overriding the background unconditionally
-     here out-specifies that and leaves the nav sitting on live page content. */
-  header.hdr-over:not(.scrolled){background:rgba(254,252,248,.82);
-    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  /* The mockup's type is what makes it read as designed rather than furnished:
+     scaled to the hero instead of stopping at the site-wide 56px cap inside an
+     1100px-tall photograph. 4.3vw matches the mockup's proportions at full
+     width while landing on today's sizes at 1280, so smaller desktops are
+     unchanged. The content column widens with it or the 15ch headline would
+     wrap against the old 460px box. */
+  .hero.cinematic .hero-content{max-width:clamp(460px,34vw,720px)}
+  .hero.cinematic h1{font-size:clamp(38px,4.3vw,84px)}
+  .hero.cinematic .lede{font-size:clamp(17px,1.35vw,27px)}
+  .hero.cinematic .script-kick{font-size:clamp(30px,2.1vw,42px)}
+  .hero.cinematic .hero-proof{font-size:clamp(12px,.75vw,14.5px)}
+  .hero.cinematic .cta .btn{font-size:clamp(15px,.9vw,17.5px)}
+  .hero.cinematic .chip{font-size:clamp(12px,.7vw,14px)}
 }
 /* the phone keeps the stacked banner it already has. Overlaying the copy there
    needs a flat 0.62 scrim to clear AA, measured on the mobile crop, which buries
    the photo on the one device where it is already smallest. */
+.brand .lg-light{display:none}
 
 /* text stays on the standard grid: a 1240 box centred inside the wider frame
    keeps the same centre, so it still lines up with the logo and the sections */
@@ -268,11 +294,11 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
    element and could afford the height; under a full-bleed photo it reads as a
    footer to the hero and only needs to state the three points. 289px to 197px.
    plans.html carries its own inline padding and is unaffected by this line. */
-.values{background:radial-gradient(130% 150% at 85% -20%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#E9EDF3;padding:20px 0}
+.values{background:radial-gradient(130% 150% at 85% -20%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#E9EDF3;padding:14px 0}
 .values .grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .val{padding:4px 30px;text-align:center;border-left:1px solid rgba(199,154,90,.28)}
 .val:first-child{border-left:0}
-.val .ic{width:32px;height:32px;margin:0 auto 7px;color:var(--gold)}
+.val .ic{width:28px;height:28px;margin:0 auto 6px;color:var(--gold)}
 .val .ic svg{width:100%;height:100%}
 .val h3{font-family:var(--serif);font-weight:600;font-size:17px;color:#fff;letter-spacing:.01em}
 .val p{font-size:13.2px;color:#AEB9C8;margin-top:4px;max-width:36ch;margin-left:auto;margin-right:auto}
@@ -554,7 +580,7 @@ section.block{padding:70px 0}
    nothing. Trimmed with the cinematic hero: the band used to be the first strong
    element on the page and could carry 64px; under a full-bleed photo it reads as
    the hero's footer and only has to state the three points. 289px down to 197px. */
-.values{padding:20px 0}
+.values{padding:14px 0}
 .sec-head h2,.sec-head p{margin-top:12px}
 .svc-grid,.work-grid{margin-top:36px}
 .deflist,.steps,.excl{margin-top:26px}
