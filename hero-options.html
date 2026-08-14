@@ -36,8 +36,8 @@
 /* ================= 1. full-bleed image + cream fade (current) ================= */
 /* nothing: this is what ships today */
 
-/* ================= 2. cinematic full-photo ================= */
-.opt2 .hero{padding:0;background:var(--navy-2)}
+/* ============ 2. cinematic full-photo, four scrim strengths ============ */
+.cine .hero{padding:0;background:var(--navy-2)}
 /* The content sets the height and the photo fills behind it. Giving the photo a
    fixed height instead let the copy run 14px past the frame and the stage's
    overflow:hidden sliced the chips off. */
@@ -45,38 +45,46 @@
    flex auto-margins, which absorb the free space: it shrink-wrapped to 512px and
    centred itself instead of filling the frame. A grid item stretches to its
    column by default, so the same margin only centres it within its own max-width. */
-.opt2 .hero-frame{max-width:none;padding:0;position:relative;display:grid;
+.cine .hero-frame{max-width:none;padding:0;position:relative;display:grid;
   grid-template-columns:100%;align-content:center;min-height:clamp(520px,46vw,600px)}
-.opt2 .hero picture{position:absolute;inset:0;display:block}
-.opt2 .hero-photo{width:100%;height:100%;object-fit:cover;object-position:72% 55%;
+.cine .hero picture{position:absolute;inset:0;display:block}
+.cine .hero-photo{width:100%;height:100%;object-fit:cover;object-position:72% 55%;
   border-radius:0;-webkit-mask-image:none;mask-image:none}
 /* A flat overlay cannot work here: the photo runs from near-white cream on the
    left to dark wood on the right, so one opacity either greys the wood or leaves
-   the cream too bright for white type. The scrim is a gradient for that reason. */
-.opt2 .hero-frame::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:linear-gradient(90deg,rgba(8,18,28,.90) 0%,rgba(8,18,28,.80) 34%,
-    rgba(8,18,28,.46) 62%,rgba(8,18,28,.20) 100%)}
+   the cream too bright for white type. The scrim is a gradient for that reason,
+   and the four variants below differ only in how fast it lets go on the right.
+   Contrast is measured over the copy band, x 26..553 of 1211, y 106..696. */
+.cine .hero-frame::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none}
+.opt2a .hero-frame::after{background:linear-gradient(90deg,rgba(8,18,28,.90) 0%,rgba(8,18,28,.80) 34%,
+  rgba(8,18,28,.46) 62%,rgba(8,18,28,.20) 100%)}                     /* 6.27:1  passes AA */
+.opt2b .hero-frame::after{background:linear-gradient(90deg,rgba(8,18,28,.90) 0%,rgba(8,18,28,.78) 36%,
+  rgba(8,18,28,.38) 60%,rgba(8,18,28,.08) 100%)}                     /* 5.54:1  passes AA */
+.opt2c .hero-frame::after{background:linear-gradient(90deg,rgba(8,18,28,.92) 0%,rgba(8,18,28,.82) 32%,
+  rgba(8,18,28,.30) 55%,rgba(8,18,28,0) 85%)}                        /* 3.87:1  large text only */
+.opt2d .hero-frame::after{background:linear-gradient(90deg,rgba(8,18,28,.94) 0%,rgba(8,18,28,.84) 30%,
+  rgba(8,18,28,.18) 50%,rgba(8,18,28,0) 70%)}                        /* 2.25:1  fails AA */
 /* back into flow so it can grow the frame, and padded clear of the overlaid header.
    width:100% and an explicit 100% column are both needed: left to work it out on its
    own the item sized to its content, 512px of a 1211px frame, and sat in the middle. */
-.opt2 .hero-inner{position:relative;z-index:3;width:100%;
+.cine .hero-inner{position:relative;z-index:3;width:100%;
   padding:106px var(--inset) 52px}
-.opt2 .hero h1{color:#fff}
-.opt2 .hero .lede{color:#D8DEE7}
-.opt2 .hero-proof{color:#B9C4D2}
+.cine .hero h1{color:#fff}
+.cine .hero .lede{color:#D8DEE7}
+.cine .hero-proof{color:#B9C4D2}
 /* gold-lt measures 3.49:1 against the scrimmed photo here. That clears AA for
    the 30px script line, which is large text, and fails it for this 12px link.
    White measures 5.41:1 at its worst, so the link keeps the gold as an underline
    only. */
-.opt2 .hero-proof a{color:#fff;border-bottom-color:rgba(221,187,132,.75)}
-.opt2 .script-kick{color:var(--gold-lt)}
-.opt2 .chip{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.24);color:#EAF0F7}
-.opt2 .btn-ghost{border-color:#fff;color:#fff}
-.opt2 .btn-ghost:hover{background:#fff;color:var(--navy)}
-.opt2 header{position:absolute;top:0;left:0;right:0;z-index:10;background:transparent;border-bottom:0}
-.opt2 .nav-links a:not(.btn){color:#DCE3EC}
-.opt2 .nav-links a.active{color:var(--gold-lt)}
-.opt2 .nav-links a.active::after{background:var(--gold-lt)}
+.cine .hero-proof a{color:#fff;border-bottom-color:rgba(221,187,132,.75)}
+.cine .script-kick{color:var(--gold-lt)}
+.cine .chip{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.24);color:#EAF0F7}
+.cine .btn-ghost{border-color:#fff;color:#fff}
+.cine .btn-ghost:hover{background:#fff;color:var(--navy)}
+.cine header{position:absolute;top:0;left:0;right:0;z-index:10;background:transparent;border-bottom:0}
+.cine .nav-links a:not(.btn){color:#DCE3EC}
+.cine .nav-links a.active{color:var(--gold-lt)}
+.cine .nav-links a.active::after{background:var(--gold-lt)}
 
 /* ================= 3. editorial split ================= */
 .opt3 .hero{padding:0;background:var(--hero-cream)}
@@ -168,7 +176,37 @@
       <div><b>Photo</b>Cropped by object-fit. The flat cream left third is wasted.</div>
       <div class="warn"><b>Watch</b>A dark hero opens a light-locked site. Header must go solid on scroll or the nav vanishes over pale photos.</div>
     </div>
-    <div class="pv-stage opt2" data-hero data-logo="light"></div>
+    <div class="pv-stage cine opt2a" data-hero data-logo="light"></div>
+  </div>
+
+  <div class="pv-opt">
+    <div class="pv-tag">Option 22b</div>
+    <h2>Lighter right</h2>
+    <div class="pv-meta">
+      <div><b>Change</b>Scrim only. Everything else is identical to 2a.</div>
+      <div class=""><b>Measured</b>Scrim releases to 8% at the edge instead of 20%. Worst contrast over the copy 5.54:1, still clear of AA.</div>
+    </div>
+    <div class="pv-stage cine opt2b" data-hero data-logo="light"></div>
+  </div>
+
+  <div class="pv-opt">
+    <div class="pv-tag">Option 22c</div>
+    <h2>Clear right third</h2>
+    <div class="pv-meta">
+      <div><b>Change</b>Scrim only. Everything else is identical to 2a.</div>
+      <div class="warn"><b>Measured</b>Scrim gone by 85%, so the laptop is untouched. Worst contrast 3.87:1: fine for the headline, the lede and proof line fail AA.</div>
+    </div>
+    <div class="pv-stage cine opt2c" data-hero data-logo="light"></div>
+  </div>
+
+  <div class="pv-opt">
+    <div class="pv-tag">Option 22d</div>
+    <h2>Left panel only</h2>
+    <div class="pv-meta">
+      <div><b>Change</b>Scrim only. Everything else is identical to 2a.</div>
+      <div class="warn"><b>Measured</b>Scrim gone by 70%. Worst contrast 2.25:1, below AA for everything including the headline. Shown to mark the limit.</div>
+    </div>
+    <div class="pv-stage cine opt2d" data-hero data-logo="light"></div>
   </div>
 
   <div class="pv-opt">
