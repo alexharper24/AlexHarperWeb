@@ -148,7 +148,16 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
   .hero.cinematic .hero-frame{max-width:none;padding:0;position:relative;display:grid;
     grid-template-columns:100%;align-content:center;min-height:clamp(520px,46vw,600px)}
   .hero.cinematic picture{position:absolute;inset:0;display:block}
-  .hero.cinematic .hero-photo{width:100%;height:100%;object-fit:cover;object-position:72% 55%;
+  /* The vertical anchor is 25%, not centre-ish. object-fit:cover has to crop
+     something once the hero is wider than the photo's 1.777 aspect, and at a
+     1970px viewport that overflow is 352px. At 55% it took 17.6% off the top,
+     which is exactly where the laptop screen begins (measured; the plant starts
+     at 18.7%), so the two subjects were being decapitated. Anchoring at 25%
+     keeps the top 8% clear at 1970 and 11.9% at 2560, both inside the 17.6%
+     budget. The cost is the notebook in the foreground losing its bottom, which
+     is the right thing to give up: it is the least important element and
+     cropping foreground is what a wide hero is supposed to do. */
+  .hero.cinematic .hero-photo{width:100%;height:100%;object-fit:cover;object-position:72% 25%;
     border-radius:0;-webkit-mask-image:none;mask-image:none}
   .hero.cinematic .hero-frame::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
     background:linear-gradient(90deg,rgba(8,18,28,.90) 0%,rgba(8,18,28,.78) 36%,
