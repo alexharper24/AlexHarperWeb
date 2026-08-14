@@ -143,41 +143,62 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
    frame; vertical centre crops at most ~3% off the top at wide desktops, well
    inside the plant's 18.5% headroom. The notebook touches the photo's bottom
    edge, so bottom crops are the expensive side on this image. */
-.hero.cinematic .hero-photo{width:100%;height:100%;object-fit:cover;object-position:60% 50%;
+.hero.cinematic .hero-photo{width:100%;height:100%;object-fit:cover;object-position:57% 50%;
   border-radius:0;-webkit-mask-image:none;mask-image:none}
 .hero.cinematic .hero-frame::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  /* Navy/charcoal per the refinement pass, replacing the warm brown that read
+     as a translucent panel. The spec's starting stops measure 2.5:1 over this
+     photo's near-white wall, so the hold zone is deepened and extended to 42%
+     before the fade; it reaches zero by 73%, ahead of the laptop at ~57%.
+     Solved: h1 6.31/6.02, lede 5.67/5.27, proof 5.73/5.28 at 1600 and 2085. */
   background:linear-gradient(90deg,
-    rgba(36,21,9,.90) 0%,
-    rgba(48,29,13,.80) 28%,
-    rgba(62,40,20,.68) 46%,
-    rgba(66,44,24,.28) 63%,
-    rgba(66,44,24,.06) 78%,
-    rgba(66,44,24,0) 100%)}
+    rgba(9,22,36,.86) 0%,
+    rgba(14,27,38,.79) 22%,
+    rgba(20,30,37,.75) 42%,
+    rgba(26,31,35,.62) 50%,
+    rgba(31,33,33,.32) 58%,
+    rgba(31,32,29,.10) 66%,
+    rgba(31,32,29,0) 73%)}
 /* spec geometry: inner rail min(88%,1280), copy capped at 540 and aligned to the
    header grid; top padding biases the centred copy slightly below centre to
    account for the banner */
-.hero.cinematic .hero-inner{position:relative;z-index:3;width:min(88%,1280px);
-  max-width:none;margin-inline:auto;padding:120px 0 56px}
-.hero.cinematic .hero-content{max-width:540px}
-.hero.cinematic h1{color:#FEFCF8;text-shadow:0 2px 22px rgba(0,0,0,.24)}
-.hero.cinematic .lede{color:#EFE7DB;text-shadow:0 2px 22px rgba(0,0,0,.24)}
+/* the copy rides the same 1240px rail as the header, so the headline's left
+   edge lands exactly on the logo's; 96px top vs 56px bottom biases the centred
+   block ~20px below true centre, the spec's 52-55% band */
+.hero.cinematic .hero-inner{position:relative;z-index:3;width:100%;
+  max-width:var(--wide);margin-inline:auto;padding:96px var(--inset) 56px}
+.hero.cinematic .hero-content{max-width:510px}
+/* the cap is 62px, not the spec's 70: "small businesses," at 70px Playfair
+   runs ~585px and breaks the required four-line shape inside a 510px column */
+.hero.cinematic h1{color:#FEFCF8;font-size:clamp(44px,3.6vw,62px);
+  line-height:1.02;letter-spacing:-.025em;text-shadow:0 2px 22px rgba(0,0,0,.24)}
+.hero.cinematic .lede{color:rgba(254,252,248,.82);max-width:460px;
+  text-shadow:0 2px 22px rgba(0,0,0,.24)}
 .hero.cinematic .script-kick{color:var(--gold-lt)}
-.hero.cinematic .hero-proof{color:#D8C9AE}
+/* sans instead of the mono so it stops reading as terminal text. The muted
+   70-80% look comes from the hue, not a real alpha: cream at .78 measures 2.65:1
+   here, so the quietness is #EADEC4 at full opacity, which is 5.3:1. */
+.hero.cinematic .hero-proof{font-family:var(--sans);color:#EADEC4;
+  font-size:12px;letter-spacing:.13em;max-width:460px}
 /* gold text cannot pass over the mid-gradient at 12px, so the link is white and
    the gold stays in the underline, the established on-photo convention */
 .hero.cinematic .hero-proof a{color:#fff;border-bottom-color:rgba(221,187,132,.75)}
-.hero.cinematic .btn-ghost{background:rgba(254,252,248,.08);
-  border-color:rgba(254,252,248,.72);color:#FEFCF8}
+.hero.cinematic .btn-ghost{background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.55);color:#FEFCF8;
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .hero.cinematic .btn-ghost:hover{background:var(--paper);color:var(--navy)}
-.hero.cinematic .chip{background:rgba(10,25,42,.30);border-color:rgba(255,255,255,.20);
-  color:rgba(255,255,255,.90);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+.hero.cinematic .chip{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);
+  color:rgba(255,255,255,.82);box-shadow:none;
+  -webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+.hero.cinematic .chip svg{color:var(--gold-lt)}
 
 /* the spec's translucent paper banner, full width, restrained shadow. Only the
    at-rest state: overriding the background unconditionally out-specifies the
    base header rule and the scrolled bar goes see-through (learned the hard way) */
-header.hdr-over:not(.scrolled){background:rgba(254,252,248,.88);
+header.hdr-over:not(.scrolled){background:rgba(254,252,248,.84);
   -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-  box-shadow:0 8px 28px rgba(8,24,42,.07)}
+  border-bottom:1px solid rgba(255,255,255,.16);
+  box-shadow:0 6px 24px rgba(8,24,42,.05)}
 
 /* Mobile keeps the photograph, per the spec: no boxed hero, no stacked banner.
    These out-specify the generic .hero mobile rules further up (which still serve
@@ -192,9 +213,9 @@ header.hdr-over:not(.scrolled){background:rgba(254,252,248,.88);
   /* tablet, per the spec: the copy holds roughly half the frame, not the rail */
   @media(min-width:640px){.hero.cinematic .hero-content{max-width:55%}}
   .hero.cinematic .hero-frame::after{background:linear-gradient(90deg,
-    rgba(36,21,9,.94) 0%,
-    rgba(52,32,16,.84) 55%,
-    rgba(62,40,20,.66) 100%)}
+    rgba(9,22,36,.94) 0%,
+    rgba(17,27,35,.84) 55%,
+    rgba(24,30,33,.66) 100%)}   /* white worst 5.95:1 on the 68% crop at 390 */
 }
 
 /* text stays on the standard grid: a 1240 box centred inside the wider frame
