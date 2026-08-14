@@ -36,3 +36,7 @@ notes/
 # FAQ illustration source renders. Web-optimized .webp/.jpg derivatives
 # live in img/ and are committed; these 1MB originals are not.
 img/faq/source/
+
+# Homepage hero source render. Web-optimized .webp/.jpg derivatives live in img/
+# and are committed; this 1.5MB original is not.
+img/hero/source/

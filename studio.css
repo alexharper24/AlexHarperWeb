@@ -145,19 +145,31 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
      image, which is why it rendered as a flat grey slab. The hero-inner's 106px
      of top padding is what keeps the copy clear of the bar once it overlaps. */
   .hero.cinematic{padding:0;background:var(--navy-2);margin-top:-81px}
+  /* Taller, so the photo has room to be a photograph rather than a strip. The
+     copy needs 748px, so below ~1700px the content still sets the height and this
+     floor does nothing; above that the hero grows to 900.
+
+     The curve is 44vw capped at 900, not 52vw capped at 820, and the difference
+     is not taste. A hero that grows more slowly than the viewport gets
+     proportionally wider, which forces object-fit:cover to crop more off the
+     top. At 52vw/820 the top crop passed 35.2% at 2880px and started eating the
+     mug. At 44vw/900 it peaks at 34.5% there, inside budget at every width
+     tested from 881 to 2880. */
   .hero.cinematic .hero-frame{max-width:none;padding:0;position:relative;display:grid;
-    grid-template-columns:100%;align-content:center;min-height:clamp(520px,46vw,600px)}
+    grid-template-columns:100%;align-content:center;min-height:clamp(560px,44vw,900px)}
   .hero.cinematic picture{position:absolute;inset:0;display:block}
-  /* The vertical anchor is 25%, not centre-ish. object-fit:cover has to crop
-     something once the hero is wider than the photo's 1.777 aspect, and at a
-     1970px viewport that overflow is 352px. At 55% it took 17.6% off the top,
-     which is exactly where the laptop screen begins (measured; the plant starts
-     at 18.7%), so the two subjects were being decapitated. Anchoring at 25%
-     keeps the top 8% clear at 1970 and 11.9% at 2560, both inside the 17.6%
-     budget. The cost is the notebook in the foreground losing its bottom, which
-     is the right thing to give up: it is the least important element and
-     cropping foreground is what a wide hero is supposed to do. */
-  .hero.cinematic .hero-photo{width:100%;height:100%;object-fit:cover;object-position:72% 25%;
+  /* Anchored low, at 78%, which is the opposite of what the previous photo needed
+     and is entirely a property of this one. Measured off the file: the highest
+     subject (the mug) sits 35.2% down and the lowest (the notebook) ends at
+     88.6%, so there is 35% of empty wall to crop into at the top and only 11.4%
+     of clearance at the bottom. Cropping is therefore cheap above and expensive
+     below, and the anchor belongs near the bottom.
+
+     At 78% the top loses 19.8% at 1970px and 33.3% at 2560px, both inside the
+     35.2% budget, while the notebook keeps its edge at every width up to 2560.
+     Re-measure all of this if the photo is ever swapped again; the correct
+     anchor moved from 25% to 78% between two images of identical dimensions. */
+  .hero.cinematic .hero-photo{width:100%;height:100%;object-fit:cover;object-position:50% 78%;
     border-radius:0;-webkit-mask-image:none;mask-image:none}
   .hero.cinematic .hero-frame::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
     background:linear-gradient(90deg,rgba(8,18,28,.90) 0%,rgba(8,18,28,.78) 36%,
@@ -241,14 +253,14 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
    element and could afford the height; under a full-bleed photo it reads as a
    footer to the hero and only needs to state the three points. 289px to 197px.
    plans.html carries its own inline padding and is unaffected by this line. */
-.values{background:radial-gradient(130% 150% at 85% -20%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#E9EDF3;padding:30px 0}
+.values{background:radial-gradient(130% 150% at 85% -20%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#E9EDF3;padding:20px 0}
 .values .grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .val{padding:4px 30px;text-align:center;border-left:1px solid rgba(199,154,90,.28)}
 .val:first-child{border-left:0}
-.val .ic{width:38px;height:38px;margin:0 auto 10px;color:var(--gold)}
+.val .ic{width:32px;height:32px;margin:0 auto 7px;color:var(--gold)}
 .val .ic svg{width:100%;height:100%}
-.val h3{font-family:var(--serif);font-weight:600;font-size:18px;color:#fff;letter-spacing:.01em}
-.val p{font-size:13.8px;color:#AEB9C8;margin-top:6px;max-width:32ch;margin-left:auto;margin-right:auto}
+.val h3{font-family:var(--serif);font-weight:600;font-size:17px;color:#fff;letter-spacing:.01em}
+.val p{font-size:13.2px;color:#AEB9C8;margin-top:4px;max-width:36ch;margin-left:auto;margin-right:auto}
 @media(max-width:760px){.values .grid{grid-template-columns:1fr;gap:22px}.val{border-left:0;padding:0 22px}}
 
 /* ---------- trust line ---------- */
@@ -527,7 +539,7 @@ section.block{padding:70px 0}
    nothing. Trimmed with the cinematic hero: the band used to be the first strong
    element on the page and could carry 64px; under a full-bleed photo it reads as
    the hero's footer and only has to state the three points. 289px down to 197px. */
-.values{padding:30px 0}
+.values{padding:20px 0}
 .sec-head h2,.sec-head p{margin-top:12px}
 .svc-grid,.work-grid{margin-top:36px}
 .deflist,.steps,.excl{margin-top:26px}
