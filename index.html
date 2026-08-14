@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="studio.css?v=136"/>
+<link rel="stylesheet" href="studio.css?v=137"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,8 +86,7 @@
 <header id="top" class="hdr-over">
   <div class="wrap"><nav>
     <a class="brand" href="index.html" aria-label="Harper Studio home">
-      <img class="lg-dark" src="assets/hs-logo.png?v=71" alt="Harper Studio" width="940" height="290"/>
-      <img class="lg-light" src="assets/hs-logo-light.png?v=71" alt="Harper Studio" width="941" height="290"/>
+      <img src="assets/hs-logo.png?v=71" alt="Harper Studio" width="940" height="290"/>
     </a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navLinks">
@@ -108,13 +107,8 @@
   <section class="hero cinematic">
     <div class="hero-frame">
     <picture>
-      <!-- Mobile gets a crop of the same photo. The left 44% of the full frame is
-           empty cream by design, which reads as a blank third of the banner once
-           object-fit:cover is applied at phone width. -->
-      <source media="(max-width:880px)" srcset="img/hero-mobile.webp?v=2" type="image/webp"/>
-      <source media="(max-width:880px)" srcset="img/hero-mobile.jpg?v=2"/>
-      <source srcset="img/hero-background.webp?v=3" type="image/webp"/>
-      <img class="hero-photo" src="img/hero-background.jpg?v=3" alt="A laptop on a sunlit wooden desk showing a website design in progress, beside a Harper Studio mug and an open notebook" fetchpriority="high" width="1672" height="941"/>
+      <source srcset="img/hero-cinematic.webp?v=1" type="image/webp"/>
+      <img class="hero-photo" src="img/hero-cinematic.jpg?v=1" alt="A laptop on a sunlit wooden desk showing a website design in progress, beside a Harper Studio mug, a potted plant, and an open notebook" fetchpriority="high" width="1672" height="941"/>
     </picture>
     <div class="hero-inner">
       <div class="hero-content">
