@@ -104,9 +104,19 @@ nav{display:flex;align-items:center;justify-content:space-between;height:80px}
    visible border. A short ramp kills that without touching the photo itself.
    The previous 0-60% ramp would double up on the baked-in fade and wash out
    the mug and notebook, measured at 5.4 units against 0 for this one. */
+/* The right edge needs the same treatment for the opposite reason. The left is
+   flat baked-in fade, measured at a vertical spread of 1 to 2 units, so it only
+   needed a hint of a ramp. The right is live photo cropped hard: spread of 165,
+   the desk and the laptop's lid running straight off the frame at (223,193,163)
+   against a #F8E7D6 panel. That is the bold edge. There is no transparent margin
+   to spend, so this ramp does eat picture, which is why it is half the length of
+   an ordinary vignette: the laptop dissolves off the edge instead of being
+   guillotined by it. */
 .hero-photo{display:block;width:100%;height:auto;border-radius:16px;z-index:1;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 4%,#000 8%);
-  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 4%,#000 8%)}
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 4%,#000 8%,
+    #000 94%,rgba(0,0,0,.5) 97.5%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 4%,#000 8%,
+    #000 94%,rgba(0,0,0,.5) 97.5%,transparent 100%)}
 /* text stays on the standard grid: a 1240 box centred inside the wider frame
    keeps the same centre, so it still lines up with the logo and the sections */
 .hero-inner{position:absolute;top:0;bottom:0;left:0;right:0;z-index:3;
