@@ -25,7 +25,10 @@
 .pv-meta b{color:var(--navy);display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   font-family:var(--mono);font-weight:600;margin-bottom:4px}
 .pv-meta .warn b{color:var(--red-deep)}
-.pv-stage{border:1px solid #DCD0B8;border-radius:12px;overflow:hidden;background:var(--paper)}
+/* position:relative is load-bearing. Option 2 puts its header at position:absolute,
+   and without a positioned ancestor here that anchors to the page instead of the
+   stage: it rendered 1361px up, on top of the intro copy. */
+.pv-stage{position:relative;border:1px solid #DCD0B8;border-radius:12px;overflow:hidden;background:var(--paper)}
 /* the five stages sit down one page, so no sticky headers */
 .pv-stage header{position:static}
 .pv-stage .nav-toggle{display:none!important}
@@ -35,8 +38,13 @@
 
 /* ================= 2. cinematic full-photo ================= */
 .opt2 .hero{padding:0;background:var(--navy-2)}
-.opt2 .hero-frame{max-width:none;padding:0;position:relative}
-.opt2 .hero-photo{width:100%;height:clamp(430px,44vw,560px);object-fit:cover;object-position:72% 55%;
+/* The content sets the height and the photo fills behind it. Giving the photo a
+   fixed height instead let the copy run 14px past the frame and the stage's
+   overflow:hidden sliced the chips off. */
+.opt2 .hero-frame{max-width:none;padding:0;position:relative;display:flex;
+  min-height:clamp(520px,46vw,600px)}
+.opt2 .hero picture{position:absolute;inset:0;display:block}
+.opt2 .hero-photo{width:100%;height:100%;object-fit:cover;object-position:72% 55%;
   border-radius:0;-webkit-mask-image:none;mask-image:none}
 /* A flat overlay cannot work here: the photo runs from near-white cream on the
    left to dark wood on the right, so one opacity either greys the wood or leaves
@@ -44,7 +52,8 @@
 .opt2 .hero-frame::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
   background:linear-gradient(90deg,rgba(8,18,28,.90) 0%,rgba(8,18,28,.80) 34%,
     rgba(8,18,28,.46) 62%,rgba(8,18,28,.20) 100%)}
-.opt2 .hero-inner{z-index:3}
+/* back into flow so it can grow the frame, and padded clear of the overlaid header */
+.opt2 .hero-inner{position:relative;z-index:3;padding:106px var(--inset) 52px}
 .opt2 .hero h1{color:#fff}
 .opt2 .hero .lede{color:#D8DEE7}
 .opt2 .hero-proof{color:#B9C4D2}
@@ -70,7 +79,7 @@
 .opt3 .hero-photo{width:100%;height:100%;object-fit:cover;object-position:58% 50%;
   border-radius:0;-webkit-mask-image:none;mask-image:none}
 .opt3 .hero-inner{grid-area:1/1;position:static;max-width:none;margin:0;
-  padding:0 clamp(26px,4vw,60px);display:flex;align-items:center}
+  padding:clamp(34px,4vw,52px) clamp(26px,4vw,60px);display:flex;align-items:center}
 .opt3 .hero-content{max-width:none}
 @media(max-width:880px){
   .opt3 .hero-frame{grid-template-columns:1fr;min-height:0}
@@ -80,10 +89,15 @@
 
 /* ================= 4. floating content panel ================= */
 .opt4 .hero{padding:0}
-.opt4 .hero-frame{max-width:none;padding:0;position:relative}
-.opt4 .hero-photo{width:100%;height:clamp(470px,47vw,600px);object-fit:cover;object-position:68% 55%;
+/* same fix as option 2: the panel is the tallest thing here, so it has to drive
+   the frame rather than be clipped by a guessed photo height */
+.opt4 .hero-frame{max-width:none;padding:0;position:relative;display:flex;
+  min-height:clamp(530px,48vw,630px)}
+.opt4 .hero picture{position:absolute;inset:0;display:block}
+.opt4 .hero-photo{width:100%;height:100%;object-fit:cover;object-position:68% 55%;
   border-radius:0;-webkit-mask-image:none;mask-image:none}
-.opt4 .hero-inner{z-index:3}
+.opt4 .hero-inner{position:relative;z-index:3;
+  padding:clamp(34px,4vw,54px) var(--inset)}
 /* This photo suits a panel better than most: its left 44% is a flat cream field,
    so the card covers dead space rather than hiding the laptop. */
 .opt4 .hero-content{background:rgba(254,252,248,.955);border:1px solid rgba(214,201,176,.75);
