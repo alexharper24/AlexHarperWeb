@@ -1,7 +1,8 @@
 {
  "ignore_files": [
   "work-preview.html",
-  "transitions-preview.html"
+  "transitions-preview.html",
+  "effects-preview.html"
  ],
- "_note": "Throwaway previews. All noindex, unlinked, out of the sitemap. work-preview.html: bigger work tiles, delete once the real bullets land. transitions-preview.html: section-transition options, delete once one is chosen."
+ "_note": "Throwaway previews. All noindex, unlinked, out of the sitemap. work-preview.html: bigger work tiles, delete once the real bullets land. transitions-preview.html: section-transition options, delete once one is chosen. effects-preview.html: visual-effect patterns awaiting approval before graduating into studio.css."
 }

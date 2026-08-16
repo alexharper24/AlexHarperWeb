@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="robots" content="noindex, nofollow"/>
+<title>Effects Preview | Harper Studio Internal</title>
+<link rel="icon" type="image/png" href="assets/hs-favicon.png?v=71"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="studio.css?v=166"/>
+<style>
+/* Preview only. These patterns graduate into studio.css only after approval. */
+.effects-page{background:var(--paper)}
+.effects-hero{padding:64px 0 44px;background:
+  radial-gradient(circle at 18% 8%,rgba(210,160,83,.2),transparent 34%),
+  linear-gradient(180deg,var(--hero-cream),var(--paper))}
+.effects-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:44px;align-items:end}
+.effects-kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:#8A6635}
+.effects-kicker::before{content:"";width:28px;height:2px;background:var(--gold)}
+.effects-hero h1{max-width:11ch;margin-top:16px;font-size:clamp(46px,6vw,82px);line-height:.96;letter-spacing:-.04em}
+.effects-hero p{max-width:66ch;margin-top:20px;color:var(--muted);font-size:18px;line-height:1.75}
+.effects-note{border:1px solid #D8C7A7;border-radius:18px;background:rgba(255,255,255,.66);box-shadow:0 26px 54px -34px rgba(15,30,46,.3);
+  padding:24px;color:var(--muted);font-size:14.5px;line-height:1.65}
+.effects-note b{display:block;margin-bottom:8px;color:var(--navy);font-family:var(--serif);font-size:22px;line-height:1.15}
+.effects-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.effects-nav a{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #D8C7A7;border-radius:999px;
+  background:rgba(255,255,255,.62);font-size:13px;font-weight:700;color:var(--navy)}
+.effects-nav span{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--gold-deep)}
+.effect-section{padding:72px 0;border-top:1px solid rgba(216,199,167,.6);scroll-margin-top:96px}
+.effect-section.alt{background:var(--cream)}
+.effect-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,380px);gap:40px;align-items:end;margin-bottom:32px}
+.effect-head h2{max-width:13ch;font-size:clamp(34px,4vw,58px);line-height:1;letter-spacing:-.035em}
+.effect-head p{color:var(--muted);font-size:17px;line-height:1.72}
+.effect-why{border-left:3px solid var(--gold);padding-left:18px;color:var(--muted);font-size:15px;line-height:1.65}
+.effect-why b{display:block;margin-bottom:5px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6635}
+.preview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.preview-card{position:relative;border:1px solid #D8C7A7;border-radius:18px;background:var(--white);box-shadow:0 20px 46px -31px rgba(15,30,46,.34);
+  overflow:hidden}
+.preview-card.dark{background:linear-gradient(145deg,#0D1D2C,#172A3B);border-color:rgba(214,178,107,.44);color:#fff}
+.preview-body{padding:22px 22px 24px}
+.preview-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
+.preview-card.dark .preview-label{color:var(--gold-lt)}
+.preview-body h3{margin-top:8px;font-family:var(--serif);font-size:25px;line-height:1.06;letter-spacing:-.02em;color:var(--navy)}
+.preview-card.dark h3{color:#fff}
+.preview-body p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.58}
+.preview-card.dark p{color:#C4CEDB}
+.effect-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;border:1px solid rgba(15,30,46,.24);
+  border-radius:999px;background:transparent;color:var(--navy);font:700 13px var(--sans);padding:9px 12px;cursor:pointer}
+.preview-card.dark .effect-btn{border-color:rgba(255,255,255,.28);color:#fff}
+.effect-btn:hover,.effect-btn:focus-visible{border-color:var(--red);color:var(--red);outline:none}
+.preview-card.dark .effect-btn:hover,.preview-card.dark .effect-btn:focus-visible{color:var(--gold-lt);border-color:var(--gold-lt)}
+
+.ef-flip-btn{position:relative;display:block;width:100%;aspect-ratio:4/3;border:0;padding:0;background:transparent;cursor:pointer;perspective:1300px}
+.ef-flip-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .56s cubic-bezier(.2,.72,.24,1)}
+.ef-flip-btn[aria-pressed="true"] .ef-flip-inner{transform:rotateY(180deg)}
+.ef-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--warm-tint);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.ef-face.back{transform:rotateY(180deg)}
+.ef-face img{width:100%;height:100%;object-fit:cover;object-position:top}
+.ef-pill{position:absolute;left:12px;top:12px;z-index:2;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.86);
+  color:var(--navy);font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.ef-action{position:absolute;right:12px;bottom:12px;z-index:5;padding:8px 10px;border-radius:999px;background:rgba(15,30,46,.9);color:#fff;
+  box-shadow:0 10px 24px -15px rgba(0,0,0,.6);font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.ef-flip-btn[aria-pressed="true"] .ef-action::before{content:"See before"}
+.ef-flip-btn:not([aria-pressed="true"]) .ef-action::before{content:"See after"}
+
+.ef-reveal{--split:62%;position:relative;aspect-ratio:4/3;background:var(--warm-tint);overflow:hidden}
+.ef-reveal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.ef-reveal .after{clip-path:inset(0 calc(100% - var(--split)) 0 0)}
+.ef-reveal::after{content:"";position:absolute;top:0;bottom:0;left:var(--split);width:2px;background:#fff;box-shadow:0 0 0 1px rgba(15,30,46,.22)}
+.ef-reveal .knob{position:absolute;left:var(--split);top:50%;transform:translate(-50%,-50%);z-index:3;width:38px;height:38px;border-radius:999px;
+  display:grid;place-items:center;background:var(--navy);color:#fff;border:2px solid #fff;box-shadow:0 12px 28px -15px rgba(0,0,0,.5);font-weight:800}
+.range-wrap{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin-top:14px;font-family:var(--mono);font-size:10px;
+  font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--gold-deep)}
+.range-wrap input{width:100%;accent-color:var(--red)}
+
+.pair-frame{padding:22px;background:linear-gradient(145deg,#0D1D2C,#172A3B)}
+.pair-toggle{display:flex;gap:8px;margin-bottom:16px}
+.pair-toggle button{border:1px solid rgba(255,255,255,.22);background:transparent;color:#DCE6F0;border-radius:999px;padding:8px 12px;
+  font:800 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.pair-toggle button[aria-pressed="true"]{background:var(--gold-lt);color:#102033;border-color:var(--gold-lt)}
+.device-pair{display:grid;grid-template-columns:minmax(0,1fr) 118px;gap:18px;align-items:end}
+.browser-shell,.phone-shell{border:1px solid rgba(255,255,255,.2);background:#F8F4EC;box-shadow:0 18px 42px -28px rgba(0,0,0,.7);overflow:hidden}
+.browser-shell{border-radius:13px}
+.browser-bar{height:26px;background:#E8DDD0;border-bottom:1px solid #D5C5AF;display:flex;align-items:center;gap:5px;padding:0 9px}
+.browser-bar i{width:7px;height:7px;border-radius:999px;background:#CDA05B}
+.browser-shell img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.phone-shell{border-radius:22px;padding:8px;background:#0A1724}
+.phone-shell img{display:block;width:100%;aspect-ratio:9/19.5;object-fit:cover;object-position:top;border-radius:14px}
+
+.device-proof{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:28px;align-items:center}
+.device-stage{position:relative;min-height:430px;border-radius:26px;background:linear-gradient(145deg,#0D1D2C,#1D3347);border:1px solid rgba(214,178,107,.35);
+  overflow:hidden;box-shadow:0 32px 70px -44px rgba(15,30,46,.6)}
+.device-stage::before{content:"";position:absolute;inset:auto -20% -30% 18%;height:55%;background:radial-gradient(circle,rgba(210,160,83,.34),transparent 62%)}
+.desk-mock{position:absolute;left:7%;right:19%;top:50px;border:1px solid rgba(255,255,255,.22);border-radius:16px;overflow:hidden;background:#F8F4EC;
+  box-shadow:0 22px 50px -28px rgba(0,0,0,.72)}
+.desk-mock img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.phone-mock{position:absolute;right:7%;bottom:38px;width:23%;min-width:116px;border:8px solid #081420;border-radius:26px;overflow:hidden;background:#081420;
+  box-shadow:0 24px 54px -26px rgba(0,0,0,.8)}
+.phone-mock img{display:block;width:100%;aspect-ratio:9/19.5;object-fit:cover;object-position:top;border-radius:16px}
+.proof-list{display:grid;gap:14px}
+.proof-list div{padding:18px 18px;border:1px solid #D8C7A7;border-radius:16px;background:rgba(255,255,255,.65)}
+.proof-list h3{font-family:var(--serif);font-size:22px;color:var(--navy)}
+.proof-list p{margin-top:6px;color:var(--muted);line-height:1.58;font-size:14.5px}
+
+.motion-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.motion-card{position:relative;isolation:isolate;display:flex;min-height:250px;flex-direction:column;padding:24px;border:1px solid #D8C7A7;border-radius:18px;
+  background:var(--white);box-shadow:0 16px 40px -30px rgba(15,30,46,.32);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.motion-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--gold);transform:scaleX(.22);transform-origin:left;transition:transform .22s ease}
+.motion-card:hover,.motion-card:focus-within{transform:translateY(-4px);border-color:#C5AB75;box-shadow:0 30px 58px -38px rgba(15,30,46,.45)}
+.motion-card:hover::before,.motion-card:focus-within::before{transform:scaleX(1)}
+.motion-card .num{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--gold-deep)}
+.motion-card h3{margin-top:18px;font-family:var(--serif);font-size:29px;line-height:1;color:var(--navy)}
+.motion-card p{margin-top:12px;color:var(--muted);font-size:15px;line-height:1.58}
+.motion-card a{margin-top:auto;padding-top:18px;color:var(--red);font-weight:800}
+
+.process-demo{display:grid;grid-template-columns:340px minmax(0,1fr);gap:28px;align-items:stretch}
+.step-tabs{display:grid;gap:10px}
+.step-tabs button{display:grid;grid-template-columns:42px 1fr;gap:12px;text-align:left;align-items:center;border:1px solid #D8C7A7;border-radius:15px;
+  background:rgba(255,255,255,.72);padding:13px 14px;color:var(--navy);cursor:pointer}
+.step-tabs button span{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:var(--navy);color:var(--gold-lt);
+  font-family:var(--mono);font-size:12px;font-weight:800}
+.step-tabs button b{font-size:15px}
+.step-tabs button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 24px 46px -34px rgba(15,30,46,.72)}
+.step-tabs button[aria-selected="true"] span{background:var(--gold-lt);color:var(--navy)}
+.step-panel{display:grid;align-content:center;min-height:360px;border-radius:24px;background:linear-gradient(145deg,#0D1D2C,#172A3B);border:1px solid rgba(214,178,107,.35);
+  padding:36px;color:#fff;box-shadow:0 30px 70px -48px rgba(15,30,46,.65)}
+.step-panel .preview-label{color:var(--gold-lt)}
+.step-panel h3{margin-top:12px;font-family:var(--serif);font-size:44px;line-height:1;color:#fff;letter-spacing:-.03em}
+.step-panel p{margin-top:14px;max-width:58ch;color:#C4CEDB;line-height:1.7}
+.mini-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:26px}
+.mini-flow i{height:8px;border-radius:999px;background:rgba(255,255,255,.18)}
+.mini-flow i.active{background:var(--gold-lt)}
+
+.contact-proof{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;align-items:center}
+.success-card{border:1px solid #D8C7A7;border-radius:22px;background:var(--white);box-shadow:0 24px 54px -38px rgba(15,30,46,.36);padding:28px}
+.success-icon{width:48px;height:48px;border-radius:16px;background:var(--navy);color:var(--gold-lt);display:grid;place-items:center;font-weight:900}
+.success-card h3{font-family:var(--serif);font-size:34px;color:var(--navy);line-height:1;margin-top:18px}
+.success-card p{color:var(--muted);line-height:1.65;margin-top:10px}
+.fake-form{display:grid;gap:12px;border:1px solid #D8C7A7;border-radius:22px;background:rgba(255,255,255,.68);padding:22px}
+.fake-line{height:44px;border-radius:12px;background:linear-gradient(90deg,#EFE5D6,#F8F4EC)}
+.fake-line.tall{height:104px}
+
+@media(max-width:980px){
+  .effects-hero .wrap,.effect-head,.device-proof,.process-demo,.contact-proof{grid-template-columns:1fr}
+  .effects-note{max-width:520px}
+  .preview-grid,.motion-cards{grid-template-columns:1fr}
+  .preview-card{max-width:560px}
+  .device-stage{min-height:360px}
+}
+@media(max-width:620px){
+  .effects-hero{padding-top:44px}
+  .effects-hero h1{font-size:46px}
+  .effect-section{padding:56px 0}
+  .preview-body{padding:20px}
+  .device-pair{grid-template-columns:1fr 92px;gap:12px}
+  .desk-mock{left:5%;right:10%;top:36px}
+  .phone-mock{right:6%;bottom:34px;width:30%;min-width:96px}
+  .process-demo{gap:18px}
+  .step-panel{min-height:300px;padding:26px}
+  .step-panel h3{font-size:34px}
+}
+@media(hover:none){
+  .motion-card:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .ef-flip-inner,.motion-card,.motion-card::before{transition:none}
+}
+</style>
+</head>
+<body class="effects-page">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header id="top">
+  <div class="wrap"><nav>
+    <a class="brand" href="index.html" aria-label="Harper Studio home">
+      <img src="assets/hs-logo.png?v=71" alt="Harper Studio" width="940" height="290"/>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="plans.html">Plans</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-primary">Tell me about your website</a>
+    </div>
+  </nav></div>
+</header>
+
+<main id="main">
+  <section class="effects-hero">
+    <div class="wrap">
+      <div>
+        <span class="effects-kicker">Internal preview</span>
+        <h1>Effects with a job to do.</h1>
+        <p>This page is the lab before anything goes live. Each example uses the current Harper Studio palette, type, and real Calvary Road assets so the decision is about usefulness, not novelty.</p>
+        <div class="effects-nav" aria-label="Preview sections">
+          <a href="#before-after"><span>01</span>Before and after</a>
+          <a href="#responsive-proof"><span>02</span>Responsive proof</a>
+          <a href="#card-motion"><span>03</span>Card polish</a>
+          <a href="#process-motion"><span>04</span>Process reveal</a>
+          <a href="#contact-state"><span>05</span>Contact state</a>
+        </div>
+      </div>
+      <aside class="effects-note">
+        <b>How to approve an effect</b>
+        Ask whether it clarifies what changed, what to do next, or why to trust the work. If it only says "look at me," it stays here and never graduates.
+      </aside>
+    </div>
+  </section>
+
+  <section class="effect-section" id="before-after">
+    <div class="wrap">
+      <div class="effect-head">
+        <div>
+          <span class="eyebrow">Start here</span>
+          <h2>Three ways to show change.</h2>
+        </div>
+        <div class="effect-why"><b>Purpose</b>Make the redesign visible in one second. This is the strongest proof effect because it shows the old problem and the new answer without asking the visitor to imagine either one.</div>
+      </div>
+
+      <div class="preview-grid">
+        <article class="preview-card">
+          <button class="ef-flip-btn" type="button" aria-pressed="false" data-flip aria-label="Flip the homepage comparison">
+            <span class="ef-flip-inner">
+              <span class="ef-face">
+                <span class="ef-pill">Before</span>
+                <img src="img/work/calvary-before-home.jpg?v=2" alt="The previous Calvary Road homepage"/>
+              </span>
+              <span class="ef-face back">
+                <span class="ef-pill">After</span>
+                <img src="img/work/calvary-after-home.jpg?v=2" alt="The rebuilt Calvary Road homepage"/>
+              </span>
+            </span>
+            <span class="ef-action" aria-hidden="true"></span>
+          </button>
+          <div class="preview-body">
+            <span class="preview-label">Option A</span>
+            <h3>Click flip</h3>
+            <p>Best for the case study grid. It feels like turning over the evidence and works on mobile because the action is click/tap, not hover.</p>
+            <button class="effect-btn" type="button" data-flip-trigger>Try the flip</button>
+          </div>
+        </article>
+
+        <article class="preview-card">
+          <div class="ef-reveal" data-reveal style="--split:62%">
+            <img src="img/work/calvary-before-home.jpg?v=2" alt="The previous Calvary Road homepage">
+            <img class="after" src="img/work/calvary-after-home.jpg?v=2" alt="The rebuilt Calvary Road homepage">
+            <span class="ef-pill">Drag</span>
+            <span class="knob" aria-hidden="true">&harr;</span>
+          </div>
+          <div class="preview-body">
+            <span class="preview-label">Option B</span>
+            <h3>Reveal slider</h3>
+            <p>Best when the layout changed dramatically. It lets a visitor compare the same area without a full card flip.</p>
+            <label class="range-wrap">Before <input type="range" min="8" max="92" value="62" data-reveal-range aria-label="Reveal after image percentage"> After</label>
+          </div>
+        </article>
+
+        <article class="preview-card dark" data-pair-card>
+          <div class="pair-frame">
+            <div class="pair-toggle" role="group" aria-label="Choose before or after device preview">
+              <button type="button" aria-pressed="true" data-pair-state="before">Before</button>
+              <button type="button" aria-pressed="false" data-pair-state="after">After</button>
+            </div>
+            <div class="device-pair">
+              <div class="browser-shell">
+                <div class="browser-bar"><i></i><i></i><i></i></div>
+                <img data-pair-desktop src="img/work/calvary-before-home.jpg?v=2" alt="Desktop preview">
+              </div>
+              <div class="phone-shell">
+                <img data-pair-mobile src="img/work/calvary-before-home-mobile.jpg?v=2" alt="Mobile preview">
+              </div>
+            </div>
+          </div>
+          <div class="preview-body">
+            <span class="preview-label">Option C</span>
+            <h3>Device pair</h3>
+            <p>Best for selling responsive work. It makes the phone version part of the proof instead of a footnote.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="effect-section alt" id="responsive-proof">
+    <div class="wrap">
+      <div class="effect-head">
+        <div>
+          <span class="eyebrow">Website builds</span>
+          <h2>Desktop and mobile together.</h2>
+        </div>
+        <p>This module would fit the website design page. It says, visually, "I build the whole experience," which is stronger than a paragraph promising responsive design.</p>
+      </div>
+      <div class="device-proof">
+        <div class="device-stage">
+          <div class="desk-mock"><img src="img/work/calvary-after-home.jpg?v=2" alt="Desktop view of the rebuilt Calvary Road homepage"></div>
+          <div class="phone-mock"><img src="img/work/calvary-after-home-mobile.jpg?v=2" alt="Mobile view of the rebuilt Calvary Road homepage"></div>
+        </div>
+        <div class="proof-list">
+          <div><h3>Same message, different screen.</h3><p>Visitors should not get a lesser site because they are on a phone.</p></div>
+          <div><h3>Useful without explanation.</h3><p>The mockup shows responsive design before the visitor reads the words.</p></div>
+          <div><h3>Safe to reuse.</h3><p>This can become a reusable case-study or service-page component.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="effect-section" id="card-motion">
+    <div class="wrap">
+      <div class="effect-head">
+        <div>
+          <span class="eyebrow">Cards and CTAs</span>
+          <h2>Small movements that point.</h2>
+        </div>
+        <div class="effect-why"><b>Purpose</b>Hover and focus states should show what is clickable and what is important. On touch devices, the cards stay calm and readable.</div>
+      </div>
+      <div class="motion-cards">
+        <article class="motion-card" tabindex="0">
+          <span class="num">01</span>
+          <h3>Website design</h3>
+          <p>A slight lift, a gold rule, and a clearer link state. Nothing moves until the card is actually interactive.</p>
+          <a href="websites.html">Explore builds &rarr;</a>
+        </article>
+        <article class="motion-card" tabindex="0">
+          <span class="num">02</span>
+          <h3>Care plans</h3>
+          <p>Subtle motion helps plan cards feel selectable without turning pricing into a game.</p>
+          <a href="plans.html#care">Compare plans &rarr;</a>
+        </article>
+        <article class="motion-card" tabindex="0">
+          <span class="num">03</span>
+          <h3>Local search</h3>
+          <p>A clear hover state makes the service feel available, while the copy still does the heavy lifting.</p>
+          <a href="local.html">See local search &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="effect-section alt" id="process-motion">
+    <div class="wrap">
+      <div class="effect-head">
+        <div>
+          <span class="eyebrow">Process sections</span>
+          <h2>Reveal the path one step at a time.</h2>
+        </div>
+        <p>This is a candidate for the website design page or services page. It helps a visitor feel the project has a shape, a sequence, and a calm finish.</p>
+      </div>
+      <div class="process-demo" data-process-demo>
+        <div class="step-tabs" role="tablist" aria-label="Process preview">
+          <button type="button" role="tab" aria-selected="true" data-step="0"><span>1</span><b>Clarify the job</b></button>
+          <button type="button" role="tab" aria-selected="false" data-step="1"><span>2</span><b>Shape the site</b></button>
+          <button type="button" role="tab" aria-selected="false" data-step="2"><span>3</span><b>Build with checks</b></button>
+          <button type="button" role="tab" aria-selected="false" data-step="3"><span>4</span><b>Launch and care</b></button>
+        </div>
+        <div class="step-panel" aria-live="polite">
+          <span class="preview-label" data-step-kicker>Step 01</span>
+          <h3 data-step-title>Clarify the job.</h3>
+          <p data-step-copy>We talk through goals, pages, audience, existing accounts, and what the site actually needs to do before a quote is written.</p>
+          <div class="mini-flow" aria-hidden="true"><i class="active"></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="effect-section" id="contact-state">
+    <div class="wrap">
+      <div class="effect-head">
+        <div>
+          <span class="eyebrow">Conversion detail</span>
+          <h2>The last interaction should feel cared for.</h2>
+        </div>
+        <p>A good contact form does not just submit. It reassures the visitor that their message went somewhere, tells them what happens next, and leaves them calmer than before.</p>
+      </div>
+      <div class="contact-proof">
+        <div class="fake-form" aria-label="Form placeholder">
+          <div class="fake-line"></div>
+          <div class="fake-line"></div>
+          <div class="fake-line tall"></div>
+          <button class="btn btn-primary" type="button">Send preview message <span class="arr">&rarr;</span></button>
+        </div>
+        <div class="success-card">
+          <div class="success-icon">✓</div>
+          <h3>Got it. I will read this myself.</h3>
+          <p>A small success state can do real work: confirm the message, set expectation, and preserve the personal tone that runs through the rest of the site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-base" style="border-top:0;margin-top:0;padding-top:28px">
+      <span>Internal preview, not linked in navigation</span>
+      <span>Approve one effect, then graduate it into the live page</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-flip]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var on = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', String(!on));
+    });
+    var card = btn.closest('.preview-card');
+    var trigger = card && card.querySelector('[data-flip-trigger]');
+    if(trigger){
+      trigger.addEventListener('click', function(){
+        btn.click();
+        btn.focus();
+      });
+    }
+  });
+
+  document.querySelectorAll('[data-reveal-range]').forEach(function(input){
+    var card = input.closest('.preview-card');
+    var reveal = card && card.querySelector('[data-reveal]');
+    function update(){ if(reveal) reveal.style.setProperty('--split', input.value + '%'); }
+    input.addEventListener('input', update);
+    update();
+  });
+
+  document.querySelectorAll('[data-pair-card]').forEach(function(card){
+    var desktop = card.querySelector('[data-pair-desktop]');
+    var mobile = card.querySelector('[data-pair-mobile]');
+    var buttons = Array.prototype.slice.call(card.querySelectorAll('[data-pair-state]'));
+    var images = {
+      before: {
+        desktop: 'img/work/calvary-before-home.jpg?v=2',
+        mobile: 'img/work/calvary-before-home-mobile.jpg?v=2'
+      },
+      after: {
+        desktop: 'img/work/calvary-after-home.jpg?v=2',
+        mobile: 'img/work/calvary-after-home-mobile.jpg?v=2'
+      }
+    };
+    buttons.forEach(function(button){
+      button.addEventListener('click', function(){
+        var state = button.getAttribute('data-pair-state');
+        buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b === button)); });
+        if(desktop) desktop.src = images[state].desktop;
+        if(mobile) mobile.src = images[state].mobile;
+      });
+    });
+  });
+
+  var steps = [
+    ['Step 01','Clarify the job.','We talk through goals, pages, audience, existing accounts, and what the site actually needs to do before a quote is written.'],
+    ['Step 02','Shape the site.','You see the page structure, the content hierarchy, and the visual direction before the site becomes code.'],
+    ['Step 03','Build with checks.','The site is built, tested on real screen sizes, and reviewed before anything is pointed at the live domain.'],
+    ['Step 04','Launch and care.','Forms, redirects, mobile behavior, and search basics are checked, then ongoing care begins if you want it.']
+  ];
+  document.querySelectorAll('[data-process-demo]').forEach(function(demo){
+    var buttons = Array.prototype.slice.call(demo.querySelectorAll('[data-step]'));
+    var kicker = demo.querySelector('[data-step-kicker]');
+    var title = demo.querySelector('[data-step-title]');
+    var copy = demo.querySelector('[data-step-copy]');
+    var bars = Array.prototype.slice.call(demo.querySelectorAll('.mini-flow i'));
+    buttons.forEach(function(button){
+      button.addEventListener('click', function(){
+        var index = Number(button.getAttribute('data-step'));
+        buttons.forEach(function(b){ b.setAttribute('aria-selected', String(b === button)); });
+        if(kicker) kicker.textContent = steps[index][0];
+        if(title) title.textContent = steps[index][1];
+        if(copy) copy.textContent = steps[index][2];
+        bars.forEach(function(bar, i){ bar.classList.toggle('active', i <= index); });
+      });
+    });
+  });
+
+  var nt = document.querySelector('.nav-toggle');
+  var nl = document.getElementById('navLinks');
+  if(nt && nl){
+    nt.addEventListener('click', function(){
+      var open = nt.classList.toggle('open');
+      nl.classList.toggle('open', open);
+      nt.setAttribute('aria-expanded', open);
+      document.body.classList.toggle('nav-open', open);
+    });
+  }
+})();
+</script>
+</body>
+</html>
