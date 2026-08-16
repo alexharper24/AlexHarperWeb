@@ -775,6 +775,10 @@ p,li,dd,figcaption{text-wrap:pretty}
    ============================================================ */
 .flip-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px}
 @media(max-width:940px){.flip-row{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}}
+/* case studies with fewer comparisons: two-up centred, and a single pair holds
+   a readable width instead of sitting in one third of a three-column grid */
+.flip-row.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1040px;margin-left:auto;margin-right:auto}
+.flip-row.solo{grid-template-columns:minmax(0,640px);justify-content:center}
 .flip{display:flex;flex-direction:column}
 .flip-card{position:relative;display:block;width:100%;aspect-ratio:4/3;
   padding:0;border:0;background:none;cursor:pointer;perspective:1300px}
