@@ -25,10 +25,11 @@
 <meta name="twitter:image" content="https://harperstudio.co/img/og-image.jpg?v=2"/>
 <link rel="icon" type="image/png" href="assets/hs-favicon.png?v=71"/>
 <link rel="apple-touch-icon" href="assets/hs-favicon.png?v=71"/>
+<link rel="preload" as="image" href="img/hero-cinematic-extended.webp?v=1" type="image/webp"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="studio.css?v=141"/>
+<link rel="stylesheet" href="studio.css?v=165"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -97,168 +98,95 @@
       <a href="plans.html">Plans</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
-      <a href="contact.html" class="btn btn-primary">Schedule a consultation</a>
+      <a href="contact.html" class="btn btn-primary">Tell me about your website</a>
     </div>
   </nav></div>
 </header>
 
 <main id="main">
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-frame">
-    <picture>
-      <!-- Mobile gets a crop of the same photo. The left 44% of the full frame is
-           empty cream by design, which reads as a blank third of the banner once
-           object-fit:cover is applied at phone width. -->
-      <source media="(max-width:880px)" srcset="img/hero-mobile.webp?v=1" type="image/webp"/>
-      <source media="(max-width:880px)" srcset="img/hero-mobile.jpg?v=1"/>
-      <source srcset="img/hero-background.webp?v=2" type="image/webp"/>
-      <img class="hero-photo" src="img/hero-background.jpg?v=2" alt="A laptop on a sunlit wooden desk showing a website design in progress, beside a Harper Studio mug and an open notebook" fetchpriority="high" width="1672" height="941"/>
-    </picture>
     <div class="hero-inner">
       <div class="hero-content">
           <span class="script-kick">Care in every detail.
             <svg width="150" height="10" viewBox="0 0 150 10" fill="none" aria-hidden="true"><path d="M3 7c28-5 60-6 84-4 21 2 41 2 60-2" stroke="#C79A5A" stroke-width="2.6" stroke-linecap="round"/></svg>
           </span>
-          <h1>Websites that help small businesses, churches, and nonprofits thrive.</h1>
-          <p class="lede">I design, build, and manage your website to reflect the care and value you deliver to your audience.</p>
-          <p class="hero-proof">Four client sites live in production &middot; Every price published &middot; <a href="guarantee.html">Guaranteed in writing</a></p>
+          <h1>A clear, trustworthy website, handled from first draft to daily care.</h1>
+          <p class="lede">I design, build, host, and maintain websites for small businesses, churches, and nonprofits that need one accountable person watching the details.</p>
+          <p class="hero-proof">Based in New Albany &middot; Serving Louisville and Southern Indiana &middot; <a href="guarantee.html">Clear commitments in writing</a></p>
           <div class="cta">
-            <a href="contact.html" class="btn btn-primary">Schedule a consultation <span class="arr">&rarr;</span></a>
-            <a href="services.html" class="btn btn-ghost">View services</a>
+            <a href="contact.html" class="btn btn-primary">Tell me about your website <span class="arr">&rarr;</span></a>
+            <a href="#work" class="btn btn-ghost">See real work</a>
           </div>
           <div class="chips">
-            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Website design</span>
-            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19a4.5 4.5 0 0 0 .42-8.98 6 6 0 0 0-11.7 1.62A4 4 0 0 0 7 19z"/></svg>Hosting</span>
-            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>Domains &amp; DNS</span>
-            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Maintenance</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Published pricing</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>You own the site</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M9 18.5h6"/></svg>Phone tested</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Written scope</span>
           </div>
       </div>
     </div>
     </div>
   </section>
 
-  <!-- VALUES BAND -->
-  <section class="values">
-    <div class="wrap"><div class="grid">
-      <div class="val">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg></div>
-        <h3>Attention to Detail</h3>
-        <p>Every page polished, proofed, and tested on real devices before it goes live.</p>
+  <section class="home-proof" aria-label="What is included">
+    <div class="wrap home-proof-grid">
+      <div>
+        <span>01</span>
+        <strong>Clear scope before yes.</strong>
+        <p>Scope, typical price, and timing are agreed before work starts.</p>
       </div>
-      <div class="val">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/></svg></div>
-        <h3>Built to Last</h3>
-        <p>Clean, fast, hand-built sites that keep working for years, not months.</p>
+      <div>
+        <span>02</span>
+        <strong>Managed here, portable later.</strong>
+        <p>Domain, DNS, and site files can be handed off.</p>
       </div>
-      <div class="val">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></div>
-        <h3>Work I Stand Behind</h3>
-        <p>Finished means something I'm proud of, not just something that works.</p>
+      <div>
+        <span>03</span>
+        <strong>Tested where people use it.</strong>
+        <p>Phones, forms, speed, links, and search basics are checked.</p>
       </div>
-    </div></div>
+      <div>
+        <span>04</span>
+        <strong>Care after launch.</strong>
+        <p>Hosting, updates, backups, and changes stay with one person.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- PERSONA DOORS -->
-  <section class="block" id="start">
-    <div class="wrap">
+  <section class="block home-start" id="start">
+    <div class="wrap home-split">
       <div class="sec-head">
-        <span class="eyebrow">Where are you starting?</span>
-        <h2>Whatever shape your website is in, there's a clear next step.</h2>
+        <span class="eyebrow">Where you may be starting</span>
+        <h2>Start with what is getting in the way.</h2>
+        <p>A first site, an outdated site, and a platform migration each need a different fix. The goal is the same: a website people can understand, trust, and use.</p>
       </div>
-      <div class="svc-grid">
-        <a class="svc" href="websites.html">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v10l-7 4-7-4V7z"/><path d="M12 3v18M5 7l7 4 7-4"/></svg></div>
-          <h3>I need my first website</h3>
-          <p>You've been running on word of mouth and social media, and it's time for a real home online that you own.</p>
-          <span class="more">Start here <span class="arr">&rarr;</span></span>
+      <div class="path-list">
+        <a class="path-row" href="websites.html">
+          <span class="path-num">01</span>
+          <span><b>I need my first real website.</b> Start with clear pages, trustworthy design, and a place you own.</span>
+          <span class="arr">&rarr;</span>
         </a>
-        <a class="svc" href="websites.html">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M9 18.5h6"/></svg></div>
-          <h3>My site is outdated or breaks on phones</h3>
-          <p>It was fine when it went up. Now it looks dated, loads slowly, or falls apart on the phone screens most visitors use.</p>
-          <span class="more">See how a refresh works <span class="arr">&rarr;</span></span>
+        <a class="path-row" href="websites.html">
+          <span class="path-num">02</span>
+          <span><b>My site looks dated or fails on phones.</b> Rebuild the experience around the way people actually browse now.</span>
+          <span class="arr">&rarr;</span>
         </a>
-        <a class="svc" href="work-calvary-road.html">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V7a4 4 0 0 1 8 0"/><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M12 15v3"/></svg></div>
-          <h3>I'm stuck on a platform I don't own</h3>
-          <p>A website builder or an old CMS holds your content, and leaving feels impossible. There is a way out. I've done it.</p>
-          <span class="more">Read how Calvary Road got out <span class="arr">&rarr;</span></span>
+        <a class="path-row" href="work-calvary-road.html">
+          <span class="path-num">03</span>
+          <span><b>I am stuck on a platform I do not own.</b> See how Calvary Road moved off an old platform and kept ownership.</span>
+          <span class="arr">&rarr;</span>
         </a>
       </div>
     </div>
   </section>
 
-  <div class="ribbon" aria-hidden="true"></div>
-  <!-- SERVICES -->
-  <section class="block" id="services">
+  <section class="block home-work" id="work">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">What I do</span>
-        <h2>One partner for your website and everything behind it.</h2>
-        <p>Not just a design. From your pages to your hosting, domain, and day-to-day upkeep, all managed together so nothing falls between the cracks.</p>
-      </div>
-      <div class="svc-grid six illus">
-        <a class="svc" href="websites.html">
-          <img class="svc-art" src="img/services/custom-design.webp?v=4" alt="" width="480" height="480" loading="lazy" decoding="async"/>
-          <div class="svc-copy">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-            <h3>Custom design</h3>
-            <p>A clean, modern site designed around your business and the people you want to reach.</p>
-          </div>
-        </a>
-        <a class="svc" href="websites.html">
-          <img class="svc-art portrait" src="img/services/redesign.webp?v=6" alt="" width="284" height="480" loading="lazy" decoding="async"/>
-          <div class="svc-copy">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div>
-            <h3>Redesigns &amp; refreshes</h3>
-            <p>An outdated site rebuilt so it looks current and works properly on phones.</p>
-          </div>
-        </a>
-        <a class="svc" href="websites.html">
-          <img class="svc-art" src="img/services/fast-build.webp?v=4" alt="" width="480" height="480" loading="lazy" decoding="async"/>
-          <div class="svc-copy">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-5 6 5 6"/><path d="M16 6l5 6-5 6"/></svg></div>
-            <h3>Fast, modern build</h3>
-            <p>Built to load quickly and behave properly on the phones most visitors use.</p>
-          </div>
-        </a>
-        <a class="svc" href="hosting.html">
-          <img class="svc-art" src="img/services/hosting.webp?v=4" alt="" width="480" height="480" loading="lazy" decoding="async"/>
-          <div class="svc-copy">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1.6"/><rect x="3" y="13" width="18" height="7" rx="1.6"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></div>
-            <h3>Hosting &amp; maintenance</h3>
-            <p>Hosting, domains, certificates, and backups handled so you never touch a server.</p>
-          </div>
-        </a>
-        <a class="svc" href="local.html">
-          <img class="svc-art" src="img/services/local.webp?v=4" alt="" width="480" height="480" loading="lazy" decoding="async"/>
-          <div class="svc-copy">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <h3>Get found locally</h3>
-            <p>Your Google Business Profile set up right, so Google and AI assistants find you from day one.</p>
-          </div>
-        </a>
-        <a class="svc" href="plans.html">
-          <img class="svc-art" src="img/services/updates.webp?v=4" alt="" width="480" height="480" loading="lazy" decoding="async"/>
-          <div class="svc-copy">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v5h-5"/></svg></div>
-            <h3>Ongoing updates</h3>
-            <p>New photos, hours, events, or pages whenever you need them.</p>
-          </div>
-        </a>
-      </div>
-
-        </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="block" id="work">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Live client work</span>
+        <span class="eyebrow">Proof before promises</span>
         <h2>Real sites, live in production today.</h2>
-        <p>No stock mockups and no invented brands. Every site below belongs to a real organization, is live right now at its own address, and is still hosted and cared for here.</p>
+        <p>No stock mockups and no invented brands. Every site below belongs to a real organization, is live at its own address, and is still hosted and cared for here.</p>
       </div>
       <div class="work-grid">
         <div class="wcard c-infinite">
@@ -298,160 +226,131 @@
     </div>
   </section>
 
-  <div class="ribbon" aria-hidden="true"></div>
-  <section class="block" id="pricing">
+  <section class="block home-pillars" id="services">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Plans &amp; pricing</span>
-        <h2>Clear pricing, published for everyone.</h2>
-        <p>A one-time build gets you online. A simple monthly plan keeps the site hosted, secure, and cared for after that, with a reduced rate for churches and nonprofits.</p>
+        <span class="eyebrow">What gets handled</span>
+        <h2>Three moving parts, one responsible person.</h2>
+        <p>The site, the launch details, and the upkeep are designed together. That is what keeps the finished thing from feeling like a pretty page sitting on top of a messy system.</p>
       </div>
-
-      <div class="lane build">
-        <div class="lane-bar">
-          <h3>The build</h3>
-          <span class="lb-when">One-time &middot; pick by size</span>
-          <a class="more" href="plans.html">What's included &rarr;</a>
-        </div>
-        <div class="bgrid">
-          <a class="bcard" href="plans.html">
-            <span class="icirc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2.2-.7-3 0z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 21.5 2c0 2.7-.9 7.4-6 10.6a22 22 0 0 1-3.5 2.4z"/><path d="M9 12H4s.6-3.3 2-4.5c1.6-1.3 5 0 5 0M12 15v5s3.3-.6 4.5-2c1.3-1.6 0-5 0-5"/></svg></span>
-            <div class="nm">Starter</div>
-            <div class="pr">$800</div>
-            <p class="scope">One page, 3 to 5 sections. Paired with a care plan.</p>
-          </a>
-          <a class="bcard" href="plans.html">
-            <span class="icirc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
-            <div class="nm">Complete</div>
-            <div class="pr">$1,600</div>
-            <p class="scope">Up to six pages, each laid out for its own job.</p>
-          </a>
-          <a class="bcard" href="plans.html">
-            <span class="icirc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
-            <div class="nm">Signature</div>
-            <div class="pr">$2,400 <small>and up</small></div>
-            <p class="scope">No page limit, designed from scratch for you.</p>
-          </a>
-          <a class="bcard" href="plans.html">
-            <span class="icirc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 18.5l1.8-11 5.2 5 2.5-8 2.5 8 5.2-5 1.8 11z"/><path d="M2.5 21.5h19"/></svg></span>
-            <div class="nm">Advanced</div>
-            <div class="pr">Quoted</div>
-            <p class="scope">A store, donations, member areas, integrations, and more.</p>
-          </a>
-        </div>
-      </div>
-
-      <div class="banner-row">
-        <div class="banner">
-          <span class="icirc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.3-8.7C1 9.2 2.6 6 5.7 6c1.9 0 3.3 1 4.3 2.4h4c1-1.4 2.4-2.4 4.3-2.4 3.1 0 4.7 3.2 3 6.3C19 16.4 12 21 12 21z" transform="scale(.92) translate(1 .5)"/></svg></span>
-          <div>
-            <span class="b-eyebrow">Churches &amp; nonprofits</span>
-            <h3>Reduced rates for the work that matters most.</h3>
-            <div class="pcols">
-              <div class="pcol"><div class="k">Essential</div><div class="v">$45 <small>/mo</small></div></div>
-              <div class="pcol"><div class="k">Standard</div><div class="v">$100 <small>/mo</small></div></div>
-              <div class="pcol"><div class="k">Premium</div><div class="v">from $225 <small>/mo</small></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="banner offer-b">
-          <span class="icirc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.8 11.3L2 22l10.7-3.8M4 3h.01M22 8h.01M15 2h.01M22 20h.01M22 2l-2.2.7a2 2 0 0 0-1.4 2.3 2 2 0 0 1-2.3 2.3l-1.6-.3M11 13a14 14 0 0 0-2.5-2M9.5 14.5L5.8 11.3a2.4 2.4 0 0 1 0-3.4l.4-.4a2.4 2.4 0 0 1 3.4 0l3.2 3.7z"/></svg></span>
-          <div style="flex:1">
-            <div class="b-head">
-              <span class="b-eyebrow">Launch offer</span>
-              <span class="b-ends">Ends December 31, 2026</span>
-            </div>
-            <h3>Your first three months of care, included.</h3>
-            <p>Book any build by <b>December 31, 2026</b> and the first three months on your care plan are on me. Your normal monthly rate starts in month four, and you can cancel before it does.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="care-line">
-        <div class="cl-copy">
-          <div class="cl-head"><h3>The care plan</h3><span class="lb-when">Monthly &middot; no contract</span></div>
-          <p>After launch, a monthly plan keeps your site hosted, secure, backed up, and cared for: Essential $65, Standard $150, Premium from $325.</p>
-        </div>
-        <a class="cl-link" href="plans.html#care">Compare care plans <span class="arr">&rarr;</span></a>
-      </div>
-
-      <div class="plan-note">
-        <h3>Why the prices are public</h3>
-        <p>Most studios make you request a quote. I'd rather you know what things cost before we ever talk, so you can compare options on your own terms. Every plan, and exactly what it includes, is on the <a href="plans.html">plans page</a>, and the <a href="faq.html">FAQ</a> answers what happens if we part ways.</p>
+      <div class="pillar-grid">
+        <a class="pillar" href="websites.html">
+          <span class="pillar-k">01</span>
+          <h3>Design and build</h3>
+          <p>Pages shaped around the questions visitors bring: who you are, what you do, why it matters, and how to take the next step.</p>
+          <ul>
+            <li>Custom layout and copy structure</li>
+            <li>Fast, responsive front-end build</li>
+            <li>Search and sharing basics included</li>
+          </ul>
+          <span class="card-more">Explore website builds <span class="arr">&rarr;</span></span>
+        </a>
+        <a class="pillar" href="domains.html">
+          <span class="pillar-k">02</span>
+          <h3>Launch and ownership</h3>
+          <p>Domain, hosting, forms, redirects, analytics, and launch checks handled carefully so the move does not create new problems.</p>
+          <ul>
+            <li>Domain and DNS support</li>
+            <li>Forms, SSL, analytics, and redirects</li>
+            <li>Accounts set up in your name</li>
+          </ul>
+          <span class="card-more">Explore launch details <span class="arr">&rarr;</span></span>
+        </a>
+        <a class="pillar" href="hosting.html">
+          <span class="pillar-k">03</span>
+          <h3>Care and growth</h3>
+          <p>After launch, there is still someone available for updates, fixes, events, new pages, hosting, backups, and practical improvements.</p>
+          <ul>
+            <li>Hosting and maintenance</li>
+            <li>Content updates and new sections</li>
+            <li>Structured for search engines and AI tools</li>
+          </ul>
+          <span class="card-more">Explore hosting and care <span class="arr">&rarr;</span></span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="block alt" id="process">
-    <div class="wrap">
+  <section class="block home-process" id="process">
+    <div class="wrap home-process-grid">
       <div class="sec-head">
-        <span class="eyebrow">How it works</span>
-        <h2>Five steps, no surprises.</h2>
-        <svg class="hand-rule" viewBox="0 0 132 9" aria-hidden="true"><path d="M2 6c24-4 52-5 74-3 18 2 36 2 54-2"/></svg>
+        <span class="eyebrow">How it feels</span>
+        <h2>Calm, written down, and easier than you expect.</h2>
+        <p>The process is intentionally plain. We define what matters, I build in public enough for you to react, then the launch details get checked before anyone is pointed at the site.</p>
+        <a href="guarantee.html" class="text-link">Read the written commitments <span class="arr">&rarr;</span></a>
       </div>
-      <div class="steps five">
-        <div class="step">
-          <div class="snum">1</div>
-          <h3>We talk</h3>
-          <p>A plain conversation about what you need. No pitch, no pressure.</p>
+      <div class="flow-card">
+        <ol class="flow-list">
+          <li><span class="flow-num">1</span><span class="flow-copy"><b>Clarify the job.</b> We talk through goals, pages, audience, and what your current setup needs.</span></li>
+          <li><span class="flow-num">2</span><span class="flow-copy"><b>Agree on the shape.</b> You get scope, an expected timeline, and typical pricing before work starts.</span></li>
+          <li><span class="flow-num">3</span><span class="flow-copy"><b>Build with checkpoints.</b> You see the site take shape and can respond before anything goes live.</span></li>
+          <li><span class="flow-num">4</span><span class="flow-copy"><b>Launch and care for it.</b> Forms, domain, speed, mobile, and backups are checked, then care begins if you want it.</span></li>
+        </ol>
+        <div class="guarantee-note">
+          <b>The promise:</b> if something I built breaks, I fix it. Scope or price changes do not move forward without your approval. The site stays portable.
         </div>
-        <div class="step">
-          <div class="snum">2</div>
-          <h3>Flat quote</h3>
-          <p>Scope, price, and timeline in writing before any work starts.</p>
-        </div>
-        <div class="step">
-          <div class="snum">3</div>
-          <h3>Design &amp; build</h3>
-          <p>You see progress as it happens and shape it along the way.</p>
-        </div>
-        <div class="step">
-          <div class="snum">4</div>
-          <h3>Launch</h3>
-          <p>Domain, email, and forms wired correctly and tested on real devices.</p>
-        </div>
-        <div class="step">
-          <div class="snum">5</div>
-          <h3>Ongoing care</h3>
-          <p>A monthly plan keeps it hosted, secure, backed up, and current.</p>
-        </div>
-      </div>
-      <div class="plan-note">
-        <h3>Behind every step</h3>
-        <p>Anything I built that breaks gets fixed free, the written quote holds, and everything stays in your name. The whole commitment is published on the <a href="guarantee.html">guarantee page</a>.</p>
       </div>
     </div>
   </section>
 
-  <!-- WORK TEASER -->
+  <section class="block home-pricing" id="pricing">
+    <div class="wrap pricing-shell">
+      <div class="price-copy">
+        <span class="eyebrow">Pricing preview</span>
+        <h2>Enough pricing to know whether this fits before we talk.</h2>
+        <p>Most projects are a one-time build paired with optional ongoing care. The full plans page has every detail, but the shape is simple.</p>
+        <a href="plans.html" class="btn btn-primary">See plans and pricing <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="price-panel">
+        <a class="price-row" href="plans.html#build">
+          <span>Starter site</span>
+          <b>from $800</b>
+          <p>One focused page for a new or simple presence.</p>
+        </a>
+        <a class="price-row featured" href="plans.html#build">
+          <span>Most multi-page sites</span>
+          <b>around $1,600</b>
+          <p>A fuller site with the pages most organizations need.</p>
+        </a>
+        <a class="price-row" href="plans.html#build">
+          <span>Custom builds</span>
+          <b>from $2,400</b>
+          <p>Larger content, custom structure, or special integrations.</p>
+        </a>
+        <a class="price-row muted" href="plans.html#care">
+          <span>Ongoing care</span>
+          <b>from $65/mo</b>
+          <p>Hosting, backups, updates, and help after launch. Reduced rates are available for churches and nonprofits.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <!-- FOUNDER BAND -->
-  <section class="founder">
+  <section class="founder founder-home">
     <div class="wrap"><div class="split">
       <div class="photo"><img src="headshot.jpg?v=3" alt="Alex Harper, founder of Harper Studio" width="1000" height="1250" loading="lazy" decoding="async"/></div>
       <div>
         <span class="script-kick">The person behind the studio</span>
-        <h2>Hi, I'm Alex. I'll manage the details so you don't have to.</h2>
-        <p class="body">Maybe you've never had a website. Or maybe what you have has quietly gone out of date and needs a refresh. Either way, you should end up with something that represents your work properly, loads quickly, and is easy for people to use. I handle the design, the hosting, and the upkeep that keeps it that way, so you can stay focused on the work only you can do.</p>
+        <h2>Hi, I'm Alex. I make the website feel cared for after the launch excitement wears off.</h2>
+        <p class="body">I am based in New Albany and work with small businesses, churches, and nonprofits around Southern Indiana and Louisville. My bias is simple: the site should be clear for visitors, honest for you, fast on phones, and maintainable after it goes live.</p>
+        <p class="body">You are not buying a mystery process. You are getting one person responsible for design, build, launch, hosting, and the details that tend to get forgotten.</p>
         <div class="sign">Alex Harper</div>
         <div class="cta">
           <a href="about.html" class="btn btn-ghost">More about me <span class="arr">&rarr;</span></a>
-          </div>
+          <a href="contact.html" class="btn btn-primary">Tell me about your website <span class="arr">&rarr;</span></a>
         </div>
+      </div>
     </div></div>
   </section>
 
-
-  <!-- CTA -->
   <section class="cta-band block" id="contact">
     <div class="wrap">
       <span class="script-kick">No pressure, no sales pitch</span>
-      <h2>Let's talk about your website.</h2>
-      <p>Tell me what you're working on, and I'll point you to the right next step with a flat quote. Already have a site? Send it over for a free review instead.</p>
+      <h2>Send me the website problem you want solved.</h2>
+      <p>Tell me where things stand now and what you want the site to do. I will point you to the right next step, whether that is a new build, a refresh, or a quick review of what you already have.</p>
       <div class="ph-actions">
-        <a href="contact.html" class="btn btn-primary">Schedule a consultation <span class="arr">&rarr;</span></a>
-        <a href="contact.html" class="btn btn-ghost">Get a free website review</a>
+        <a href="contact.html" class="btn btn-primary">Tell me about your website <span class="arr">&rarr;</span></a>
+        <a href="contact.html" class="btn btn-ghost">Request a free website review</a>
       </div>
       <p class="cta-or">Or call or text me at <a href="tel:+15025093105">(502)&nbsp;509-3105</a></p>
     </div>
@@ -467,17 +366,17 @@
         <p>Websites built with care and attention, for organizations wherever they are.</p>
       </div>
       <div class="foot-cols">
-        <div class="foot-col"><h4>Services</h4><a href="websites.html">Websites</a>
+        <div class="foot-col"><h4>Services</h4><a href="websites.html">Website design</a>
           <a href="hosting.html">Hosting &amp; care</a>
           <a href="domains.html">Domains &amp; DNS</a>
           <a href="local.html">Local search</a>
-          <a href="plans.html">Care plans</a></div>
+          <a href="plans.html#care">Care plans</a></div>
         <div class="foot-col"><h4>Studio</h4><a href="about.html">About</a>
           <a href="work.html">Work</a>
           <a href="faq.html">FAQ</a>
           <a href="guarantee.html">Guarantee</a>
           <a href="contact.html">Contact</a></div>
-        <div class="foot-col"><h4>Get in touch</h4><a href="contact.html">Schedule a consultation</a>
+        <div class="foot-col"><h4>Get in touch</h4><a href="contact.html">Tell me about your website</a>
           <a href="mailto:alex@harperstudio.co">Email me</a>
           <a href="tel:+15025093105">(502) 509-3105</a></div>
       </div>

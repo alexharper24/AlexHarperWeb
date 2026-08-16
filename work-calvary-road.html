@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="studio.css?v=141"/>
+<link rel="stylesheet" href="studio.css?v=165"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2Q4TFJQM4"></script>
 <script>
   window.dataLayer=window.dataLayer||[];
@@ -82,7 +82,7 @@
       <a href="plans.html">Plans</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
-      <a href="contact.html" class="btn btn-primary">Schedule a consultation</a>
+      <a href="contact.html" class="btn btn-primary">Tell me about your website</a>
     </div>
   </nav></div>
 </header>
@@ -108,7 +108,7 @@
       <div class="sec-head">
         <span class="eyebrow">Before &amp; after</span>
         <h2>The same pages, before and after.</h2>
-        <p>Same church, same words, rebuilt so people can actually use them. Hover or tap any card to switch between the old site and the new one.</p>
+        <p>Same church, same words, rebuilt so people can actually use them. Click or tap each image to switch between the old site and the new one.</p>
       </div>
       <div class="flip-row">
         <div class="flip">
@@ -125,7 +125,7 @@
             </span>
           </button>
           <h3 class="flip-title">The homepage</h3>
-          <p class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-9 9M3 12a9 9 0 0 1 9-9"/><path d="M21 5v5h-5M3 19v-5h5"/></svg>Hover or tap to compare</p>
+          <p class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-9 9M3 12a9 9 0 0 1 9-9"/><path d="M21 5v5h-5M3 19v-5h5"/></svg>Click image to switch before / after</p>
           <p class="flip-cap">Same church, same message. One of them tells a first-time visitor what they need to know. A crowded template with a generic title becomes a clear invitation, with service times above the fold and the church's own colours drawn from their logo.</p>
         </div>
         <div class="flip">
@@ -142,7 +142,7 @@
             </span>
           </button>
           <h3 class="flip-title">The same page, on a phone</h3>
-          <p class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-9 9M3 12a9 9 0 0 1 9-9"/><path d="M21 5v5h-5M3 19v-5h5"/></svg>Hover or tap to compare</p>
+          <p class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-9 9M3 12a9 9 0 0 1 9-9"/><path d="M21 5v5h-5M3 19v-5h5"/></svg>Click image to switch before / after</p>
           <p class="flip-cap">The one that mattered most. Around half of the people looking for a church are doing it on a phone, and the old site gave them nothing to tap. The desktop menu was switched off at phone widths with nothing in its place. Now a working menu, tap-to-call, tap-for-directions, and text sized to read without pinching.</p>
         </div>
         <div class="flip">
@@ -159,7 +159,7 @@
             </span>
           </button>
           <h3 class="flip-title">What We Believe</h3>
-          <p class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-9 9M3 12a9 9 0 0 1 9-9"/><path d="M21 5v5h-5M3 19v-5h5"/></svg>Hover or tap to compare</p>
+          <p class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-9 9M3 12a9 9 0 0 1 9-9"/><path d="M21 5v5h-5M3 19v-5h5"/></svg>Click image to switch before / after</p>
           <p class="flip-cap">Nineteen articles of faith. Reproduced word for word, then made possible to actually read. One unbroken wall of text becomes articles that open on their own, with all 134 Scripture references expanding the exact King James verse inline.</p>
         </div>
       </div>
@@ -260,7 +260,7 @@
           <a href="faq.html">FAQ</a>
           <a href="guarantee.html">Guarantee</a>
           <a href="contact.html">Contact</a></div>
-        <div class="foot-col"><h4>Get in touch</h4><a href="contact.html">Schedule a consultation</a>
+        <div class="foot-col"><h4>Get in touch</h4><a href="contact.html">Tell me about your website</a>
           <a href="mailto:alex@harperstudio.co">Email me</a>
           <a href="tel:+15025093105">(502) 509-3105</a></div>
       </div>
@@ -274,8 +274,7 @@
   var h=document.getElementById('top');
   addEventListener('scroll',function(){h.classList.toggle('scrolled',scrollY>8)});
 
-  /* Flip cards: hover handles pointer devices in CSS, this handles tap and
-     keyboard. aria-pressed carries the state for both CSS and screen readers,
+  /* Flip cards: click/tap/keyboard controls the comparison. aria-pressed carries the state for both CSS and screen readers,
      and the label flips with it so the button never lies about what it does. */
   document.querySelectorAll('.flip-card').forEach(function(btn){
     var name = btn.getAttribute('aria-label').split(':')[0];
