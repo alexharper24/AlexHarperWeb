@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="studio.css?v=166"/>
+<link rel="stylesheet" href="studio.css?v=167"/>
 <style>
 /* Preview only. Each option below is scoped to .opt-N so nothing here can leak
    into the real .page-hero rule until one is chosen and promoted deliberately. */
@@ -44,11 +44,15 @@
     radial-gradient(74% 110% at 92% 8%,rgba(199,154,90,.14),rgba(199,154,90,0) 62%),
     linear-gradient(180deg,var(--paper) 0%,#F5EBD7 100%);}
 
-/* ---- B: same idea, deeper tan ---- */
+/* ---- B: same idea, deeper tan. CHOSEN, and live in studio.css as of v=167.
+   The two text colours below ship with it: --muted and --gold-deep both fall
+   under 4.5:1 against the bottom of this band. ---- */
 .opt-b .bp-hero{border-bottom:1px solid #D6C39F;
   background:
     radial-gradient(74% 110% at 92% 8%,rgba(180,132,66,.22),rgba(180,132,66,0) 62%),
     linear-gradient(180deg,#F3E7D2 0%,#E8D6B6 100%);}
+.opt-b .bp-hero p{color:#414A57}
+.opt-b .bp-hero .eyebrow{color:#6B4F26}
 
 /* ---- C: navy edge at the top, settling into the tan ---- */
 .opt-c .bp-hero{border-bottom:1px solid #D6C39F;

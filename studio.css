@@ -2138,10 +2138,10 @@ header nav{height:92px;padding:0 30px}
    keeping the detailed service destinations discoverable.
    ========================================================================== */
 .services-page .service-hero{
-  border-bottom:1px solid #E1D4B8;
+  border-bottom:1px solid #D6C39F;
   background:
-    radial-gradient(70% 90% at 92% 8%,rgba(199,154,90,.12),rgba(199,154,90,0) 62%),
-    linear-gradient(180deg,var(--paper),var(--cream));
+    radial-gradient(70% 90% at 92% 8%,rgba(180,132,66,.20),rgba(180,132,66,0) 62%),
+    linear-gradient(180deg,#F3E7D2 0%,#E8D6B6 100%);
   padding:56px 0 48px;
 }
 .services-page .service-hero h1{
@@ -2299,10 +2299,10 @@ header nav{height:92px;padding:0 30px}
    ========================================================================== */
 .plans-page .plans-hero{
   padding:58px 0 50px;
-  border-bottom:1px solid #E1D4B8;
+  border-bottom:1px solid #D6C39F;
   background:
-    radial-gradient(70% 90% at 92% 10%,rgba(199,154,90,.13),rgba(199,154,90,0) 62%),
-    linear-gradient(180deg,var(--paper),var(--cream));
+    radial-gradient(70% 90% at 92% 10%,rgba(180,132,66,.20),rgba(180,132,66,0) 62%),
+    linear-gradient(180deg,#F3E7D2 0%,#E8D6B6 100%);
 }
 .plans-hero-grid{
   display:grid;
@@ -2781,10 +2781,10 @@ header nav{height:92px;padding:0 30px}
   position:relative;
   overflow:hidden;
   padding:54px 0 48px;
-  border-bottom:1px solid #E1D4B8;
+  border-bottom:1px solid #D6C39F;
   background:
-    radial-gradient(74% 110% at 92% 8%,rgba(199,154,90,.14),rgba(199,154,90,0) 62%),
-    linear-gradient(180deg,var(--paper) 0%,#F5EBD7 100%);
+    radial-gradient(74% 110% at 92% 8%,rgba(180,132,66,.22),rgba(180,132,66,0) 62%),
+    linear-gradient(180deg,#F3E7D2 0%,#E8D6B6 100%);
 }
 .page-hero .wrap{
   max-width:var(--wide);
@@ -2793,8 +2793,22 @@ header nav{height:92px;padding:0 30px}
 .page-hero h1{
   max-width:1000px;
 }
+/* The band is deep enough that the site-wide --muted (4.48:1) and --gold-deep
+   (3.80:1) both fail against it. Both values below were solved against the
+   darkest pixel the band actually paints, rgb(228,207,176), which is darker
+   than the gradient's own bottom stop because the gold radial sits on top of
+   it. Do not solve against the declared stops, and do not sample the 1px
+   #D6C39F bottom border either: no text ever sits on the border, and treating
+   it as the floor pushes the eyebrow needlessly far from the brand gold.
+   Scoped overrides rather than token changes, so the rest of the site keeps
+   the lighter pair it already passes with. Measured across all fifteen banner
+   pages: body 5.91:1 or better, eyebrow 5.00:1 or better. */
 .page-hero p{
   max-width:58ch;
+  color:#414A57;
+}
+.page-hero .eyebrow{
+  color:#6B4F26;
 }
 .page-hero + section.block{
   border-top:0;
