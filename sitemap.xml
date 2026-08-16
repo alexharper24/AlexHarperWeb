@@ -8,6 +8,12 @@
   <url><loc>https://harperstudio.co/local.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://harperstudio.co/work.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://harperstudio.co/work-calvary-road.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url>
+    <loc>https://harperstudio.co/work-hope-baptist.html</loc>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/work-infinite-solutions.html</loc>
+  </url>
   <url><loc>https://harperstudio.co/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://harperstudio.co/plans.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://harperstudio.co/essential.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

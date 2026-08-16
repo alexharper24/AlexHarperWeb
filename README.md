@@ -107,3 +107,13 @@ commit that changes it.
       left, and it is blocked on Alex confirming which shots pair together.
       Never match photo pairs by visual inspection.
 - [ ] Update the hero proof-line project count as new sites go live.
+
+- **Case studies (added 2026-08-16, drafted from Internet Archive research):**
+  `work-hope-baptist.html` and `work-infinite-solutions.html`. All claims are
+  measured from archive captures or the live sites; review the copy before
+  pointing clients at it. Open items:
+  - Confirm the Infinite Solutions launch month (archive last captured the old
+    WordPress site 2025-08-11; the rebuild launched sometime after, date not in
+    copy until confirmed).
+  - Optional: capture before/after screenshots (Wayback for the befores) to add
+    the flip-card comparison section both pages currently omit.
