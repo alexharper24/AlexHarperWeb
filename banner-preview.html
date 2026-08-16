@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="robots" content="noindex, nofollow"/>
+<title>Subpage Banner Options | Harper Studio Internal</title>
+<link rel="icon" type="image/png" href="assets/hs-favicon.png?v=71"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="studio.css?v=166"/>
+<style>
+/* Preview only. Each option below is scoped to .opt-N so nothing here can leak
+   into the real .page-hero rule until one is chosen and promoted deliberately. */
+.bp-note{max-width:var(--wide);margin:0 auto;padding:26px 24px 10px}
+.bp-note h1{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em}
+.bp-note p{max-width:70ch;margin-top:12px;color:var(--muted);line-height:1.7}
+.bp-label{max-width:var(--wide);margin:52px auto 0;padding:0 24px}
+.bp-label .n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
+.bp-label h2{font-size:24px;margin-top:6px;letter-spacing:-.01em}
+.bp-label p{max-width:76ch;margin-top:8px;color:var(--muted);font-size:15px;line-height:1.65}
+/* the frame mimics a real page: sticky-style header bar, hero, first section */
+.bp-frame{max-width:var(--wide);margin:16px auto 0;padding:0 24px}
+.bp-inner{border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 22px 50px -34px rgba(15,30,46,.35)}
+.bp-hdr{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 22px;background:var(--paper);border-bottom:1px solid transparent}
+.bp-hdr .bp-brand{font-family:var(--serif);font-weight:600;font-size:19px;color:var(--navy)}
+.bp-hdr .bp-nav{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+.bp-hdr .bp-nav .on{color:var(--red);font-weight:600}
+.bp-hdr .bp-cta{background:var(--red);color:#fff;font-size:13px;font-weight:600;padding:9px 15px;border-radius:8px}
+.bp-hero{position:relative;overflow:hidden;padding:46px 26px 42px}
+.bp-hero .eyebrow{margin-bottom:12px}
+.bp-hero h3{font-size:clamp(28px,3.6vw,44px);line-height:1.06;letter-spacing:-.03em;max-width:22ch}
+.bp-hero p{max-width:56ch;margin-top:14px;color:var(--muted);font-size:16.5px;line-height:1.7}
+.bp-body{padding:30px 26px 34px;background:var(--paper)}
+.bp-body h4{font-size:19px;letter-spacing:-.01em}
+.bp-body p{max-width:64ch;margin-top:8px;color:var(--muted);font-size:15px;line-height:1.7}
+
+/* ---- A: what ships today ---- */
+.opt-a .bp-hero{border-bottom:1px solid #E1D4B8;
+  background:
+    radial-gradient(74% 110% at 92% 8%,rgba(199,154,90,.14),rgba(199,154,90,0) 62%),
+    linear-gradient(180deg,var(--paper) 0%,#F5EBD7 100%);}
+
+/* ---- B: same idea, deeper tan ---- */
+.opt-b .bp-hero{border-bottom:1px solid #D6C39F;
+  background:
+    radial-gradient(74% 110% at 92% 8%,rgba(180,132,66,.22),rgba(180,132,66,0) 62%),
+    linear-gradient(180deg,#F3E7D2 0%,#E8D6B6 100%);}
+
+/* ---- C: navy edge at the top, settling into the tan ---- */
+.opt-c .bp-hero{border-bottom:1px solid #D6C39F;
+  background:
+    linear-gradient(180deg,rgba(15,30,46,.16) 0%,rgba(15,30,46,0) 46%),
+    radial-gradient(74% 110% at 92% 8%,rgba(199,154,90,.18),rgba(199,154,90,0) 62%),
+    linear-gradient(180deg,#F1E5D0 0%,#EADCC0 100%);}
+
+/* ---- D: full navy, inverted ---- */
+.opt-d .bp-hero{border-bottom:0;
+  background:
+    radial-gradient(80% 120% at 88% 6%,rgba(199,154,90,.30),rgba(199,154,90,0) 58%),
+    linear-gradient(180deg,var(--navy-3) 0%,var(--navy) 62%,var(--navy-2) 100%);}
+.opt-d .bp-hero h3{color:#fff}
+.opt-d .bp-hero p{color:#D6DEE8}
+.opt-d .bp-hero .eyebrow{color:var(--gold-lt)}
+.opt-d .bp-hero .eyebrow::before{background:var(--gold-lt)}
+
+/* ---- E: navy at the top, fading down into the page ground ---- */
+.opt-e .bp-hero{border-bottom:0;padding-bottom:56px;
+  background:
+    radial-gradient(80% 120% at 88% 4%,rgba(199,154,90,.26),rgba(199,154,90,0) 56%),
+    linear-gradient(180deg,var(--navy) 0%,var(--navy-3) 44%,#4A5F76 68%,#A9A899 84%,var(--paper) 100%);}
+.opt-e .bp-hero h3{color:#fff}
+.opt-e .bp-hero p{color:#D6DEE8}
+.opt-e .bp-hero .eyebrow{color:var(--gold-lt)}
+.opt-e .bp-hero .eyebrow::before{background:var(--gold-lt)}
+</style>
+</head>
+<body>
+<div class="bp-note">
+  <h1>Subpage banner: how dark should the fade go?</h1>
+  <p>Every frame below is the same About page content in the same layout, so only the banner treatment changes. Option A is exactly what ships today. Each frame includes the header above and the first content block below, because the question is really about the transition into the page, not the band on its own.</p>
+</div>
+
+<div class="bp-label">
+  <span class="n">Option A &middot; live today</span>
+  <h2>Cream fade</h2>
+  <p>Paper at the top settling into a light cream, with a soft gold glow at the upper right. Quiet, and it never fights the content.</p>
+</div>
+<div class="bp-frame"><div class="bp-inner opt-a">
+  <div class="bp-hdr"><span class="bp-brand">Harper Studio</span><span class="bp-nav"><span>Services</span><span class="on">About</span><span>Plans</span><span>Contact</span></span><span class="bp-cta">Tell me about your website</span></div>
+  <div class="bp-hero"><span class="eyebrow">About</span><h3>The person behind the work.</h3><p>Harper Studio is small on purpose. Your site is designed, built, and managed end to end, so it is never handed off to someone who has not seen it before.</p></div>
+  <div class="bp-body"><h4>Hi, I'm Alex Harper.</h4><p>I build websites for small businesses, churches, and nonprofits around New Albany and Louisville. The first block of the page starts here, so you can see how the banner hands off to it.</p></div>
+</div></div>
+
+<div class="bp-label">
+  <span class="n">Option B</span>
+  <h2>Deeper tan</h2>
+  <p>The same treatment pushed two steps warmer and darker. The band separates from the header and from the white content below without changing anything structural, and the text stays dark.</p>
+</div>
+<div class="bp-frame"><div class="bp-inner opt-b">
+  <div class="bp-hdr"><span class="bp-brand">Harper Studio</span><span class="bp-nav"><span>Services</span><span class="on">About</span><span>Plans</span><span>Contact</span></span><span class="bp-cta">Tell me about your website</span></div>
+  <div class="bp-hero"><span class="eyebrow">About</span><h3>The person behind the work.</h3><p>Harper Studio is small on purpose. Your site is designed, built, and managed end to end, so it is never handed off to someone who has not seen it before.</p></div>
+  <div class="bp-body"><h4>Hi, I'm Alex Harper.</h4><p>I build websites for small businesses, churches, and nonprofits around New Albany and Louisville. The first block of the page starts here, so you can see how the banner hands off to it.</p></div>
+</div></div>
+
+<div class="bp-label">
+  <span class="n">Option C</span>
+  <h2>Navy shadow into tan</h2>
+  <p>A navy wash bleeds down from under the header and clears by the middle of the band. It reads as depth rather than as a colour change, and the text stays dark.</p>
+</div>
+<div class="bp-frame"><div class="bp-inner opt-c">
+  <div class="bp-hdr"><span class="bp-brand">Harper Studio</span><span class="bp-nav"><span>Services</span><span class="on">About</span><span>Plans</span><span>Contact</span></span><span class="bp-cta">Tell me about your website</span></div>
+  <div class="bp-hero"><span class="eyebrow">About</span><h3>The person behind the work.</h3><p>Harper Studio is small on purpose. Your site is designed, built, and managed end to end, so it is never handed off to someone who has not seen it before.</p></div>
+  <div class="bp-body"><h4>Hi, I'm Alex Harper.</h4><p>I build websites for small businesses, churches, and nonprofits around New Albany and Louisville. The first block of the page starts here, so you can see how the banner hands off to it.</p></div>
+</div></div>
+
+<div class="bp-label">
+  <span class="n">Option D</span>
+  <h2>Full navy, inverted</h2>
+  <p>The band becomes a navy plate with white text and a gold eyebrow. This is the treatment Calvary, Hope, and Infinite all use, so it is a look you already ship for clients. Strongest separation, biggest change.</p>
+</div>
+<div class="bp-frame"><div class="bp-inner opt-d">
+  <div class="bp-hdr"><span class="bp-brand">Harper Studio</span><span class="bp-nav"><span>Services</span><span class="on">About</span><span>Plans</span><span>Contact</span></span><span class="bp-cta">Tell me about your website</span></div>
+  <div class="bp-hero"><span class="eyebrow">About</span><h3>The person behind the work.</h3><p>Harper Studio is small on purpose. Your site is designed, built, and managed end to end, so it is never handed off to someone who has not seen it before.</p></div>
+  <div class="bp-body"><h4>Hi, I'm Alex Harper.</h4><p>I build websites for small businesses, churches, and nonprofits around New Albany and Louisville. The first block of the page starts here, so you can see how the banner hands off to it.</p></div>
+</div></div>
+
+<div class="bp-label">
+  <span class="n">Option E</span>
+  <h2>Navy fading to paper</h2>
+  <p>Navy at the top dissolving into the page ground by the bottom of the band, so there is no seam at all between the banner and the content. This is the literal reading of a darker fade.</p>
+</div>
+<div class="bp-frame"><div class="bp-inner opt-e">
+  <div class="bp-hdr"><span class="bp-brand">Harper Studio</span><span class="bp-nav"><span>Services</span><span class="on">About</span><span>Plans</span><span>Contact</span></span><span class="bp-cta">Tell me about your website</span></div>
+  <div class="bp-hero"><span class="eyebrow">About</span><h3>The person behind the work.</h3><p>Harper Studio is small on purpose. Your site is designed, built, and managed end to end, so it is never handed off to someone who has not seen it before.</p></div>
+  <div class="bp-body"><h4>Hi, I'm Alex Harper.</h4><p>I build websites for small businesses, churches, and nonprofits around New Albany and Louisville. The first block of the page starts here, so you can see how the banner hands off to it.</p></div>
+</div></div>
+
+<div class="bp-note" style="margin-top:56px;padding-bottom:60px">
+  <p style="font-size:14px">Preview page. Delete once an option is chosen and promoted into <code>studio.css</code>.</p>
+</div>
+</body>
+</html>
