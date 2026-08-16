@@ -116,6 +116,9 @@ commit that changes it.
     WordPress site 2025-08-11; the rebuild launched sometime after, date not in
     copy until confirmed).
   - Before/after flip cards added 2026-08-16 from headless captures: Wayback
-    `if_` snapshots for the befores, live sites for the afters. Infinite has the
-    desktop pair only: its site sends X-Frame-Options SAMEORIGIN, which blocks
-    the 390px iframe harness used for phone captures.
+    `if_` snapshots for the befores, live sites for the afters. Both studies
+    carry three cards (home, home-on-a-phone, and a subpage), matching Calvary.
+    Infinite's phone-after needed a workaround for its X-Frame-Options
+    SAMEORIGIN header: the live homepage HTML is fetched and framed from a local
+    copy with a <base> tag pointing at the live origin, so the render uses the
+    site's own live assets.
