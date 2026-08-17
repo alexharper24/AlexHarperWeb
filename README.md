@@ -80,6 +80,18 @@ commit that changes it.
       one goes in the `.hero-quote` component already built in `studio.css`.
 - [x] ~~Google Business Profile~~ — already exists; the homepage `sameAs`
       already points at its Knowledge Graph id. Review asks are Alex's to run.
+- [!] **Never add `Review` or `AggregateRating` schema to this site.** Checked
+      against Google's review-snippet docs on 2026-08-17, and it is disqualified
+      twice over, not once: a business that controls the reviews about itself
+      makes its `LocalBusiness`/`Organization` pages "ineligible for star review
+      feature", and separately "Don't aggregate reviews or ratings from other
+      websites." Google states the restriction "applies whether reviews appear
+      directly in structured data or through embedded third-party widgets", so a
+      review widget carries the same penalty risk as hand-written JSON-LD. This
+      supersedes the earlier note that said to add `AggregateRating` once reviews
+      were real: real does not make it eligible. Stars in search come from the
+      GBP itself, never from markup here. Displaying quotes on the page is fine;
+      marking them up is not.
 - [x] ~~GBP as a sellable service~~ — shipped 2026-08-09 as `local.html`:
       setup in every build, ongoing management and a monthly note on Standard
       and Premium, Essential explicitly excluded. **This is now a delivery
