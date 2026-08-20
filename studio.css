@@ -3462,13 +3462,22 @@ header nav{height:92px;padding:0 30px}
       link 21px below the others. The list no longer absorbs the slack; the link
       does, so all three sit on one line whatever the copy does later.
 
-   4. The section runs to 1360px. At 1240 the Premium bullet "priority updates,
-      usually same or next business day" needed 356px in a 334px column and was
-      the only bullet on the page that wrapped. Widening gives every column about
-      37px more, which fits it with room to spare, and it keeps the copy exactly
-      as written rather than trimming a service promise to suit a layout.
+   4. The section keeps the standard content width, matching every other section
+      on the page. It was briefly widened to 1360px so the one long Premium
+      bullet, "priority updates, usually same or next business day", would sit on
+      a single line; Alex preferred the consistent width, so that is reverted and
+      the bullet wraps to two lines at desktop.
+
+      For the record, since it will come up again: at the standard width that
+      bullet needs 364px in a 334px column, a 30px shortfall. No single
+      typographic lever closes it. Smaller type gets within 18px, tighter
+      tracking and padding within 15px. Only an aggressive combination of all of
+      them, 14px type with negative tracking, 18px card padding and a 12px grid
+      gap, fits it, and that visibly tightens the whole section. The alternative
+      is shorter copy, which changes what is promised, so it stays a decision for
+      Alex rather than a layout fix. This is exactly why the link alignment above
+      is structural: a wrapped bullet no longer knocks a card's link out of line.
    ========================================================================== */
-.plan-care .wrap{max-width:1360px}
 
 .plan-care .ccard{
   background:#EFE1C8;
@@ -3503,12 +3512,6 @@ header nav{height:92px;padding:0 30px}
 .plan-care .banner .b-rates small{font-size:12px;color:#AEB9C8}
 .plan-care .banner .b-rates i{font-style:normal;color:rgba(199,154,90,.55);padding:0 9px}
 
-/* No breakpoint needed to undo the 1360: below about a 1410px viewport the wrap
-   is already viewport-limited, so the wider max-width simply stops applying.
-   One line per bullet therefore holds from roughly 1300px up. Under that the
-   columns are too narrow for the 50-character Premium bullet and it wraps, which
-   is why the link alignment above is structural rather than relying on equal
-   list heights. */
 @media(max-width:700px){
   .plan-care .banner .b-rates i{padding:0 6px}
   .plan-care .banner .b-ic{width:30px;height:30px}
