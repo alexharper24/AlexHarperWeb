@@ -122,6 +122,67 @@
   .opt-e .cell+.cell{margin-top:28px}
   .pp-hero{height:120px}
 }
+
+/* =========================================================================
+   ATTACHED VARIANTS (F, G, H)
+   The strip butts straight onto the hero: square where they meet, rounded only
+   on the outer bottom corners, identical width. Hero and strip stop being two
+   objects separated by a gap and become one continuous card. The three differ
+   only in what fills the bar.
+   ========================================================================= */
+.opt-f .pp-hero,.opt-g .pp-hero,.opt-h .pp-hero{margin-bottom:0}
+.opt-f .ps,.opt-g .ps,.opt-h .ps{padding:0 0 30px}
+.opt-f .ps-in,.opt-g .ps-in,.opt-h .ps-in{
+  width:min(1740px,calc(100% - 64px));margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  border-radius:0 0 16px 16px;overflow:hidden}
+
+/* F: white bar, like a caption plate under a photograph */
+.opt-f .ps-in{background:#fff;border:1px solid var(--line);border-top:0;
+  box-shadow:0 26px 46px -34px rgba(15,30,46,.38)}
+.opt-f .cell{padding:24px 32px 26px;border-left:1px solid var(--line)}
+.opt-f .cell:first-child{border-left:0}
+.opt-f .k{display:block;font-family:var(--mono);font-size:11px;color:var(--gold-deep);margin-bottom:11px}
+.opt-f strong{display:block;color:var(--navy);font-size:16px;line-height:1.34}
+.opt-f .cell p{color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:10px}
+
+/* G: the warm tan, so the card lands on the same palette as the subpage banners */
+.opt-g .ps-in{border:1px solid #D6C39F;border-top:0;
+  background:linear-gradient(180deg,#F3E7D2 0%,#E8D6B6 100%);
+  box-shadow:0 26px 46px -34px rgba(15,30,46,.38)}
+.opt-g .cell{padding:24px 32px 26px;border-left:1px solid rgba(111,82,40,.26)}
+.opt-g .cell:first-child{border-left:0}
+.opt-g .k{display:block;font-family:var(--mono);font-size:11px;font-weight:600;color:#6B4F26;margin-bottom:11px}
+.opt-g strong{display:block;color:var(--navy);font-size:16px;line-height:1.34}
+.opt-g .cell p{color:#414A57;font-size:13.5px;line-height:1.56;margin-top:10px}
+
+/* H: dark, carrying the hero's own tone down through the bar */
+.opt-h .ps-in{background:linear-gradient(180deg,#2A2118 0%,#1E1710 100%);
+  box-shadow:0 26px 46px -34px rgba(15,30,46,.45)}
+.opt-h .cell{padding:24px 32px 26px;border-left:1px solid rgba(246,231,206,.16)}
+.opt-h .cell:first-child{border-left:0}
+.opt-h .k{display:block;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--gold-lt);margin-bottom:11px}
+.opt-h strong{display:block;color:#FFF6E7;font-size:16px;line-height:1.34}
+.opt-h .cell p{color:#D9CBB6;font-size:13.5px;line-height:1.56;margin-top:10px}
+
+@media(max-width:1000px){
+  .opt-f .ps-in,.opt-g .ps-in,.opt-h .ps-in{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .opt-f .cell:nth-child(3){border-left:0;border-top:1px solid var(--line)}
+  .opt-f .cell:nth-child(4){border-top:1px solid var(--line)}
+  .opt-g .cell:nth-child(3){border-left:0;border-top:1px solid rgba(111,82,40,.26)}
+  .opt-g .cell:nth-child(4){border-top:1px solid rgba(111,82,40,.26)}
+  .opt-h .cell:nth-child(3){border-left:0;border-top:1px solid rgba(246,231,206,.16)}
+  .opt-h .cell:nth-child(4){border-top:1px solid rgba(246,231,206,.16)}
+}
+@media(max-width:700px){
+  .opt-f .ps-in,.opt-g .ps-in,.opt-h .ps-in{grid-template-columns:1fr}
+  .opt-f .cell{border-left:0;border-top:1px solid var(--line)}
+  .opt-f .cell:first-child{border-top:0}
+  .opt-g .cell{border-left:0;border-top:1px solid rgba(111,82,40,.26)}
+  .opt-g .cell:first-child{border-top:0}
+  .opt-h .cell{border-left:0;border-top:1px solid rgba(246,231,206,.16)}
+  .opt-h .cell:first-child{border-top:0}
+}
 </style>
 </head>
 <body>
@@ -196,6 +257,57 @@
   <p>No box, no tint. Four columns under navy rules, with the numbers set large in the serif as display figures. The quietest option on the page and the most confident: it stops apologising for taking up space.</p>
 </div>
 <div class="pp-stage opt-e">
+  <div class="pp-hero"><span>hero, actual width</span></div>
+  <div class="ps"><div class="ps-in">
+    <div class="cell"><span class="k">01</span><strong>Clear scope before yes.</strong><p>Scope, typical price, and timing are agreed before work starts.</p></div>
+    <div class="cell"><span class="k">02</span><strong>Managed here, portable later.</strong><p>Domain, DNS, and site files can be handed off.</p></div>
+    <div class="cell"><span class="k">03</span><strong>Tested where people use it.</strong><p>Phones, forms, speed, links, and search basics are checked.</p></div>
+    <div class="cell"><span class="k">04</span><strong>Care after launch.</strong><p>Hosting, updates, backups, and changes stay with one person.</p></div>
+  </div></div>
+</div>
+
+
+<div class="pp-note" style="margin-top:78px;padding-bottom:0">
+  <h1>Attached to the hero: one card, three fills.</h1>
+  <p>The strip butts straight onto the photo. Square where the two meet, rounded only on the outer bottom corners, exactly the same width, so the hero and the four commitments read as a single object. The structure is identical in all three below; only the fill of the bar changes.</p>
+</div>
+
+<div class="pp-label">
+  <span class="n">Option F &middot; attached</span>
+  <h2>White plate</h2>
+  <p>The bar reads as a caption plate under a photograph. Lightest touch, and the navy headings and gold numerals carry over unchanged from what ships today.</p>
+</div>
+<div class="pp-stage opt-f">
+  <div class="pp-hero"><span>hero, actual width</span></div>
+  <div class="ps"><div class="ps-in">
+    <div class="cell"><span class="k">01</span><strong>Clear scope before yes.</strong><p>Scope, typical price, and timing are agreed before work starts.</p></div>
+    <div class="cell"><span class="k">02</span><strong>Managed here, portable later.</strong><p>Domain, DNS, and site files can be handed off.</p></div>
+    <div class="cell"><span class="k">03</span><strong>Tested where people use it.</strong><p>Phones, forms, speed, links, and search basics are checked.</p></div>
+    <div class="cell"><span class="k">04</span><strong>Care after launch.</strong><p>Hosting, updates, backups, and changes stay with one person.</p></div>
+  </div></div>
+</div>
+
+<div class="pp-label">
+  <span class="n">Option G &middot; attached</span>
+  <h2>Warm tan</h2>
+  <p>The same deeper tan now used on the subpage banners, so the card's base matches the palette running through the rest of the site.</p>
+</div>
+<div class="pp-stage opt-g">
+  <div class="pp-hero"><span>hero, actual width</span></div>
+  <div class="ps"><div class="ps-in">
+    <div class="cell"><span class="k">01</span><strong>Clear scope before yes.</strong><p>Scope, typical price, and timing are agreed before work starts.</p></div>
+    <div class="cell"><span class="k">02</span><strong>Managed here, portable later.</strong><p>Domain, DNS, and site files can be handed off.</p></div>
+    <div class="cell"><span class="k">03</span><strong>Tested where people use it.</strong><p>Phones, forms, speed, links, and search basics are checked.</p></div>
+    <div class="cell"><span class="k">04</span><strong>Care after launch.</strong><p>Hosting, updates, backups, and changes stay with one person.</p></div>
+  </div></div>
+</div>
+
+<div class="pp-label">
+  <span class="n">Option H &middot; attached</span>
+  <h2>Dark continuation</h2>
+  <p>The bar carries the hero's own tone down past the photo, so the whole card reads as one dark object. The strongest of the three, and the only one that turns the text light on dark.</p>
+</div>
+<div class="pp-stage opt-h">
   <div class="pp-hero"><span>hero, actual width</span></div>
   <div class="ps"><div class="ps-in">
     <div class="cell"><span class="k">01</span><strong>Clear scope before yes.</strong><p>Scope, typical price, and timing are agreed before work starts.</p></div>
