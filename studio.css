@@ -3436,3 +3436,80 @@ header nav{height:92px;padding:0 30px}
   }
   .plan-hero .ph-title h1{font-size:clamp(32px,4.4vw,50px)}
 }
+
+
+/* ===========================================================================
+   CARE PLANS SECTION, REFINED (2026-08-20)
+   Chosen from care-preview.html as option C: the mockup's polish with the full
+   content kept, so every card keeps its fourth bullet and its link through to
+   the tier page.
+
+   Four things happen here.
+
+   1. The cards go tan instead of near-white. On the navy the old #FDFBF7 read as
+      a stark cut-out; the tan sits in the same family as the rest of the site.
+      #EFE1C8 measured against it: navy heading 13.07:1, body 6.85:1, muted
+      4.95:1. The gold-deep used by the detail link lands at 4.46:1 there, just
+      under, so that link is darkened to #6B4F26 (5.9:1). The tier pill keeps its
+      own #F4DFB7 background, which still separates from the card.
+
+   2. Both callouts go dark. The left one was a cream card while the right was
+      dark, which read as an accident, and the light inline text needs a dark
+      ground anyway.
+
+   3. The detail links are aligned structurally rather than by luck. They used to
+      ride on top of the bullet list, so one wrapped bullet pushed a single card's
+      link 21px below the others. The list no longer absorbs the slack; the link
+      does, so all three sit on one line whatever the copy does later.
+
+   4. The section runs to 1360px. At 1240 the Premium bullet "priority updates,
+      usually same or next business day" needed 356px in a 334px column and was
+      the only bullet on the page that wrapped. Widening gives every column about
+      37px more, which fits it with room to spare, and it keeps the copy exactly
+      as written rather than trimming a service promise to suit a layout.
+   ========================================================================== */
+.plan-care .wrap{max-width:1360px}
+
+.plan-care .ccard{
+  background:#EFE1C8;
+  border-color:#DCC9A4;
+}
+.plan-care .ccard .c-more{color:#6B4F26}
+.plan-care .ccard .c-more:hover{color:var(--red)}
+.plan-care .ccard li{color:#3E4652}
+.plan-care .ccard li svg{color:#8A6635}
+
+/* the list stops absorbing the free space so the link can, which is what keeps
+   the three "Full details" links on one line */
+.plan-care .ccard ul{flex:0 0 auto}
+.plan-care .ccard .c-more{margin-top:auto;margin-bottom:14px}
+.plan-care .ccard .btn{margin-top:0}
+
+.plan-care .banner{
+  gap:16px;
+  background:rgba(255,255,255,.05);
+  border-color:rgba(199,154,90,.42);
+}
+.plan-care .banner.offer-b{
+  border:1.5px solid var(--gold);
+  box-shadow:0 8px 26px -12px rgba(199,154,90,.4);
+}
+.plan-care .banner .b-ic{flex:0 0 auto;width:38px;height:38px;color:var(--gold-lt);margin-top:2px}
+.plan-care .banner .b-inline{font-size:15.5px;line-height:1.62;color:#C3CEDC;margin:0}
+.plan-care .banner .b-lab,
+.plan-care .banner .b-date{color:var(--gold-lt);font-weight:700}
+.plan-care .banner .b-rates{margin-top:9px;font-size:15px;color:#C3CEDC}
+.plan-care .banner .b-rates b{font-family:var(--serif);font-size:18px;color:#FFF6E7;font-weight:600}
+.plan-care .banner .b-rates small{font-size:12px;color:#AEB9C8}
+.plan-care .banner .b-rates i{font-style:normal;color:rgba(199,154,90,.55);padding:0 9px}
+
+/* No breakpoint needed to undo the 1360: below about a 1410px viewport the wrap
+   is already viewport-limited, so the wider max-width simply stops applying.
+   One line per bullet therefore holds from roughly 1300px up. Under that the
+   columns are too narrow for the 50-character Premium bullet and it wraps, which
+   is why the link alignment above is structural rather than relying on equal
+   list heights. */
+@media(max-width:700px){
+  .plan-care .banner .b-rates i{padding:0 6px}
+  .plan-care .banner .b-ic{width:30px;height:30px}
+}
