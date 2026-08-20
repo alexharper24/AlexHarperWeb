@@ -744,7 +744,13 @@ p,li,dd,figcaption{text-wrap:pretty}
 .cs-table thead th{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;
   text-transform:uppercase;color:var(--faint);background:var(--warm-tint)}
 .cs-table tbody tr:last-child th,.cs-table tbody tr:last-child td{border-bottom:0}
-.cs-table tbody th{font-weight:600;color:var(--navy);width:38%}
+/* The measure column shrinks to exactly its own longest label instead of
+   claiming a flat 38%, handing every spare pixel to the before/after columns so
+   their sentences stay on one line. Measured across all three case studies at
+   760/900/1024/1200/1440: strictly fewer wrapped cells than 38% at every width,
+   with the label column itself never wrapping. A fixed percentage cannot do
+   this: 24% was ideal at 1440 but pinched the labels at 900. */
+.cs-table tbody th{font-weight:600;color:var(--navy);width:1%;white-space:nowrap}
 .cs-table .was{color:var(--red-deep)}
 .cs-table .now{color:#26413A;font-weight:600}
 @media(max-width:700px){
@@ -753,7 +759,7 @@ p,li,dd,figcaption{text-wrap:pretty}
   .cs-table thead{display:none}
   .cs-table tr{display:block;border-bottom:1px solid var(--line);padding:12px 0}
   .cs-table tbody tr:last-child{border-bottom:0}
-  .cs-table th,.cs-table td{display:block;border:0;padding:2px 14px;width:auto}
+  .cs-table th,.cs-table td{display:block;border:0;padding:2px 14px;width:auto;white-space:normal}
   .cs-table td::before{content:attr(data-l) " ";font-family:var(--mono);font-size:10px;
     letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
 }
