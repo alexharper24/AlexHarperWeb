@@ -3344,3 +3344,59 @@ header nav{height:92px;padding:0 30px}
 @media (max-width: 640px){
   a.text-link{min-height:44px}
 }
+
+
+/* ===========================================================================
+   HOMEPAGE PROOF STRIP, ATTACHED TO THE HERO (2026-08-20)
+   Chosen from proof-preview.html as option H. The four commitments butt straight
+   onto the photo: square where they meet, rounded only on the outer bottom
+   corners, sharing the hero's exact width, so the two read as one card instead
+   of a panel adrift in a gap.
+
+   Two explicit modifier classes rather than a :has() pairing, so there is no
+   browser-support question and the intent is readable in the markup:
+   .hero.hero-attached squares the photo's bottom, .home-proof.attached paints
+   and rounds the bar. plans.html carries this same markup as
+   "home-proof plan-proof" and there is no body class to tell the pages apart,
+   so a modifier is the only safe hook; without it the Plans strip would go dark
+   too. transitions-preview.html also has a .hero and is likewise untouched.
+
+   The bar's own colours were measured against its darkest point, #1E1710:
+   heading 16.53:1, body 11.11:1, numerals 9.72:1.
+   ========================================================================== */
+.hero.hero-attached{padding-bottom:0}
+.hero.hero-attached .hero-frame{border-radius:16px 16px 0 0}
+
+.home-proof.attached{background:var(--paper);padding:0 0 42px}
+.home-proof.attached .home-proof-grid{
+  width:min(var(--home-hero-shell),calc(100% - (var(--home-hero-gutter) * 2)));
+  max-width:none;
+  margin:0 auto;
+  border:0;
+  border-radius:0 0 16px 16px;
+  background:linear-gradient(180deg,#2A2118 0%,#1E1710 100%);
+  box-shadow:0 26px 46px -34px rgba(15,30,46,.45);
+}
+.home-proof.attached .home-proof-grid div{
+  padding:24px 32px 26px;
+  border-left:1px solid rgba(246,231,206,.16);
+}
+.home-proof.attached .home-proof-grid div:first-child{border-left:0}
+.home-proof.attached .home-proof-grid span{color:var(--gold-lt);font-weight:600}
+.home-proof.attached .home-proof-grid strong{color:#FFF6E7;font-size:16px}
+.home-proof.attached .home-proof-grid p{color:#D9CBB6}
+
+/* The stacking rules above paint light hairlines between cells, which would
+   show as bright scars on the dark bar. Restore them at each breakpoint. */
+@media(max-width:1120px){
+  .home-proof.attached .home-proof-grid div:nth-child(3){border-left:0;border-top:1px solid rgba(246,231,206,.16)}
+  .home-proof.attached .home-proof-grid div:nth-child(4){border-top:1px solid rgba(246,231,206,.16)}
+}
+@media(max-width:760px){
+  .home-proof.attached{padding:0 0 30px}
+  .home-proof.attached .home-proof-grid{border-radius:0 0 14px 14px}
+  .home-proof.attached .home-proof-grid div{border-left:0;border-top:1px solid rgba(246,231,206,.16)}
+  .home-proof.attached .home-proof-grid div:first-child{border-top:0}
+  .hero.hero-attached{padding-bottom:0}
+  .hero.hero-attached .hero-frame{border-radius:14px 14px 0 0}
+}
