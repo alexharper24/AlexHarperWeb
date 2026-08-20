@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="robots" content="noindex, nofollow"/>
+<title>Care Plans Format | Harper Studio Internal</title>
+<link rel="icon" type="image/png" href="assets/hs-favicon.png?v=71"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="studio.css?v=173"/>
+<style>
+/* Preview only. Every refinement is scoped to .cp-ref, so nothing here reaches
+   the live .plan-care section until it is promoted deliberately. */
+.cp-note{max-width:1240px;margin:0 auto;padding:30px 32px 4px}
+.cp-note h1{font-size:clamp(28px,3.2vw,38px);letter-spacing:-.02em}
+.cp-note p{max-width:80ch;margin-top:12px;color:var(--muted);line-height:1.7}
+.cp-note ul{max-width:80ch;margin:14px 0 0 22px;color:var(--muted);line-height:1.8;font-size:15px}
+.cp-label{max-width:1240px;margin:58px auto 0;padding:0 32px}
+.cp-label .n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
+.cp-label h2{font-size:23px;margin-top:6px;letter-spacing:-.01em}
+.cp-label p{max-width:88ch;margin-top:8px;color:var(--muted);font-size:15px;line-height:1.65}
+
+/* --- the mockup's refinements, scoped --- */
+/* The live left callout is a cream card while the right is dark. The mockup makes
+   both dark outlines on the navy, which is what lets the light text below work.
+   Without this the rates line renders near-white on cream and disappears. */
+.cp-ref .banner{gap:16px;background:rgba(255,255,255,.05);border-color:rgba(199,154,90,.42)}
+.cp-ref .banner.offer-b{border:1.5px solid var(--gold);box-shadow:0 8px 26px -12px rgba(199,154,90,.4)}
+.cp-ref .banner .b-ic{flex:0 0 auto;width:38px;height:38px;color:var(--gold-lt);margin-top:2px}
+.cp-ref .banner .b-inline{font-size:15.5px;line-height:1.62;color:#C3CEDC;margin:0}
+.cp-ref .banner .b-lab,.cp-ref .banner .b-date{color:var(--gold-lt);font-weight:700}
+.cp-ref .banner .b-rates{margin-top:9px;font-size:15px;color:#C3CEDC}
+.cp-ref .banner .b-rates b{font-family:var(--serif);font-size:18px;color:#FFF6E7;font-weight:600}
+.cp-ref .banner .b-rates small{font-size:12px;color:#AEB9C8}
+.cp-ref .banner .b-rates i{font-style:normal;color:rgba(199,154,90,.55);padding:0 9px}
+</style>
+</head>
+<body>
+<div class="cp-note">
+  <h1>Care plans: what the mockup actually changes.</h1>
+  <p>Worth saying first, because it narrows the question: the live section is already navy with cream cards and a Most popular ribbon, and every figure in the mockup already exists on the site unchanged, including the reduced church and nonprofit rates and the December 31, 2026 date. So this is not a recolour. Five specific things differ.</p>
+  <ul>
+    <li>Circled check marks on every bullet, where the live list is plain.</li>
+    <li>An icon on each of the two callouts.</li>
+    <li>The callout label runs into its sentence instead of sitting above it as an eyebrow, and the offer copy is cut to a single line.</li>
+    <li>Three bullets a card instead of four.</li>
+    <li>No link through to each tier's own page.</li>
+  </ul>
+  <p>The first three are straight improvements. The last two cost real content, so they are shown separately rather than bundled in.</p>
+</div>
+
+<div class="cp-label">
+  <span class="n">A &middot; live today</span>
+  <h2>Plain bullets, stacked callouts</h2>
+  <p>Exactly what plans.html renders now. Four bullets a card, a link through to every tier page, and the two callouts carrying an eyebrow, a heading, and the full offer paragraph.</p>
+</div>
+<section class="block plan-care">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Monthly care plans</span>
+      <h2>Keep the site cared for after launch.</h2>
+      <p>Care plans cover hosting, SSL, backups, monitoring, fixes, and updates so the site does not become another thing you have to chase.</p>
+    </div>
+    <div class="cgrid">
+      <div class="ccard">
+        <div class="c-top"><span class="plan-tier-k">Essential</span><div><div class="c-pr">$65 <small>/mo</small></div></div></div>
+        <p class="c-for">For a site that rarely changes. Online, correct, off your mind.</p>
+        <ul>
+          <li>Hosting, SSL, and domain handled</li>
+          <li>Backups and uptime monitoring</li>
+          <li>4 edits a year, about 30 min each</li>
+          <li>Anything I built that breaks, fixed free</li>
+        </ul>
+        <a class="c-more" href="essential.html">Full Essential details &rarr;</a>
+        <a href="contact.html" class="btn btn-ghost">Choose Essential</a>
+      </div>
+      <div class="ccard feature">
+        <span class="flag">Most popular</span>
+        <div class="c-top"><span class="plan-tier-k">Standard</span><div><div class="c-pr">$150 <small>/mo</small></div></div></div>
+        <p class="c-for">For a site that changes regularly: hours, photos, events, staff.</p>
+        <ul>
+          <li>Everything in Essential</li>
+          <li>4 requests a month, up to an hour each</li>
+          <li>Most updates live within 2 business days</li>
+          <li>Google profile managed, monthly note</li>
+        </ul>
+        <a class="c-more" href="standard.html">Full Standard details &rarr;</a>
+        <a href="contact.html" class="btn btn-primary">Choose Standard</a>
+      </div>
+      <div class="ccard">
+        <div class="c-top"><span class="plan-tier-k">Premium</span><div><div class="c-pr">$325 <small>/mo and up</small></div></div></div>
+        <p class="c-for">For a site that drives the business and needs to keep pace.</p>
+        <ul>
+          <li>Everything in Standard</li>
+          <li>Room for new pages, not just edits</li>
+          <li>Priority updates, usually same or next business day</li>
+          <li>Quarterly review and planning</li>
+        </ul>
+        <a class="c-more" href="premium.html">Full Premium details &rarr;</a>
+        <a href="contact.html" class="btn btn-ghost">Choose Premium</a>
+      </div>
+    </div>
+    <div class="plan-callouts">
+      <div class="banner">
+        <div>
+          <span class="b-eyebrow">Churches &amp; nonprofits</span>
+          <h3>Reduced care rates are available.</h3>
+          <div class="pcols">
+            <div class="pcol"><div class="k">Essential</div><div class="v">$45 <small>/mo</small></div></div>
+            <div class="pcol"><div class="k">Standard</div><div class="v">$100 <small>/mo</small></div></div>
+            <div class="pcol"><div class="k">Premium</div><div class="v">from $225 <small>/mo</small></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="banner offer-b">
+        <div>
+          <div class="b-head"><span class="b-eyebrow">Launch offer</span><span class="b-ends">Ends December 31, 2026</span></div>
+          <h3>Your first three months of care, included.</h3>
+          <p>Book any build by <b>December 31, 2026</b> and the first three months on your care plan are on me. Your normal monthly rate starts in month four, and you can cancel before it does.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cp-label">
+  <span class="n">B &middot; the mockup, faithfully</span>
+  <h2>Icons, trimmed bullets, no tier links</h2>
+  <p>The proposal as drawn. Tighter and easier to scan, and the check marks earn their place. What leaves the page: the fourth bullet everywhere, including "anything I built that breaks, fixed free" on Essential, which is one of the strongest lines in the plan, and the route through to the three tier pages.</p>
+</div>
+<section class="block plan-care cp-ref">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Monthly care plans</span>
+      <h2>Keep the site cared for after launch.</h2>
+      <p>Care plans cover hosting, SSL, backups, monitoring, fixes, and updates so the site does not become another thing you have to chase.</p>
+    </div>
+    <div class="cgrid">
+      <div class="ccard">
+        <div class="c-top"><span class="plan-tier-k">Essential</span><div><div class="c-pr">$65 <small>/mo</small></div></div></div>
+        <p class="c-for">For sites that rarely change.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>4 edits a year, about 30 min each</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Backups and uptime monitoring</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Hosting, SSL, and domain handled</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost">Choose Essential</a>
+      </div>
+      <div class="ccard feature">
+        <span class="flag">Most popular</span>
+        <div class="c-top"><span class="plan-tier-k">Standard</span><div><div class="c-pr">$150 <small>/mo</small></div></div></div>
+        <p class="c-for">For sites that change regularly.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>4 requests a month</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Most updates within 2 business days</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Google profile managed monthly</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Choose Standard</a>
+      </div>
+      <div class="ccard">
+        <div class="c-top"><span class="plan-tier-k">Premium</span><div><div class="c-pr">$325 <small>/mo</small></div></div></div>
+        <p class="c-for">For sites that drive the business.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Everything in Standard</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Room for new pages, not just edits</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Priority updates and quarterly planning</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost">Choose Premium</a>
+      </div>
+    </div>
+    <div class="plan-callouts">
+      <div class="banner">
+        <svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M17.5 14.4c2.8 0 5 2.2 5 5"/></svg>
+        <div>
+          <p class="b-inline"><b class="b-lab">Churches &amp; nonprofits:</b> reduced care rates are available.</p>
+          <p class="b-rates">Essential <b>$45</b><small>/mo</small><i>|</i>Standard <b>$100</b><small>/mo</small><i>|</i>Premium from <b>$225</b><small>/mo</small></p>
+        </div>
+      </div>
+      <div class="banner offer-b">
+        <svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.2" y="5" width="17.6" height="16" rx="2.2"/><path d="M3.2 10h17.6M8 3v4M16 3v4"/><circle cx="8.4" cy="14.4" r=".9"/><circle cx="12" cy="14.4" r=".9"/><circle cx="15.6" cy="14.4" r=".9"/></svg>
+        <div>
+          <p class="b-inline"><b class="b-lab">Launch offer:</b> your first three months of care are included when you book by <b class="b-date">December 31, 2026</b>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cp-label">
+  <span class="n">C &middot; refinements, content kept</span>
+  <h2>The mockup's polish on the full content</h2>
+  <p>The check marks, the callout icons, and the inlined callout labels, with four bullets and the tier links still in place. Taller cards than B, and the three tier pages keep their main route in. This is the version I would ship.</p>
+</div>
+<section class="block plan-care cp-ref">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Monthly care plans</span>
+      <h2>Keep the site cared for after launch.</h2>
+      <p>Care plans cover hosting, SSL, backups, monitoring, fixes, and updates so the site does not become another thing you have to chase.</p>
+    </div>
+    <div class="cgrid">
+      <div class="ccard">
+        <div class="c-top"><span class="plan-tier-k">Essential</span><div><div class="c-pr">$65 <small>/mo</small></div></div></div>
+        <p class="c-for">For a site that rarely changes. Online, correct, off your mind.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Hosting, SSL, and domain handled</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Backups and uptime monitoring</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>4 edits a year, about 30 min each</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Anything I built that breaks, fixed free</li>
+        </ul>
+        <a class="c-more" href="essential.html">Full Essential details &rarr;</a>
+        <a href="contact.html" class="btn btn-ghost">Choose Essential</a>
+      </div>
+      <div class="ccard feature">
+        <span class="flag">Most popular</span>
+        <div class="c-top"><span class="plan-tier-k">Standard</span><div><div class="c-pr">$150 <small>/mo</small></div></div></div>
+        <p class="c-for">For a site that changes regularly: hours, photos, events, staff.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Everything in Essential</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>4 requests a month, up to an hour each</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Most updates live within 2 business days</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Google profile managed, monthly note</li>
+        </ul>
+        <a class="c-more" href="standard.html">Full Standard details &rarr;</a>
+        <a href="contact.html" class="btn btn-primary">Choose Standard</a>
+      </div>
+      <div class="ccard">
+        <div class="c-top"><span class="plan-tier-k">Premium</span><div><div class="c-pr">$325 <small>/mo and up</small></div></div></div>
+        <p class="c-for">For a site that drives the business and needs to keep pace.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Everything in Standard</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Room for new pages, not just edits</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Priority updates, usually same or next business day</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-4.8"/></svg>Quarterly review and planning</li>
+        </ul>
+        <a class="c-more" href="premium.html">Full Premium details &rarr;</a>
+        <a href="contact.html" class="btn btn-ghost">Choose Premium</a>
+      </div>
+    </div>
+    <div class="plan-callouts">
+      <div class="banner">
+        <svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M17.5 14.4c2.8 0 5 2.2 5 5"/></svg>
+        <div>
+          <p class="b-inline"><b class="b-lab">Churches &amp; nonprofits:</b> reduced care rates are available.</p>
+          <p class="b-rates">Essential <b>$45</b><small>/mo</small><i>|</i>Standard <b>$100</b><small>/mo</small><i>|</i>Premium from <b>$225</b><small>/mo</small></p>
+        </div>
+      </div>
+      <div class="banner offer-b">
+        <svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.2" y="5" width="17.6" height="16" rx="2.2"/><path d="M3.2 10h17.6M8 3v4M16 3v4"/><circle cx="8.4" cy="14.4" r=".9"/><circle cx="12" cy="14.4" r=".9"/><circle cx="15.6" cy="14.4" r=".9"/></svg>
+        <div>
+          <p class="b-inline"><b class="b-lab">Launch offer:</b> your first three months of care are included when you book by <b class="b-date">December 31, 2026</b>. Your normal rate starts in month four, and you can cancel before it does.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cp-note" style="margin-top:64px;padding-bottom:70px">
+  <p style="font-size:14px">Preview page. The refinements are scoped to <code>.cp-ref</code>, so the live section on <code>plans.html</code> is untouched. Delete once a direction is chosen.</p>
+</div>
+</body>
+</html>
