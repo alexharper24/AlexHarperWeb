@@ -3404,25 +3404,35 @@ header nav{height:92px;padding:0 30px}
 
 /* ===========================================================================
    SUBPAGE H1 SIZE, UNIFIED (2026-08-20)
-   Services, Plans and FAQ each carried their own larger h1 (58px, 64px, 64px
-   against the shared 50px) plus their own narrower measure, so the top of every
-   page announced itself at a different size. Alex picked the Work / About /
-   Contact size as the house one. These reset all three back to the shared
+   Every subpage h1 is now the one size Alex picked, the Work / About / Contact
+   50px. Measuring all twenty pages found three groups, not one: Services at
+   58px, Plans and FAQ at 64px, the four service detail pages at 62px, and the
+   three plan tier pages at 48px. Each came from its own override with its own
+   measure, so the top of a page announced itself differently depending where
+   you landed. These reset all three back to the shared
    .page-hero h1 rule rather than restating a number, so there is one place to
    change it in future. The measures go with the size: at 50px a 15ch cap would
    have left the heading in a narrow column, which is not what "match" means.
    ========================================================================== */
 .services-page .service-hero h1,
 .plans-page .plans-hero h1,
-.faq-page .faq-hero h1{
+.faq-page .faq-hero h1,
+.service-detail-page .page-hero h1{
   font-size:clamp(32px,4.4vw,50px);
   max-width:1000px;
+}
+/* The plan tier pages sit their h1 in a baseline flex row beside the price, so
+   only the size moves here; the row keeps its own alignment. */
+.plan-hero .ph-title h1{
+  font-size:clamp(32px,4.4vw,50px);
 }
 @media(max-width:760px){
   .services-page .service-hero h1,
   .plans-page .plans-hero h1,
-  .faq-page .faq-hero h1{
+  .faq-page .faq-hero h1,
+  .service-detail-page .page-hero h1{
     font-size:clamp(32px,4.4vw,50px);
     max-width:none;
   }
+  .plan-hero .ph-title h1{font-size:clamp(32px,4.4vw,50px)}
 }
