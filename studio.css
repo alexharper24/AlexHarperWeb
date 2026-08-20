@@ -16,7 +16,10 @@
   --hero-cream:#F8E7D6;       /* sampled from the hero photo's left field (uniform at all heights) */
   --inset:26px;               /* standard page inset */
   --wide:1240px;              /* standard content width (header, sections, hero text) */
-  --hero-wide:1560px;         /* the hero photo alone spans wider, equally both sides */
+  --hero-wide:1560px;         /* superseded for the homepage hero by the 2026-08-14
+                                 cinematic block, which sizes .hero-frame from
+                                 --home-hero-shell. Still the token the old
+                                 img-based hero rule reads, so left in place. */
   --hero-pad:clamp(26px,3vw,56px);
   --warm:#F0E4D0;             /* hero panel warmth */
   --warm-tint:#F2EADB;        /* soft warm band between cream and white */
@@ -751,6 +754,12 @@ p,li,dd,figcaption{text-wrap:pretty}
    with the label column itself never wrapping. A fixed percentage cannot do
    this: 24% was ideal at 1440 but pinched the labels at 900. */
 .cs-table tbody th{font-weight:600;color:var(--navy);width:1%;white-space:nowrap}
+/* Calvary's values are terse ("None", "Neither", "63,197 bytes"), so at full
+   width its before column held ~120px of text in 412px, leaving a void between
+   a row's before and after value. Capping the table keeps the pair adjacent.
+   Only this study needs it: Infinite's and Hope's sentences use the full width,
+   and a global cap re-wrapped both. Measured at 820px: no wrapped cells. */
+.cs-table.compact{max-width:820px}
 .cs-table .was{color:var(--red-deep)}
 .cs-table .now{color:#26413A;font-weight:600}
 @media(max-width:700px){
@@ -1537,6 +1546,14 @@ a.bcard:hover{transform:translateY(-3px);border-color:#C3B08A;box-shadow:0 20px 
 :root{
   --home-shell:1440px;
   --home-gutter:48px;
+  /* The hero runs wider than the header on purpose (2026-08-18). The header
+     keeps --home-shell so its alignment is untouched; only the photo grows.
+     The height cap moves with the width to hold the frame's 2.057 aspect, so
+     the composition scales up instead of re-cropping: 1440x700 becomes
+     1740x846, the same crop 21% larger. The clamp's middle term still wins on
+     short viewports, so a laptop is unaffected. */
+  --home-hero-shell:1740px;
+  --home-hero-gutter:32px;
 }
 
 header > .wrap{
@@ -1549,9 +1566,9 @@ header nav{height:92px;padding:0 30px}
 .hero{background:var(--paper);padding:0 0 40px}
 .hero-frame{
   position:relative;
-  width:min(var(--home-shell),calc(100% - (var(--home-gutter) * 2)));
+  width:min(var(--home-hero-shell),calc(100% - (var(--home-hero-gutter) * 2)));
   max-width:none;
-  min-height:clamp(620px,calc(100svh - 190px),700px);
+  min-height:clamp(620px,calc(100svh - 190px),846px);
   margin:0 auto;
   padding:0;
   overflow:hidden;
@@ -1651,7 +1668,7 @@ header nav{height:92px;padding:0 30px}
 .hero .chip svg{color:var(--gold-lt)}
 
 @media(max-width:1000px){
-  :root{--home-gutter:24px}
+  :root{--home-gutter:24px;--home-hero-gutter:24px}
   header nav{padding:0 16px}
   .hero-frame{min-height:clamp(660px,calc(100svh - 140px),735px);background-position:62% top}
   .hero-frame::before{background:
@@ -1670,7 +1687,7 @@ header nav{height:92px;padding:0 30px}
 }
 
 @media(max-width:760px){
-  :root{--home-gutter:12px}
+  :root{--home-gutter:12px;--home-hero-gutter:12px}
   header > .wrap{width:calc(100% - 28px)}
   header nav{padding:0}
   .brand img{height:39px}
