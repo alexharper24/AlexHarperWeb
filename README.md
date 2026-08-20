@@ -134,3 +134,40 @@ commit that changes it.
     SAMEORIGIN header: the live homepage HTML is fetched and framed from a local
     copy with a <base> tag pointing at the live origin, so the render uses the
     site's own live assets.
+
+## Taken offline temporarily (2026-08-20)
+
+GitHub Pages was disabled at Alex's request while he talks to businesses. The
+site files are untouched; only the Pages deployment is off. `harperstudio.co`
+DNS still points at GitHub, so requests now hit GitHub's own "no site here"
+page rather than failing to resolve.
+
+**To bring it back:** repo Settings, Pages, set Source to *Deploy from a branch*,
+branch `main`, folder `/ (root)`. Then set the custom domain to `harperstudio.co`
+and re-tick Enforce HTTPS once the certificate issues. Or by API:
+
+    gh api -X POST repos/alexharper24/AlexHarperWeb/pages       -f "source[branch]=main" -f "source[path]=/"
+    gh api -X PUT repos/alexharper24/AlexHarperWeb/pages -f cname=harperstudio.co -F https_enforced=true
+
+The exact configuration as it was, for reference:
+
+| Setting | Value |
+|---|---|
+| Source | branch `main`, path `/` |
+| Custom domain | `harperstudio.co` |
+| Enforce HTTPS | on |
+| Custom 404 | yes (`404.html`) |
+| Build type | legacy |
+| Certificate | approved for `harperstudio.co` and `www.harperstudio.co`, was due 2026-10-27 |
+
+**Two things to expect on restore.** The HTTPS certificate has to be re-issued,
+which can take up to 24 hours, and Enforce HTTPS cannot be re-enabled until it
+has. And the Search Console indexing work needs redoing: resubmit the sitemap and
+re-request indexing, since pages served as errors while offline will have been
+dropped.
+
+**Left in place deliberately:** the "Site by Harper Studio" footer credits on
+crbcindiana.com, hopebaptistwarsaw.org, and faithsblissfuldelights.com still
+point at the domain, so those three links lead to a GitHub error page while this
+is off. Alex chose to leave them. Reverting them is one commit per repo if that
+changes.
