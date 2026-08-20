@@ -215,14 +215,17 @@ section.block{padding:92px 0}
    covering pseudo-element; the study link sits above it on its own layer so
    it stays separately clickable. */
 .wcard .go::after{content:"";position:absolute;inset:0;z-index:0}
+/* Navy is only the fallback for a card with no client colour. Each c-* class
+   below sets both .go and .study to that client's colour, so the two links in a
+   card always match each other and match the card. */
 .wcard .study{position:relative;z-index:1;color:var(--navy);border-bottom:1px solid transparent;
   padding-bottom:1px;transition:border-color .15s}
 .wcard .study:hover{border-bottom-color:currentColor}
-.wcard.c-infinite::before{background:#C33E1D}.wcard.c-infinite .tag{color:#BF3D1C;background:#FBE7DE}.wcard.c-infinite .go{color:#C33E1D}.wcard.c-infinite:hover{border-color:#C33E1D}
-.wcard.c-hope::before{background:#1E3054}.wcard.c-hope .tag{color:#1E3054;background:#E7EAF1}.wcard.c-hope .go{color:#1E3054}.wcard.c-hope:hover{border-color:#1E3054}
-.wcard.c-faith::before{background:#D98A9E}.wcard.c-faith .tag{color:#9B596A;background:#FAECEF}.wcard.c-faith .go{color:#9B596A}.wcard.c-faith:hover{border-color:#D98A9E}
+.wcard.c-infinite::before{background:#C33E1D}.wcard.c-infinite .tag{color:#BF3D1C;background:#FBE7DE}.wcard.c-infinite .go,.wcard.c-infinite .study{color:#C33E1D}.wcard.c-infinite:hover{border-color:#C33E1D}
+.wcard.c-hope::before{background:#1E3054}.wcard.c-hope .tag{color:#1E3054;background:#E7EAF1}.wcard.c-hope .go,.wcard.c-hope .study{color:#1E3054}.wcard.c-hope:hover{border-color:#1E3054}
+.wcard.c-faith::before{background:#D98A9E}.wcard.c-faith .tag{color:#9B596A;background:#FAECEF}.wcard.c-faith .go,.wcard.c-faith .study{color:#9B596A}.wcard.c-faith:hover{border-color:#D98A9E}
 /* #26413A and the #EAEEE9 tint are lifted from crbcindiana.com's own stylesheet, matching how the other three cards carry their client's colour. 10.88:1 on the card. */
-.wcard.c-calvary::before{background:#26413A}.wcard.c-calvary .tag{color:#26413A;background:#EAEEE9}.wcard.c-calvary .go{color:#26413A}.wcard.c-calvary:hover{border-color:#26413A}
+.wcard.c-calvary::before{background:#26413A}.wcard.c-calvary .tag{color:#26413A;background:#EAEEE9}.wcard.c-calvary .go,.wcard.c-calvary .study{color:#26413A}.wcard.c-calvary:hover{border-color:#26413A}
 
 /* founder band */
 .founder{background:radial-gradient(120% 150% at 10% -30%, var(--navy-3), var(--navy) 55%, var(--navy-2));color:#DFE6EF;padding:84px 0}
