@@ -1,23 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://harperstudio.co/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://harperstudio.co/services.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://harperstudio.co/websites.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/hosting.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/domains.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/local.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://harperstudio.co/work.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://harperstudio.co/work-calvary-road.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://harperstudio.co/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-hope.jpg?v=1</image:loc>
+      <image:title>The live Hope Baptist Church homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-calvary.jpg?v=1</image:loc>
+      <image:title>The live Calvary Road Baptist Church homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-blessyourpaws.jpg?v=1</image:loc>
+      <image:title>The live Bless Your Paws homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-faith.jpg?v=1</image:loc>
+      <image:title>The live Faith&apos;s Blissful Delights homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/headshot.jpg?v=3</image:loc>
+      <image:title>Alex Harper, founder of Harper Studio</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/services.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/websites.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/hosting.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/domains.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/local.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/work.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-hope.jpg?v=1</image:loc>
+      <image:title>The live Hope Baptist Church homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-calvary.jpg?v=1</image:loc>
+      <image:title>The live Calvary Road Baptist Church homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-blessyourpaws.jpg?v=1</image:loc>
+      <image:title>The live Bless Your Paws homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-faith.jpg?v=1</image:loc>
+      <image:title>The live Faith&apos;s Blissful Delights homepage</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/work-calvary-road.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/calvary-before-home.jpg?v=2</image:loc>
+      <image:title>The previous Calvary Road Baptist Church homepage on a desktop browser</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/calvary-after-home.jpg?v=2</image:loc>
+      <image:title>The rebuilt Calvary Road Baptist Church homepage on a desktop browser</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/calvary-before-home-mobile.jpg?v=2</image:loc>
+      <image:title>The previous homepage on a phone, with no visible navigation menu</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/calvary-after-home-mobile.jpg?v=2</image:loc>
+      <image:title>The rebuilt homepage on a phone, with a working menu button</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/calvary-before-beliefs.jpg?v=2</image:loc>
+      <image:title>The previous statement of faith page, one long unbroken wall of text</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/calvary-after-beliefs.jpg?v=2</image:loc>
+      <image:title>The rebuilt statement of faith page with expandable articles</image:title>
+    </image:image>
+  </url>
   <url>
     <loc>https://harperstudio.co/work-hope-baptist.html</loc>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/hope-before-home.jpg?v=1</image:loc>
+      <image:title>The previous Hope Baptist Church homepage as preserved by the Internet Archive: a sunset banner and logo with no visible navigation or service information</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/hope-after-home.jpg?v=1</image:loc>
+      <image:title>The rebuilt Hope Baptist Church homepage: navigation, an invitation with service times, and visit and sermon buttons above the fold</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/hope-before-home-mobile.jpg?v=1</image:loc>
+      <image:title>The previous homepage on a phone as preserved by the Internet Archive, with the banner text cropped mid-word and the logo overflowing the screen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/hope-after-home-mobile.jpg?v=1</image:loc>
+      <image:title>The rebuilt homepage on a phone, with the invitation, service times, and address all fitting the screen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/hope-before-beliefs.jpg?v=1</image:loc>
+      <image:title>The previous What We Believe page as preserved by the Internet Archive in 2021, with the heading rendered inside a wood-grain image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/hope-after-beliefs.jpg?v=1</image:loc>
+      <image:title>The rebuilt What We Believe page: a navy header, a jump menu of twelve articles, and the first article set as readable text with Scripture chips</image:title>
+    </image:image>
   </url>
-  <url><loc>https://harperstudio.co/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/plans.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://harperstudio.co/essential.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/standard.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/premium.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/faq.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/guarantee.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/contact.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://harperstudio.co/privacy.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url>
+    <loc>https://harperstudio.co/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://harperstudio.co/headshot.jpg?v=3</image:loc>
+      <image:title>Alex Harper, founder of Harper Studio</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/plans.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/essential.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/standard.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/premium.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/faq.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/guarantee.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
 </urlset>

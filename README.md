@@ -37,6 +37,7 @@ commit that changes it.
 | `thank-you.html` | No-JS form fallback landing |
 | `privacy.html` | Privacy policy |
 | `terms.html` | Redirect stub to `plans.html` (old URL preserved) |
+| `work-infinite-solutions.html` | Redirect stub to `work.html` (the removed Infinite case study had Search Console impressions) |
 | `404.html` | Not-found page (root-relative links, by design) |
 | `studio.css` | All styles; design tokens in the two `:root` blocks |
 | `sitemap.xml`, `robots.txt`, `CNAME`, `.nojekyll` | Hosting + SEO plumbing |
@@ -133,7 +134,7 @@ commit that changes it.
   `img/archive/infinite/`. Bless Your Paws took its card on the work page and the
   homepage, and the cards now run churches first. A "Let's Chat" launcher from the
   client sites lives in `chat.js` on every real page except `contact.html`, which
-  already holds the form, and the two redirect stubs.
+  already holds the form, and the three redirect stubs.
 - [ ] **Bless Your Paws case study.** Card only for now. A case study needs the previous
       site researched from the archive first, the same way Hope's was built.
 - [ ] **Care plans.** Kept as they are for now while Alex decides whether they stay.

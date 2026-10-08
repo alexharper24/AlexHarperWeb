@@ -378,6 +378,13 @@ footer{background:var(--navy-2);color:#A6B1C0;padding:64px 0 40px;border-top:2px
 body{background:var(--paper)}
 header{background:var(--paper)}
 header.scrolled{border-bottom:1px solid var(--line)}
+/* Light-mode lock, second half. color-scheme on :root is what stops the
+   inversion; this block restates the ground and ink for a dark-mode browser
+   and touches nothing else, so the navy bands and footer stay dark. */
+@media (prefers-color-scheme: dark){
+  :root{color-scheme: light only !important}
+  body{background:var(--paper);color:var(--ink)}
+}
 
 /* --- bands: paper (default) / cream / navy --- */
 section.block.alt{background:var(--cream);border-top:1px solid #E1D4B8;border-bottom:1px solid #E1D4B8}
