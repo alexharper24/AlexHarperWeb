@@ -139,33 +139,22 @@ commit that changes it.
       site researched from the archive first, the same way Hope's was built.
 - [ ] **Care plans.** Kept as they are for now while Alex decides whether they stay.
 
-## Maintenance page live (2026-08-20)
+## Holding page, August 20 to October 7, 2026
 
-The site is behind a holding page while Alex talks to businesses. Nothing on
-`main` was touched: the full site is intact there, and the switch is a Pages
-source change, not a revert.
+The site sat behind a holding page on the `maintenance` branch while Alex talked to
+businesses, and went back to `main` on 2026-10-07. The `maintenance` branch stays in
+the repo for the next time it is needed.
 
-**How it is wired.** A `maintenance` branch holds a single self-contained page
-plus the logo and favicon. `index.html` and `404.html` are identical, so every
-path serves the holding page rather than GitHub's "Site not found". Pages is
-pointed at that branch.
-
-**To bring the real site back:** repo Settings, Pages, change Source branch from
-`maintenance` back to `main`. Or by API:
+**Switching the Pages source does not start a build.** On 2026-10-07 the source
+changed to `main` and the API reported `built`, but that was the August build of the
+maintenance branch, and the domain kept serving the holding page. A build has to be
+requested after any source change:
 
     gh api -X PUT repos/alexharper24/AlexHarperWeb/pages -f "source[branch]=main" -f "source[path]=/"
+    gh api -X POST repos/alexharper24/AlexHarperWeb/pages/builds
+    gh api repos/alexharper24/AlexHarperWeb/pages/builds/latest --jq '.status+" "+.commit'
 
-The custom domain and HTTPS survive the switch, since a `CNAME` file sits in both
-branches. Worth noting for next time: deleting and recreating the Pages site did
-**not** cost the certificate. It came back still approved for the apex and `www`
-and expiring 2026-10-27, with Enforce HTTPS already on, so there was no 24 hour
-wait after all.
-
-**Still needed on restore:** the Search Console work. Pages served as 404 while
-the site was down will have been dropped, so resubmit the sitemap and re-request
-indexing for the priority URLs.
-
-**The client footer credits** on crbcindiana.com, hopebaptistwarsaw.org, and
-faithsblissfuldelights.com now resolve to the holding page rather than an error,
-so they can stay as they are.
+Check that the latest build's commit is the branch head before calling it live. The
+custom domain and certificate survive the switch, since a `CNAME` file sits in both
+branches.
 

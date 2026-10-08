@@ -3,7 +3,7 @@ name: alexharper-website-repo
 description: Project state for Harper Studio, read first every session
 kind: service-site
 updated: 2026-10-07
-gate: G5                    # set from seo-rollout.md; the live domain serves the holding page, see restore-main
+gate: G5                    # set from seo-rollout.md; live on main since 2026-10-07
 review_url: ""
 live_url: "https://harperstudio.co/"
 context:
@@ -25,36 +25,41 @@ context:
     - {fact: "Business Profile has 2 Google reviews averaging 5.0 and no hours set", source: confirmed, date: 2026-10-07}
 proposal: "hs-seo-data/alexharper/2026-10-07/proposal.md"
 open:
-  # added from this run
-  - {id: restore-main, gate: G5, blocked_on: alex, item: "Decide when Pages goes back from the maintenance branch to main. Until then every page is noindex, robots.txt and sitemap.xml 404, analytics is off, and nothing on main (including the Let's Chat launcher) is live", proposal: "P12"}
-  - {id: gsc-resubmit, gate: G5, blocked_on: claude, item: "After restore, resubmit sitemap.xml (last read 2026-08-18, Couldn't fetch) and request indexing for the priority pages", depends_on: [restore-main]}
+  # added from earlier runs
+  - {id: gsc-resubmit, gate: G5, blocked_on: claude, item: "After restore, resubmit sitemap.xml (last read 2026-08-18, Couldn't fetch) and request indexing for the priority pages", held_back: true, note: "also waits on Alex's yes to question 3"}
+  # added from the 2026-10-07 second pass
+  - {id: g2-title-split, gate: G2, parent: g2-money-pages, blocked_on: alex, item: "Five titles (index, services, websites, work, contact) carry web design New Albany; retitle work.html and contact.html now, give the head term to one page after the pull", proposal: "P2"}
+  - {id: g2-audience-pages, gate: G2, parent: g2-money-pages, blocked_on: claude, item: "No church websites page or breeder websites page; add one each, titles and slugs after the pull and page-one classes", depends_on: [g1-money-searches, g1-serp-class], proposal: "P3"}
+  - {id: g5-service-area-decision, gate: G5, parent: g5-gbp, blocked_on: alex, item: "Profile service area stays on the home base (two-hour rule); northern Indiana places go into areaServed in index.html and local.html once Alex names them", proposal: "P9"}
+  - {id: g5-homepage-footer, gate: G5, parent: g5-nap-consistency, blocked_on: claude, item: "index.html footer lacks the 'Designed & managed in New Albany, IN.' line the other 19 footers carry", proposal: "P15"}
+  - {id: g5-name-separation, gate: G5, parent: g5-nap-consistency, blocked_on: alex, item: "Harper Studios of Brazil, IN (harperstudio.com) and others share the name; keep 'Harper Studio' exact and add a LinkedIn or Facebook page to the profile and sameAs if Alex has one", proposal: "P16"}
   # G1 Discovery
-  - {id: g1-old-site, gate: G1, blocked_on: claude, item: "Legacy URLs recorded (terms.html stub, the removed Infinite case study), NAP as the profile shows it, Search Console export", proposal: "P15"}
-  - {id: g1-data, gate: G1, blocked_on: alex, item: "Connections recorded 2026-10-07 in hs-seo-data/alexharper/2026-10-07/manifest.json. Search Console read; Bing Webmaster Tools not confirmed; profile performance not yet read"}
-  - {id: g1-money-searches, gate: G1, blocked_on: claude, item: "Keyword method run in full after g1-business", depends_on: [g1-data, g1-business]}
-  - {id: g1-names, gate: G1, blocked_on: claude, item: "Variant check on service names", proposal: "P10"}
-  - {id: g1-discovery, gate: G1, blocked_on: claude, item: "Keyword Magic broad match and Questions per service", proposal: "P11"}
-  - {id: g1-serp-class, gate: G1, blocked_on: claude, item: "Page one for every proposed target, classified"}
-  - {id: g1-competitors, gate: G1, blocked_on: claude, item: "Top three map-pack and top three organic competitors profiled", depends_on: [g1-money-searches]}
+  - {id: g1-old-site, gate: G1, blocked_on: claude, item: "Legacy URLs recorded (pricing.html and terms.html to plans.html, work-infinite-solutions.html to work.html), NAP as the profile shows it ('Harper Studio', (502) 509-3105), Search Console export gsc/2026-10-07-performance-indexing.md. Evidence gathered 2026-10-07 by the technical pass; closes once recorded", proposal: "P13"}
+  - {id: g1-money-searches, gate: G1, blocked_on: claude, item: "Keyword method run in full after g1-business. No keyword config or raw pull in the 2026-10-07 cache, so keyword_template.py check cannot run; one SE Ranking bulk pull in Alex's Chrome", depends_on: [g1-data, g1-business], proposal: "P1"}
+  - {id: g1-names, gate: G1, blocked_on: claude, item: "Variant check on service names (SE Ranking Bulk Analysis)", proposal: "P4"}
+  - {id: g1-discovery, gate: G1, blocked_on: claude, item: "Broad match and Questions per service, topics.md and parked.md", depends_on: [g1-names], proposal: "P5"}
+  - {id: g1-serp-class, gate: G1, blocked_on: claude, item: "Page one for every proposed target, classified", depends_on: [g1-money-searches], proposal: "P6"}
+  - {id: g1-competitors, gate: G1, blocked_on: claude, item: "Top three map-pack and top three organic competitors profiled", depends_on: [g1-money-searches], proposal: "P14"}
   # G2 Build
-  - {id: g2-money-pages, gate: G2, blocked_on: claude, item: "One page per service, one buying term per page", depends_on: [g1-money-searches, g1-sales-by-entity]}
+  - {id: g2-money-pages, gate: G2, blocked_on: claude, item: "One page per service, one buying term per page", depends_on: [g1-money-searches, g1-sales-by-entity], proposal: "P2, P3"}
   - {id: g2-images, gate: G2, blocked_on: claude, item: "WebP with srcset and sizes, dimensions on every image, source media gitignored"}
   - {id: g2-house, gate: G2, blocked_on: claude, item: "Light-mode lock, ?v= cache-busting, lowercase relative paths, favicon set, 404 page, sitemap.xml and robots.txt"}
   # G3 Review
   # G4 Launch
-  - {id: g4-noindex-off, gate: G4, blocked_on: alex, item: "noindex off and robots.txt open on the live domain. Main is clean; the live holding page is noindex,nofollow (curl 2026-10-07)", depends_on: [restore-main], proposal: "P3"}
-  - {id: g4-search-consoles, gate: G4, blocked_on: alex, item: "Search Console verified (confirmed 2026-10-07); Bing Webmaster Tools not confirmed; sitemap needs resubmitting after restore"}
-  - {id: g4-legacy-check, gate: G4, blocked_on: alex, item: "A sample of legacy URLs fetched and each lands on the right page", proposal: "P6"}
-  - {id: g4-analytics, gate: G4, blocked_on: alex, item: "GA4 and Cloudflare Web Analytics are on every real page on main but not on the live holding page, so no visit count since 2026-08-20", depends_on: [restore-main], proposal: "P5"}
+  - {id: g4-search-consoles, gate: G4, blocked_on: alex, item: "Search Console verified (confirmed 2026-10-07); Bing Webmaster Tools not confirmed; sitemap needs resubmitting after restore", proposal: "questions 2 and 3"}
   # G5 Grow
-  - {id: g5-gbp, gate: G5, blocked_on: alex, item: "Profile complete, website field pointing at the site, sameAs linked (done), Bing Places, Apple Business Connect", proposal: "P7, P8"}
-  - {id: g5-nap-consistency, gate: G5, blocked_on: alex, item: "Site, schema, profile and directories match character for character (quarterly)", proposal: "P16"}
-  - {id: g5-reviews, gate: G5, blocked_on: alex, item: "Review requests part of the handover routine and every review answered. Alex confirmed 2026-10-07 that asking at every handover is the goal and that several deployed sites have not reviewed yet; the profile holds 2 reviews"}
-  - {id: g5-cluster, gate: G5, blocked_on: claude, item: "One content cluster in progress", depends_on: [g1-money-searches]}
-  - {id: g5-links, gate: G5, blocked_on: alex, item: "Link work (quarterly)", proposal: "P9"}
-  - {id: g5-ai-check, gate: G5, blocked_on: claude, item: "AI search visibility check (quarterly)"}
-  - {id: g5-monthly, gate: G5, blocked_on: alex, item: "Monthly Search Console and profile check. First cache is 2026-10-07, so there is no earlier month to compare yet"}
+  - {id: g5-gbp, gate: G5, blocked_on: alex, item: "Profile complete (hours, photos, social profiles, description still says small businesses), website field pointing at the site, sameAs linked (done), Bing Places, Apple Business Connect (both unconfirmed)", proposal: "P8, P9, P10"}
+  - {id: g5-nap-consistency, gate: G5, blocked_on: alex, item: "Site, schema, profile and directories match character for character (quarterly)", proposal: "P15, P16"}
+  - {id: g5-reviews, gate: G5, blocked_on: alex, item: "Review requests part of the handover routine and every review answered. Alex confirmed 2026-10-07 that asking at every handover is the goal and that several deployed sites have not reviewed yet; the profile holds 2 reviews", proposal: "questions 4 and 5"}
+  - {id: g5-cluster, gate: G5, blocked_on: claude, item: "One content cluster in progress. First cluster proposed around the church websites page", depends_on: [g1-money-searches, g2-audience-pages], proposal: "P12"}
+  - {id: g5-links, gate: G5, blocked_on: alex, item: "Link work (quarterly). 14 client sites carry a followed credit, 8 do not; Kosciusko Chamber to look into for Warsaw", depends_on: [restore-main], proposal: "P11"}
+  - {id: g5-ai-check, gate: G5, blocked_on: alex, item: "AI search visibility check (quarterly). Needs the site restored and sitemap resubmitted, and Alex's approval to type prompts into ChatGPT, Perplexity and Gemini", depends_on: [gsc-resubmit], held_back: true}
+  - {id: g5-monthly, gate: G5, blocked_on: claude, item: "Monthly Search Console and profile check. First cache is 2026-10-07 (Search Console 18 clicks and 340 impressions over three months; profile 11 interactions, 0 calls, 0 website clicks May to Oct 2026), so the first comparison is the November cache"}
 closed:
+  - {id: restore-main, closed: 2026-10-07, evidence: "Pages source set to main and a build requested, since the source change alone left the August maintenance build serving; build 1502209 built 2026-10-08T01:58Z; every sitemap page and chat.js return 200 on harperstudio.co"}
+  - {id: g4-noindex-off, closed: 2026-10-07, evidence: "curl of the live homepage finds no noindex; robots.txt serves Allow: / with the sitemap line"}
+  - {id: g4-analytics, closed: 2026-10-07, evidence: "live homepage carries GA4 G-X2Q4TFJQM4 and the Cloudflare Web Analytics beacon"}
+  - {id: g4-legacy-check, closed: 2026-10-07, evidence: "work-infinite-solutions.html, terms.html and pricing.html serve their redirect stubs live with 200; the redirects themselves were tested in a browser in commit bef3b4c"}
   - {id: g1-business, closed: 2026-10-07, evidence: "Alex answered in chat: builds first, audiences churches, nonprofits, sole proprietors and breeders, market northern Indiana and the Midwest, no numeric targets, every page offers a way to reach him, differentiator is care and attention to detail. Recorded in context above"}
   - {id: g1-sales-by-entity, closed: 2026-10-07, evidence: "Alex answered in chat: clients with a real need sign fast once the value is explained; builds made unasked for a prospect, then pitched, stall because the prospect sees no need"}
   - {id: lets-chat-launcher, closed: 2026-10-07, evidence: "chat.js rebuilt in the Teapup and Sweet Puppy Paws format at Alex's request (close button, call or text with a text link, email, start, pricing, where; click outside closes), chat.js ?v=2; verified 320 to 1440 with every value aligned and the text link on the number's line"}
@@ -66,6 +71,7 @@ closed:
   - {id: g2-onpage, closed: 2026-10-07, evidence: "audit.py on main at f1127db: all 18 sitemap pages have one H1, titles 23-60 characters, descriptions 82-153 characters, tel links on every real page (cache technical/audit-json)"}
   - {id: g2-schema, closed: 2026-10-07, evidence: "index.html carries ProfessionalService, WebSite and Person; every inner indexable page carries BreadcrumbList; all JSON-LD on 26 HTML files parses with json.loads, 0 errors"}
   - {id: g1-inputs, closed: 2026-10-07, evidence: "main carries the full site with name, phone, email, service area, logo and photos"}
+  - {id: g1-data, closed: 2026-10-07, evidence: "all four connections recorded in hs-seo-data/alexharper/2026-10-07/manifest.json: Search Console read (sc-domain:harperstudio.co), profile performance read in Alex's Chrome (gbp/2026-10-07-performance.md), visit count wired on main but off on the holding page, keyword source SE Ranking in Chrome. Bing stays open under g4-search-consoles"}
   - {id: g1-context, closed: 2026-10-07, evidence: "context block above, from homepage schema and the README"}
   - {id: g1-baseline, closed: 2026-10-07, evidence: "SE Ranking Competitive Research US October 2026 holds no ranking searches for harperstudio.co, hs-seo-data/alexharper/2026-10-07/keywords/2026-10-07-baseline.md"}
   - {id: g1-design, closed: 2026-10-07, evidence: "character pass shipped 2026-08-09 per README"}
@@ -101,8 +107,8 @@ their task ids in `hs-seo-data/alexharper/2026-10-07/questions.md`.
 
 ## Next
 
-Technical, local and content specialists read the 2026-10-07 cache. Keyword work waits on the
-business-model answers.
+The business answers are in, so the SE Ranking keyword pull in Alex's Chrome is next, then the
+church and breeder pages and the first content cluster. The plan is in the second-pass proposal.
 
 ## Where things landed
 
