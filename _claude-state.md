@@ -10,36 +10,36 @@ context:
   nap: {name: "Harper Studio", phone: "+1-502-509-3105", email: "alex@harperstudio.co", area: "New Albany, IN 47150, service area only", source: published}
   service_area: {value: ["New Albany IN", "Jeffersonville IN", "Clarksville IN", "Louisville KY", "Southern Indiana"], source: published, note: "homepage schema areaServed; the profile lists Louisville, Clarksville and 3 other areas"}
   services: {value: ["website design and build", "website hosting", "domain and DNS management", "website care plans", "local SEO and Google Business Profile"], source: published}
-  audiences: {value: ["churches", "nonprofits", "sole proprietors"], source: published, date: 2026-10-07, note: "positioning commit f1127db; the full business model is still open under g1-business"}
-  conversion: {value: ["call or text", "contact form (FormSubmit)", "Let's Chat launcher"], source: published}
-  market: {value: unknown, source: unknown, note: "local schema, but client sites already sit outside the area (Warsaw IN, Ohio); answered under g1-business"}
+  audiences: {value: ["churches", "nonprofits", "sole proprietors", "dog breeders"], source: confirmed, date: 2026-10-07, note: "Alex is open to any client but wants the most common work highlighted, which is churches and breeders"}
+  conversion: {value: ["call or text", "contact form (FormSubmit)", "Let's Chat launcher"], source: confirmed, date: 2026-10-07, note: "every page always presents a way to reach Alex, same for every audience"}
+  market: {value: ["northern Indiana", "the Midwest", "New Albany and Louisville as the home base"], source: confirmed, date: 2026-10-07, note: "target the region where the Warsaw-area work already sits; keyword pulls use the US database filtered to that region"}
   facts:
     - {fact: "Owner and sole designer is Alex Harper", source: published}
     - {fact: "Google Business Profile exists and is verified", source: confirmed, date: 2026-10-07}
     - {fact: "Live domain serves a noindex holding page from the maintenance branch since 2026-08-20, main is intact", source: confirmed, date: 2026-10-07}
     - {fact: "Search Console domain property sc-domain:harperstudio.co is verified", source: confirmed, date: 2026-10-07}
-    - {fact: "Business model, year-out targets and geography plan", source: unknown}
+    - {fact: "Revenue comes mainly from one-time builds at first, so builds are the search focus; care plans stay on the site for now", source: confirmed, date: 2026-10-07}
+    - {fact: "No numeric year-out targets; aim for what the keyword research and page work can reach", source: confirmed, date: 2026-10-07}
+    - {fact: "What sets it apart, in Alex's words: someone who cares, does the job well, and pays attention to detail", source: confirmed, date: 2026-10-07}
+    - {fact: "Keyword tool is the SE Ranking web app in Alex's Chrome (trial), not Semrush", source: confirmed, date: 2026-10-07}
+    - {fact: "Business Profile has 2 Google reviews averaging 5.0 and no hours set", source: confirmed, date: 2026-10-07}
 proposal: "hs-seo-data/alexharper/2026-10-07/proposal.md"
 open:
   # added from this run
   - {id: restore-main, gate: G5, blocked_on: alex, item: "Decide when Pages goes back from the maintenance branch to main. Until then every page is noindex, robots.txt and sitemap.xml 404, analytics is off, and nothing on main (including the Let's Chat launcher) is live", proposal: "P12"}
   - {id: gsc-resubmit, gate: G5, blocked_on: claude, item: "After restore, resubmit sitemap.xml (last read 2026-08-18, Couldn't fetch) and request indexing for the priority pages", depends_on: [restore-main]}
-  - {id: lets-chat-launcher, gate: G5, blocked_on: claude, proposal: "P4", item: "chat.js is on all 20 real pages on main (f1127db) but lacks the sms text link, close button and click-outside-to-close of the Cornerstone launcher; add them and bump chat.js to ?v=2. Live only after restore-main"}
   # G1 Discovery
   - {id: g1-old-site, gate: G1, blocked_on: claude, item: "Legacy URLs recorded (terms.html stub, the removed Infinite case study), NAP as the profile shows it, Search Console export", proposal: "P15"}
   - {id: g1-data, gate: G1, blocked_on: alex, item: "Connections recorded 2026-10-07 in hs-seo-data/alexharper/2026-10-07/manifest.json. Search Console read; Bing Webmaster Tools not confirmed; profile performance not yet read"}
-  - {id: g1-business, gate: G1, blocked_on: alex, item: "Business model and audiences answered before any keyword work: how it earns, every audience, the desired state in numbers a year out, geography now and planned, conversion per audience, what sets it apart"}
   - {id: g1-money-searches, gate: G1, blocked_on: claude, item: "Keyword method run in full after g1-business", depends_on: [g1-data, g1-business]}
-  - {id: g1-names, gate: G1, blocked_on: alex, item: "Variant check on service names", proposal: "P10"}
-  - {id: g1-discovery, gate: G1, blocked_on: alex, item: "Keyword Magic broad match and Questions per service", proposal: "P11"}
+  - {id: g1-names, gate: G1, blocked_on: claude, item: "Variant check on service names", proposal: "P10"}
+  - {id: g1-discovery, gate: G1, blocked_on: claude, item: "Keyword Magic broad match and Questions per service", proposal: "P11"}
   - {id: g1-serp-class, gate: G1, blocked_on: claude, item: "Page one for every proposed target, classified"}
-  - {id: g1-sales-by-entity, gate: G1, blocked_on: client, item: "Which kinds of client sign fastest, which stall, and through which channel. Harper Studio is Alex's own business, so Alex answers"}
   - {id: g1-competitors, gate: G1, blocked_on: claude, item: "Top three map-pack and top three organic competitors profiled", depends_on: [g1-money-searches]}
   # G2 Build
   - {id: g2-money-pages, gate: G2, blocked_on: claude, item: "One page per service, one buying term per page", depends_on: [g1-money-searches, g1-sales-by-entity]}
   - {id: g2-images, gate: G2, blocked_on: claude, item: "WebP with srcset and sizes, dimensions on every image, source media gitignored"}
   - {id: g2-house, gate: G2, blocked_on: claude, item: "Light-mode lock, ?v= cache-busting, lowercase relative paths, favicon set, 404 page, sitemap.xml and robots.txt"}
-  - {id: g2-checks, gate: G2, blocked_on: alex, proposal: "P14", shared_generator: true, item: "check_site.py and the site-audit auditor both clean. The studio.css dark-mode override shipped in the commit Add the Infinite case study redirect, sitemap image entries and the dark-mode override (0 errors, 6 warnings after). Still open: add _honey to the honeypot pattern at site-checks check_site.py line 696, which the auto-mode classifier refused as a shared-resource edit, so the false contact.html honeypot warning remains. The five 404.html root-relative warnings are by design"}
   # G3 Review
   # G4 Launch
   - {id: g4-noindex-off, gate: G4, blocked_on: alex, item: "noindex off and robots.txt open on the live domain. Main is clean; the live holding page is noindex,nofollow (curl 2026-10-07)", depends_on: [restore-main], proposal: "P3"}
@@ -49,12 +49,16 @@ open:
   # G5 Grow
   - {id: g5-gbp, gate: G5, blocked_on: alex, item: "Profile complete, website field pointing at the site, sameAs linked (done), Bing Places, Apple Business Connect", proposal: "P7, P8"}
   - {id: g5-nap-consistency, gate: G5, blocked_on: alex, item: "Site, schema, profile and directories match character for character (quarterly)", proposal: "P16"}
-  - {id: g5-reviews, gate: G5, blocked_on: client, item: "Review requests part of the handover routine and every review answered"}
+  - {id: g5-reviews, gate: G5, blocked_on: alex, item: "Review requests part of the handover routine and every review answered. Alex confirmed 2026-10-07 that asking at every handover is the goal and that several deployed sites have not reviewed yet; the profile holds 2 reviews"}
   - {id: g5-cluster, gate: G5, blocked_on: claude, item: "One content cluster in progress", depends_on: [g1-money-searches]}
   - {id: g5-links, gate: G5, blocked_on: alex, item: "Link work (quarterly)", proposal: "P9"}
   - {id: g5-ai-check, gate: G5, blocked_on: claude, item: "AI search visibility check (quarterly)"}
   - {id: g5-monthly, gate: G5, blocked_on: alex, item: "Monthly Search Console and profile check. First cache is 2026-10-07, so there is no earlier month to compare yet"}
 closed:
+  - {id: g1-business, closed: 2026-10-07, evidence: "Alex answered in chat: builds first, audiences churches, nonprofits, sole proprietors and breeders, market northern Indiana and the Midwest, no numeric targets, every page offers a way to reach him, differentiator is care and attention to detail. Recorded in context above"}
+  - {id: g1-sales-by-entity, closed: 2026-10-07, evidence: "Alex answered in chat: clients with a real need sign fast once the value is explained; builds made unasked for a prospect, then pitched, stall because the prospect sees no need"}
+  - {id: lets-chat-launcher, closed: 2026-10-07, evidence: "chat.js rebuilt in the Teapup and Sweet Puppy Paws format at Alex's request (close button, call or text with a text link, email, start, pricing, where; click outside closes), chat.js ?v=2; verified 320 to 1440 with every value aligned and the text link on the number's line"}
+  - {id: g2-checks, closed: 2026-10-07, evidence: "dark-mode override shipped; site-checks e633f88 recognizes _honey, so harperstudio.co reports 0 errors and only the five by-design 404.html warnings"}
   - {id: infinite-case-study-url, closed: 2026-10-07, evidence: "work-infinite-solutions.html redirect stub to work.html (canonical, noindex follow, meta refresh, location.replace), out of sitemap.xml, listed in README, commit: Add the Infinite case study redirect, sitemap image entries and the dark-mode override"}
   - {id: g3-redirects, closed: 2026-10-07, evidence: "Local server 127.0.0.1 in the Browser pane: work-infinite-solutions.html lands on /work.html, terms.html and pricing.html land on /plans.html, commit: Add the Infinite case study redirect, sitemap image entries and the dark-mode override"}
   - {id: g2-sitemap-images, closed: 2026-10-07, evidence: "build_sitemap.py wrote 22 image entries across 5 pages (home 5, work 4, Calvary Road 6, Hope Baptist 6, about 1); sitemap.xml parses, commit: Add the Infinite case study redirect, sitemap image entries and the dark-mode override"}
