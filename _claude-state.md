@@ -35,10 +35,7 @@ open:
   - {id: g5-name-separation, gate: G5, parent: g5-nap-consistency, blocked_on: alex, item: "Harper Studios of Brazil, IN (harperstudio.com) and others share the name; keep 'Harper Studio' exact and add a LinkedIn or Facebook page to the profile and sameAs if Alex has one", proposal: "P16"}
   # G1 Discovery
   - {id: g1-old-site, gate: G1, blocked_on: claude, item: "Legacy URLs recorded (pricing.html and terms.html to plans.html, work-infinite-solutions.html to work.html), NAP as the profile shows it ('Harper Studio', (502) 509-3105), Search Console export gsc/2026-10-07-performance-indexing.md. Evidence gathered 2026-10-07 by the technical pass; closes once recorded", proposal: "P13"}
-  - {id: g1-money-searches, gate: G1, blocked_on: claude, item: "Keyword method run in full after g1-business. No keyword config or raw pull in the 2026-10-07 cache, so keyword_template.py check cannot run; one SE Ranking bulk pull in Alex's Chrome", depends_on: [g1-data, g1-business], proposal: "P1"}
-  - {id: g1-names, gate: G1, blocked_on: claude, item: "Variant check on service names (SE Ranking Bulk Analysis)", proposal: "P4"}
-  - {id: g1-discovery, gate: G1, blocked_on: claude, item: "Broad match and Questions per service, topics.md and parked.md", depends_on: [g1-names], proposal: "P5"}
-  - {id: g1-serp-class, gate: G1, blocked_on: claude, item: "Page one for every proposed target, classified", depends_on: [g1-money-searches], proposal: "P6"}
+  - {id: g1-serp-class, gate: G1, blocked_on: claude, item: "Page one for every proposed target, classified. Read 2026-10-07 for church website design, dog breeder website design, web design fort wayne and website design louisville ky (cache serp/); still to read for the small business target once Alex picks the home page term", proposal: "P6"}
   - {id: g1-competitors, gate: G1, blocked_on: claude, item: "Top three map-pack and top three organic competitors profiled", depends_on: [g1-money-searches], proposal: "P14"}
   # G2 Build
   - {id: g2-money-pages, gate: G2, blocked_on: claude, item: "One page per service, one buying term per page", depends_on: [g1-money-searches, g1-sales-by-entity], proposal: "P2, P3"}
@@ -56,6 +53,9 @@ open:
   - {id: g5-ai-check, gate: G5, blocked_on: alex, item: "AI search visibility check (quarterly). Needs the site restored and sitemap resubmitted, and Alex's approval to type prompts into ChatGPT, Perplexity and Gemini", depends_on: [gsc-resubmit], held_back: true}
   - {id: g5-monthly, gate: G5, blocked_on: claude, item: "Monthly Search Console and profile check. First cache is 2026-10-07 (Search Console 18 clicks and 340 impressions over three months; profile 11 interactions, 0 calls, 0 website clicks May to Oct 2026), so the first comparison is the November cache"}
 closed:
+  - {id: g1-money-searches, closed: 2026-10-07, evidence: "keyword-config.json, 166 searches in 2 SE Ranking bulk runs (US, October 2026, trial in Chrome); keyword_template.py check 166 of 166; three Overview spot-checks match; summary keywords/2026-10-07-pull.md in the 2026-10-07 cache"}
+  - {id: g1-names, closed: 2026-10-07, evidence: "Variants pulled side by side in the bulk runs (web design, website design, web designer, website designer, web development; church website, church web design, church website design; breeder website, dog breeder website, dog breeder website design; nonprofit and non profit). SE Ranking pools close phrasings at one figure, so each pool is counted once"}
+  - {id: g1-discovery, closed: 2026-10-07, evidence: "Keyword Suggestions and Questions saved to discovery/ in the 2026-10-07 cache for church, breeder, small business, nonprofit, Indiana web design, maintenance and local SEO; hosting and DNS left out with the reason in discovery/hosting-and-dns.txt"}
   - {id: restore-main, closed: 2026-10-07, evidence: "Pages source set to main and a build requested, since the source change alone left the August maintenance build serving; build 1502209 built 2026-10-08T01:58Z; every sitemap page and chat.js return 200 on harperstudio.co"}
   - {id: g4-noindex-off, closed: 2026-10-07, evidence: "curl of the live homepage finds no noindex; robots.txt serves Allow: / with the sitemap line"}
   - {id: g4-analytics, closed: 2026-10-07, evidence: "live homepage carries GA4 G-X2Q4TFJQM4 and the Cloudflare Web Analytics beacon"}
