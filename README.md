@@ -121,19 +121,22 @@ commit that changes it.
 - [ ] Update the hero proof-line project count as new sites go live.
 
 - **Case studies (added 2026-08-16, drafted from Internet Archive research):**
-  `work-hope-baptist.html` and `work-infinite-solutions.html`. All claims are
-  measured from archive captures or the live sites; review the copy before
-  pointing clients at it. Open items:
-  - Confirm the Infinite Solutions launch month (archive last captured the old
-    WordPress site 2025-08-11; the rebuild launched sometime after, date not in
-    copy until confirmed).
-  - Before/after flip cards added 2026-08-16 from headless captures: Wayback
-    `if_` snapshots for the befores, live sites for the afters. Both studies
-    carry three cards (home, home-on-a-phone, and a subpage), matching Calvary.
-    Infinite's phone-after needed a workaround for its X-Frame-Options
-    SAMEORIGIN header: the live homepage HTML is fetched and framed from a local
-    copy with a <base> tag pointing at the live origin, so the render uses the
-    site's own live assets.
+  `work-hope-baptist.html` sits beside the older `work-calvary-road.html`. All claims
+  are measured from archive captures or the live sites. The before/after flip cards
+  come from headless captures, Wayback `if_` snapshots for the befores and the live
+  sites for the afters.
+- **Positioning and work changes (2026-10-07).** After Alex cleared the direction with
+  Lori and Matt, the site targets churches, nonprofits, and sole proprietors, and that
+  phrase replaced "small businesses, churches, and nonprofits" in copy, meta and schema
+  on every page. Infinite Solutions is off the site: its card, its case study page and
+  its sitemap entry are gone, and its tile and flip-card images are kept in
+  `img/archive/infinite/`. Bless Your Paws took its card on the work page and the
+  homepage, and the cards now run churches first. A "Let's Chat" launcher from the
+  client sites lives in `chat.js` on every real page except `contact.html`, which
+  already holds the form, and the two redirect stubs.
+- [ ] **Bless Your Paws case study.** Card only for now. A case study needs the previous
+      site researched from the archive first, the same way Hope's was built.
+- [ ] **Care plans.** Kept as they are for now while Alex decides whether they stay.
 
 ## Maintenance page live (2026-08-20)
 
