@@ -27,6 +27,7 @@ commit that changes it.
 | `services.html` | Services overview (hub) |
 | `websites.html` / `hosting.html` / `domains.html` / `local.html` | Service detail pages; care pages carry no prices |
 | `plans.html` | Build ladder, what's in/out of a build, definitions (nav label "Pricing") |
+| `church-websites.html` / `dog-breeder-websites.html` | Audience pages (2026-10-14), aimed at "church website design" and "dog breeder website design"; the breeder page links only Bless Your Paws. Ask Alex before linking any other breeder client |
 | `essential.html` / `standard.html` / `premium.html` | Noindex redirect stubs to `plans.html` since 2026-10-14 (see Conventions) |
 | `guarantee.html` | The six written commitments |
 | `work.html` | Portfolio: four live client sites |

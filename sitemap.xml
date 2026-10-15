@@ -176,4 +176,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://harperstudio.co/church-websites.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-hope.jpg?v=1</image:loc>
+      <image:title>The live Hope Baptist Church homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-calvary.jpg?v=1</image:loc>
+      <image:title>The live Calvary Road Baptist Church homepage</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/dog-breeder-websites.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-blessyourpaws.jpg?v=1</image:loc>
+      <image:title>The live Bless Your Paws homepage</image:title>
+    </image:image>
+  </url>
 </urlset>

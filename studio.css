@@ -3634,3 +3634,9 @@ header nav{height:92px;padding:0 30px}
 @media(max-width:760px){footer{padding-bottom:84px}}
 body.nav-open .chat-fab,body.nav-open .chat-panel{display:none}
 @media print{.chat-fab,.chat-panel{display:none}}
+
+/* work-grid modifiers for audience pages (2026-10-14): two cards or one card
+   without the empty columns the four-up grid would leave */
+.work-grid.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:980px}
+.work-grid.one{grid-template-columns:minmax(0,470px)}
+@media(max-width:700px){.work-grid.two{grid-template-columns:1fr;max-width:470px}}
