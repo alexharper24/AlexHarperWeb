@@ -3,6 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://harperstudio.co/</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -28,31 +29,19 @@
   </url>
   <url>
     <loc>https://harperstudio.co/services.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://harperstudio.co/websites.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://harperstudio.co/hosting.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://harperstudio.co/domains.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://harperstudio.co/local.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://harperstudio.co/work.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -74,6 +63,7 @@
   </url>
   <url>
     <loc>https://harperstudio.co/work-calvary-road.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -103,6 +93,7 @@
   </url>
   <url>
     <loc>https://harperstudio.co/work-hope-baptist.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <image:image>
       <image:loc>https://harperstudio.co/img/work/hope-before-home.jpg?v=1</image:loc>
       <image:title>The previous Hope Baptist Church homepage as preserved by the Internet Archive: a sunset banner and logo with no visible navigation or service information</image:title>
@@ -130,6 +121,7 @@
   </url>
   <url>
     <loc>https://harperstudio.co/about.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -139,36 +131,25 @@
   </url>
   <url>
     <loc>https://harperstudio.co/plans.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://harperstudio.co/essential.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://harperstudio.co/standard.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://harperstudio.co/premium.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://harperstudio.co/faq.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://harperstudio.co/guarantee.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://harperstudio.co/contact.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

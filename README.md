@@ -25,9 +25,9 @@ commit that changes it.
 |------|---------|
 | `index.html` | Homepage: hero, values, persona doors, services, pricing, process, work, FAQ teaser |
 | `services.html` | Services overview (hub) |
-| `websites.html` / `hosting.html` / `domains.html` / `local.html` | Service detail pages |
-| `plans.html` | Build ladder, care plans, what's in/out of a build, scope definitions |
-| `essential.html` / `standard.html` / `premium.html` | Care plan detail pages |
+| `websites.html` | Website build detail page |
+| `plans.html` | Build ladder, what's in/out of a build, definitions (nav label "Pricing") |
+| `hosting.html` / `domains.html` / `local.html` / `essential.html` / `standard.html` / `premium.html` | Noindex redirect stubs since 2026-10-14, care plans hidden (see Conventions) |
 | `guarantee.html` | The six written commitments |
 | `work.html` | Portfolio: four live client sites |
 | `work-calvary-road.html` | Calvary Road case study (platform migration) |
@@ -47,6 +47,16 @@ commit that changes it.
 
 ## Conventions
 
+- **Audience and care plans (2026-10-14).** Copy targets churches and sole
+  proprietors only, so nothing on the site competes with Alex's Infinite
+  work, and nonprofits are no longer named. Care plans, hosting, DNS
+  management and monthly profile management are hidden, because ongoing
+  care is now a conversation Alex has with each client. Their six pages are
+  noindex redirect stubs, out of the sitemap, and the home, services,
+  pricing, FAQ (copy and JSON-LD), about, guarantee and case-study pages
+  carry builds only. The care prices and definitions below stay as the
+  record for that conversation. To restore, take the six pages and the care
+  sections back from commit 6571d57.
 - Prices shown on the site are the live offer (set 2026-08-09): builds
   Starter $800 (1 page) / Complete $1,600 (up to 6 pages) / Signature from
   $2,400 (no page limit) / Advanced quoted, 25% deposit, revisions capped
@@ -74,6 +84,9 @@ commit that changes it.
 
 ## Pending
 
+- [ ] **Starter terms** (2026-10-14): Starter used to require a care plan.
+      With care hidden, the pricing page no longer says so, and Alex decides
+      how hosting is handled for a Starter build.
 - [x] ~~Phase 2 decisions~~ — resolved 2026-08-09: no tenure claim (honest "4
       live sites" proof line instead), guarantee shipped, turnaround published,
       Starter $800 with care plan required, plans $65/$150/$325.

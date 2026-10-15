@@ -2,7 +2,7 @@
 name: alexharper-website-repo
 description: Project state for Harper Studio, read first every session
 kind: service-site
-updated: 2026-10-07
+updated: 2026-10-14
 gate: G5                    # set from seo-rollout.md; live on main since 2026-10-07
 review_url: ""
 live_url: "https://harperstudio.co/"
@@ -10,7 +10,7 @@ context:
   nap: {name: "Harper Studio", phone: "+1-502-509-3105", email: "alex@harperstudio.co", area: "New Albany, IN 47150, service area only", source: published}
   service_area: {value: ["New Albany IN", "Jeffersonville IN", "Clarksville IN", "Louisville KY", "Southern Indiana"], source: published, note: "homepage schema areaServed; the profile lists Louisville, Clarksville and 3 other areas"}
   services: {value: ["website design and build", "website hosting", "domain and DNS management", "website care plans", "local SEO and Google Business Profile"], source: published}
-  audiences: {value: ["churches", "nonprofits", "sole proprietors", "dog breeders"], source: confirmed, date: 2026-10-07, note: "Alex is open to any client but wants the most common work highlighted, which is churches and breeders"}
+  audiences: {value: ["churches", "sole proprietors"], source: confirmed, date: 2026-10-14, note: "Alex 2026-10-14: target sole proprietors and churches only so there is no conflict of interest with his Infinite work; nonprofits dropped from the copy. Breeders count as sole proprietors and stay in the work"}
   conversion: {value: ["call or text", "contact form (FormSubmit)", "Let's Chat launcher"], source: confirmed, date: 2026-10-07, note: "every page always presents a way to reach Alex, same for every audience"}
   market: {value: ["northern Indiana", "the Midwest", "New Albany and Louisville as the home base"], source: confirmed, date: 2026-10-07, note: "target the region where the Warsaw-area work already sits; keyword pulls use the US database filtered to that region"}
   facts:
@@ -82,6 +82,7 @@ closed:
   - {id: g3-client-review, closed: 2026-10-07, evidence: "n/a, Alex's own business"}
   - {id: g4-dns-https, closed: 2026-10-07, evidence: "curl 2026-10-07: https apex 200, www and http both 301 to https apex. The certificate expires 2026-10-27 per README"}
 decisions:
+  - {date: 2026-10-14, decision: "Care plans hidden from the site, ongoing care becomes a conversation with each client (Alex, conflict of interest with work). hosting, domains, local, essential, standard and premium are noindex redirect stubs out of the sitemap; restore from 6571d57", by: alex}
   - {date: 2026-10-07, decision: "Positioning set to churches, nonprofits and sole proprietors; Infinite Solutions removed from the site; Let's Chat launcher added (commit f1127db)"}
 glossary:
   - {term: "Harper Studio", means: "the business", not: ["Harper Studios", "Harper Digital", "AlexHarperWeb"]}
