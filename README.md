@@ -25,9 +25,9 @@ commit that changes it.
 |------|---------|
 | `index.html` | Homepage: hero, values, persona doors, services, pricing, process, work, FAQ teaser |
 | `services.html` | Services overview (hub) |
-| `websites.html` | Website build detail page |
+| `websites.html` / `hosting.html` / `domains.html` / `local.html` | Service detail pages; care pages carry no prices |
 | `plans.html` | Build ladder, what's in/out of a build, definitions (nav label "Pricing") |
-| `hosting.html` / `domains.html` / `local.html` / `essential.html` / `standard.html` / `premium.html` | Noindex redirect stubs since 2026-10-14, care plans hidden (see Conventions) |
+| `essential.html` / `standard.html` / `premium.html` | Noindex redirect stubs to `plans.html` since 2026-10-14 (see Conventions) |
 | `guarantee.html` | The six written commitments |
 | `work.html` | Portfolio: four live client sites |
 | `work-calvary-road.html` | Calvary Road case study (platform migration) |
@@ -47,16 +47,17 @@ commit that changes it.
 
 ## Conventions
 
-- **Audience and care plans (2026-10-14).** Copy targets churches and sole
+- **Audience and care (2026-10-14).** Copy targets churches and sole
   proprietors only, so nothing on the site competes with Alex's Infinite
-  work, and nonprofits are no longer named. Care plans, hosting, DNS
-  management and monthly profile management are hidden, because ongoing
-  care is now a conversation Alex has with each client. Their six pages are
-  noindex redirect stubs, out of the sitemap, and the home, services,
-  pricing, FAQ (copy and JSON-LD), about, guarantee and case-study pages
-  carry builds only. The care prices and definitions below stay as the
-  record for that conversation. To restore, take the six pages and the care
-  sections back from commit 6571d57.
+  work, and nonprofits are no longer named. Hosting, domain and DNS
+  management, updates and Google Business Profile care ARE advertised, but
+  **no monthly price or plan tier appears anywhere on the site**, because
+  posted monthly prices are what draw attention (Alex, 2026-10-14). Care is
+  described as "priced to your site" and the pricing panels show "Ask me".
+  The three tier pages stay noindex redirect stubs out of the sitemap. The
+  care prices and definitions below are the internal record for the
+  conversation, never site copy. Before this, the tier pages and priced
+  care sections lived at commit 6571d57.
 - Prices shown on the site are the live offer (set 2026-08-09): builds
   Starter $800 (1 page) / Complete $1,600 (up to 6 pages) / Signature from
   $2,400 (no page limit) / Advanced quoted, 25% deposit, revisions capped

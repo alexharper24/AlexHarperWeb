@@ -82,6 +82,7 @@ closed:
   - {id: g3-client-review, closed: 2026-10-07, evidence: "n/a, Alex's own business"}
   - {id: g4-dns-https, closed: 2026-10-07, evidence: "curl 2026-10-07: https apex 200, www and http both 301 to https apex. The certificate expires 2026-10-27 per README"}
 decisions:
+  - {date: 2026-10-14, decision: "Revised the same day: hosting, domain and DNS, and Google Business Profile care are advertised again on hosting, domains and local pages and across the site, with no monthly price or tier anywhere ('priced to your site', 'Ask me'). Only essential, standard and premium stay hidden. Starter hosting is a conversation", by: alex}
   - {date: 2026-10-14, decision: "Care plans hidden from the site, ongoing care becomes a conversation with each client (Alex, conflict of interest with work). hosting, domains, local, essential, standard and premium are noindex redirect stubs out of the sitemap; restore from 6571d57", by: alex}
   - {date: 2026-10-07, decision: "Positioning set to churches, nonprofits and sole proprietors; Infinite Solutions removed from the site; Let's Chat launcher added (commit f1127db)"}
 glossary:
