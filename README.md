@@ -84,9 +84,8 @@ commit that changes it.
 
 ## Pending
 
-- [ ] **Starter terms** (2026-10-14): Starter used to require a care plan.
-      With care hidden, the pricing page no longer says so, and Alex decides
-      how hosting is handled for a Starter build.
+- [x] ~~Starter terms~~ (2026-10-14): Starter hosting is a conversation with
+      each client, like the rest of care. The six care pages stay hidden.
 - [x] ~~Phase 2 decisions~~ — resolved 2026-08-09: no tenure claim (honest "4
       live sites" proof line instead), guarantee shipped, turnaround published,
       Starter $800 with care plan required, plans $65/$150/$325.
