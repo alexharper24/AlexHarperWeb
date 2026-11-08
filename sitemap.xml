@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://harperstudio.co/work.html</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -51,6 +51,18 @@
     <image:image>
       <image:loc>https://harperstudio.co/img/work/tile-calvary.jpg?v=1</image:loc>
       <image:title>The live Calvary Road Baptist Church homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-puppyconnection.jpg?v=1</image:loc>
+      <image:title>The live Puppy Connection homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-teapup.jpg?v=1</image:loc>
+      <image:title>The live Teapup homepage</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/tile-sweetpuppypaws.jpg?v=1</image:loc>
+      <image:title>The live Sweet Puppy Paws homepage</image:title>
     </image:image>
     <image:image>
       <image:loc>https://harperstudio.co/img/work/tile-blessyourpaws.jpg?v=1</image:loc>

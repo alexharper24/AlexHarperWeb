@@ -230,6 +230,9 @@ section.block{padding:92px 0}
 .wcard.c-hope::before{background:#1E3054}.wcard.c-hope .tag{color:#1E3054;background:#E7EAF1}.wcard.c-hope .go,.wcard.c-hope .study{color:#1E3054}.wcard.c-hope:hover{border-color:#1E3054}
 .wcard.c-faith::before{background:#D98A9E}.wcard.c-faith .tag{color:#9B596A;background:#FAECEF}.wcard.c-faith .go,.wcard.c-faith .study{color:#9B596A}.wcard.c-faith:hover{border-color:#D98A9E}
 /* #26413A and the #EAEEE9 tint are lifted from crbcindiana.com's own stylesheet, matching how the other three cards carry their client's colour. 10.88:1 on the card. */
+.wcard.c-pc::before{background:#4A5A4B}.wcard.c-pc .tag{color:#4A5A4B;background:#EDF0EC}.wcard.c-pc .go,.wcard.c-pc .study{color:#4A5A4B}.wcard.c-pc:hover{border-color:#4A5A4B}
+.wcard.c-teapup::before{background:#302F51}.wcard.c-teapup .tag{color:#302F51;background:#E9E8F1}.wcard.c-teapup .go,.wcard.c-teapup .study{color:#302F51}.wcard.c-teapup:hover{border-color:#302F51}
+.wcard.c-spp::before{background:#463B31}.wcard.c-spp .tag{color:#463B31;background:#ECE5DB}.wcard.c-spp .go,.wcard.c-spp .study{color:#463B31}.wcard.c-spp:hover{border-color:#463B31}
 .wcard.c-calvary::before{background:#26413A}.wcard.c-calvary .tag{color:#26413A;background:#EAEEE9}.wcard.c-calvary .go,.wcard.c-calvary .study{color:#26413A}.wcard.c-calvary:hover{border-color:#26413A}
 
 /* founder band */
