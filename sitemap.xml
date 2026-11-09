@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://harperstudio.co/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://harperstudio.co/work.html</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -210,6 +210,72 @@
     <image:image>
       <image:loc>https://harperstudio.co/img/work/tile-blessyourpaws.jpg?v=1</image:loc>
       <image:title>The live Bless Your Paws homepage</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/work-puppy-connection.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/pc-before-home.jpg?v=1</image:loc>
+      <image:title>The old Puppy Connection homepage as saved by the Internet Archive: a dark header with eight menu items and a shopping bag above a welcome banner on a puppy photo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/pc-after-home.jpg?v=1</image:loc>
+      <image:title>The new Puppy Connection homepage: a green header, a welcome over a photo of a child with a puppy, and a search box for a breed, breeder, town or price</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/pc-before-puppies.jpg?v=1</image:loc>
+      <image:title>The old Puppies for sale page as saved by the Internet Archive: a How Puppy Connection Works graphic and a long paragraph, with no puppy in the first screen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/pc-after-puppies.jpg?v=1</image:loc>
+      <image:title>The new All available puppies page: a short introduction, filters for breed, price and availability, and the first row of puppy photos</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/work-teapup.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/teapup-before-home.jpg?v=1</image:loc>
+      <image:title>The old Teapup homepage as saved by the Internet Archive: a large round logo above eight menu items, with the slogan Striving for Perfection laid across a puppy photo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/teapup-after-home.jpg?v=1</image:loc>
+      <image:title>The new Teapup homepage: a slim header, the slogan Striving for perfection, one paw at a time, the breeds raised, and buttons to see the puppies or learn how it works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/teapup-before-puppies.jpg?v=1</image:loc>
+      <image:title>The old Available Puppies page as saved by the Internet Archive: the logo and menu fill the top half, with the first breed below them</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/teapup-after-puppies.jpg?v=1</image:loc>
+      <image:title>The new Available puppies by breed page: a short introduction and a row of breeds, each marked with whether puppies are available</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://harperstudio.co/work-sweet-puppy-paws.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/spp-before-home.jpg?v=1</image:loc>
+      <image:title>The old Sweet Puppy Paws homepage as saved by the Internet Archive: a round logo above the menu, and a faded puppy photo with the welcome running past the bottom of the screen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/spp-after-home.jpg?v=1</image:loc>
+      <image:title>The new Sweet Puppy Paws homepage: the slogan Where quality meets cute, the three breeds raised, buttons to see the puppies, and a clear photo of a Lab puppy</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/spp-before-puppies.jpg?v=1</image:loc>
+      <image:title>The old puppies page as saved by the Internet Archive: a sliding gallery of puppy photos with no breed, price or date in view</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://harperstudio.co/img/work/spp-after-puppies.jpg?v=1</image:loc>
+      <image:title>The new Available puppies by breed page: Labrador, Golden Retriever, Bernese and Goldador, each marked with puppies available</image:title>
     </image:image>
   </url>
 </urlset>
